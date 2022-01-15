@@ -19,7 +19,9 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@polkadot/api": ">=^6.0.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -45,6 +47,7 @@
     }
   ],
   "devDependencies": {
+    "@polkadot/api": "6.12.1",
     "@size-limit/preset-small-lib": "^7.0.5",
     "husky": "^7.0.4",
     "size-limit": "^7.0.5",
