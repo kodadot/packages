@@ -10,7 +10,8 @@ const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | Interac
     throw new TypeError(`RMRK: Unable to unwrap object ${decoded}`)
   }
 
-  const [_prefix, mayInteraction, mayVersion, mayIdOrValue, mayValue] = splitBySquare(decoded)
+  // DEV: skipping prefix intetionally
+  const [, mayInteraction, mayVersion, mayIdOrValue, mayValue] = splitBySquare(decoded)
 
   const interaction = toInteraction(mayInteraction)
 
