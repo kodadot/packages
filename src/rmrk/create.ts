@@ -1,5 +1,6 @@
 import { isEmpty } from '../utils/empty'
 import { trim, upperTrim } from '../utils/string'
+import { wrapToString } from '../utils/unwrap'
 import { toCollectionId, toSerialNumber } from './identification'
 import { CreatedCollection, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
 
@@ -16,9 +17,7 @@ export const createMintInteaction = (action: OnlyMintInteraction, version = '1.0
     throw new ReferenceError(`[${action}] Could not create, because ${object} is empty`)
   }
 
-  return `RMRK::${action}::${version}::${encodeURIComponent(
-    JSON.stringify(object)
-  )}`
+  return `RMRK::${action}::${version}::${wrapToString(object)}`
 }
 
 export const createNFT = (caller: string, index: number, collectionId: string, name: string, metadata: string): CreatedNFT => {
