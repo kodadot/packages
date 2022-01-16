@@ -1,4 +1,7 @@
+import { SubmittableExtrinsic } from '@polkadot/api/types';
+
 export type UpdateFunction = (name: string, index: number) => string;
+export type ExtrinsicFunction<T> = (arg: T) => Extrinsic;
 
 export type DisplayType =
   | null
@@ -22,3 +25,5 @@ export interface Metadata {
   external_url?: string
   type: string;
 }
+
+export type Extrinsic = SubmittableExtrinsic<'promise'>
