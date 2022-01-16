@@ -47,3 +47,8 @@ export type CreatedNFT = {
   transferable: BinaryBoolean;
   currentOwner: string;
 };
+
+export type CreatedCollectionWithNFT<C = CreatedCollection, N = CreatedNFT[]> = {
+  collection: C;
+  nfts: N;
+}

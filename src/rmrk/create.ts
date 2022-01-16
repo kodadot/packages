@@ -1,8 +1,9 @@
 import { isEmpty } from '../utils/empty'
 import { trim, upperTrim } from '../utils/string'
+import { UpdateFunction } from '../common/types'
 import { wrapToString } from '../utils/unwrap'
 import { toCollectionId, toSerialNumber } from './identification'
-import { CreatedCollection, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
+import { CreatedCollection, CreatedCollectionWithNFT, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
 
 export const createInteraction = (action: JustInteraction, version = '1.0.0', objectId: string, meta: string): string =>  {
   if (!objectId) {
@@ -43,5 +44,19 @@ export const createCollection = (caller: string, symbol: string, name: string, m
     name: trim(name),
     max,
     metadata,
+  }
+}
+
+export const createMultipleNFT = (max: number, caller: string, collectionId: string, name: string, metadata: string, offset = 0, updateName?: UpdateFunction): CreatedNFT[] => {
+  return Array(max).fill(null).map((_, i) => createNFT(caller, i + offset, collectionId, updateName ? updateName(name, i) : name, metadata))
+}
+
+export const createCollectionWithNFT = (max: number, caller: string, symbol: string, name: string, metadata: string, updateName?: UpdateFunction): CreatedCollectionWithNFT => {
+  const collection = createCollection(caller, symbol, name, metadata, max)
+  const nfts = createMultipleNFT(max, caller, collection.id, name, metadata, 0, updateName)
+
+  return {
+    collection,
+    nfts
   }
 }
