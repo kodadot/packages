@@ -11,12 +11,12 @@ export type DisplayType =
 
 
 export type Attribute = {
-  display_type?: DisplayType;
+  display_type?: DisplayType
   trait_type?: string
   value: number | string
 }
 
-export interface Metadata {
+export type Metadata = {
   name: string;
   description: string
   image: string
