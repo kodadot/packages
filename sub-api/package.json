@@ -1,5 +1,5 @@
 {
-  "name": "@kodadot1/dot-api",
+  "name": "@kodadot1/sub-api",
   "version": "0.0.1-rc.0",
   "description": "Singleton wrapper for polkadot api",
   "author": "Viki Val <viktorko99@gmail.com>",
