@@ -1,6 +1,8 @@
 {
+  "name": "@kodadot1/minimark",
   "version": "0.0.1-rc.3",
   "license": "MIT",
+  "author": "Viki Val",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -33,8 +35,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@vue-polkadot/minimark",
-  "author": "Viki Val",
   "module": "dist/minimark.esm.js",
   "size-limit": [
     {
