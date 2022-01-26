@@ -1,8 +1,8 @@
 #!/usr/bin/env just --justfile
 
 update-deps:
-  npm install -D typescript@latest --save
-  npm install @polkadot/api@latest --save
+  yarn add -D typescript@latest 
+  yarn add @polkadot/api@latest
 
 update: update-deps
 
@@ -16,4 +16,4 @@ publish:
   yarn publish --access public
 
 c VERSION:
-  git commit -am "Updated vue-api@{{VERSION}}"
+  git commit -am "Updated sub-api@{{VERSION}}"

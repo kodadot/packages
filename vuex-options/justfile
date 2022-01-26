@@ -1,24 +1,21 @@
 #!/usr/bin/env just --justfile
 
-update-config:
-  svn checkout https://github.com/polkadot-js/apps/trunk/packages/apps-config/src/api
-
 update-deps:
-  npm install -D @types/node@latest tslint@latest typescript@latest --save
-  npm install @polkadot/networks@latest --save
+  yarn add -D typescript@latest 
+  yarn add @polkadot/networks@latest
 
-update: update-deps update-config
+update: update-deps
 
 build:
-  npm run build
+  yarn build
 
 link:
   yarn link
 
 publish:
-  npm publish --access public
+  yarn publish --access public
 
 c VERSION:
-  git commit -am "Updated vue-settings@{{VERSION}}"
+  git commit -am "Updated vuex-options@{{VERSION}}"
 
 up: build publish
