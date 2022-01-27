@@ -1,6 +1,6 @@
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { EventEmitter } from 'events';
-import { ApiExtension, getApiOptions } from './utils'
+import { ApiExtension, getApiOptions } from './utils.js'
 
 export interface ApiService {
   connect(apiUrl: string, overrideOptions?: ApiExtension): Promise<ApiPromise | Error>;
