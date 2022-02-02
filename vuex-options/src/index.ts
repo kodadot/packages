@@ -1,4 +1,4 @@
-import SettingModule, { Module as OverrideSettingModule } from './SettingModule'
+import SettingModule, { Module as OverrideSettingModule } from './SettingModule.js'
 import {
   CAMERA_DEFAULT,
   CAMERA,
@@ -22,8 +22,9 @@ import {
   DISPLAY_DEFAULT,
   DISPLAYS,
   INDEXERS,
+  URL_PREFIXES,
   chains
-} from './defaults/index'
+} from './defaults/index.js'
 
 export {
   CAMERA_DEFAULT,
@@ -48,6 +49,7 @@ export {
   DISPLAY_DEFAULT,
   INDEXERS,
   DISPLAYS,
+  URL_PREFIXES,
   chains,
   OverrideSettingModule,
 }

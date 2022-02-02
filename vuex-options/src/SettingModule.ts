@@ -1,4 +1,4 @@
-import { SettingsStruct, Option, AvaibleOptions, StoreContext } from './types'
+import { SettingsStruct, Option, AvaibleOptions, StoreContext } from './types.js';
 import {
   CRYPTOS,
   ENDPOINT_DEFAULT,
@@ -28,8 +28,8 @@ import {
   URL_PREFIX_DEFAULT,
   CHANGE_DEFAULT,
   CHANGE_OPTIONS,
-} from './defaults/index'
-import { equalsOrLocal, isAuto, valueEquals } from './utils'
+} from './defaults/index.js'
+import { equalsOrLocal, isAuto, valueEquals } from './utils.js';
 
 const avaibleOptions: AvaibleOptions = {
   nodes: ENDPOINTS,

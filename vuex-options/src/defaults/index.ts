@@ -1,14 +1,14 @@
 // Copyright 2017-2021 @polkadot/ui-settings authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types'
+import type { Option } from '../types.js';
 
-import { CRYPTOS, CRYPTOS_ETH, CRYPTOS_LEDGER } from './crypto'
-import { ENDPOINT_DEFAULT, ENDPOINTS } from './endpoints'
-import { LEDGER_CONN, LEDGER_CONN_DEFAULT } from './ledger'
-import { PREFIX_DEFAULT, PREFIXES } from './ss58'
-import { INDEXER_DEFAULT, INDEXERS } from './indexers'
-import { PREFIXES as URL_PREFIXES, PREFIX_DEFAULT as URL_PREFIX_DEFAULT } from './prefixes'
+import { CRYPTOS, CRYPTOS_ETH, CRYPTOS_LEDGER } from './crypto.js';
+import { ENDPOINT_DEFAULT, ENDPOINTS } from './endpoints.js';
+import { LEDGER_CONN, LEDGER_CONN_DEFAULT } from './ledger.js';
+import { PREFIX_DEFAULT, PREFIXES } from './ss58.js';
+import { INDEXER_DEFAULT, INDEXERS } from './indexers.js';
+import { PREFIXES as URL_PREFIXES, PREFIX_DEFAULT as URL_PREFIX_DEFAULT } from './prefixes.js';
 import {
   ICON_DEFAULT,
   ICON_DEFAULT_HOST,
@@ -24,7 +24,7 @@ import {
   CHANGE_DEFAULT,
   CHANGE_OPTIONS,
 } from './ui'
-import chains from './chains'
+import chains from './chains.js'
 
 const CAMERA_DEFAULT = 'off'
 

@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
-      "target": "es6",
-      "module": "es2015",
+      "target": "ES2019",
+      "module": "ES2020",
       "declaration": true,
       "outDir": "./dist",
       "strict": true,
       "moduleResolution": "node",
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
     }
 }

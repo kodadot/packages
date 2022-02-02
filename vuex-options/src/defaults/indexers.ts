@@ -1,7 +1,7 @@
 // Copyright 2021 @kodadot authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types';
+import type { Option } from '../types.js';
 
 export const INDEXERS: Option[] = [
   {
