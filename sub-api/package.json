@@ -11,6 +11,10 @@
     "lint": "tslint --project \"./tsconfig.json\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodadot/packages.git"
+  },
   "files": [
     "dist/*",
     "src/*",

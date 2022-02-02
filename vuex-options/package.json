@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-polkadot/vue-ui.git"
+    "url": "git+https://github.com/kodadot/packages.git"
   },
-  "homepage": "https://github.com/vue-polkadot/vue-ui/tree/master/packages/vue-settings#readme",
+  "homepage": "https://github.com/kodadot/packages/tree/main/vuex-options#readme",
   "files": [
     "dist/*",
     "src/*",
