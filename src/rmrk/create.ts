@@ -2,7 +2,7 @@ import { isEmpty } from '../utils/empty'
 import { trim, upperTrim } from '../utils/string'
 import { UpdateFunction } from '../common/types'
 import { wrapToString } from '../utils/unwrap'
-import { toCollectionId, toSerialNumber } from './identification'
+import { toCollectionId, toSerialNumber, makeSymbol } from './identification'
 import { CreatedCollection, CreatedCollectionWithNFT, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
 
 export const createInteraction = (action: JustInteraction, version = '1.0.0', objectId: string, meta: string): string =>  {
@@ -36,10 +36,10 @@ export const createNFT = (caller: string, index: number, collectionId: string, n
 }
 
 export const createCollection = (caller: string, symbol: string, name: string, metadata: string, max = 0): CreatedCollection => {
-  const trimmedSymbol = upperTrim(symbol, true)
+  const theSymbol = makeSymbol(symbol)
   return {
-    id: toCollectionId(caller, trimmedSymbol),
-    symbol: trimmedSymbol,
+    id: toCollectionId(caller, theSymbol),
+    symbol: theSymbol,
     issuer: caller,
     name: trim(name),
     max,
