@@ -1,7 +1,15 @@
-import { Attribute, Metadata } from '../common/types';
-import { unSanitizeIpfsUrl } from './ipfs';
+import { Attribute, Metadata } from '../common/types'
+import { unSanitizeIpfsUrl } from './ipfs'
 
-export const createMetadata = (name: string, description: string, imageHash: string, animationUrl = '', attributes: Attribute[] = [], externalUrl = '', type = '' ): Metadata => {
+export const createMetadata = (
+  name: string,
+  description: string,
+  imageHash: string,
+  animationUrl = '',
+  attributes: Attribute[] = [],
+  externalUrl = '',
+  type = ''
+): Metadata => {
   return {
     name,
     description,

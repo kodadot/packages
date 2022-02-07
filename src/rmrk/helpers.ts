@@ -42,7 +42,7 @@ export const resolveValue = <T>(interaction: Interaction, mayIdOrValue: string, 
     return value
   }
 
-  if (!(mayIdOrValue)) {
+  if (!mayIdOrValue) {
     throw new TypeError(`RMRK: Unable to ${interaction} unwrap value ${mayIdOrValue}`)
   }
 

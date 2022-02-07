@@ -1,14 +1,9 @@
-import { SubmittableExtrinsic } from '@polkadot/api/types';
+import { SubmittableExtrinsic } from '@polkadot/api/types'
 
-export type UpdateFunction = (name: string, index: number) => string;
-export type ExtrinsicFunction<T> = (arg: T) => Extrinsic;
+export type UpdateFunction = (name: string, index: number) => string
+export type ExtrinsicFunction<T> = (arg: T) => Extrinsic
 
-export type DisplayType =
-  | null
-  | 'boost_number'
-  | 'number'
-  | 'boost_percentage';
-
+export type DisplayType = null | 'boost_number' | 'number' | 'boost_percentage'
 
 export type Attribute = {
   display_type?: DisplayType
@@ -17,13 +12,13 @@ export type Attribute = {
 }
 
 export type Metadata = {
-  name: string;
+  name: string
   description: string
   image: string
   animation_url?: string
   attributes?: Attribute[]
   external_url?: string
-  type: string;
+  type: string
 }
 
 export type Extrinsic = SubmittableExtrinsic<'promise'>

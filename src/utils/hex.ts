@@ -1,4 +1,4 @@
-import { hexToString , isHex, u8aToHex } from '@polkadot/util'
+import { hexToString, isHex, u8aToHex } from '@polkadot/util'
 import { decodeAddress } from '@polkadot/keyring'
 
 export const decodeHex = (hex: string): string => {

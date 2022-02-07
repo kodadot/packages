@@ -2,7 +2,7 @@ import slugify from 'slugify'
 
 export const trim = (text?: string) => (text || '').trim()
 
-export const trimAll = (text?: string) => (text || '').replace(/\s/g, "")
+export const trimAll = (text?: string) => (text || '').replace(/\s/g, '')
 
 const toSlug = (text: string, slug = '_'): string => slugify(text, slug)
 
