@@ -10,3 +10,5 @@ export const upperTrim = (name: string, shouldSlugify?: boolean): string => {
   const result = trim(name).toUpperCase()
   return shouldSlugify ? toSlug(result) : result
 }
+
+export const toUpperCase = (name: string): string => name.toUpperCase()
