@@ -29,3 +29,13 @@ export const toNFTId = (nft: CreatedNFT, blocknumber: string | number): string =
 
   return `${blocknumber}-${collection}-${instance}-${sn}`
 }
+
+export const findUniqueSymbol = (symbol: string | undefined, usedSymbols: string[]): string => {
+  let result = symbol || makeSymbol()
+  const hasSymbol = usedSymbols.includes(result)
+  if (!hasSymbol) {
+    return result
+  }
+  
+  return findUniqueSymbol(undefined, usedSymbols)
+}
