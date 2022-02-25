@@ -16,7 +16,7 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
     return build(`nfts: nftEntities(where: {currentOwner_eq: ${owner}})`, toQuery)
   }
 
-  nftListByIssuer(issuer: string, fields?: ObjProp<SquidNFT>): GraphQuery {
+  nftListByIssuer (issuer: string, fields?: ObjProp<SquidNFT>): GraphQuery {
     const toQuery = getFields(fields)
     return build(`nfts: nftEntities(where: {issuer_eq: ${issuer}})`, toQuery)
   }
@@ -36,7 +36,7 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
     return build(`collections: collectionEntities(where: {currentOwner_eq: ${owner}})`, toQuery)
   }
 
-  collectionListByIssuer(issuer: string, fields?: ObjProp<SquidNFT>): GraphQuery {
+  collectionListByIssuer (issuer: string, fields?: ObjProp<SquidNFT>): GraphQuery {
     const toQuery = getFields(fields)
     return build(`collections: collectionEntities(where: {issuer_eq: ${issuer}})`, toQuery)
   }
