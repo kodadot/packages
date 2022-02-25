@@ -1,4 +1,4 @@
-# packageName
+# kodapi
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -13,23 +13,26 @@ Install package:
 
 ```sh
 # npm
-npm install packageName
+npm install kodapi
 
 # yarn
-yarn install packageName
+yarn install kodapi
 
 # pnpm
-pnpm install packageName
+pnpm install kodapi
 ```
 
 Import:
 
 ```js
 // ESM
-import { } from 'packageName'
+import { nftById } from 'kodapi'
 
 // CommonJS
-const { } = require('packageName')
+const { nftById } = require('kodapi')
+```
+
+```js
 ```
 
 ## 💻 Development
@@ -46,14 +49,14 @@ Made with 💛
 Published under [MIT License](./LICENSE).
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/packageName?style=flat-square
-[npm-version-href]: https://npmjs.com/package/packageName
+[npm-version-src]: https://img.shields.io/npm/v/kodapi?style=flat-square
+[npm-version-href]: https://npmjs.com/package/kodapi
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/packageName?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/packageName
+[npm-downloads-src]: https://img.shields.io/npm/dm/kodapi?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/kodapi
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/packageName/ci/main?style=flat-square
-[github-actions-href]: https://github.com/unjs/packageName/actions?query=workflow%3Aci
+[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/kodapi/ci/main?style=flat-square
+[github-actions-href]: https://github.com/unjs/kodapi/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/packageName/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/unjs/packageName
+[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/kodapi/main?style=flat-square
+[codecov-href]: https://codecov.io/gh/unjs/kodapi
