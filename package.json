@@ -1,8 +1,8 @@
 {
-  "name": "packageName",
-  "version": "0.0.0",
+  "name": "kodapi",
+  "version": "0.0.1",
   "description": "",
-  "repository": "unjs/packageName",
+  "repository": "vikiival/kodapi",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
@@ -26,11 +26,18 @@
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "vitest run --coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "gql-query-builder": "^3.5.7",
+    "graphql-request": "^4.0.0"
+  },
+  "peerDependencies": {
+    "graphql": "14 - 16"
+  },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "c8": "latest",
     "eslint": "latest",
+    "graphql": "^16.3.0",
     "standard-version": "latest",
     "typescript": "latest",
     "unbuild": "latest",
