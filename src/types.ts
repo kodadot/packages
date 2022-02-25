@@ -1,4 +1,5 @@
-export type ObjProp<T> = Array<keyof T>
+export type KeyOf<T> = keyof T
+export type ObjProp<T> = Array<KeyOf<T>>
 export type FieldList = Array<string | object>
 
 export type Fields<T> = FieldList | ObjProp<T>
@@ -21,7 +22,7 @@ type MetadataEntity = {
   type: string
 }
 
-export type SquidCollection = {
+export type BaseCollection = {
   version: string
   name: string
   max: number
@@ -30,14 +31,17 @@ export type SquidCollection = {
   id: string
   metadata: string
   currentOwner: string
-  // nfts: [NFTEntity] @derivedFrom(field: "collection")
-  // events: [CollectionEvent]
   blockNumber: BigInt
-  meta: MetadataEntity
   createdAt: Date
 }
 
-export type SquidNFT = {
+export type SquidCollection = BaseCollection & {
+  // nfts: [NFTEntity] @derivedFrom(field: "collection")
+  // events: [CollectionEvent]
+  meta: MetadataEntity
+}
+
+export type BaseNFT = {
   name: string
   instance: string
   transferable: number
@@ -45,17 +49,20 @@ export type SquidNFT = {
   issuer: string
   sn: string
   id: string
-  hash: string
   metadata: string
   currentOwner: string
   price: BigInt
   burned: Boolean
   blockNumber: BigInt
+  createdAt: Date
+  updatedAt: Date
+}
+
+export type SquidNFT = BaseNFT & {
+  hash: string
   // events: [Event] @derivedFrom(field: "nft")
   // emotes: [Emote] @derivedFrom(field: "nft")
   meta: MetadataEntity
-  createdAt: Date
-  updatedAt: Date
 }
 
 // TODO:
