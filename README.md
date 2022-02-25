@@ -1,11 +1,11 @@
-# kodapi
+# @kodadot1/kodapi
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-> Package description
+> GraphQL builder for KodaDot API
 
 ## Usage
 
@@ -13,26 +13,37 @@ Install package:
 
 ```sh
 # npm
-npm install kodapi
+npm install @kodadot1/kodapi
 
 # yarn
-yarn install kodapi
+yarn install @kodadot1/kodapi
 
 # pnpm
-pnpm install kodapi
+pnpm install @kodadot1/kodapi
 ```
 
 Import:
 
 ```js
 // ESM
-import { nftById } from 'kodapi'
+import getClient from '@kodadot1/kodapi'
 
 // CommonJS
-const { nftById } = require('kodapi')
+const getClient = require('@kodadot1/kodapi')
 ```
 
 ```js
+const client = getClient('subquery')
+const query = client.collectionListByIssuer('vikiival')
+
+console.log(query)
+```
+
+```js
+{
+  query: 'query  { collections: collectionEntities(filter: { issuer: { equalTo: vikiival } })  { nodes { id, metadata, currentOwner, issuer } } }',
+  variables: {}
+}
 ```
 
 ## 💻 Development
@@ -49,14 +60,14 @@ Made with 💛
 Published under [MIT License](./LICENSE).
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/kodapi?style=flat-square
-[npm-version-href]: https://npmjs.com/package/kodapi
+[npm-version-src]: https://img.shields.io/npm/v/@kodadot1/kodapi?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@kodadot1/kodapi
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/kodapi?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/kodapi
+[npm-downloads-src]: https://img.shields.io/npm/dm/@kodadot1/kodapi?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@kodadot1/kodapi
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/kodapi/ci/main?style=flat-square
-[github-actions-href]: https://github.com/unjs/kodapi/actions?query=workflow%3Aci
+[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/@kodadot1/kodapi/ci/main?style=flat-square
+[github-actions-href]: https://github.com/unjs/@kodadot1/kodapi/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/kodapi/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/unjs/kodapi
+[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/@kodadot1/kodapi/main?style=flat-square
+[codecov-href]: https://codecov.io/gh/unjs/@kodadot1/kodapi
