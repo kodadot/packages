@@ -27,17 +27,12 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "gql-query-builder": "^3.5.7",
-    "graphql-request": "^4.0.0"
-  },
-  "peerDependencies": {
-    "graphql": "14 - 16"
+    "gql-query-builder": "^3.5.7"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "c8": "latest",
     "eslint": "latest",
-    "graphql": "^16.3.0",
     "standard-version": "latest",
     "typescript": "latest",
     "unbuild": "latest",
