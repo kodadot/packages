@@ -10,7 +10,7 @@ interface AbstractClient<C, T> {
   collectionListByOwner(owner: string, fields?: ObjProp<C>): GraphQuery
   collectionListByIssuer(issuer: string, fields?: ObjProp<C>): GraphQuery
   // collectionListBy(id: string, field: KeyOf<C>, fields?: ObjProp<C>): GraphQuery
-  // nftListBy(issuer: string, field: KeyOf<C>, fields?: ObjProp<T>): GraphQuery
+  // nftListBy(id: string, field: KeyOf<T>, fields?: ObjProp<T>): GraphQuery
 }
 
 export default AbstractClient
