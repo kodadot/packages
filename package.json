@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/minimark",
-  "version": "0.0.1-rc.5",
+  "version": "0.0.1-rc.6",
   "license": "MIT",
   "author": "Viki Val",
   "main": "dist/index.js",
@@ -22,7 +22,7 @@
     "analyze": "size-limit --why"
   },
   "peerDependencies": {
-    "@polkadot/api": ">=^6.0.0"
+    "@polkadot/api": "7.x"
   },
   "husky": {
     "hooks": {
@@ -47,7 +47,7 @@
     }
   ],
   "devDependencies": {
-    "@polkadot/api": "6.12.1",
+    "@polkadot/api": "^7.12.1",
     "@size-limit/preset-small-lib": "^7.0.5",
     "husky": "^7.0.4",
     "size-limit": "^7.0.5",
