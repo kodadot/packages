@@ -1,15 +1,21 @@
 import { expect, it, describe } from 'vitest'
-import { testFunction } from '../src'
+import { getUrl } from '../src'
 
-describe('packageName', () => {
-  const tests = [
-    { input: 'foo', output: 'Hello foo' },
-    { input: 'bar', output: 'Hello bar' }
-  ]
-
-  for (const test of tests) {
-    it(test.input, () => {
-      expect(testFunction(test.input)).eq(test.output)
+describe('KODAPI UTILS', () => {
+  describe('getURL', () => {
+    it('should return default kusama indexer', () => {
+      const url = getUrl('kusama')
+      expect(url).eq('https://kodadot.api.subquery.network')
     })
-  }
+
+    it('should return subquery kusama indexer', () => {
+      const url = getUrl('kusama', 'subquery')
+      expect(url).eq('https://kodadot.api.subquery.network')
+    })
+
+    it('should throw on subsquid kusama indexer', () => {
+      const fn = () => getUrl('kusama', 'subsquid')
+      expect(fn).toThrow(ReferenceError)
+    })
+  })
 })
