@@ -71,6 +71,10 @@ export type SquidNFT = BaseNFT & {
   meta: MetadataEntity
 }
 
+export type Provider = 'subquery' | 'subsquid'
+
+export type Or<A, B> = A | B
+
 // TODO:
 // export const unwrapSpecific = (fields: string[]): FieldList => {
 // }
