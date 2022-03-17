@@ -1,9 +1,9 @@
 
 import build from '../queryBuilder'
-import { GraphQuery, ObjProp, BaseCollection, BaseNFT } from '../types'
+import { GraphQuery, ObjProp, BaseCollection, BaseNFT, QueryOptions } from '../types'
 
 import AbstractClient from './abstractClient'
-import { getFields, wrapSubqueryList } from './defaults'
+import { getFields, optionToQuery, wrapSubqueryList } from './defaults'
 
 class SubqueryClient implements AbstractClient<BaseCollection, BaseNFT> {
   nftById (id: string, fields?: ObjProp<BaseNFT>): GraphQuery {
@@ -29,6 +29,12 @@ class SubqueryClient implements AbstractClient<BaseCollection, BaseNFT> {
   nftListSoldBy (address: string, fields?: ObjProp<BaseNFT>): GraphQuery {
     const toQuery = wrapSubqueryList(getFields(fields))
     return build(`nfts: nFTEntities(filter: { issuer: { equalTo: ${address} } currentOwner: { notEqualTo: ${address} } burned: { distinctFrom: true } })`, toQuery)
+  }
+
+  nftListForSale (fields?: ObjProp<BaseNFT>, options?: QueryOptions): GraphQuery {
+    const toQuery = wrapSubqueryList(getFields(fields))
+    const optionList = optionToQuery(options, true)
+    return build(`nfts: nFTEntities(filter: { price: { greaterThan: "0" } } ) ${optionList}`, toQuery)
   }
 
   nftListByCollectionId (collectionId: string, fields?: ObjProp<BaseNFT>): GraphQuery {

@@ -9,7 +9,7 @@ export function wrapSubqueryList<T> (fields: Fields<T>): [{ nodes: Fields<T> }] 
   return [{ nodes: fields }]
 }
 
-export function optionToQuery (options: QueryOptions, replaceLimitWithFirst = true): string {
+export function optionToQuery (options: QueryOptions, replaceLimitWithFirst = false): string {
   const limit = replaceLimitWithFirst ? 'first' : 'limit'
   let query = ''
   if (options.limit) {

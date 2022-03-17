@@ -1,9 +1,9 @@
 
 import build from '../queryBuilder'
-import { GraphQuery, KeyOf, ObjProp, SquidCollection, SquidNFT } from '../types'
+import { GraphQuery, KeyOf, ObjProp, QueryOptions, SquidCollection, SquidNFT } from '../types'
 
 import AbstractClient from './abstractClient'
-import { getFields } from './defaults'
+import { getFields, optionToQuery } from './defaults'
 
 class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
   nftById (id: string, fields?: ObjProp<SquidNFT>): GraphQuery {
@@ -34,6 +34,12 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
   nftListByCollectionId (collectionId: string, fields?: ObjProp<SquidNFT>): GraphQuery {
     const toQuery = getFields(fields)
     return build(`nfts: nftEntities(where: {collection: {id_eq: ${collectionId}}})`, toQuery)
+  }
+
+  nftListForSale (fields?: ObjProp<SquidNFT>, options?: QueryOptions): GraphQuery {
+    const toQuery = getFields(fields)
+    const optionList = optionToQuery(options, true)
+    return build(`nfts: nftEntities(where: {price_gt: "0"} ${optionList})`, toQuery)
   }
 
   nftListBy (id: string, field: KeyOf<SquidNFT>, fields?: ObjProp<SquidNFT>): GraphQuery {
