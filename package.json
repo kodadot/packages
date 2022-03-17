@@ -27,6 +27,7 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
+    "@kodadot1/vuex-options": "^0.0.1-rc.2",
     "gql-query-builder": "^3.5.7"
   },
   "devDependencies": {
