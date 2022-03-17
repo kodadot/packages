@@ -12,6 +12,12 @@ export type GraphQuery = {
   variables: any
 }
 
+export type QueryOptions = {
+  limit?: number
+  offset?: number
+  orderBy?: string
+}
+
 type MetadataEntity = {
   id: string
   name: string
