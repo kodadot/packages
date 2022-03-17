@@ -6,6 +6,7 @@ interface AbstractClient<C, T> {
   nftListByOwner(owner: string, fields?: ObjProp<T>): GraphQuery
   nftListByIssuer(issuer: string, fields?: ObjProp<T>): GraphQuery
   nftListCollectedBy(address: string, fields?: ObjProp<T>): GraphQuery
+  nftListSoldBy(address: string, fields?: ObjProp<T>): GraphQuery
   nftListByCollectionId(collectionId: string, fields?: ObjProp<T>): GraphQuery
   collectionById(id: string, fields?: ObjProp<C>): GraphQuery
   collectionListByOwner(owner: string, fields?: ObjProp<C>): GraphQuery

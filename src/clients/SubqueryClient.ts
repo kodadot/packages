@@ -26,6 +26,11 @@ class SubqueryClient implements AbstractClient<BaseCollection, BaseNFT> {
     return build(`nfts: nFTEntities(filter: { issuer: { notEqualTo: ${address} } currentOwner: { equalTo: ${address} } burned: { distinctFrom: true } })`, toQuery)
   }
 
+  nftListSoldBy (address: string, fields?: ObjProp<BaseNFT>): GraphQuery {
+    const toQuery = wrapSubqueryList(getFields(fields))
+    return build(`nfts: nFTEntities(filter: { issuer: { equalTo: ${address} } currentOwner: { notEqualTo: ${address} } burned: { distinctFrom: true } })`, toQuery)
+  }
+
   nftListByCollectionId (collectionId: string, fields?: ObjProp<BaseNFT>): GraphQuery {
     const toQuery = wrapSubqueryList(getFields(fields))
     return build(`nfts: nFTEntities(filter: { collectionId: { equalTo: ${collectionId} } })`, toQuery)
