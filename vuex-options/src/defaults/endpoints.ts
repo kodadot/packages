@@ -51,23 +51,18 @@ export const ENDPOINTS: Option[] = [
   },
   {
     info: 'basilisk',
-    text: 'Basilisk (HydraDX)',
-    value: 'wss://rpc-01.basilisk.hydradx.io'
+    text: 'Snek Sandbox (HydraDX)',
+    value: 'wss://basilisk-kodadot.hydration.cloud'
   },
   {
     info: 'basilisk',
-    text: 'Basilisk Egg (HydraDX)',
-    value: 'wss://rpc-01.basilisk-testnet.hydradx.io'
+    text: 'Basilisk (HydraDX)',
+    value: 'wss://rpc-01.basilisk.hydradx.io'
   },
   {
     info: 'dusty',
     text: 'Dusty (Stake Technologies)',
     value: 'wss://rpc.dusty.plasmnet.io'
-  },
-  {
-    info: 'snek',
-    text: 'Snek Sandbox (HydraDX)',
-    value: 'wss://basilisk-kodadot.hydration.cloud'
   },
   {
     info: 'local',
