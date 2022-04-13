@@ -1,19 +1,19 @@
 #!/usr/bin/env just --justfile
 
 update-deps:
-  yarn add -D typescript@latest 
-  yarn add @polkadot/networks@latest
+  pnpm i -D typescript@latest
+  pnpm i @polkadot/networks@latest
 
 update: update-deps
 
 build:
-  yarn build
+  pnpm run build
 
 link:
-  yarn link
+  pnpm link
 
 publish:
-  yarn publish --access public
+  pnpm publish --access public
 
 c VERSION:
   git commit -am "Updated vuex-options@{{VERSION}}"
