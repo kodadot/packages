@@ -78,3 +78,9 @@ export type Or<A, B> = A | B
 // TODO:
 // export const unwrapSpecific = (fields: string[]): FieldList => {
 // }
+
+export type FilterType = 'blockNumber' | 'updatedAt' | 'price'
+export type FilterOrderDirection = 'ASC' | 'DESC'
+export type FilterOrderType = [FilterOrderDirection, FilterOrderDirection?]
+export type FilterBuilder = [FilterType, FilterOrderType?]
+export type FilterMappingFn = (filter: FilterType, direction: FilterOrderDirection) => string
