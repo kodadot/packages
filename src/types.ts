@@ -79,7 +79,7 @@ export type Or<A, B> = A | B
 // export const unwrapSpecific = (fields: string[]): FieldList => {
 // }
 
-export type FilterType = 'blockNumber' | 'updatedAt' | 'price'
+export type FilterType = 'blockNumber' | 'updatedAt' | 'price' | 'sn'
 export type FilterOrderDirection = 'ASC' | 'DESC'
 export type FilterOrderType = [FilterOrderDirection, FilterOrderDirection?]
 export type FilterBuilder = [FilterType, FilterOrderType?]
