@@ -1,3 +1,5 @@
+import { snakeCase } from 'scule'
+
 import { FilterBuilder, FilterOrderDirection, FilterType, Provider, FilterOrderType, FilterMappingFn } from '../types'
 import { isSubQuery } from './factory'
 
@@ -12,9 +14,8 @@ function generateFilters (filters: FilterBuilder[], mappingFn: FilterMappingFn):
   )).flat()
 }
 
-// todo SCREAMING_SNAKE
 function subqueryFilterMapping (filter: FilterType, direction: FilterOrderDirection): string {
-  const value = filter // TODO:
+  const value = snakeCase(filter).toUpperCase()
   return appendFilterDirection(value, direction)
 }
 
