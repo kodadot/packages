@@ -1,5 +1,5 @@
 {
-  "name": "@kodadot1/iftt",
+  "name": "@kodadot1/if-that",
   "version": "0.0.1-rc.0",
   "description": "Implementation of conditional NFTs",
   "repository": "unjs/packageName",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/json-logic-js": "^1.2.1",
     "c8": "latest",
     "eslint": "latest",
     "standard-version": "latest",

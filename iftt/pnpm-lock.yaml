@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@nuxtjs/eslint-config-typescript': latest
+  '@types/json-logic-js': ^1.2.1
   c8: latest
   eslint: latest
   json-logic-js: ^2.0.2
@@ -15,6 +16,7 @@ dependencies:
 
 devDependencies:
   '@nuxtjs/eslint-config-typescript': 10.0.0_hcfsmds2fshutdssjqluwm76uu
+  '@types/json-logic-js': 1.2.1
   c8: 7.11.3
   eslint: 8.15.0
   standard-version: 9.5.0
@@ -453,6 +455,10 @@ packages:
 
   /@types/istanbul-lib-coverage/2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
+    dev: true
+
+  /@types/json-logic-js/1.2.1:
+    resolution: {integrity: sha512-g/g+wj/7sgazpiCHiyAtndoNiy/LodLkNG4I9MILAl0UinKKwv3GiPKbtvcE1hIoezQqgDamXfx8Lht62/hHqw==}
     dev: true
 
   /@types/json-schema/7.0.11:
