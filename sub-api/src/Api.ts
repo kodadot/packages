@@ -3,7 +3,10 @@ import { ApiPromise, WsProvider } from '@polkadot/api'
 import { ApiExtension, getApiOptions } from './utils.js'
 
 export interface ApiService {
-  connect(apiUrl: string, overrideOptions?: ApiExtension): Promise<ApiPromise | Error>;
+  connect(
+    apiUrl: string,
+    overrideOptions?: ApiExtension
+  ): Promise<ApiPromise | Error>
   // registerCustomTypes(userTypes: string, apiUrl?: string): Promise<ApiPromise | Error>;
 }
 
@@ -19,7 +22,7 @@ export default class Api extends EventEmitter implements ApiService {
    * getInstance
    * @returns Api Instance
    */
-  public static getInstance (): Api {
+  public static getInstance(): Api {
     return Api._instance
   }
 
@@ -28,7 +31,7 @@ export default class Api extends EventEmitter implements ApiService {
    * @requires apiUrl: string
    * @returns instance of polkadot-js/api instance
    */
-  public async connect (apiUrl: string, overrideOptions?: ApiExtension): Promise<ApiPromise | Error> {
+  public async connect(apiUrl: string, overrideOptions?: ApiExtension): Promise<ApiPromise | Error> {
     if (!apiUrl || typeof apiUrl !== 'string') {
       throw new TypeError(`[VUE API] ERR: Unable to init api with apiUrl ${apiUrl}`)
     }
@@ -56,7 +59,7 @@ export default class Api extends EventEmitter implements ApiService {
   /**
    * disconnect
    */
-  public async disconnect (): Promise<void> {
+  public async disconnect(): Promise<void> {
     if (this._api) {
       // const url = this._apiUrl;
       // this._api.once('disconnected', () => console.log('[DOT-API] Disconnected from the endpoint', url));
@@ -65,15 +68,15 @@ export default class Api extends EventEmitter implements ApiService {
     }
   }
 
-  private setApi (api: ApiPromise) {
+  private setApi(api: ApiPromise) {
     this._api = api
   }
 
-  private setUrl (apiUrl: string) {
+  private setUrl(apiUrl: string) {
     this._apiUrl = apiUrl
   }
 
-  get api () {
+  get api() {
     return this._api
   }
 
@@ -81,7 +84,7 @@ export default class Api extends EventEmitter implements ApiService {
    * tryEmit
    *
    */
-  public _emit (message: string = 'event', payload?: any) {
+  public _emit(message: string = 'event', payload?: any) {
     this.emit(message, payload)
   }
 }
