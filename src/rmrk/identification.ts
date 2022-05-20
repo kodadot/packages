@@ -36,6 +36,6 @@ export const findUniqueSymbol = (symbol: string | undefined, usedSymbols: string
   if (!hasSymbol) {
     return result
   }
-  
+
   return findUniqueSymbol(undefined, usedSymbols)
 }
