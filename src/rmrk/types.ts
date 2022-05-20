@@ -10,7 +10,7 @@ export enum Interaction {
   EMOTE = 'EMOTE',
 }
 
-export type JustInteraction = Exclude<Interaction, Interaction.MINT | Interaction.MINTNFT>
+export type JustInteraction = Exclude<Interaction, Interaction.MINT | Interaction.MINTNFT | Interaction.UNLIST>
 
 export type OnlyMintInteraction = Interaction.MINT | Interaction.MINTNFT
 
