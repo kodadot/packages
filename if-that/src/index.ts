@@ -1,5 +1,6 @@
-export * from './operators'
-export * from './eval'
 export * from './build'
+export * from './eval'
+export * from './operators'
 // import * as merge from './merge'
 export * from './types'
+export * from './variable'
