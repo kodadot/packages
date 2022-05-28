@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/if-that",
-  "version": "0.0.1",
+  "version": "0.0.1-rc.0",
   "description": "Implementation of conditional NFTs",
   "repository": "unjs/packageName",
   "license": "MIT",
