@@ -1,0 +1,10 @@
+default: test
+
+test:
+  @nr test
+
+build:
+  @nr build
+
+publish:
+  @nr release
