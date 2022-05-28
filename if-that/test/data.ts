@@ -13,7 +13,7 @@ export type SomeNFT = {
   royalty: number,
   sn: string,
   updatedAt: string,
-  previousOwnerCount: number
+  previousOwnerCount?: number
 }
 
 export const nftList: SomeNFT[] = [
