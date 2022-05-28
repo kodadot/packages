@@ -1,0 +1,43 @@
+{
+  "name": "@kodadot1/if-that",
+  "version": "0.0.1-rc.0",
+  "description": "Implementation of conditional NFTs",
+  "repository": "unjs/packageName",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "vitest dev",
+    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
+    "prepack": "unbuild",
+    "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
+    "test": "pnpm lint && vitest run"
+  },
+  "dependencies": {
+    "json-logic-js": "^2.0.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/json-logic-js": "^1.2.1",
+    "c8": "latest",
+    "eslint": "latest",
+    "standard-version": "latest",
+    "typescript": "latest",
+    "unbuild": "latest",
+    "vitest": "latest"
+  },
+  "packageManager": "pnpm@7.0.0"
+}
