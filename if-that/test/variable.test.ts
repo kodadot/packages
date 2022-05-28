@@ -23,10 +23,10 @@ describe('Variable should', () => {
     expect(res.metadata).eq(newMeta)
   })
 
-  // it('be build and executed ', () => {
-  //   const newMeta = 'ipfs://ipfs/bafkreie6aheicniw2ene6iofxj7e6cettjioxojdstwabdqkxozjk2tyru'
-  //   const ifThat: IfThat<SomeNFT> = [eq<any>(asVar('currentOwner'), asVar('issuer')), 'meta.image' as any, newMeta]
-  //   const res = build([ifThat], nft)
-  //   expect(res.meta.image).eq(newMeta)
-  // })
+  it('be build and executed with nested variable', () => {
+    const newMeta = 'ipfs://ipfs/bafkreie6aheicniw2ene6iofxj7e6cettjioxojdstwabdqkxozjk2tyru'
+    const ifThat: IfThat<SomeNFT> = [eq<Variable<SomeNFT>>(asVar('currentOwner'), asVar('issuer')), 'meta.image', newMeta]
+    const res = build([ifThat], nft)
+    expect(res.meta.image).eq(newMeta)
+  })
 })
