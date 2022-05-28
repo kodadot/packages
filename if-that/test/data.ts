@@ -1,19 +1,24 @@
 export type SomeNFT = {
-  blockNumber: string,
-  burned: boolean,
-  createdAt: string,
-  currentOwner: string,
-  hash: string,
-  id: string,
-  issuer: string,
-  metadata: string,
-  name: string,
-  price: string,
-  recipient: string,
-  royalty: number,
-  sn: string,
-  updatedAt: string,
+  blockNumber: string
+  burned: boolean
+  createdAt: string
+  currentOwner: string
+  hash: string
+  id: string
+  issuer: string
+  metadata: string
+  name: string
+  price: string
+  recipient: string
+  royalty: number
+  sn: string
+  updatedAt: string
   previousOwnerCount?: number
+  meta?: {
+    description: string
+    name: string
+    image: string
+  }
 }
 
 export const nftList: SomeNFT[] = [
@@ -32,7 +37,13 @@ export const nftList: SomeNFT[] = [
     recipient: 'bXjmyHufR6HcjAtKNVTV4UjHj3poQW3d2yYWKDdWe5cGGmg3z',
     royalty: 25,
     sn: '3',
-    updatedAt: '2022-04-01T15:21:54.034Z'
+    updatedAt: '2022-04-01T15:21:54.034Z',
+    meta: {
+      description: '#9',
+      name: 'Basilisk Sama',
+      image:
+        'ipfs://ipfs/bafybeiennmmolv3keadouvgrhqkkfhprobvikl6hmblg4x2nxsn7s7lrjq'
+    }
   },
   {
     blockNumber: '8727',
