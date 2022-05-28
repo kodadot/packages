@@ -7,4 +7,4 @@ build:
   @nr build
 
 publish:
-  @nr release
+  pnpm publish --access public
