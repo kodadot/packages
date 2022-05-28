@@ -1,6 +1,6 @@
 import { applyResult, evaluate } from './eval'
 import { intoLogic } from './merge'
-import { IfThat } from './types'
+import { IfThat, OneOrMore } from './types'
 
 export function build<T>(rules: IfThat<T>[], entity: T) {
   let result = { ...entity }
@@ -11,4 +11,17 @@ export function build<T>(rules: IfThat<T>[], entity: T) {
   }
 
   return result
+}
+
+export function parse<T>(rules: string): IfThat<T>[] {
+  const parsed = JSON.parse(rules) as OneOrMore<IfThat<T>>
+  if (!Array.isArray(parsed)) {
+    throw new ReferenceError('[IFTHAT::build::parse] Rules should be an array')
+  }
+
+  if (parsed.length === 3) {
+    return [parsed as IfThat<T>]
+  }
+
+  return parsed
 }
