@@ -1,6 +1,7 @@
 // bsx/nft/:id
 import { $URL, withoutLeadingSlash } from 'ufo'
 import { ClientCall } from './types'
+import validate from './validation'
 
 const pathMap: Record<string, ClientCall> = {
   nft: 'nftById',
@@ -30,10 +31,11 @@ const urlOf = (path: string): $URL => new $URL(path)
 
 // /bsx/nft/:id
 // TODO: should return GraphRequest
-export const toCall = (path: string) => {
+export function pathToRequest (path: string) {
   const { query, pathname } = urlOf(path)
   const [chain, call, id] = parsePath(pathname)
-  console.log(query, call, id)
+  validate(chain, call, id)
+  console.log(query)
   if (!hasCall(call) || !supportChain(chain)) {
     throw new ReferenceError('Invalid path')
   }
