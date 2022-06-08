@@ -29,6 +29,7 @@
   "dependencies": {
     "@kodadot1/vuex-options": "^0.0.1-rc.4",
     "gql-query-builder": "^3.5.7",
+    "ohmyfetch": "^0.4.18",
     "scule": "^0.2.1",
     "ufo": "^0.8.4"
   },
