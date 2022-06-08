@@ -13,7 +13,7 @@ describe('FILTERS', () => {
       expect(uaD).eq('updatedAt_DESC')
     })
 
-    it.skip('should return correct data for subquery filter', () => {
+    it('should return correct data for subquery filter', () => {
       const filters = getFilters([['blockNumber'], ['price', ['ASC']], ['updatedAt', ['ASC', 'DESC']]], 'subquery')
       const [bnA, bnD, pA, uaA, uaD] = filters
       expect(bnA).eq('BLOCK_NUMBER_ASC')
