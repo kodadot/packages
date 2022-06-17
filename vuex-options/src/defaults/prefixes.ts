@@ -28,7 +28,7 @@ export const PREFIXES: Option[] = [
   },
   {
     info: 'basilisk',
-    text: 'Basilisk (testnet)',
+    text: 'Basilisk (Sandbox)',
     value: 'bsx'
   }
 ];
