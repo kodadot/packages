@@ -35,6 +35,11 @@ export const INDEXERS: Option[] = [
     value: 'https://api.subquery.network/sq/vikiival/unique-west'
   },
   {
+    info: 'moonriver',
+    text: 'MoonRiver(Moonbeam)',
+    value: 'http://localhost:4350/graphql'
+  },
+  {
     info: 'local',
     text: 'Local Indexer (:4350)',
     value: 'http://127.0.0.1:4350'
