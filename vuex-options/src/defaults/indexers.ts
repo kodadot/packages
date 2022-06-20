@@ -36,7 +36,7 @@ export const INDEXERS: Option[] = [
   },
   {
     info: 'moonriver',
-    text: 'MoonRiver(Moonbeam)',
+    text: 'Moonriver (click)',
     value: 'http://localhost:4350/graphql'
   },
   {
