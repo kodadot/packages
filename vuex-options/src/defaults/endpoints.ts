@@ -66,7 +66,7 @@ export const ENDPOINTS: Option[] = [
   },
   {
     info: 'moonriver',
-    text: 'MoonRiver(Moonbeam)',
+    text: 'Moonriver (Moonbeam)',
     value: 'wss://wss.api.moonriver.moonbeam.network'
   },
   {
