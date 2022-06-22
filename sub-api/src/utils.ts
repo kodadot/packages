@@ -1,4 +1,4 @@
-import { RegistryTypes } from '@polkadot/types/types'
+import type { RegistryTypes } from '@polkadot/types-codec/types';
 
 export type ApiExtension = { types?: RegistryTypes }
 export type ApiExtensionMap = Record<string, ApiExtension>;
