@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/sub-api",
-  "version": "0.0.1-rc.3",
+  "version": "0.0.1-rc.4",
   "description": "Singleton wrapper for the Substrate API",
   "author": "Viki Val <viktorko99@gmail.com>",
   "main": "dist/index.js",
