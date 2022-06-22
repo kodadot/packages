@@ -5,8 +5,11 @@ update-deps:
 
 update: update-deps
 
-build:
+build: clear
   pnpm build
+
+clear:
+ @rm -rf ./dist
 
 link:
   pnpm link
