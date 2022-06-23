@@ -8,6 +8,7 @@ export enum Interaction {
   CONSUME = 'CONSUME',
   CHANGEISSUER = 'CHANGEISSUER',
   EMOTE = 'EMOTE',
+  ROYALTY = 'ROYALTY'
 }
 
 export type JustInteraction = Exclude<Interaction, Interaction.MINT | Interaction.MINTNFT | Interaction.UNLIST>
