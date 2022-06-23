@@ -30,6 +30,7 @@ import {
   CHANGE_OPTIONS,
 } from './defaults/index.js'
 import { equalsOrLocal, isAuto, valueEquals } from './utils.js';
+import Connector from '@kodadot1/sub-api'
 
 const avaibleOptions: AvaibleOptions = {
   nodes: ENDPOINTS,
@@ -83,8 +84,9 @@ const SettingModule = {
     setSettings({ commit }: StoreContext, settings: Partial<SettingsStruct>) {
       commit('setSettings', settings)
     },
-    setApiUrl({ commit }: StoreContext, apiUrl: string) {
+    async setApiUrl({ commit }: StoreContext, apiUrl: string) {
       commit('setSettings', { apiUrl })
+      await Connector.getInstance().connect(apiUrl)
     },
     setLanguage({ commit }: StoreContext, i18nLang: string) {
       commit('setSettings', { i18nLang })
