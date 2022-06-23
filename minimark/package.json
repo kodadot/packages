@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/minimark",
-  "version": "0.0.1-rc.7",
+  "version": "0.0.1-rc.8",
   "license": "MIT",
   "author": "Viki Val",
   "main": "dist/index.js",
