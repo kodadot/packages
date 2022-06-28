@@ -33,7 +33,7 @@ export const PREFIXES: Option[] = [
   },
   {
     info: 'moonriver',
-    text: 'Moonriver',
-    value: 'moonriver'
+    text: 'Moonsama',
+    value: 'moonsama'
   }
 ];
