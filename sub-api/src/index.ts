@@ -1,5 +1,3 @@
-import Api from './Api.js';
-import { ApiExtension } from './utils.js'
+import Api from './Api'
 
-export default Api;
-export { ApiExtension }
+export default Api
