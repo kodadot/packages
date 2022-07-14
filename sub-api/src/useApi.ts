@@ -1,6 +1,7 @@
-import { HttpProvider, ApiPromise } from '@polkadot/api'
+import { ApiPromise } from '@polkadot/api'
 // import { ApiExtension } from './types'
 import { HTTP_PREFIX, WS_PREFIX } from './constants'
+import { asHttpProvider } from './helpers'
 
 export function useApi(prefixOrUrl: string): Promise<ApiPromise> {
   const provider = asHttpProvider(getUrl(prefixOrUrl))
@@ -17,10 +18,6 @@ function getUrl(prefixOrUrl: string): string {
   }
 
   return getUrlByPrefix(prefixOrUrl)
-}
-
-function asHttpProvider(url: string): HttpProvider {
-  return new HttpProvider(url)
 }
 
 function isWebSocketUrl(url: string): boolean {
