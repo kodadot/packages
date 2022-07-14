@@ -35,7 +35,7 @@ export default class Api extends EventEmitter implements ApiService {
   public async connect(
     apiUrl: string,
     overrideOptions?: ApiExtension
-  ): Promise<ApiPromise | Error> {
+  ): Promise<ApiPromise> {
     if (!apiUrl || typeof apiUrl !== 'string') {
       throw new TypeError(
         `[VUE API] ERR: Unable to init api with apiUrl ${apiUrl}`
