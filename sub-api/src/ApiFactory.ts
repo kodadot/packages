@@ -12,7 +12,7 @@ class ApiFactory {
     // usage
     // const api = await ApiFactory.useApi('bsx')
     if (this.isAlreadyConnected(prefixOrUrl)) {
-      throw new Error('not implemened yet')
+      return connectionMap.get(prefixOrUrl)
     }
 
     return this.initConnection(prefixOrUrl)
