@@ -6,7 +6,7 @@ import { asWsProvider } from './helpers.js'
 /**
  * Some wrapper Instance for @polkadot/api.
  */
-class Api extends ApiPromise {
+class InstantApi extends ApiPromise {
   private _apiUrl: string
 
   constructor(apiUrl: string, overrideOptions?: ApiExtension) {
@@ -29,4 +29,4 @@ class Api extends ApiPromise {
   }
 }
 
-export default Api
+export default InstantApi

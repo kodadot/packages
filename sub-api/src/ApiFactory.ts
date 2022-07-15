@@ -1,5 +1,5 @@
 import { ApiPromise } from '@polkadot/api'
-import Api from './Instapi'
+import Api from './instantapi'
 
 type ApiType<T extends ApiPromise = ApiPromise> = T
 const connectionMap: Map<string, ApiType<Api>> = new Map<string, ApiType<Api>>()
