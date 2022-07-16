@@ -8,6 +8,7 @@ async function onApiConnect(prefixOrUrl: string, callback: ApiCallbackFunction, 
     const api = await ApiFactory.useApiInstance(prefixOrUrl)
     callback(api)
   } catch (err) {
+    // console.log('err', err)
     if (onError) {
       onError(err)
     } else {
