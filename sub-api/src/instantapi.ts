@@ -14,22 +14,26 @@ class InstantApi extends ApiPromise {
   constructor(apiUrl: string, overrideOptions?: ApiExtension) {
     const provider = asWsProvider(apiUrl)
     const options = overrideOptions ?? getApiOptions(apiUrl)
-    super({ provider, ...options, throwOnConnect: true })
+    super({ provider, ...options, throwOnConnect: false })
     this.setUrl(apiUrl)
     // this._initiatedAt = Date.now()
     this.once('disconnected', () => {
-      console.warn('[KODADOT::SUBAPI] WARN: Unable to init api with apiUrl', apiUrl)
+      console.warn(
+        '[KODADOT::SUBAPI] WARN: Unable to init api with apiUrl',
+        apiUrl
+      )
       this.detach()
     })
   }
 
   public getInstance(): Promise<ApiPromise> {
     // this.revive()
-    return this.isReadyOrError
-    // TODO: better way to do this?
-    // .then(a => a, () => {
-    //   throw new Error('Unable to connect to api')
-    // })
+    return this.isReadyOrError.then(
+      api => api,
+      () => {
+        throw new EvalError(`[KODADOT::SUBAPI] Error: cannot get instance at ${this._apiUrl}`)
+      }
+    )
   }
 
   get instance(): Promise<ApiPromise> {
