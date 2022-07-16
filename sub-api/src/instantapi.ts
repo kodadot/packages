@@ -14,7 +14,7 @@ class InstantApi extends ApiPromise {
   constructor(apiUrl: string, overrideOptions?: ApiExtension) {
     const provider = asWsProvider(apiUrl)
     const options = overrideOptions ?? getApiOptions(apiUrl)
-    super({ provider, ...options, throwOnConnect: false })
+    super({ provider, ...options, throwOnConnect: true })
     this.setUrl(apiUrl)
     // this._initiatedAt = Date.now()
     this.once('error', () => {
@@ -33,11 +33,11 @@ class InstantApi extends ApiPromise {
   }
 
   public getInstance(): Promise<ApiPromise> {
-    try {
-      return this.isReadyOrError
-    } catch (e) {
-      throw new EvalError(`[KODADOT::SUBAPI] Error: cannot get instance at ${this._apiUrl}`)
-    }
+    return this.isReadyOrError.then(
+      api => api,
+      () => {
+        throw new EvalError(`[KODADOT::SUBAPI] Error: cannot get instance at ${this._apiUrl}`)
+      })
   }
 
   get instance(): Promise<ApiPromise> {
