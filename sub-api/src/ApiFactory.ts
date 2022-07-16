@@ -1,4 +1,4 @@
-import { ApiPromise } from '@polkadot/api'
+import type { ApiPromise } from '@polkadot/api'
 import Api from './instantapi'
 
 type ApiType<T extends ApiPromise = ApiPromise> = T
@@ -21,6 +21,11 @@ class ApiFactory {
     }
 
     return this.initConnection(prefixOrUrl)
+  }
+
+  public useApiInstance(prefixOrUrl: string): Promise<ApiPromise> {
+    const api = this.useApi(prefixOrUrl)
+    return api.getInstance()
   }
 
   public byeApi(prefixOrUrl: string): void {
