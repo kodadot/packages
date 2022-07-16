@@ -11,4 +11,18 @@ describe('onApiConnect function', () => {
       api.disconnect()
     })
   })
+
+  it('Should log error when not connected', () => {
+    onApiConnect(
+      Endpoint.LOCAL,
+      (api) => {
+        const ss58 = api.consts.system.ss58Prefix.toString()
+        expect(ss58).eq('42')
+        api.disconnect()
+      },
+      (e) => {
+        expect(e.message).eq('Not connected')
+      }
+    )
+  })
 })
