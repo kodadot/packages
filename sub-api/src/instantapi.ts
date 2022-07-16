@@ -17,9 +17,15 @@ class InstantApi extends ApiPromise {
     super({ provider, ...options, throwOnConnect: false })
     this.setUrl(apiUrl)
     // this._initiatedAt = Date.now()
-    this.once('disconnected', () => {
+    this.once('error', () => {
       console.warn(
         '[KODADOT::SUBAPI] WARN: Unable to init api with apiUrl',
+        apiUrl
+      )
+    })
+    this.once('disconnected', () => {
+      console.warn(
+        '[KODADOT::SUBAPI] LOG: Api disconnected',
         apiUrl
       )
       this.detach()
