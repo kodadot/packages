@@ -11,7 +11,7 @@ describe('Custom instance of ApiPromise', () => {
     api.disconnect()
   })
 
-  it.skip('Should throw when not connected', async () => {
+  it('Should throw when not connected', async () => {
     const url = Endpoint.LOCAL
     try {
       const api = await new Api(url).getInstance()
@@ -19,7 +19,7 @@ describe('Custom instance of ApiPromise', () => {
       expect(ss58).eq('42')
       api.disconnect()
     } catch (e) {
-      expect(e.message).eq('Not connected')
+      expect(e.message).eq('[KODADOT::SUBAPI] Error: cannot get instance at ws://127.0.0.1:9944')
     }
   }, 10000)
 })

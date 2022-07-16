@@ -21,7 +21,7 @@ describe('onApiConnect function', () => {
         api.disconnect()
       },
       (e) => {
-        expect(e.message).eq('Not connected')
+        expect(e.message).eq('[KODADOT::SUBAPI] Error: cannot get instance at ws://127.0.0.1:9944')
       }
     )
   })
