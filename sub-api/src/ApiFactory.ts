@@ -12,10 +12,24 @@ class ApiFactory {
     // usage
     // const api = await ApiFactory.useApi('bsx')
     if (this.isAlreadyConnected(prefixOrUrl)) {
-      return connectionMap.get(prefixOrUrl)
+      console.log(`[KODADOT::SUBAPI] LOG: Api already connected at ${prefixOrUrl}`)
+      const api = connectionMap.get(prefixOrUrl)
+      console.log('meta', api.isConnected, api.isDead)
+      if (api.isConnected) {
+        return api
+      }
     }
 
     return this.initConnection(prefixOrUrl)
+  }
+
+  public byeApi(prefixOrUrl: string): void {
+    if (this.isAlreadyConnected(prefixOrUrl)) {
+      const api = connectionMap.get(prefixOrUrl)
+      api.disconnect()
+    } else {
+      console.warn(`[KODADOT::SUBAPI] WARN: Cannot bye api at ${prefixOrUrl}`)
+    }
   }
 
   private isAlreadyConnected(prefixOrUrl: string): boolean {
