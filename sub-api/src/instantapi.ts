@@ -27,24 +27,21 @@ class InstantApi extends ApiPromise {
   }
 
   public getInstance(): Promise<ApiPromise> {
-    // this.revive()
-    return this.isReadyOrError.then(
-      api => api,
-      () => {
-        throw new EvalError(`[KODADOT::SUBAPI] Error: cannot get instance at ${this._apiUrl}`)
-      }
-    )
+    try {
+      return this.isReadyOrError
+    } catch (e) {
+      throw new EvalError(`[KODADOT::SUBAPI] Error: cannot get instance at ${this._apiUrl}`)
+    }
   }
 
   get instance(): Promise<ApiPromise> {
     return this.isReadyOrError
   }
 
-  private revive() {
+  protected async revive() {
     if (this.isDead) {
       console.warn('[KODADOT::SUBAPI] WARN: Reviving api')
-      // TODO: possibly needs to await otheriwse yolo
-      this.connect()
+      await this.clone()
     } else {
       console.log('[KODADOT::SUBAPI] LOG: Api is already connected')
     }
