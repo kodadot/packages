@@ -11,7 +11,7 @@ describe('Custom instance of ApiPromise', () => {
     api.disconnect()
   })
 
-  it('Should throw when not connected', async () => {
+  it.skip('Should throw when not connected', async () => {
     const url = Endpoint.LOCAL
     try {
       const api = await new Api(url).getInstance()
