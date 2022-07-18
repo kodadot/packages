@@ -1,3 +1,6 @@
+// https://polkadot.js.org/docs/api/FAQ#since-upgrading-to-the-7x-series-typescript-augmentation-is-missing
+import '@polkadot/api-augment'
+
 import Api from './Api'
 import InstantApi from './instantapi'
 import ApiFactory from './ApiFactory'
