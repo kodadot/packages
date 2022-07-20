@@ -17,6 +17,8 @@ link:
 publish:
   pnpm publish --access public
 
+release: publish
+
 c VERSION:
   git commit -am "Updated sub-api@{{VERSION}}"
 
