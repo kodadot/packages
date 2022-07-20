@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/sub-api",
-  "version": "0.1.0-rc.0",
+  "version": "0.1.0-alpha.1",
   "description": "Smart wrapper for Substrate API",
   "repository": {
     "type": "git",
