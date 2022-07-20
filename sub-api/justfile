@@ -19,3 +19,6 @@ publish:
 
 c VERSION:
   git commit -am "Updated sub-api@{{VERSION}}"
+
+pack:
+  pnpm pack
