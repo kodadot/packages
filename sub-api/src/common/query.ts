@@ -9,6 +9,10 @@ export const balanceOf = (api: ApiPromise, address: string): Promise<string> => 
   return api.derive.balances.all(address).then(({ availableBalance }) => availableBalance.toString())
 }
 
+export const currentBlock = (api: ApiPromise): Promise<string> => {
+  return api.query.system.number().then(value => value.toString())
+}
+
 // export const currentRandomness = (api: ApiPromise): Promise<number[]> => {
 //   return api.query.babe.randomness().then(random => Array.from(random as U8aFixed))
 // }
