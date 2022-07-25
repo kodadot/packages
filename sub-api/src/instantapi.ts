@@ -9,6 +9,7 @@ import { DETATCH_IN } from './constants'
  */
 class InstantApi extends ApiPromise {
   private _apiUrl: string
+  private _isSpawned: boolean
   // private _initiatedAt: number
 
   constructor(apiUrl: string, overrideOptions?: ApiExtension) {
@@ -16,6 +17,7 @@ class InstantApi extends ApiPromise {
     const options = overrideOptions ?? getApiOptions(apiUrl)
     super({ provider, ...options, throwOnConnect: true })
     this.setUrl(apiUrl)
+    this.setSpawn()
     // this._initiatedAt = Date.now()
     this.once('error', () => {
       console.warn(
@@ -29,6 +31,7 @@ class InstantApi extends ApiPromise {
         apiUrl
       )
       this.detach()
+      this.setSpawn(false)
     })
   }
 
@@ -42,6 +45,10 @@ class InstantApi extends ApiPromise {
 
   get instance(): Promise<ApiPromise> {
     return this.isReadyOrError
+  }
+
+  get isSpawned(): boolean {
+    return this._isSpawned
   }
 
   protected async revive() {
@@ -58,6 +65,10 @@ class InstantApi extends ApiPromise {
     setTimeout(() => {
       this.disconnect()
     }, DETATCH_IN)
+  }
+
+  private setSpawn(spawn: boolean = true) {
+    this._isSpawned = spawn
   }
 
   private setUrl(apiUrl: string) {
