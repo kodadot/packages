@@ -14,8 +14,8 @@ class ApiFactory {
     if (this.isAlreadyConnected(prefixOrUrl)) {
       console.log(`[KODADOT::SUBAPI] LOG: Api already connected at ${prefixOrUrl}`)
       const api = connectionMap.get(prefixOrUrl)
-      console.log('meta', api.isConnected, api.isDead)
-      if (api.isConnected) {
+      console.log('api.isConnected?', api.isConnected ? '💚' : '💀')
+      if (api.isSpawned) {
         return api
       }
     }
