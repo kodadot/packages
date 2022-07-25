@@ -48,12 +48,36 @@ console.log(query)
 
 ## Development 💻 
 
-Clone this repository
+- Clone this repository
 ```bash
 git clone https://github.com/kodadot/packages.git
+
 ```
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable` (use `npm i -g corepack` for Node.js < 16.10)
-- Install dependencies using `yarn install`
+
+- Navigate to the packages directory
+```bash
+cd packages
+```
+
+- Install [Corepack](https://github.com/nodejs/corepack)
+
+```bash
+npm i -g corepack
+```
+
+- Enable [Corepack](https://github.com/nodejs/corepack)
+
+```bash
+corepack enable
+```
+- Navigate to the uniquery directory 
+```bash
+cd uniquery
+```
+- Install Dependencies 
+```bash
+yarn install
+```
 - Run interactive tests using `yarn dev`
 
 ## License
