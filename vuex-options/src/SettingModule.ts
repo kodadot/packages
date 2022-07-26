@@ -28,7 +28,7 @@ import {
   URL_PREFIX_DEFAULT,
   CHANGE_DEFAULT,
   CHANGE_OPTIONS
-} from './defaults/index.js'
+} from './defaults/exports'
 import { equalsOrLocal, isAuto, valueEquals } from './utils.js'
 
 const avaibleOptions: AvaibleOptions = {
