@@ -15,7 +15,12 @@ link:
 publish:
   pnpm publish --access public
 
+release: publish
+
 c VERSION:
   git commit -am "Updated vuex-options@{{VERSION}}"
 
 up: build publish
+
+pack:
+  pnpm pack
