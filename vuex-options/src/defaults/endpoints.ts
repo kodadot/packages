@@ -60,6 +60,11 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://rpc-01.basilisk.hydradx.io'
   },
   {
+    info: 'snek',
+    text: 'Snek Rococo (HydraDX)',
+    value: 'wss://rpc-01.basilisk-rococo.hydradx.io'
+  },
+  {
     info: 'dusty',
     text: 'Dusty (Stake Technologies)',
     value: 'wss://rpc.dusty.plasmnet.io'
