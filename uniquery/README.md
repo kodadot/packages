@@ -54,9 +54,14 @@ git clone https://github.com/kodadot/packages.git
 
 ```
 
-- Navigate to the packages directory
+- Navigate to the packages directory 
 ```bash
 cd packages
+```
+
+- Navigate to the uniquery directory 
+```bash
+cd uniquery
 ```
 
 - Install [Corepack](https://github.com/nodejs/corepack)
@@ -70,15 +75,15 @@ npm i -g corepack
 ```bash
 corepack enable
 ```
-- Navigate to the uniquery directory 
-```bash
-cd uniquery
-```
 - Install Dependencies 
 ```bash
 yarn install
 ```
-- Run interactive tests using `yarn dev`
+- Run interactive tests 
+
+```bash
+yarn dev
+```
 
 ## License
 
