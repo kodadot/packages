@@ -9,16 +9,16 @@
 
 ## Usage
 
-Install package:
+Add Uniquery to your project
 
 ```sh
-# npm
+# with npm
 npm install @kodadot1/kodapi
 
-# yarn
+# with yarn
 yarn install @kodadot1/kodapi
 
-# pnpm
+# with pnpm
 pnpm install @kodadot1/kodapi
 ```
 
@@ -64,17 +64,18 @@ cd packages
 cd uniquery
 ```
 
-- Install [Corepack](https://github.com/nodejs/corepack)
+- Enable [Corepack](https://github.com/nodejs/corepack) by running:
+
+```bash
+corepack enable
+```
+
+or 
 
 ```bash
 npm i -g corepack
 ```
 
-- Enable [Corepack](https://github.com/nodejs/corepack)
-
-```bash
-corepack enable
-```
 - Install Dependencies 
 ```bash
 yarn install
