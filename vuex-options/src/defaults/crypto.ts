@@ -1,7 +1,7 @@
 // Copyright 2017-2021 @polkadot/ui-settings authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types.js';
+import type { Option } from '../types.js'
 
 export const CRYPTOS: Option[] = [
   {
@@ -19,7 +19,7 @@ export const CRYPTOS: Option[] = [
     text: 'ECDSA (Non BTC/ETH compatible)',
     value: 'ecdsa'
   }
-];
+]
 
 export const CRYPTOS_ETH: Option[] = [
   {
@@ -27,7 +27,7 @@ export const CRYPTOS_ETH: Option[] = [
     text: 'ECDSA (ETH compatible)',
     value: 'ethereum'
   }
-];
+]
 
 export const CRYPTOS_LEDGER: Option[] = [
   ...CRYPTOS,
@@ -36,4 +36,4 @@ export const CRYPTOS_LEDGER: Option[] = [
     text: 'Ledger (ed25519, BIP32 derivation)',
     value: 'ed25519-ledger'
   }
-];
+]

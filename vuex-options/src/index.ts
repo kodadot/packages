@@ -51,7 +51,7 @@ export {
   DISPLAYS,
   URL_PREFIXES,
   chains,
-  OverrideSettingModule,
+  OverrideSettingModule
 }
 
 export default SettingModule

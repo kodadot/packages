@@ -1,4 +1,4 @@
-import { SettingsStruct, Option, AvaibleOptions, StoreContext } from './types.js';
+import { SettingsStruct, Option, AvaibleOptions, StoreContext } from './types.js'
 import {
   CRYPTOS,
   ENDPOINT_DEFAULT,
@@ -27,9 +27,9 @@ import {
   URL_PREFIXES,
   URL_PREFIX_DEFAULT,
   CHANGE_DEFAULT,
-  CHANGE_OPTIONS,
+  CHANGE_OPTIONS
 } from './defaults/index.js'
-import { equalsOrLocal, isAuto, valueEquals } from './utils.js';
+import { equalsOrLocal, isAuto, valueEquals } from './utils.js'
 
 const avaibleOptions: AvaibleOptions = {
   nodes: ENDPOINTS,
@@ -46,7 +46,7 @@ const avaibleOptions: AvaibleOptions = {
   ledgers: LEDGER_CONN,
   urlPrefixes: URL_PREFIXES,
   indexers: INDEXERS,
-  changes: CHANGE_OPTIONS,
+  changes: CHANGE_OPTIONS
 }
 
 const defaultState: SettingsStruct = {
@@ -61,23 +61,23 @@ const defaultState: SettingsStruct = {
   display: DISPLAY_DEFAULT,
   show: SHOW_DEFAULT,
   uiTheme: UITHEME_DEFAULT,
-  avaibleOptions: avaibleOptions,
+  avaibleOptions,
   urlPrefix: URL_PREFIX_DEFAULT,
   indexer: INDEXER_DEFAULT,
-  change: CHANGE_DEFAULT,
+  change: CHANGE_DEFAULT
 }
 
 const SettingModule = {
   state: { ...defaultState },
   mutations: {
     setSettings(state: SettingsStruct, settings: Partial<SettingsStruct>) {
-      Object.keys(settings).map((key: string) => {
+      Object.keys(settings).forEach((key: string) => {
         ;(state as any)[key] = (settings as any)[key]
       })
     },
     createNode(state: SettingsStruct, nodeOption: Option) {
       state.avaibleOptions.nodes = [...state.avaibleOptions.nodes, nodeOption]
-    },
+    }
   },
   actions: {
     setSettings({ commit }: StoreContext, settings: Partial<SettingsStruct>) {
@@ -108,7 +108,6 @@ const SettingModule = {
       commit('setSettings', { show })
     },
     setUrlPrefix({ commit, state, dispatch }: StoreContext, urlPrefix: string) {
-
       commit('setSettings', { urlPrefix })
 
       if (isAuto(state.change)) {
@@ -133,7 +132,7 @@ const SettingModule = {
       if (nodeOption.value && nodeOption.text) {
         commit('createNode', nodeOption)
       }
-    },
+    }
   },
   getters: {
     availableUrlPrefixes(state: SettingsStruct): Option[] {
@@ -183,18 +182,18 @@ const SettingModule = {
     currentUrlPrefix(state: SettingsStruct): string {
       return state.urlPrefix
     },
-    availableNodesByPrefix(state: SettingsStruct, getters: any): Option[] {
+    availableNodesByPrefix(_: SettingsStruct, getters: any): Option[] {
       const eq = equalsOrLocal(getters.currentChainByPrefix)
       return getters.availableNodes.filter(eq)
     },
-    availableIndexerByPrefix(state: SettingsStruct, getters: any): Option[] {
+    availableIndexerByPrefix(_: SettingsStruct, getters: any): Option[] {
       const eq = equalsOrLocal(getters.currentChainByPrefix)
       return getters.availableIndexers.filter(eq)
     },
-    getSettings({ avaibleOptions, ...rest }: SettingsStruct) {
+    getSettings({ ...rest }: SettingsStruct) {
       return rest
-    },
-  },
+    }
+  }
 }
 
 export function Module(overrideDefault: Partial<SettingsStruct>) {
@@ -202,8 +201,8 @@ export function Module(overrideDefault: Partial<SettingsStruct>) {
     ...SettingModule,
     state: {
       ...SettingModule.state,
-      ...overrideDefault,
-    },
+      ...overrideDefault
+    }
   }
 }
 
