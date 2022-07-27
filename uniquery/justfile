@@ -13,3 +13,6 @@ c VERSION:
   git commit -am "Updated kodapi@{{VERSION}}"
 
 up: build publish
+
+update-deps:
+  npx npm-check-updates -u
