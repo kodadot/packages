@@ -65,6 +65,11 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://rpc.dusty.plasmnet.io'
   },
   {
+    info: 'moonriver',
+    text: 'Moonriver (Moonbeam)',
+    value: 'wss://wss.api.moonriver.moonbeam.network'
+  },
+  {
     info: 'local',
     text: 'Local Node (Own, 127.0.0.1:9944)',
     value: 'ws://127.0.0.1:9944/'
