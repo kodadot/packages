@@ -33,7 +33,7 @@ export const PREFIXES: Option[] = [
   },
   {
     info: 'snek',
-    text: 'Snek (Sandbox)',
+    text: 'Snek (Rococo)',
     value: 'snek'
   },
   {
