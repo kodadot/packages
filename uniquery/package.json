@@ -27,11 +27,11 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@kodadot1/vuex-options": "^0.0.1-rc.4",
-    "gql-query-builder": "^3.5.7",
+    "@kodadot1/vuex-options": "^0.0.1-rc.10",
+    "gql-query-builder": "^3.7.0",
     "ohmyfetch": "^0.4.18",
-    "scule": "^0.2.1",
-    "ufo": "^0.8.4"
+    "scule": "^0.3.2",
+    "ufo": "^0.8.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",

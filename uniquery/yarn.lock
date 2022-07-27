@@ -270,10 +270,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kodadot1/vuex-options@^0.0.1-rc.4":
-  version "0.0.1-rc.4"
-  resolved "https://registry.yarnpkg.com/@kodadot1/vuex-options/-/vuex-options-0.0.1-rc.4.tgz#da4fb05249ea0063ea7607ca63e87e7b62c452ca"
-  integrity sha512-g7NzSL6lzcdsMI2LN7unfxtg446ZB+DpiO/wZ+vMTMH8kibnoRInYy5MKjce3+3cvASGw2gj7z8v9vAXNng+8g==
+"@kodadot1/vuex-options@^0.0.1-rc.10":
+  version "0.0.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@kodadot1/vuex-options/-/vuex-options-0.0.1-rc.10.tgz#9698e942db6d2cf4ec304de2dc447972fb63316f"
+  integrity sha512-FxXyLrYJAKu9DtQYLSK5pveH2nlH+n+ANU9ablNM+GCvL/y42Y/nImNGg1bQZ2+e1NUz9nRfp7bwcwOG5/OrlQ==
   dependencies:
     "@polkadot/networks" "^7.4.1"
 
@@ -1987,10 +1987,10 @@ globby@^11.0.3, globby@^11.0.4:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
-gql-query-builder@^3.5.7:
-  version "3.5.7"
-  resolved "https://registry.yarnpkg.com/gql-query-builder/-/gql-query-builder-3.5.7.tgz#d757009d3194883cb98b94d0485e304c93289917"
-  integrity sha512-zPU9weUUbgYMzJsR3GP40MTH5OQoAP+9GMIcSAFWb2rbHZeYlF2YkDJPyOu0gYHww43QvZxfARvabGyE8NLItA==
+gql-query-builder@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/gql-query-builder/-/gql-query-builder-3.7.0.tgz#865e97940243d7752eaf09323845c11f25e8f692"
+  integrity sha512-SLYiVdcEKOI7Eu+gAY5lMHIBkmsXOR4CKuvsn4tXKPQgIu1R+4VYJlUEIO+oaNxfjE1j4kAfSbtJPl7GDBjy8Q==
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.9"
@@ -3100,6 +3100,11 @@ scule@^0.2.1:
   resolved "https://registry.yarnpkg.com/scule/-/scule-0.2.1.tgz#0c1dc847b18e07219ae9a3832f2f83224e2079dc"
   integrity sha512-M9gnWtn3J0W+UhJOHmBxBTwv8mZCan5i1Himp60t6vvZcor0wr+IM0URKmIglsWJ7bRujNAVVN77fp+uZaWoKg==
 
+scule@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/scule/-/scule-0.3.2.tgz#472445cecd8357165a94a067f78cee40e700b596"
+  integrity sha512-zIvPdjOH8fv8CgrPT5eqtxHQXmPNnV/vHJYffZhE43KZkvULvpCTvOt1HPlFaCZx287INL9qaqrZg34e8NgI4g==
+
 "semver@2 || 3 || 4 || 5":
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
@@ -3455,6 +3460,11 @@ ufo@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.8.4.tgz#23e9ed82398d2116dcb378e8fba5ced8eca2ee40"
   integrity sha512-/+BmBDe8GvlB2nIflWasLLAInjYG0bC9HRnfEpNi4sw77J2AJNnEVnTDReVrehoh825+Q/evF3THXTAweyam2g==
+
+ufo@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.8.5.tgz#e367b4205ece9d9723f2fa54f887d43ed1bce5d0"
+  integrity sha512-e4+UtA5IRO+ha6hYklwj6r7BjiGMxS0O+UaSg9HbaTefg4kMkzj4tXzEBajRR+wkxf+golgAWKzLbytCUDMJAA==
 
 uglify-js@^3.1.4:
   version "3.15.1"
