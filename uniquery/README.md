@@ -9,16 +9,16 @@
 
 ## Usage
 
-Install package:
+Add Uniquery to your project
 
 ```sh
-# npm
+# with npm
 npm install @kodadot1/kodapi
 
-# yarn
+# with yarn
 yarn install @kodadot1/kodapi
 
-# pnpm
+# with pnpm
 pnpm install @kodadot1/kodapi
 ```
 
@@ -46,12 +46,45 @@ console.log(query)
 }
 ```
 
-## 💻 Development
+## Development 💻 
 
 - Clone this repository
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable` (use `npm i -g corepack` for Node.js < 16.10)
-- Install dependencies using `yarn install`
-- Run interactive tests using `yarn dev`
+```bash
+git clone https://github.com/kodadot/packages.git
+
+```
+
+- Navigate to the packages directory 
+```bash
+cd packages
+```
+
+- Navigate to the uniquery directory 
+```bash
+cd uniquery
+```
+
+- Enable [Corepack](https://github.com/nodejs/corepack) by running:
+
+```bash
+corepack enable
+```
+
+or 
+
+```bash
+npm i -g corepack
+```
+
+- Install Dependencies 
+```bash
+yarn install
+```
+- Run interactive tests 
+
+```bash
+yarn dev
+```
 
 ## License
 
