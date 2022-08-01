@@ -6,7 +6,7 @@ import {
   validListRemarkEvent,
   validBuyRemarkEvent,
 } from './mock'
-import unwrap from '../src/rmrk/unwrap'
+import { unwrapRemark as unwrap } from '../src/rmrk/unwrap'
 import { InteractionValue } from '../src/rmrk/types'
 
 describe('MINIMARK::RMRK ', () => {
