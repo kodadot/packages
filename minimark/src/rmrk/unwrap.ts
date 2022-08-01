@@ -28,4 +28,4 @@ const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | Interac
   }
 }
 
-export default unwrap
+export { unwrap as unwrapRemark }
