@@ -1,19 +1,26 @@
 #!/usr/bin/env just --justfile
 
 update-deps:
-  yarn add -D typescript@latest 
-  yarn add @polkadot/api@latest
+	npx npm-check-updates -u
 
 update: update-deps
 
-build:
-  yarn build
+build: clear
+  pnpm build
+
+clear:
+ @rm -rf ./dist
 
 link:
-  yarn link
+  pnpm link
 
 publish:
-  yarn publish --access public
+  pnpm publish --access public
+
+release: publish
 
 c VERSION:
   git commit -am "Updated sub-api@{{VERSION}}"
+
+pack:
+  pnpm pack

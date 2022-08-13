@@ -30,5 +30,10 @@ export const PREFIXES: Option[] = [
     info: 'basilisk',
     text: 'Basilisk (Sandbox)',
     value: 'bsx'
+  },
+  {
+    info: 'moonriver',
+    text: 'Moonsama (read-only)',
+    value: 'moonsama'
   }
 ];

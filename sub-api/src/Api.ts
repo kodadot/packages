@@ -1,9 +1,13 @@
-import { ApiPromise, WsProvider } from '@polkadot/api';
-import { EventEmitter } from 'events';
-import { ApiExtension, getApiOptions } from './utils.js'
+import { EventEmitter } from 'events'
+import { ApiPromise, WsProvider } from '@polkadot/api'
+import { getApiOptions } from './utils.js'
+import { ApiExtension } from './types.js'
 
 export interface ApiService {
-  connect(apiUrl: string, overrideOptions?: ApiExtension): Promise<ApiPromise | Error>;
+  connect(
+    apiUrl: string,
+    overrideOptions?: ApiExtension
+  ): Promise<ApiPromise | Error>
   // registerCustomTypes(userTypes: string, apiUrl?: string): Promise<ApiPromise | Error>;
 }
 
@@ -11,20 +15,16 @@ export interface ApiService {
  * Singleton instance for @polkadot/api.
  */
 export default class Api extends EventEmitter implements ApiService {
-  private static _instance: Api = new Api();
-  private _api: ApiPromise;
-  private _apiUrl: string;
+  private static _instance: Api = new Api()
+  private _api: ApiPromise
+  private _apiUrl: string
 
   /**
    * getInstance
    * @returns Api Instance
    */
   public static getInstance(): Api {
-    return Api._instance;
-  }
-
-  private constructor() {
-    super()
+    return Api._instance
   }
 
   /**
@@ -32,29 +32,34 @@ export default class Api extends EventEmitter implements ApiService {
    * @requires apiUrl: string
    * @returns instance of polkadot-js/api instance
    */
-  public async connect(apiUrl: string, overrideOptions?: ApiExtension): Promise<ApiPromise | Error> {
-    if (!apiUrl || typeof apiUrl != 'string') {
-      throw new TypeError(`[VUE API] ERR: Unable to init api with apiUrl ${apiUrl}`);
+  public async connect(
+    apiUrl: string,
+    overrideOptions?: ApiExtension
+  ): Promise<ApiPromise> {
+    if (!apiUrl || typeof apiUrl !== 'string') {
+      throw new TypeError(
+        `[VUE API] ERR: Unable to init api with apiUrl ${apiUrl}`
+      )
     }
 
     try {
-      await this.disconnect(); // disconnect if already connected
-      const provider = new WsProvider(apiUrl);
-      const options = overrideOptions ?? getApiOptions(apiUrl);
-      const apiPromise = await ApiPromise.create({provider, ...options});
+      await this.disconnect() // disconnect if already connected
+      const provider = new WsProvider(apiUrl)
+      const options = overrideOptions ?? getApiOptions(apiUrl)
+      const apiPromise = await ApiPromise.create({ provider, ...options })
       apiPromise
-      .once('connected', () => this._emit('connected', apiUrl))
-      .once('ready', () => this._emit('ready', apiUrl))
-      .on('disconnected', () => this._emit('disconnected', apiUrl));
-      this.setApi(apiPromise);
-      this._emit('connect', apiPromise);
+        .once('connected', () => this._emit('connected', apiUrl))
+        .once('ready', () => this._emit('ready', apiUrl))
+        .on('disconnected', () => this._emit('disconnected', apiUrl))
+      this.setApi(apiPromise)
+      this._emit('connect', apiPromise)
     } catch (err) {
-      this._emit('error', err);
-      throw err;
+      this._emit('error', err)
+      throw err
     }
 
-    this.setUrl(apiUrl);
-    return this._api;
+    this.setUrl(apiUrl)
+    return this._api
   }
 
   /**
@@ -64,21 +69,21 @@ export default class Api extends EventEmitter implements ApiService {
     if (this._api) {
       // const url = this._apiUrl;
       // this._api.once('disconnected', () => console.log('[DOT-API] Disconnected from the endpoint', url));
-      await this._api.disconnect();
-      this.setUrl(null);
+      await this._api.disconnect()
+      this.setUrl(null)
     }
   }
 
   private setApi(api: ApiPromise) {
-    this._api = api;
+    this._api = api
   }
 
   private setUrl(apiUrl: string) {
-    this._apiUrl = apiUrl;
+    this._apiUrl = apiUrl
   }
 
   get api() {
-    return this._api;
+    return this._api
   }
 
   /**
@@ -88,5 +93,4 @@ export default class Api extends EventEmitter implements ApiService {
   public _emit(message: string = 'event', payload?: any) {
     this.emit(message, payload)
   }
-
 }
