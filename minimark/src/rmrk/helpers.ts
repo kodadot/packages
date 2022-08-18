@@ -1,6 +1,6 @@
 import { unwrapJSON } from '../utils/unwrap'
 import { RMRK, SQUARE } from './constants'
-import { Interaction, InteractionValue } from './types'
+import { Interaction, InteractionValue, InteractionV2 } from './types'
 
 export const isRemark = (text: string): boolean => {
   return RMRK.test(text)
@@ -9,7 +9,8 @@ export const isRemark = (text: string): boolean => {
 export const splitBySquare = (text: string): string[] => text.split(SQUARE)
 
 export const isValidInteraction = (interaction: string, throwable = true): boolean => {
-  const value = (Object.values(Interaction) as string[]).includes(interaction)
+  const availableInteractions: string[] = [...Object.values(Interaction), ...Object.values(InteractionV2)]
+  const value = availableInteractions.includes(interaction)
   if (!value && throwable) {
     throw new TypeError(`RMRK: Invalid interaction ${interaction}`)
   }
