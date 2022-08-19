@@ -1,9 +1,9 @@
 // Copyright 2017-2021 @polkadot/ui-settings authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types.js';
+import type { Option } from '../types.js'
 
-export const LEDGER_CONN_DEFAULT = 'none';
+export const LEDGER_CONN_DEFAULT = 'none'
 
 export const LEDGER_CONN: Option[] = [
   {
@@ -27,4 +27,4 @@ export const LEDGER_CONN: Option[] = [
     text: 'Attach Ledger via WebHID (Chrome, experimental)',
     value: 'hid'
   }
-];
+]

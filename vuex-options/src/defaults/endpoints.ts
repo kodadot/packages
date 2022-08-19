@@ -1,7 +1,7 @@
 // Copyright 2017-2021 @polkadot/ui-settings authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types.js';
+import type { Option } from '../types.js'
 
 export const ENDPOINTS: Option[] = [
   {
@@ -60,6 +60,11 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://rpc-01.basilisk.hydradx.io'
   },
   {
+    info: 'snek',
+    text: 'Snek Rococo (HydraDX)',
+    value: 'wss://rpc-01.basilisk-rococo.hydradx.io'
+  },
+  {
     info: 'dusty',
     text: 'Dusty (Stake Technologies)',
     value: 'wss://rpc.dusty.plasmnet.io'
@@ -79,6 +84,7 @@ export const ENDPOINTS: Option[] = [
     text: 'Local Parachain Node (Own, 127.0.0.1:9988)',
     value: 'ws://127.0.0.1:9988/'
   }
-];
+]
 
-export const ENDPOINT_DEFAULT = ENDPOINTS[0].value || 'wss://kusama-rpc.polkadot.io';
+export const ENDPOINT_DEFAULT =
+  ENDPOINTS[0].value || 'wss://kusama-rpc.polkadot.io'
