@@ -20,7 +20,6 @@ export enum InteractionV2 {
   SETPROPERTY = 'SETPROPERTY',
   SETPRIORITY = 'SETPRIORITY',
   THEMEADD = 'THEMEADD',
-
 }
 
 export type OnlyMintInteraction = Interaction.MINT | Interaction.MINTNFT
@@ -35,6 +34,37 @@ export type InteractionValue = {
   id: string
   value?: string
 }
+
+export type Base = {
+  value: string
+}
+
+export type Equip = Omit<InteractionValue, 'value'> & {
+  baseslot: string
+}
+
+export type Equippable = Required<InteractionValue> & {
+  slot: string
+}
+
+export type Lock = Omit<InteractionValue, 'value'>
+
+export type Resadd = Required<InteractionValue> & {
+  value: Record<string, string>
+  replace: string
+}
+
+export type Setpriority = Required<InteractionValue>
+
+export type Setproperty = Required<InteractionValue> & {
+  name: string
+}
+
+export type Themeadd = Required<InteractionValue> & {
+  name: string
+}
+
+export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd | Setpriority | Setproperty | Themeadd
 
 export type BinaryBoolean = 0 | 1
 
