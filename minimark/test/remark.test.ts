@@ -9,7 +9,7 @@ import {
 import { unwrapRemark as unwrap } from '../src/rmrk/unwrap'
 import { InteractionValue } from '../src/rmrk/types'
 
-describe.skip('MINIMARK::RMRK ', () => {
+describe('MINIMARK::RMRK ', () => {
   it('should ::MINTNFT', () => {
     const result = unwrap<any>(validMintNFTRemarkEvent)
     const expected = {
@@ -104,35 +104,3 @@ describe.skip('MINIMARK::RMRK ', () => {
     expect(value).toStrictEqual(expected)
   })
 })
-
-describe('MINIMARK::RMRK:2.0.0', () => {
-  const testSets = [
-    {
-      type: 'LOCK',
-      input: 'RMRK::LOCK::2.0.0::0aff6865bed3a66b-DLEP',
-      expected: {
-        id: "0aff6865bed3a66b-DLEP",
-        value: undefined,
-      }
-    },
-    {
-      type: 'ACCEPT',
-      input: 'RMRK::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::RES::V1i6B',
-      expected: {
-        id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-        value: 'RES'
-      }
-    }
-  ]
-  it('should ::LOCK', () => {
-    testSets.forEach(item => {
-      const result = unwrap<any>(item.input)
-      expect(result.interaction).toBe(item.type)
-      expect(result.version).toBe('2.0.0')
-      expect(result.value).toBeInstanceOf(Object)
-      const { value } = result
-      expect(value).toStrictEqual(item.expected)
-    })
-  });
-
-});
