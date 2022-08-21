@@ -1,4 +1,4 @@
-import { unwrapJSON } from '../utils/unwrap'
+import { unwrapJSON, unwrapURI } from '../utils/unwrap'
 import { RMRK, SQUARE } from './constants'
 import { Interaction, InteractionValue, InteractionV2, InteractionV2Value } from './types'
 
@@ -94,14 +94,13 @@ export const resolveRmrk2Value = (interaction: InteractionV2, id: string, restVa
     case InteractionV2.SETPRIORITY:
       return {
         id,
-        name: restValues[0],
-        value: unwrapJSON(restValues[1]),
+        value: unwrapURI(restValues[0]),
       }
     case InteractionV2.SETPROPERTY:
       return {
         id,
-        name: restValues[0],
-        value: unwrapJSON(restValues[1]),
+        name: unwrapURI(restValues[0]),
+        value: unwrapURI(restValues[1]),
       }
     case InteractionV2.THEMEADD:
       return {
