@@ -24,8 +24,16 @@ export enum InteractionV2 {
 
 export type OnlyMintInteraction = Interaction.MINT | Interaction.MINTNFT
 
+// type JSONFiled = Record<string, string> | undefined
+
 export type UnwrappedRemark<T> = {
   interaction: Interaction
+  value: T
+  version: string
+}
+
+export type UnwrappedRemark2<T> = {
+  interaction: InteractionV2
   value: T
   version: string
 }
@@ -36,7 +44,7 @@ export type InteractionValue = {
 }
 
 export type Base = {
-  value: string
+  value: any
 }
 
 export type Equip = Omit<InteractionValue, 'value'> & {
@@ -64,7 +72,7 @@ export type Themeadd = Required<InteractionValue> & {
   name: string
 }
 
-export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd | Setpriority | Setproperty | Themeadd
+export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd | Setpriority | Setproperty | Themeadd | undefined
 
 export type BinaryBoolean = 0 | 1
 
