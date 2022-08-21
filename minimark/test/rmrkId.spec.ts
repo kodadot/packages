@@ -1,6 +1,6 @@
 import { toSerialNumber, findUniqueSymbol } from '../src/rmrk/identification'
 
-describe.skip('RMRK/identification ', () => {
+describe('RMRK/identification ', () => {
   describe('toSerialNumber', () => {
     it('should return +1', () => {
       expect(toSerialNumber(0)).toBe('0000000000000001')
