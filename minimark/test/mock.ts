@@ -19,3 +19,34 @@ export const validMintNFTRemarkEvent =
 export const validBuyRemarkEvent = 'RMRK::BUY::1.0.0::6309833-282781680602E07B32-BIR-BIRTH_1-0000000000000001'
 export const validEmoteRemarkEvent = 'RMRK::EMOTE::1.0.0::6431478-10D77F8B699437BB50-TXT-JUNGLE_TEXTURE-0000000000000001::1F496'
 export const validConsumeRemarkEvent = 'RMRK::CONSUME::1.0.0::6277640-D4E195CCE7ADB3F876-SUPER GIFS-GOODBYE_BULLIES!-0000000000000002'
+
+
+export const base_json = {
+  "symbol": "kanaria_superbird",
+  "type": "svg",
+  "parts": [
+    {
+        "id": "bg",
+        "src": "ipfs://ipfs/hash",
+        "thumb": "ipfs://ipfs/hash",
+        "type": "slot",
+        "equippable": ["collection_1", "collection_2"],
+        "z": 3
+    },
+    {
+        "id": "gem_1",
+        "src": "ipfs://ipfs/hash",
+        "type": "fixed",
+        "z": 4
+    },
+    {
+        "id": "wing_1_back",
+        "src": "ipfs://ipfs/hash",
+        "metadata": "ipfs://ipfs/hash"
+    },
+    {
+        "id": "wing_1_front",
+        "metadata": "ipfs://ipfs/hash2"
+    }
+  ]
+}
