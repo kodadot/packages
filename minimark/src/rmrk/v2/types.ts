@@ -1,20 +1,8 @@
-export enum InteractionV2 {
-    ACCEPT = 'ACCEPT',
-    BASE = 'BASE',
-    EQUIP = 'EQUIP',
-    EQUIPPABLE = 'EQUIPPABLE',
-    LOCK = 'LOCK',
-    RESADD = 'RESADD',
-    SETPROPERTY = 'SETPROPERTY',
-    SETPRIORITY = 'SETPRIORITY',
-    THEMEADD = 'THEMEADD',
+import { InteractionV2 } from "./constants";
 
-    BUY = 'BUY',
-    EMOTE = 'EMOTE',
-}
-
+export type InteractionV2Type = keyof typeof InteractionV2
 export type UnwrappedRemark2<T> = {
-    interaction: InteractionV2
+    interaction: InteractionV2Type
     value: T
     version: string
 }

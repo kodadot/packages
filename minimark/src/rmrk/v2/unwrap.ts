@@ -13,7 +13,6 @@ const unwrapV2 = <T = InteractionV2Value>(text: string): UnwrappedRemark2<T | In
     const [_, mayInteraction, mayVersion, id, ...rest] = splitBySquare(decoded)
   
     const interaction = toInteractionV2(mayInteraction)
-  
     const value = resolveRmrk2Value(interaction, id, rest)
   
     return {

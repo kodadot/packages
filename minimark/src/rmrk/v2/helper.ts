@@ -1,13 +1,14 @@
 import { unwrapJSON, unwrapURI } from "../../utils";
 import { isValidInteraction } from "../helpers";
 
-import { InteractionV2, InteractionV2Value } from "./types";
+import { InteractionV2Type, InteractionV2Value } from "./types";
+import { InteractionV2 } from "./constants";
 export const toInteractionV2 = (interaction: string): InteractionV2 => {
     isValidInteraction(interaction)
     return interaction as InteractionV2
 }
 
-export const resolveRmrk2Value = (interaction: InteractionV2, id: string, restValues: string[]): InteractionV2Value => {
+export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, restValues: string[]): InteractionV2Value => {
   switch (interaction) {
     case InteractionV2.BASE:
       return {
