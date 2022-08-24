@@ -15,7 +15,7 @@ function singleTest(item: TestingSet) {
     expect(value).toStrictEqual(item.expected)
 }
 
-describe.skip('MINIMARK::RMRK:2.0.0', () => {
+describe('MINIMARK::RMRK:2.0.0', () => {
     it('should LOCK', () => {
         const test: TestingSet = {
             type: 'LOCK',
