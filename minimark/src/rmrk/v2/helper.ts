@@ -59,10 +59,15 @@ export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, re
         value: unwrapJSON(restValues[1]),
       }
     case InteractionV2.BUY:
-      const [ value ] = restValues
       return {
         id,
-        value,
+        value: restValues[0],
+      }
+    case InteractionV2.EMOTE:
+      return {
+        id: restValues[0],
+        value: restValues[1],
+        namespace: id
       }
   }
 

@@ -157,6 +157,30 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
         singleTest(test2)
     });
 
+    it('should EMOTE', () => {
+        const test: TestingSet = {
+            type: 'EMOTE',
+            input: 'RMRK::EMOTE::2.0.0::RMRK1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::1F389',
+            expected: {
+                id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
+                value: '1F389',
+                namespace: 'RMRK1'
+            }
+        }
+        singleTest(test)
+        // Emoting on an account
+        const test2: TestingSet = {
+            type: 'EMOTE',
+            input: 'RMRK::EMOTE::2.0.0::PUBKEY::0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10::1F389',
+            expected: {
+                id: '0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10',
+                value: '1F389',
+                namespace: 'PUBKEY'
+            }
+        }
+        singleTest(test2)
+    })
+
     it.skip('should SEND', () => {
 
     })
@@ -165,8 +189,5 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
 
     })
 
-    it.skip('should EMOTE', () => {
-
-    })
     
 });
