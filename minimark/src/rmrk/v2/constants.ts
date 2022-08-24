@@ -11,9 +11,6 @@ export enum InteractionV2 {
 
     BUY = 'BUY',
     EMOTE = 'EMOTE',
-}
-
-export enum Interaction {
     CHANGEISSUER = 'CHANGEISSUER',
     SEND = 'SEND',
     LIST = 'LIST',

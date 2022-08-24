@@ -69,6 +69,21 @@ export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, re
         value: restValues[1],
         namespace: id
       }
+    case InteractionV2.SEND:
+      return {
+        id,
+        recipient: restValues[0]
+      }
+    case InteractionV2.LIST:
+      return {
+        id,
+        price: restValues[0]
+      }
+    case InteractionV2.CHANGEISSUER:
+      return {
+        id,
+        newissuer: restValues[0],
+      }
   }
 
   return

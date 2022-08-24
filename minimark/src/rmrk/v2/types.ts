@@ -49,6 +49,20 @@ export type EMOTE = InteractionValue & {
     namespace: string
 }
 
+export type SEND = Omit<InteractionValue, 'value'> & {
+    recipient: string
+}
+
+export type LIST = {
+    id: string,
+    price: string,
+}
+
+export type CHANGEISSUER = {
+    id: string;
+    newissuer: string;
+}
+
 export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd 
     | SetPriority | SetProperty | AddTheme | undefined
-    | BUY | EMOTE
+    | BUY | EMOTE | SEND | LIST | CHANGEISSUER

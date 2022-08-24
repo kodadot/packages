@@ -181,13 +181,48 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
         singleTest(test2)
     })
 
-    it.skip('should SEND', () => {
+    it('should SEND', () => {
+        singleTest({
+            type: 'SEND',
+            input: 'RMRK::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y',
+            expected: {
+                id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
+                recipient: 'H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y',
+            }
+        })
 
     })
 
-    it.skip('should LIST', () => {
-
+    it('should LIST', () => {
+        singleTest({
+            type: 'LIST',
+            input: 'RMRK::LIST::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::10000000000',
+            expected: {
+                id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
+                price: '10000000000'
+            }
+        })
+        // cancel case
+        singleTest({
+            type: 'LIST',
+            input: 'RMRK::LIST::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::0',
+            expected: {
+                id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
+                price: '0'
+            }
+        })
     })
 
-    
+    it('should CHANGEISSUER', () => {
+        singleTest({
+            type: 'CHANGEISSUER',
+            input: 'RMRK::CHANGEISSUER::2.0.0::0aff6865bed3a66b-DLEP::HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT',
+            expected: {
+                id: '0aff6865bed3a66b-DLEP',
+                newissuer: 'HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT'
+            }
+        })
+    })
+
+
 });
