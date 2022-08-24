@@ -63,17 +63,17 @@ export type Resadd = Required<InteractionValue> & {
   replace: string
 }
 
-export type Setpriority = Required<InteractionValue>
+export type SetPriority = Required<InteractionValue>
 
-export type Setproperty = Required<InteractionValue> & {
+export type SetProperty = Required<InteractionValue> & {
   name: string
 }
 
-export type Themeadd = Required<InteractionValue> & {
+export type AddTheme = Required<InteractionValue> & {
   name: string
 }
 
-export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd | Setpriority | Setproperty | Themeadd | undefined
+export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd | SetPriority | SetProperty | AddTheme | undefined
 
 export type BinaryBoolean = 0 | 1
 
