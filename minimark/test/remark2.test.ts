@@ -1,4 +1,4 @@
-import { unwrapRemark2 } from '../src/rmrk/unwrap'
+import unwrapV2 from '../src/rmrk/v2/unwrap'
 import { base_json } from './mock';
 
 type TestingSet = {
@@ -9,7 +9,7 @@ type TestingSet = {
 
 describe('MINIMARK::RMRK:2.0.0', () => {
     function singleTest(item: TestingSet) {
-        const result = unwrapRemark2(item.input)
+        const result = unwrapV2(item.input)
         expect(result.interaction).toBe(item.type)
         expect(result.version).toBe('2.0.0')
         const { value } = result

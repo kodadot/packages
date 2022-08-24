@@ -33,47 +33,11 @@ export type UnwrappedRemark<T> = {
   version: string
 }
 
-export type UnwrappedRemark2<T> = {
-  interaction: InteractionV2
-  value: T
-  version: string
-}
 
 export type InteractionValue = {
   id: string
   value?: string
 }
-
-export type Base = {
-  value: any
-}
-
-export type Equip = Omit<InteractionValue, 'value'> & {
-  baseslot: string
-}
-
-export type Equippable = Required<InteractionValue> & {
-  slot: string
-}
-
-export type Lock = Omit<InteractionValue, 'value'>
-
-export type Resadd = Required<InteractionValue> & {
-  value: Record<string, string>
-  replace: string
-}
-
-export type SetPriority = Required<InteractionValue>
-
-export type SetProperty = Required<InteractionValue> & {
-  name: string
-}
-
-export type AddTheme = Required<InteractionValue> & {
-  name: string
-}
-
-export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd | SetPriority | SetProperty | AddTheme | undefined
 
 export type BinaryBoolean = 0 | 1
 
