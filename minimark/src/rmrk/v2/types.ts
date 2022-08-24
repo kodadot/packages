@@ -8,6 +8,9 @@ export enum InteractionV2 {
     SETPROPERTY = 'SETPROPERTY',
     SETPRIORITY = 'SETPRIORITY',
     THEMEADD = 'THEMEADD',
+
+    BUY = 'BUY',
+    EMOTE = 'EMOTE',
 }
 
 export type UnwrappedRemark2<T> = {
@@ -50,4 +53,14 @@ export type AddTheme = InteractionValue & {
     name: string
 }
 
-export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd | SetPriority | SetProperty | AddTheme | undefined
+export type BUY = InteractionValue & {
+    value?: string
+}
+
+export type EMOTE = InteractionValue & {
+    namespace: string
+}
+
+export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd 
+    | SetPriority | SetProperty | AddTheme | undefined
+    | BUY | EMOTE

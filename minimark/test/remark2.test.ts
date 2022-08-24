@@ -7,14 +7,15 @@ type TestingSet = {
     expected: any
 }
 
-describe('MINIMARK::RMRK:2.0.0', () => {
-    function singleTest(item: TestingSet) {
-        const result = unwrapV2(item.input)
-        expect(result.interaction).toBe(item.type)
-        expect(result.version).toBe('2.0.0')
-        const { value } = result
-        expect(value).toStrictEqual(item.expected)
-    }
+function singleTest(item: TestingSet) {
+    const result = unwrapV2(item.input)
+    expect(result.interaction).toBe(item.type)
+    expect(result.version).toBe('2.0.0')
+    const { value } = result
+    expect(value).toStrictEqual(item.expected)
+}
+
+describe.skip('MINIMARK::RMRK:2.0.0', () => {
     it('should LOCK', () => {
         const test: TestingSet = {
             type: 'LOCK',
@@ -131,4 +132,41 @@ describe('MINIMARK::RMRK:2.0.0', () => {
         }
         singleTest(test)
     });
+});
+
+describe('RMRK:2.0.0 Existing Interactions', () => {
+    it('should BUY', () => {
+        const test: TestingSet = {
+            type: 'BUY',
+            input: 'rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
+            expected: {
+                id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
+                value: undefined,
+            }
+        }
+        const test2: TestingSet = {
+            type: 'BUY',
+            input: 'rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001::recipient_id',
+            expected: {
+                id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
+                value: 'recipient_id',
+            }
+        }
+
+        singleTest(test)
+        singleTest(test2)
+    });
+
+    it.skip('should SEND', () => {
+
+    })
+
+    it.skip('should LIST', () => {
+
+    })
+
+    it.skip('should EMOTE', () => {
+
+    })
+    
 });
