@@ -1,5 +1,5 @@
 import unwrapV2 from '../src/rmrk/v2/unwrap'
-import { base_json } from './mock';
+import { base_json, CREATE_EVENT } from './mock';
 
 type TestingSet = {
     input: string
@@ -224,5 +224,25 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
         })
     })
 
+
+});
+
+describe('RMRK:2.0.0 backward compatible', () => {
+    it('should CREATE', () => {
+        singleTest({
+            type: 'CREATE',
+            input: CREATE_EVENT,
+            expected: {
+                value: {
+                    "max": 100,
+                    "issuer": "CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp",
+                    "symbol": "DLEP",
+                    "id": "0aff6865bed3a66b-DLEP",
+                    "metadata": "ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j"
+                }
+            }
+        })
+
+    });
 
 });

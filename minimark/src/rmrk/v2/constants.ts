@@ -14,4 +14,8 @@ export enum InteractionV2 {
     CHANGEISSUER = 'CHANGEISSUER',
     SEND = 'SEND',
     LIST = 'LIST',
+
+    CREATE = 'CREATE',
+    MINT = 'MINT',
+    BURN = 'CONSUME'
 }

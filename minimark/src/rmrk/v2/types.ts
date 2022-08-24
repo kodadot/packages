@@ -63,6 +63,11 @@ export type CHANGEISSUER = {
     newissuer: string;
 }
 
+export type CREATE = {
+    value: Record<string, string>
+}
+
 export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd 
     | SetPriority | SetProperty | AddTheme | undefined
     | BUY | EMOTE | SEND | LIST | CHANGEISSUER
+    | CREATE
