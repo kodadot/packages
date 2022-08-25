@@ -67,7 +67,12 @@ export type CREATE = {
     value: Record<string, string>
 }
 
+export type MINT = {
+    value: Record<string, string | number>,
+    recipient?: string,
+}
+
 export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd 
     | SetPriority | SetProperty | AddTheme | undefined
     | BUY | EMOTE | SEND | LIST | CHANGEISSUER
-    | CREATE
+    | CREATE | MINT

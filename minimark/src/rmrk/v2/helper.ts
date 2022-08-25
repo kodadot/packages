@@ -88,6 +88,11 @@ export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, re
       return {
         value: unwrapJSON(id)
       }
+    case InteractionV2.MINT:
+      return {
+        value: unwrapJSON(id),
+        recipient: restValues[0]
+      }
   }
 
   return

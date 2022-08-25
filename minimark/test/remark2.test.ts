@@ -1,5 +1,5 @@
 import unwrapV2 from '../src/rmrk/v2/unwrap'
-import { base_json, CREATE_EVENT } from './mock';
+import { base_json, CREATE_EVENT, MINT_EVENT } from './mock';
 
 type TestingSet = {
     input: string
@@ -242,7 +242,23 @@ describe('RMRK:2.0.0 backward compatible', () => {
                 }
             }
         })
+    });
 
+    it('should MINT', () => {
+        singleTest({
+            type: 'MINT',
+            input: MINT_EVENT,
+            expected: {
+                value: {
+                    "collection": "0aff6865bed3a66b-DLEP",
+                    "symbol": "DL15",
+                    "transferable": 1,
+                    "sn": "00000001",
+                    "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
+                },
+                recipient: undefined
+            }
+        })
     });
 
 });
