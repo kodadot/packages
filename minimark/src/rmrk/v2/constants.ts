@@ -17,5 +17,5 @@ export enum InteractionV2 {
 
     CREATE = 'CREATE',
     MINT = 'MINT',
-    BURN = 'CONSUME'
+    BURN = 'BURN'
 }

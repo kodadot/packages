@@ -72,7 +72,9 @@ export type MINT = {
     recipient?: string,
 }
 
+export type BURN = Omit<InteractionValue, 'value'>
+
 export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd 
     | SetPriority | SetProperty | AddTheme | undefined
     | BUY | EMOTE | SEND | LIST | CHANGEISSUER
-    | CREATE | MINT
+    | CREATE | MINT | BURN

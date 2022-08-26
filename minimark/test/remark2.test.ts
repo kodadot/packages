@@ -1,5 +1,5 @@
 import unwrapV2 from '../src/rmrk/v2/unwrap'
-import { base_json, CREATE_EVENT, MINT_EVENT } from './mock';
+import { base_json, CREATE_EVENT, MINT_EVENT, BURN_EVENT } from './mock';
 
 type TestingSet = {
     input: string
@@ -261,4 +261,13 @@ describe('RMRK:2.0.0 backward compatible', () => {
         })
     });
 
+    it('should BURN', () => {
+        singleTest({
+            type: 'BURN',
+            input: BURN_EVENT,
+            expected: {
+                id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001'
+            }
+        })
+    });
 });
