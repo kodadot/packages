@@ -16,6 +16,10 @@ export type InteractionValue = {
     value: string
 }
 
+export type Accept = InteractionValue & {
+    entity_id: string;
+}
+
 export type Equip = Omit<InteractionValue, 'value'> & {
     baseslot: string
 }
@@ -74,7 +78,7 @@ export type MINT = {
 
 export type BURN = Omit<InteractionValue, 'value'>
 
-export type InteractionV2Value = Base | Equip | Equippable | Lock | Resadd 
+export type InteractionV2Value = Accept | Base | Equip | Equippable | Lock | Resadd
     | SetPriority | SetProperty | AddTheme | undefined
     | BUY | EMOTE | SEND | LIST | CHANGEISSUER
     | CREATE | MINT | BURN

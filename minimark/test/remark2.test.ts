@@ -22,18 +22,19 @@ describe('MINIMARK::RMRK:2.0.0', () => {
             input: 'RMRK::LOCK::2.0.0::0aff6865bed3a66b-DLEP',
             expected: {
                 id: "0aff6865bed3a66b-DLEP",
-                value: undefined,
             }
         }
         singleTest(test)
     });
+    // missing id2
     it('should ACCEPT', () => {
         const test: TestingSet = {
             type: 'ACCEPT',
             input: 'RMRK::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::RES::V1i6B',
             expected: {
                 id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-                value: 'RES'
+                value: 'RES',
+                entity_id: 'V1i6B'
             }
         }
         singleTest(test)

@@ -18,6 +18,7 @@ export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, re
       return {
         id: id,
         value: restValues[0],
+        entity_id: restValues[1],
       }
     case InteractionV2.EQUIP:
       return {
@@ -33,7 +34,6 @@ export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, re
     case InteractionV2.LOCK:
       return {
         id,
-        value: undefined
       }
     case InteractionV2.RESADD:
       return {
