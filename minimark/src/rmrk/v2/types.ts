@@ -16,8 +16,10 @@ export type InteractionValue = {
     value: string
 }
 
-export type Accept = InteractionValue & {
-    entity_id: string;
+export type Accept = {
+    id: string
+    entity_type: 'RES' | 'NFT'
+    entity_id: string
 }
 
 export type Equip = Omit<InteractionValue, 'value'> & {
@@ -41,15 +43,20 @@ export type SetProperty = InteractionValue & {
     name: string
 }
 
-export type AddTheme = InteractionValue & {
+export type ThemeAdd = {
+    base_id: string
     name: string
+    value: Record<string, string>
 }
 
-export type BUY = InteractionValue & {
-    value?: string
+export type BUY = {
+    id: string
+    recipient?: string
 }
 
-export type EMOTE = InteractionValue & {
+export type EMOTE = {
+    id: string
+    emotion: string
     namespace: string
 }
 

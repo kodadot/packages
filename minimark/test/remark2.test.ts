@@ -33,7 +33,7 @@ describe('MINIMARK::RMRK:2.0.0', () => {
             input: 'RMRK::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::RES::V1i6B',
             expected: {
                 id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-                value: 'RES',
+                entity_type: 'RES',
                 entity_id: 'V1i6B'
             }
         }
@@ -124,7 +124,7 @@ describe('MINIMARK::RMRK:2.0.0', () => {
             type: 'THEMEADD',
             input: 'RMRK::THEMEADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::good::%7B%22primary_color%22%3A%22%2300ff00%22%7D',
             expected: {
-                id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
+                base_id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
                 name: 'good',
                 value: {
                     "primary_color": "#00ff00"
@@ -142,7 +142,7 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
             input: 'rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
             expected: {
                 id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
-                value: undefined,
+                recipient: undefined,
             }
         }
         const test2: TestingSet = {
@@ -150,7 +150,7 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
             input: 'rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001::recipient_id',
             expected: {
                 id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
-                value: 'recipient_id',
+                recipient: 'recipient_id',
             }
         }
 
@@ -164,7 +164,7 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
             input: 'RMRK::EMOTE::2.0.0::RMRK1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::1F389',
             expected: {
                 id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-                value: '1F389',
+                emotion: '1F389',
                 namespace: 'RMRK1'
             }
         }
@@ -175,7 +175,7 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
             input: 'RMRK::EMOTE::2.0.0::PUBKEY::0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10::1F389',
             expected: {
                 id: '0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10',
-                value: '1F389',
+                emotion: '1F389',
                 namespace: 'PUBKEY'
             }
         }
