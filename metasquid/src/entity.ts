@@ -1,5 +1,5 @@
-import { Store, EntityConstructor } from './types'
 import { FindOptionsWhere } from 'typeorm'
+import { Store, EntityConstructor } from './types'
 
 export type EntityWithId = {
   id: string
@@ -11,12 +11,12 @@ export async function createOrElseThrow<T extends EntityWithId>(
   id: string,
   init: Partial<T>
 ): Promise<T> {
-    const entity = await get(store, entityConstructor, id)
-    if (entity) {
-        throw new Error(`Entity with id ${id} already exists`)
-    }
+  const entity = await get(store, entityConstructor, id)
+  if (entity) {
+    throw new Error(`Entity with id ${id} already exists`)
+  }
 
-    return create(entityConstructor, id, init)
+  return create(entityConstructor, id, init)
 }
 
 /**
