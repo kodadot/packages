@@ -36,6 +36,7 @@ export type EntityConstructor<T> = {
 };
 
 export type Store = EntityManager
+// export type BaseContext = CommonHandlerContext<Store>;
 
 // meta:
 export type Optional<T> = T | null;
