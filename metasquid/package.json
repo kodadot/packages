@@ -35,10 +35,14 @@
     "test": "pnpm lint && vitest run --coverage"
   },
   "peerDependencies": {
+    "@subsquid/ss58": "0.1.x",
+    "@subsquid/substrate-processor": ">= 1",
     "typeorm": "0.3.x"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
+    "@subsquid/ss58": "^0.1.0",
+    "@subsquid/substrate-processor": "^1.7.0",
     "@vitest/coverage-c8": "latest",
     "eslint": "latest",
     "standard-version": "latest",
