@@ -1,5 +1,5 @@
-import { BaseContext } from './types'
+// import { BaseContext } from './types'
 
-export function loggerOf(ctx: BaseContext) {
-  return ctx.log
-}
+// export function loggerOf(ctx: BaseContext) {
+//   return ctx.log
+// }
