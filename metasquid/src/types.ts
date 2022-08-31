@@ -1,3 +1,4 @@
+import type { CommonHandlerContext } from '@subsquid/substrate-processor'
 import type { EntityManager } from 'typeorm'
 
 export type EntityWithId = {
@@ -36,11 +37,19 @@ export type EntityConstructor<T> = {
 };
 
 export type Store = EntityManager
-// export type BaseContext = CommonHandlerContext<Store>;
+export type BaseContext = CommonHandlerContext<Store>;
 
 // meta:
-export type Optional<T> = T | null;
-export type CallWith<T> = BaseCall & T;
+export type Optional<T> = T | undefined
+export type CallWith<T> = BaseCall & T
+
+// subsquid
+export type ArchiveCall<T = any> = {
+  __kind: string,
+  value: T
+}
+
+export type ArchiveCallWithOptionalValue = ArchiveCall<Optional<any>>
 
 // entity
 export enum DisplayType {
