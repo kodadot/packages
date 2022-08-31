@@ -1,3 +1,5 @@
+import type { EntityManager } from 'typeorm'
+
 export type EntityWithId = {
   id: string;
 }
@@ -6,16 +8,24 @@ export type BurnableEntity = EntityWithId & {
   burned: boolean;
 }
 
-// shared
-export type BaseCall = {
+// with tyoe buliders
+export type WithCaller = {
   caller: string;
-  blockNumber: string;
+};
+
+export type WithTimestamp = {
   timestamp: Date;
 };
 
-export type IEvent<T> = BaseCall & {
+export type WithBlockNumber<T = string> = {
+  blockNumber: T;
+}
+
+// shared
+export type BaseCall = WithCaller & WithTimestamp & WithBlockNumber;
+
+export type IEvent<T> = WithCaller & WithTimestamp & WithBlockNumber<bigint> & {
   interaction: T;
-  blockNumber: bigint,
   currentOwner: string,
   meta: string;
 }
@@ -25,13 +35,26 @@ export type EntityConstructor<T> = {
   new (...args: any[]): T;
 };
 
+export type Store = EntityManager
 
 // meta:
 export type Optional<T> = T | null;
 export type CallWith<T> = BaseCall & T;
 
-
 // entity
+export enum DisplayType {
+  null,
+  'boost_number',
+  'number',
+  'boost_percentage',
+}
+
+export type MetadataAttribute = {
+  display_type?: DisplayType
+  trait_type?: string
+  value: number | string
+};
+
 export type TokenMetadata = {
   name?: string
   description: string
@@ -42,17 +65,4 @@ export type TokenMetadata = {
   mediaUri?: string;
   type?: string;
   thumbnailUri?: string;
-}
-
-export type MetadataAttribute = {
-  display_type?: DisplayType
-  trait_type?: string
-  value: number | string
-};
-
-export enum DisplayType {
-  null,
-  'boost_number',
-  'number',
-  'boost_percentage',
 }
