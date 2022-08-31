@@ -15,6 +15,10 @@
       "import": "./dist/consolidator.mjs",
       "require": "./dist/consolidator.cjs"
     },
+    "./entity": {
+      "import": "./dist/entity.mjs",
+      "require": "./dist/entity.cjs"
+    },
     "./types": {
       "import": "./dist/types.mjs",
       "require": "./dist/types.cjs"
