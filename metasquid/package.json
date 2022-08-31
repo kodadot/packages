@@ -30,12 +30,15 @@
     "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
     "test": "pnpm lint && vitest run --coverage"
   },
-  "dependencies": {},
+  "peerDependencies": {
+    "typeorm": "0.3.x"
+  },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@vitest/coverage-c8": "latest",
     "eslint": "latest",
     "standard-version": "latest",
+    "typeorm": "^0.3.9",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
