@@ -1,6 +1,9 @@
 import { InteractionV2 } from "./constants";
 
 export type InteractionV2Type = keyof typeof InteractionV2
+export type InteractionV2MintType = Extract<InteractionV2Type, 'MINT' | 'CREATE'>
+export type JustInteractionV2 = Exclude<InteractionV2Type, 'MINT' | 'CREATE'>
+
 export type UnwrappedRemark2<T> = {
     interaction: InteractionV2Type
     value: T
@@ -75,18 +78,18 @@ export type CHANGEISSUER = {
 }
 
 export type CREATE = {
-    value: Record<string, string>
+    value: CreatedCollectionV2
 }
 
 export type MINT = {
-    value: Record<string, string | number>,
+    value: CreatedNFTV2,
     recipient?: string,
 }
 
 export type BURN = Omit<InteractionValue, 'value'>
 
 export type InteractionV2Value = Accept | Base | Equip | Equippable | Lock | Resadd
-    | SetPriority | SetProperty | AddTheme | undefined
+    | SetPriority | SetProperty | ThemeAdd | undefined
     | BUY | EMOTE | SEND | LIST | CHANGEISSUER
     | CREATE | MINT | BURN
 
@@ -115,9 +118,28 @@ export interface IAttribute {
 }
 
 export interface CreatedNFTV2 {
-  collection: string
-  metadata: string
-  sn: string
-  transferable: number
-  symbol: string
+    collection: string
+    metadata: string
+    sn: string
+    transferable: number
+    symbol: string
 }
+
+export type CreateInteractionProps =
+    | { action: InteractionV2.ACCEPT, payload: Accept }
+    | { action: InteractionV2.BASE, payload: Base }
+    | { action: InteractionV2.EQUIP, payload: Equip }
+    | { action: InteractionV2.EQUIPPABLE, payload: Equippable }
+    | { action: InteractionV2.LOCK, payload: Lock }
+    | { action: InteractionV2.RESADD, payload: Resadd }
+    | { action: InteractionV2.SETPRIORITY, payload: SetPriority }
+    | { action: InteractionV2.SETPROPERTY, payload: SetProperty }
+    | { action: InteractionV2.THEMEADD, payload: ThemeAdd }
+    | { action: InteractionV2.BUY, payload: BUY }
+    | { action: InteractionV2.EMOTE, payload: EMOTE }
+    | { action: InteractionV2.SEND, payload: SEND }
+    | { action: InteractionV2.LIST, payload: LIST }
+    | { action: InteractionV2.CHANGEISSUER, payload: CHANGEISSUER }
+    | { action: InteractionV2.CREATE, payload: CREATE }
+    | { action: InteractionV2.MINT, payload: MINT }
+    | { action: InteractionV2.BURN, payload: BURN }
