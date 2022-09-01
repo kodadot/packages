@@ -4,9 +4,9 @@ import { UpdateFunction } from '../common/types'
 import { wrapToString } from '../utils/unwrap'
 import { toCollectionId, toSerialNumber, makeSymbol } from './identification'
 import { CreatedCollection, CreatedCollectionWithNFT, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
-import { InteractionV2TypesWithID } from "./v2/types";
+import { InteractionV2MintType, JustInteractionV2 } from "./v2/types";
 
-export const createInteraction = (action: JustInteraction | InteractionV2TypesWithID, version = '1.0.0', objectId: string, meta: string): string => {
+export const createInteraction = (action: JustInteraction | JustInteractionV2,  version = '1.0.0', objectId: string, meta: string): string => {
   if (!objectId) {
     throw new ReferenceError(`[${action}] Could not create, because nftId`)
   }
@@ -14,7 +14,7 @@ export const createInteraction = (action: JustInteraction | InteractionV2TypesWi
   return `RMRK::${action}::${version}::${objectId}${meta ? '::' + meta : ''}`
 }
 
-export const createMintInteaction = (action: OnlyMintInteraction, version = '1.0.0', object: CreatedNFT | CreatedCollection): string => {
+export const createMintInteaction = (action: OnlyMintInteraction | InteractionV2MintType, version = '1.0.0', object: CreatedNFT | CreatedCollection): string => {
   if (isEmpty(object)) {
     throw new ReferenceError(`[${action}] Could not create, because ${object} is empty`)
   }
