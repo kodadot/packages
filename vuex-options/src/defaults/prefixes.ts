@@ -12,23 +12,8 @@ export const PREFIXES: Option[] = [
     value: 'rmrk'
   },
   {
-    info: 'westend',
-    text: 'RMRK (Westend)',
-    value: 'westend'
-  },
-  {
-    info: 'statemine',
-    text: 'Statemine',
-    value: 'statemine'
-  },
-  {
-    info: 'westmint',
-    text: 'Westmint',
-    value: 'westmint'
-  },
-  {
     info: 'basilisk',
-    text: 'Basilisk (Sandbox)',
+    text: 'Basilisk (Kusama)',
     value: 'bsx'
   },
   {
@@ -38,7 +23,7 @@ export const PREFIXES: Option[] = [
   },
   {
     info: 'moonriver',
-    text: 'Moonsama (read-only)',
-    value: 'moonsama'
+    text: 'Moonriver (read-only)',
+    value: 'movr'
   }
 ]
