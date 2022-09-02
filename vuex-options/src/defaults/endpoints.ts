@@ -35,26 +35,6 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://statemine.api.onfinality.io/public-ws'
   },
   {
-    info: 'westmint',
-    text: 'Westmint (Patract Elara)',
-    value: 'wss://pub.elara.patract.io/westmint'
-  },
-  {
-    info: 'westmint',
-    text: 'Westmint (Parity)',
-    value: 'wss://westmint-rpc.polkadot.io'
-  },
-  {
-    info: 'westend',
-    text: 'Westend (Parity)',
-    value: 'wss://westend-rpc.polkadot.io'
-  },
-  {
-    info: 'basilisk',
-    text: 'Snek Sandbox (HydraDX)',
-    value: 'wss://basilisk-kodadot.hydration.cloud'
-  },
-  {
     info: 'basilisk',
     text: 'Basilisk (HydraDX)',
     value: 'wss://rpc-01.basilisk.hydradx.io'
@@ -63,11 +43,6 @@ export const ENDPOINTS: Option[] = [
     info: 'snek',
     text: 'Snek Rococo (HydraDX)',
     value: 'wss://rpc-01.basilisk-rococo.hydradx.io'
-  },
-  {
-    info: 'dusty',
-    text: 'Dusty (Stake Technologies)',
-    value: 'wss://rpc.dusty.plasmnet.io'
   },
   {
     info: 'moonriver',
