@@ -3,23 +3,22 @@
 update-deps:
   pnpm i @polkadot/networks@latest
 
-update: update-deps
+c VERSION:
+  git commit -am ':bookmark: vuex-options@{{VERSION}}'
 
 build:
-  pnpm run build
+  @pnpm run build
 
 link:
-  pnpm link
+  @pnpm link
+
+pack:
+  @pnpm pack
 
 publish:
   pnpm publish --access public
 
 release: publish
 
-c VERSION:
-  git commit -am "Updated vuex-options@{{VERSION}}"
-
-up: build publish
-
-pack:
-  pnpm pack
+test:
+  @pnpm run test
