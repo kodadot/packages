@@ -1,7 +1,6 @@
 #!/usr/bin/env just --justfile
 
 update-deps:
-  pnpm i -D typescript@latest
   pnpm i @polkadot/networks@latest
 
 update: update-deps
