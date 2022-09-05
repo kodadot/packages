@@ -1,6 +1,6 @@
-import { createInteraction } from "../src/rmrk/v2/create";
+import { createInteraction, createCollection, createNFTV2 } from "../src/rmrk/v2/create";
 import { InteractionV2 } from "../src/rmrk/v2/constants";
-// import { InteractionV2Type } from "../src/rmrk/v2/types";
+import { CreatedCollectionV2 } from "../src/rmrk/v2/types";
 import m, { Test } from "./rmrk2Mock";
 
 
@@ -69,5 +69,36 @@ describe('RMRK2 Create Interaction', () => {
     it('should create THEMEADD interaction', () => {
         runInteractionTest(InteractionV2.THEMEADD, m.themeAddTest)
     });
+
+});
+
+describe('RMRK2 Create Collection', () => {
+    const collectionProps = {
+        "max": 100,
+        "issuer": "CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp",
+        "symbol": "DLEP",
+        "id": "0aff6865bed3a66b-DLEP",
+        "metadata": "ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j"
+    }
+    it('should throw Error for wrong parameter', () => {
+        expect(createCollection)
+            .toThrowError(new Error("Missing Property"))
+        // max checking
+        expect(() => createCollection({ ...collectionProps, max: -1 })).toThrow()
+    });
+
+    it('should return created Collection', () => {
+        expect(createCollection(collectionProps)).toEqual({
+            max: 100,
+            issuer: collectionProps.issuer,
+            symbol: 'DLEP',
+            id: "0AFF686563BED3A66B-DLEP",
+            metadata: 'ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j'
+        })
+    });
+
+});
+
+describe('RMRK2 Create NFT', () => {
 
 });

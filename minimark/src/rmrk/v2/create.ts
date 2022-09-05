@@ -1,7 +1,8 @@
-import { CreateInteractionProps } from './types'
+import { CreateInteractionProps, CreatedCollectionV2, CreatedNFTV2 } from './types'
 import { InteractionV2 } from './constants'
 // import { isEmpty } from '../../utils/empty'
 import { wrapToString, wrapURI } from '../../utils'
+import { makeSymbol, toCollectionId } from '../identification'
 
 type createInteractionProps = (props: CreateInteractionProps) => string
 
@@ -53,8 +54,39 @@ export const createInteraction: createInteractionProps = ({ action, payload }) =
   return ''
 }
 
-export const createNFT = () => {}
+export const createNFT = () => { }
 
-export const createCollection = () => {}
 
-export const createMultipleNFT = () => {}
+type CreateCollectionProps = {
+  issuer: string
+  max: number
+  metadata: string
+  symbol: string
+}
+
+type createCollectionFunc = (props: CreateCollectionProps) => CreatedCollectionV2
+
+export const createCollection: createCollectionFunc = (props) => {
+  const {
+    issuer,
+    symbol,
+    max,
+    metadata,
+  } = props || {}
+  if ([issuer, symbol, max, metadata].some(item => item === undefined || item === null)) {
+    throw new Error("Missing Property");
+
+  }
+
+  if (max < 0) {
+    throw new Error("max should be equal or greater than zero");
+  }
+  const theSymbol = makeSymbol(symbol)
+  return {
+    id: toCollectionId(issuer, theSymbol),
+    symbol: theSymbol,
+    issuer: issuer,
+    metadata,
+    max,
+  }
+}
