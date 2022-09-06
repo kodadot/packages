@@ -125,6 +125,28 @@ export interface CreatedNFTV2 {
     symbol: string
 }
 
+type Theme = string | Record<string, string>
+
+type Themes = Record<string, Theme>
+
+type Part = {
+    src: string
+    thumb?: string
+    type?: 'fixed' | 'slot'
+    equippable?: string[]
+    z?: number
+    metadata?: string
+}
+
+export interface CreatedBASE {
+    symbol: string
+    themes: Themes
+    parts: Part[]
+    type?: string
+    metadata?: string
+}
+
+
 export type CreateInteractionProps =
     | { action: InteractionV2.ACCEPT, payload: Accept }
     | { action: InteractionV2.BASE, payload: Base }
