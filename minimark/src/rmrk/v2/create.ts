@@ -1,4 +1,4 @@
-import { CreateInteractionProps, CreatedCollectionV2, CreatedNFTV2 } from './types'
+import { CreateInteractionProps, CreatedCollectionV2, CreatedNFTV2, CreatedBASE } from './types'
 import { InteractionV2 } from './constants'
 // import { isEmpty } from '../../utils/empty'
 import { wrapToString, wrapURI } from '../../utils'
@@ -98,7 +98,6 @@ export const createCollection: createCollectionFunc = (props) => {
   } = props || {}
   if ([issuer, symbol, max, metadata].some(item => item === undefined || item === null)) {
     throw new Error("Missing Property");
-
   }
 
   if (max < 0) {
@@ -111,5 +110,25 @@ export const createCollection: createCollectionFunc = (props) => {
     issuer: issuer,
     metadata,
     max,
+  }
+}
+
+export const createBase = (props: CreatedBASE) => {
+  const { symbol = '', parts = [], themes } = props
+  if (symbol.includes('.') || symbol.includes('-')) {
+    throw new Error("Symbol must not use dashes or dots");
+  }
+
+  if (Array.isArray(parts) && parts.some(part => !part.id)) {
+    throw new Error("Id is required for part")
+  }
+
+  if(themes && !Object.keys(themes).includes('default')) {
+    throw new Error("Missing default key for theme");
+  }
+
+  return {
+    ...props,
+    symbol: makeSymbol(symbol),
   }
 }

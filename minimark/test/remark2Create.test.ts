@@ -1,4 +1,4 @@
-import { createInteraction, createCollection, createNFTV2 } from "../src/rmrk/v2/create";
+import { createInteraction, createCollection, createNFTV2, createBase } from "../src/rmrk/v2/create";
 import { InteractionV2 } from "../src/rmrk/v2/constants";
 import { CreatedCollectionV2 } from "../src/rmrk/v2/types";
 import m, { Test } from "./rmrk2Mock";
@@ -115,5 +115,78 @@ describe('RMRK2 Create NFT', () => {
             sn: '0000000000000001',
             symbol: 'DLEP',
         })
+    });
+});
+
+describe('RMRK2 Create Base', () => {
+
+    it('should raise Error for wrong params', () => {
+        // symbol must not use dashes or dots
+        expect(() => createBase({ symbol: 'this.at' }))
+            .toThrowError(new Error("Symbol must not use dashes or dots"))
+        expect(() => createBase({ symbol: 'this-at' }))
+            .toThrowError(new Error("Symbol must not use dashes or dots"))
+
+        // each parts must have an uniquely Id
+        expect(() => createBase({ parts: [{ src: 'ipfs://ipfs/hash' }] }))
+            .toThrowError(new Error("Id is required for part"))
+
+        // default theme should set first before other theme was added
+        expect(() => createBase({ themes: { sepia: 'ipfs://ipfs/theme1hash' } }))
+            .toThrowError(new Error("Missing default key for theme"))
+
+    });
+
+    it('should create on-chain BASE', () => {
+        const onChainBase = {
+            "symbol": "kanaria_superbird",
+            "type": "svg",
+            "parts": [
+                {
+                    "id": "bg",
+                    "src": "ipfs://ipfs/hash",
+                    "thumb": "ipfs://ipfs/hash",
+                    "type": "slot" as const,
+                    "equippable": ["collection_1", "collection_2"],
+                    "z": 3
+                },
+                {
+                    "id": "gem_1",
+                    "src": "ipfs://ipfs/hash",
+                    "type": "fixed" as const,
+                    "z": 4
+                },
+                {
+                    "id": "wing_1_back",
+                    "src": "ipfs://ipfs/hash",
+                    "metadata": "ipfs://ipfs/hash"
+                },
+                {
+                    "id": "wing_1_front",
+                    "metadata": "ipfs://ipfs/hash2"
+                }
+            ]
+        }
+
+        expect(createBase(onChainBase)).toEqual({ ...onChainBase, symbol: 'KANARIA_SUPERBIRD' })
+
+
+    });
+
+    it('should create off-chain BASE', () => {
+        const offChainBase = {
+            "symbol": "kanaria_superbird",
+            "parts": [
+                {
+                    "id": "bg",
+                    "metadata": "ipfs://ipfs/hash"
+                },
+            ]
+        }
+        expect(createBase(offChainBase)).toEqual({
+            ...offChainBase,
+            symbol: 'KANARIA_SUPERBIRD'
+        })
+
     });
 });

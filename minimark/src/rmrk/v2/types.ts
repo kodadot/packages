@@ -129,20 +129,32 @@ type Theme = string | Record<string, string>
 
 type Themes = Record<string, Theme>
 
-type Part = {
+export interface OffChainPart {
+    id: string
+    metadata: string
+}
+
+export interface OnChainFixedPart {
+    id: string
     src: string
+    type: 'fixed'
+    z: number
     thumb?: string
-    type?: 'fixed' | 'slot'
-    equippable?: string[]
-    z?: number
     metadata?: string
 }
 
+export interface OnChainSlotPart extends Omit<OnChainFixedPart, 'type'> {
+    type: 'slot',
+    equippable: string[]
+}
+
+type Part = OffChainPart | OnChainFixedPart | OnChainSlotPart
+
 export interface CreatedBASE {
     symbol: string
-    themes: Themes
-    parts: Part[]
     type?: string
+    themes?: Themes
+    parts: Part[]
     metadata?: string
 }
 
