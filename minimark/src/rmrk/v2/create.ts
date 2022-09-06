@@ -2,7 +2,8 @@ import { CreateInteractionProps, CreatedCollectionV2, CreatedNFTV2 } from './typ
 import { InteractionV2 } from './constants'
 // import { isEmpty } from '../../utils/empty'
 import { wrapToString, wrapURI } from '../../utils'
-import { makeSymbol, toCollectionId } from '../identification'
+import { checkProps } from '../../utils/empty';
+import { makeSymbol, toCollectionId, toSerialNumber } from '../identification'
 
 type createInteractionProps = (props: CreateInteractionProps) => string
 
@@ -54,7 +55,29 @@ export const createInteraction: createInteractionProps = ({ action, payload }) =
   return ''
 }
 
-export const createNFT = () => { }
+type CreateNFTProps = {
+  collectionId: string
+  symbol: string
+  transferable: number
+  index: number
+  metadata: string
+}
+
+type CreateNFTFunc = (props: CreateNFTProps) => CreatedNFTV2
+
+export const createNFTV2: CreateNFTFunc = (props) => {
+  checkProps(props)
+  const { symbol, index, transferable = 1, collectionId, metadata } = props
+  const sn = toSerialNumber(index)
+  const theSymbol = makeSymbol(symbol)
+  return {
+    sn,
+    transferable,
+    collection: collectionId,
+    metadata,
+    symbol: theSymbol,
+  }
+}
 
 
 type CreateCollectionProps = {

@@ -96,9 +96,24 @@ describe('RMRK2 Create Collection', () => {
             metadata: 'ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j'
         })
     });
-
 });
 
 describe('RMRK2 Create NFT', () => {
+    const nftProps = {
+        "collectionId": "0aff6865bed3a66b-DLEP",
+        "transferable": 1,
+        "symbol": "DLEP",
+        "index": 0,
+        "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
+    }
 
+    it('should return created NFT', () => {
+        expect(createNFTV2(nftProps)).toEqual({
+            collection: "0aff6865bed3a66b-DLEP",
+            transferable: 1,
+            metadata: "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4",
+            sn: '0000000000000001',
+            symbol: 'DLEP',
+        })
+    });
 });
