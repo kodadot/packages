@@ -49,10 +49,10 @@ export const createInteraction: createInteractionProps = ({ action, payload }) =
     case InteractionV2.THEMEADD:
       return convert([payload.base_id, payload.name, wrapToString(payload.value)])
     default:
-      break
+      throw new Error(`Unsupported action: ${action}`);
   }
 
-  return ''
+  throw new Error(`Unsupported action: ${action}`);
 }
 
 type CreateNFTProps = {

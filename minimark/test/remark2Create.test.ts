@@ -13,6 +13,13 @@ describe('RMRK2 Create Interaction', () => {
         })).toBe(mock.input)
     }
 
+    it('should raise Error for unsupported interaction', () => {
+        expect(() => createInteraction({
+            action: 'HELLO'
+        })).toThrowError(new Error('Unsupported action: HELLO'))
+        
+    });
+
     it('should create ACCEPT interaction', () => {
         runInteractionTest(InteractionV2.ACCEPT, m.acceptTest)
     });
