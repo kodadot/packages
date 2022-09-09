@@ -57,7 +57,7 @@ describe('MINIMARK::RMRK:2.0.0', () => {
             input: 'RMRK::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-00000001::base_1.slot_1',
             expected: {
                 id: '5105000-0aff6865bed3a66b-DLEP-ARMOR-00000001',
-                value: 'base_1.slot_1'
+                baseslot: 'base_1.slot_1'
             }
         }
         singleTest(test)

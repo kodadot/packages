@@ -82,7 +82,7 @@ describe('RMRK2 Create Collection', () => {
     }
     it('should throw Error for wrong parameter', () => {
         expect(createCollection)
-            .toThrowError(new Error("Missing Property"))
+            .toThrowError(new Error("Props is undefined or null"))
         // max checking
         expect(() => createCollection({ ...collectionProps, max: -1 })).toThrow()
     });
