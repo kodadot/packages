@@ -90,15 +90,13 @@ type CreateCollectionProps = {
 type createCollectionFunc = (props: CreateCollectionProps) => CreatedCollectionV2
 
 export const createCollection: createCollectionFunc = (props) => {
+  checkProps(props)
   const {
     issuer,
     symbol,
     max,
     metadata,
   } = props || {}
-  if ([issuer, symbol, max, metadata].some(item => item === undefined || item === null)) {
-    throw new Error("Missing Property");
-  }
 
   if (max < 0) {
     throw new Error("max should be equal or greater than zero");
