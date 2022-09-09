@@ -12,7 +12,7 @@ describe('RMRK/helpers ', () => {
     })
 
     it('SEND is NOT create', () => {
-      expect(isCreateInteraction(Interaction.MINT)).toBe(true)
+      expect(isCreateInteraction(Interaction.SEND)).toBe(false)
     })
   })
 })
