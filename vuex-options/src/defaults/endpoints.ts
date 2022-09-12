@@ -50,6 +50,11 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://wss.api.moonriver.moonbeam.network'
   },
   {
+    info: 'moonbeam',
+    text: 'Moonbeam (Moonbeam)',
+    value: 'wss://public-rpc.pinknode.io/moonbeam'
+  },
+  {
     info: 'local',
     text: 'Local Node (Own, 127.0.0.1:9944)',
     value: 'ws://127.0.0.1:9944/'
