@@ -5,10 +5,11 @@ import Api from './Api'
 import InstantApi from './instantapi'
 import ApiFactory from './ApiFactory'
 import onApiConnect from './onApiConnect'
+import { useApi } from './useApi'
 export * from './common/extrinsics'
 export * from './common/query'
 export * from './types'
 
-export { InstantApi, ApiFactory, onApiConnect }
+export { InstantApi, ApiFactory, onApiConnect, useApi }
 
 export default Api
