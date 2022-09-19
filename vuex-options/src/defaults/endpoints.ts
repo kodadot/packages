@@ -42,7 +42,7 @@ export const ENDPOINTS: Option[] = [
   {
     info: 'snek',
     text: 'Snek Rococo (HydraDX)',
-    value: 'wss://rpc-01.basilisk-rococo.hydradx.io'
+    value: 'wss://rococo-basilisk-rpc.hydration.dev'
   },
   {
     info: 'moonriver',
