@@ -37,7 +37,7 @@ export const ENDPOINTS: Option[] = [
   {
     info: 'basilisk',
     text: 'Basilisk (HydraDX)',
-    value: 'wss://rpc-01.basilisk.hydradx.io'
+    value: 'wss://rpc.basilisk.cloud'
   },
   {
     info: 'snek',
