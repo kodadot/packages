@@ -7,14 +7,14 @@ export const PREFIX_DEFAULT = 'rmrk'
 
 export const PREFIXES: Option[] = [
   {
-    info: 'kusama',
-    text: 'RMRK (Kusama)',
-    value: 'rmrk'
-  },
-  {
     info: 'basilisk',
     text: 'Basilisk (Kusama)',
     value: 'bsx'
+  },
+  {
+    info: 'kusama',
+    text: 'RMRK (Kusama)',
+    value: 'rmrk'
   },
   {
     info: 'snek',
