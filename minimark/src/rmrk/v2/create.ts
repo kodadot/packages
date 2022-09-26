@@ -1,12 +1,14 @@
-import { CreateInteractionProps, CreatedCollectionV2, CreatedNFTV2, CreatedBASE } from './types'
+import { 
+  CreateCollectionFunc, 
+  CreatedBASE, 
+  CreateNFTFunc, 
+  CreateInteractionFunc } from './types'
 import { InteractionV2 } from './constants'
 // import { isEmpty } from '../../utils/empty'
 import { wrapToString, wrapURI } from '../../utils'
 import { checkProps } from '../../utils/empty'
 import { makeSymbol, toCollectionId, toSerialNumber } from '../identification'
-import { checkBase } from "./consolidator";
-
-type CreateInteractionFunc = (props: CreateInteractionProps) => string
+import { checkBase } from './consolidator'
 
 export const createInteraction: CreateInteractionFunc = ({ action, payload }) => {
   const convert = (props: string[]) => {
@@ -56,16 +58,6 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
   throw new Error(`Unsupported action: ${action}`)
 }
 
-type CreateNFTProps = {
-  collectionId: string
-  symbol: string
-  transferable: number
-  index: number
-  metadata: string
-}
-
-type CreateNFTFunc = (props: CreateNFTProps) => CreatedNFTV2
-
 export const createNFTV2: CreateNFTFunc = props => {
   checkProps(props)
   const { symbol, index, transferable = 1, collectionId, metadata } = props
@@ -80,16 +72,8 @@ export const createNFTV2: CreateNFTFunc = props => {
   }
 }
 
-type CreateCollectionProps = {
-  issuer: string
-  max: number
-  metadata: string
-  symbol: string
-}
 
-type createCollectionFunc = (props: CreateCollectionProps) => CreatedCollectionV2
-
-export const createCollection: createCollectionFunc = props => {
+export const createCollection: CreateCollectionFunc = props => {
   checkProps(props)
   const { issuer, symbol, max, metadata } = props || {}
 
