@@ -57,41 +57,41 @@ export type BUY = {
     recipient?: string
 }
 
-export type EMOTE = {
+export type Emote = {
     id: string
     emotion: string
     namespace: string
 }
 
-export type SEND = Omit<InteractionValue, 'value'> & {
+export type Send = Omit<InteractionValue, 'value'> & {
     recipient: string
 }
 
-export type LIST = {
+export type List = {
     id: string,
     price: string,
 }
 
-export type CHANGEISSUER = {
+export type ChangeIssuer = {
     id: string;
     newissuer: string;
 }
 
-export type CREATE = {
+export type Create = {
     value: CreatedCollectionV2
 }
 
-export type MINT = {
+export type Mint = {
     value: CreatedNFTV2,
     recipient?: string,
 }
 
-export type BURN = Omit<InteractionValue, 'value'>
+export type Burn = Omit<InteractionValue, 'value'>
 
 export type InteractionV2Value = Accept | Base | Equip | Equippable | Lock | Resadd
     | SetPriority | SetProperty | ThemeAdd | undefined
-    | BUY | EMOTE | SEND | LIST | CHANGEISSUER
-    | CREATE | MINT | BURN
+    | BUY | Emote | Send | List | ChangeIssuer
+    | Create | Mint | Burn
 
 export interface CreatedCollectionV2 {
     max: number
@@ -170,10 +170,10 @@ export type CreateInteractionProps =
     | { action: InteractionV2.SETPROPERTY, payload: SetProperty }
     | { action: InteractionV2.THEMEADD, payload: ThemeAdd }
     | { action: InteractionV2.BUY, payload: BUY }
-    | { action: InteractionV2.EMOTE, payload: EMOTE }
-    | { action: InteractionV2.SEND, payload: SEND }
-    | { action: InteractionV2.LIST, payload: LIST }
-    | { action: InteractionV2.CHANGEISSUER, payload: CHANGEISSUER }
-    | { action: InteractionV2.CREATE, payload: CREATE }
-    | { action: InteractionV2.MINT, payload: MINT }
-    | { action: InteractionV2.BURN, payload: BURN }
+    | { action: InteractionV2.EMOTE, payload: Emote }
+    | { action: InteractionV2.SEND, payload: Send }
+    | { action: InteractionV2.LIST, payload: List }
+    | { action: InteractionV2.CHANGEISSUER, payload: ChangeIssuer }
+    | { action: InteractionV2.CREATE, payload: Create }
+    | { action: InteractionV2.MINT, payload: Mint }
+    | { action: InteractionV2.BURN, payload: Burn }

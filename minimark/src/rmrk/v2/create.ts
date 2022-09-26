@@ -2,12 +2,13 @@ import { CreateInteractionProps, CreatedCollectionV2, CreatedNFTV2, CreatedBASE 
 import { InteractionV2 } from './constants'
 // import { isEmpty } from '../../utils/empty'
 import { wrapToString, wrapURI } from '../../utils'
-import { checkProps } from '../../utils/empty';
+import { checkProps } from '../../utils/empty'
 import { makeSymbol, toCollectionId, toSerialNumber } from '../identification'
+import { checkBase } from "./consolidator";
 
-type createInteractionProps = (props: CreateInteractionProps) => string
+type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
-export const createInteraction: createInteractionProps = ({ action, payload }) => {
+export const createInteraction: CreateInteractionFunc = ({ action, payload }) => {
   const convert = (props: string[]) => {
     return `RMRK::${action}::2.0.0::${props.filter(field => ![undefined, ''].includes(field)).join('::')}`
   }
@@ -49,10 +50,10 @@ export const createInteraction: createInteractionProps = ({ action, payload }) =
     case InteractionV2.THEMEADD:
       return convert([payload.base_id, payload.name, wrapToString(payload.value)])
     default:
-      throw new Error(`Unsupported action: ${action}`);
+      throw new Error(`Unsupported action: ${action}`)
   }
 
-  throw new Error(`Unsupported action: ${action}`);
+  throw new Error(`Unsupported action: ${action}`)
 }
 
 type CreateNFTProps = {
@@ -65,7 +66,7 @@ type CreateNFTProps = {
 
 type CreateNFTFunc = (props: CreateNFTProps) => CreatedNFTV2
 
-export const createNFTV2: CreateNFTFunc = (props) => {
+export const createNFTV2: CreateNFTFunc = props => {
   checkProps(props)
   const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
@@ -79,7 +80,6 @@ export const createNFTV2: CreateNFTFunc = (props) => {
   }
 }
 
-
 type CreateCollectionProps = {
   issuer: string
   max: number
@@ -89,17 +89,12 @@ type CreateCollectionProps = {
 
 type createCollectionFunc = (props: CreateCollectionProps) => CreatedCollectionV2
 
-export const createCollection: createCollectionFunc = (props) => {
+export const createCollection: createCollectionFunc = props => {
   checkProps(props)
-  const {
-    issuer,
-    symbol,
-    max,
-    metadata,
-  } = props || {}
+  const { issuer, symbol, max, metadata } = props || {}
 
   if (max < 0) {
-    throw new Error("max should be equal or greater than zero");
+    throw new Error('max should be equal or greater than zero')
   }
   const theSymbol = makeSymbol(symbol)
   return {
@@ -113,18 +108,7 @@ export const createCollection: createCollectionFunc = (props) => {
 
 export const createBase = (props: CreatedBASE) => {
   const { symbol = '', parts = [], themes } = props
-  if (symbol.includes('.') || symbol.includes('-')) {
-    throw new Error("Symbol must not use dashes or dots");
-  }
-
-  if (Array.isArray(parts) && parts.some(part => !part.id)) {
-    throw new Error("Id is required for part")
-  }
-
-  if(themes && !Object.keys(themes).includes('default')) {
-    throw new Error("Missing default key for theme");
-  }
-
+  checkBase({ symbol, parts, themes })
   return {
     ...props,
     symbol: makeSymbol(symbol),
