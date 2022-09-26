@@ -23,12 +23,12 @@ export const PREFIXES: Option[] = [
   },
   {
     info: 'moonriver',
-    text: 'Moonriver (read-only)',
+    text: 'Moonriver (Beta)',
     value: 'movr'
   },
   {
     info: 'moonbeam',
-    text: 'Moonbeam (read-only)',
+    text: 'Moonbeam (Beta)',
     value: 'glmr'
   }
 ]
