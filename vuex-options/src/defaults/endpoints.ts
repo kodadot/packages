@@ -5,6 +5,11 @@ import type { Option } from '../types.js'
 
 export const ENDPOINTS: Option[] = [
   {
+    info: 'basilisk',
+    text: 'Basilisk (HydraDX)',
+    value: 'wss://rpc.basilisk.cloud'
+  },
+  {
     info: 'kusama',
     text: 'Kusama (OnFinality)',
     value: 'wss://kusama.api.onfinality.io/public-ws'
@@ -33,11 +38,6 @@ export const ENDPOINTS: Option[] = [
     info: 'statemine',
     text: 'Statemine (OnFinality)',
     value: 'wss://statemine.api.onfinality.io/public-ws'
-  },
-  {
-    info: 'basilisk',
-    text: 'Basilisk (HydraDX)',
-    value: 'wss://rpc.basilisk.cloud'
   },
   {
     info: 'snek',
