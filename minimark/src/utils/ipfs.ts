@@ -29,5 +29,5 @@ export const ipfsGet = <T extends Response>(url: string, providers: ProviderUrl[
   if (!hash) {
     throw new TypeError(`Invalid IPFS URL: ${url}`)
   }
-  return Promise.race<T>(providers.map<Promise<T>>(provider => fetch(`${provider}/ispf/${hash}`) as Promise<T>))
+  return Promise.race<T>(providers.map<Promise<T>>(provider => fetch(`${provider}/ipfs/${hash}`) as Promise<T>))
 }
