@@ -1,15 +1,14 @@
-import { 
-  CreateCollectionFunc, 
-  CreatedBASE, 
-  CreateNFTFunc, 
-  CreateInteractionFunc } from './types'
 import { InteractionV2 } from './constants'
+import {
+  CreatedBASE, CreatedNFT, CreateInteractionFunc
+} from './types'
 // import { isEmpty } from '../../utils/empty'
-import { wrapToString, wrapURI } from '../../utils'
-import { checkProps } from '../../utils/empty'
-import { makeSymbol, toCollectionId, toSerialNumber } from '../identification'
-import { checkBase } from './consolidator'
+import { upperTrim, wrapToString, wrapURI } from '../../utils'
 import { createCollection as createCollectionAsV1 } from '../create'
+import { makeSymbol } from '../identification'
+import { BinaryBoolean, CreatedCollection } from '../types'
+import { checkBase } from './consolidator'
+import { toSerialNumber } from './identification'
 
 export const createInteraction: CreateInteractionFunc = ({ action, payload }) => {
   const convert = (props: string[]) => {
@@ -57,17 +56,19 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
   }
 }
 
-export const createNFTV2: CreateNFTFunc = props => {
-  checkProps(props)
-  const { symbol, index, transferable = 1, collectionId, metadata } = props
+// DEV: not sure if trasferable should be 
+export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable: number = 1): CreatedNFT => {
+  // checkProps(props)
+  // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
-  const theSymbol = makeSymbol(symbol)
+  const instance = upperTrim(name || makeSymbol(), true)
   return {
+    name, // KodaFlavour, not required by RMRK v2
     sn,
     transferable,
     collection: collectionId,
     metadata,
-    symbol: theSymbol,
+    symbol: instance,
   }
 }
 
