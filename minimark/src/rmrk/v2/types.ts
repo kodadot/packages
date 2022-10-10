@@ -1,3 +1,4 @@
+import { AbstractCreatedNFT, BinaryBoolean } from '../types'
 import { InteractionV2 } from './constants'
 
 export type InteractionV2Type = keyof typeof InteractionV2
@@ -138,6 +139,12 @@ export interface CreatedNFTV2 {
   sn: string
   transferable: number
   symbol: string
+}
+
+export type CreatedNFT = AbstractCreatedNFT & {
+  name?: string
+  symbol: string
+  transferable: number
 }
 
 type Theme = string | Record<string, string>
