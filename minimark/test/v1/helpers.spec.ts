@@ -1,5 +1,5 @@
-import { isCreateInteraction } from '../src/rmrk/helpers'
-import { Interaction } from '../src/rmrk/types'
+import { isCreateInteraction } from '../../src/rmrk/helpers'
+import { Interaction } from '../../src/rmrk/types'
 
 describe('RMRK/helpers ', () => {
   describe('isCreateInteraction', () => {

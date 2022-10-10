@@ -6,10 +6,10 @@ import {
   validListRemarkEvent,
   validBuyRemarkEvent,
 } from './mock'
-import { unwrapRemark as unwrap } from '../src/rmrk/unwrap'
-import { InteractionValue } from '../src/rmrk/types'
+import { unwrapRemark as unwrap } from '../../src/rmrk/unwrap'
+import { InteractionValue } from '../../src/rmrk/types'
 
-describe('MINIMARK::RMRK ', () => {
+describe('MINIMARK::RMRK::1.0.0 ', () => {
   it('should ::MINTNFT', () => {
     const result = unwrap<any>(validMintNFTRemarkEvent)
     const expected = {

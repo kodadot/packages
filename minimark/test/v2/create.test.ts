@@ -1,7 +1,7 @@
-import { createInteraction, createCollection, createNFTV2, createBase } from "../src/rmrk/v2/create";
-import { InteractionV2 } from "../src/rmrk/v2/constants";
-import { CreatedCollectionV2 } from "../src/rmrk/v2/types";
-import m, { Test } from "./rmrk2Mock";
+import { createInteraction, createCollection, createNFTV2, createBase } from "../../src/rmrk/v2/create";
+import { InteractionV2 } from "../../src/rmrk/v2/constants";
+import { CreatedCollectionV2 } from "../../src/rmrk/v2/types";
+import m, { Test } from "./mock";
 
 
 

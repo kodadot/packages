@@ -1,4 +1,4 @@
-import { toSerialNumber, findUniqueSymbol } from '../src/rmrk/identification'
+import { toSerialNumber, findUniqueSymbol } from '../../src/rmrk/identification'
 
 describe('RMRK/identification ', () => {
   describe('toSerialNumber', () => {
