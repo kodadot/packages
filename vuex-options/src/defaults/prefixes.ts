@@ -8,27 +8,27 @@ export const PREFIX_DEFAULT = 'bsx'
 export const PREFIXES: Option[] = [
   {
     info: 'basilisk',
-    text: 'Basilisk (Kusama)',
+    text: 'Basilisk',
     value: 'bsx'
   },
   {
     info: 'kusama',
-    text: 'RMRK (Kusama)',
+    text: 'RMRK',
     value: 'rmrk'
   },
   {
     info: 'snek',
-    text: 'Snek (Rococo)',
+    text: 'Snek [Rococo]',
     value: 'snek'
   },
   {
     info: 'moonriver',
-    text: 'Moonriver (Beta)',
+    text: 'Moonriver [Beta]',
     value: 'movr'
   },
   {
     info: 'moonbeam',
-    text: 'Moonbeam (Beta)',
+    text: 'Moonbeam [Beta]',
     value: 'glmr'
   }
 ]
