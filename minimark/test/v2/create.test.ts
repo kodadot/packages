@@ -88,14 +88,16 @@ describe('RMRK2 Create Collection', () => {
         "metadata": "ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j"
     }
     it('should throw Error for wrong parameter', () => {
+        const wrongCollection = () => createCollection('CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp', collectionProps.symbol, undefined, collectionProps.metadata, -1)
         expect(createCollection)
             .toThrowError(new Error("Props is undefined or null"))
         // max checking
-        expect(() => createCollection({ ...collectionProps, max: -1 })).toThrow()
+        expect(wrongCollection).toThrow()
     });
 
     it('should return created Collection', () => {
-        expect(createCollection(collectionProps)).toEqual({
+        const collection = createCollection('CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp', collectionProps.symbol, undefined, collectionProps.metadata, collectionProps.max)
+        expect(collection).toEqual({
             max: 100,
             issuer: collectionProps.issuer,
             symbol: 'DLEP',
