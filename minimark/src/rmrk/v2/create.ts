@@ -54,8 +54,6 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
     default:
       throw new Error(`Unsupported action: ${action}`)
   }
-
-  throw new Error(`Unsupported action: ${action}`)
 }
 
 export const createNFTV2: CreateNFTFunc = props => {
