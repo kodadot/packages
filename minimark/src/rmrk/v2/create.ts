@@ -9,6 +9,7 @@ import { wrapToString, wrapURI } from '../../utils'
 import { checkProps } from '../../utils/empty'
 import { makeSymbol, toCollectionId, toSerialNumber } from '../identification'
 import { checkBase } from './consolidator'
+import { createCollection as createCollectionAsV1 } from '../create'
 
 export const createInteraction: CreateInteractionFunc = ({ action, payload }) => {
   const convert = (props: string[]) => {
@@ -71,21 +72,15 @@ export const createNFTV2: CreateNFTFunc = props => {
 }
 
 
-export const createCollection: CreateCollectionFunc = props => {
-  checkProps(props)
-  const { issuer, symbol, max, metadata } = props || {}
+export const createCollection = (caller: string, symbol: string, name: string | undefined, metadata: string, max = 0): CreatedCollection => {
+  // checkProps(props)
+  // const { issuer, symbol, max, metadata } = props || {}
 
   if (max < 0) {
     throw new Error('max should be equal or greater than zero')
   }
-  const theSymbol = makeSymbol(symbol)
-  return {
-    id: toCollectionId(issuer, theSymbol),
-    symbol: theSymbol,
-    issuer: issuer,
-    metadata,
-    max,
-  }
+  
+  return createCollectionAsV1(caller, symbol, name || '', metadata, max)
 }
 
 export const createBase = (props: CreatedBASE) => {
