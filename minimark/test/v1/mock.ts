@@ -21,40 +21,8 @@ export const validEmoteRemarkEvent = 'RMRK::EMOTE::1.0.0::6431478-10D77F8B699437
 export const validConsumeRemarkEvent = 'RMRK::CONSUME::1.0.0::6277640-D4E195CCE7ADB3F876-SUPER GIFS-GOODBYE_BULLIES!-0000000000000002'
 
 
-export const base_json = {
-  "symbol": "kanaria_superbird",
-  "type": "svg",
-  "parts": [
-    {
-        "id": "bg",
-        "src": "ipfs://ipfs/hash",
-        "thumb": "ipfs://ipfs/hash",
-        "type": "slot",
-        "equippable": ["collection_1", "collection_2"],
-        "z": 3
-    },
-    {
-        "id": "gem_1",
-        "src": "ipfs://ipfs/hash",
-        "type": "fixed",
-        "z": 4
-    },
-    {
-        "id": "wing_1_back",
-        "src": "ipfs://ipfs/hash",
-        "metadata": "ipfs://ipfs/hash"
-    },
-    {
-        "id": "wing_1_front",
-        "metadata": "ipfs://ipfs/hash2"
-    }
-  ]
-}
-
 export const NFT_ID = '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001'
-export const CREATE_EVENT = 'RMRK::CREATE::2.0.0::%7B%22max%22%3A100%2C%22issuer%22%3A%22CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp%22%2C%22symbol%22%3A%22DLEP%22%2C%22id%22%3A%220aff6865bed3a66b-DLEP%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j%22%7D'
-export const MINT_EVENT = 'RMRK::MINT::2.0.0::%7B%22collection%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%2200000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D'
-export const BURN_EVENT = 'RMRK::BURN::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001'
+
 export const RESADD_EVENT = `RMRK::RESADD::2.0.0::${NFT_ID}::%7B%22id%22%3A%22V1i6B%22%2C%22src%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D`
 export const CollectionV2 = {
   "max": 100,
