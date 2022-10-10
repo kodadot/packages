@@ -1,42 +1,32 @@
 // Copyright 2021 @kodadot authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types.js';
+import type { Option } from '../types.js'
 
 export const INDEXERS: Option[] = [
   {
     info: 'kusama',
-    text: 'Kusama (magick auto-balanced)',
-    value: 'https://kodadot.api.subquery.network'
+    text: 'Kusama (rubick)',
+    value: 'https://squid.subsquid.io/rubick/v/007/graphql'
   },
   {
-    info: 'kusama',
-    text: 'Kusama (magick EU)',
-    value: 'https://sz.api.subquery.network/sq/vikiival/magick'
+    info: 'basilisk',
+    text: 'Basilisk (snekk)',
+    value: 'https://squid.subsquid.io/snekk/v/005/graphql'
   },
   {
-    info: 'kusama',
-    text: 'Kusama (magick)',
-    value: 'https://api.subquery.network/sq/vikiival/magick'
-  },
-  {
-    info: 'statemine',
-    text: 'Statemine (unique)',
-    value: 'https://api.subquery.network/sq/kodadot/unique'
-  },
-  {
-    info: 'westend',
-    text: 'Westend (magick-west)',
-    value: 'https://api.subquery.network/sq/vikiival/magick-west'
-  },
-  {
-    info: 'westmint',
-    text: 'Westmint (unique-west)',
-    value: 'https://api.subquery.network/sq/vikiival/unique-west'
+    info: 'snek',
+    text: 'Snek (snekk)',
+    value: 'https://squid.subsquid.io/snekk/v/004/graphql'
   },
   {
     info: 'moonriver',
-    text: 'Moonsama (click)',
+    text: 'Moonbeam (antick)',
+    value: 'http://localhost:4350/graphql'
+  },
+  {
+    info: 'moonbeam',
+    text: 'Moonriver (click)',
     value: 'http://localhost:4350/graphql'
   },
   {
@@ -49,7 +39,6 @@ export const INDEXERS: Option[] = [
     text: 'Local Indexer (:3000)',
     value: 'http://127.0.0.1:3000'
   }
-];
+]
 
-export const INDEXER_DEFAULT: string = INDEXERS[0].value as string || 'https://api.subquery.network/sq/vikiival/magick';
-
+export const INDEXER_DEFAULT: string = INDEXERS[0].value as string || 'https://api.subquery.network/sq/vikiival/magick'

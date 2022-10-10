@@ -1,19 +1,17 @@
 // Copyright 2017-2021 @polkadot/ui-settings authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types.js';
+import type { Option } from '../types.js'
 
-import { isPolkadot } from './type.js';
+import { isPolkadot } from './type.js'
 
-const LANGUAGE_DEFAULT = 'default';
+const LANGUAGE_DEFAULT = 'default'
 
+const PAGINATION_DEFAULT = '12'
 
-const PAGINATION_DEFAULT = '12';
+const PAGINATIONS: Option[] = [12, 24, 48].map((value): Option => ({ value, text: value.toString(), info: value.toString() }))
 
-const PAGINATIONS: Option[] = [12, 24, 48].map((value): Option => ({ value, text: value.toString(), info: value.toString() }));
-
-const DISPLAY_DEFAULT = 'large';
-
+const DISPLAY_DEFAULT = 'large'
 
 const DISPLAYS: Option[] = [
   {
@@ -26,9 +24,9 @@ const DISPLAYS: Option[] = [
     text: 'Small display',
     value: 'small'
   }
-];
+]
 
-const SHOW_DEFAULT = 'all';
+const SHOW_DEFAULT = 'all'
 
 const SHOW_OPTIONS: Option[] = [
   {
@@ -41,11 +39,11 @@ const SHOW_OPTIONS: Option[] = [
     text: 'Small display',
     value: 'small'
   }
-];
+]
 
 const UITHEME_DEFAULT = isPolkadot
   ? 'polkadot'
-  : 'substrate';
+  : 'substrate'
 
 const UITHEMES: Option[] = [
   {
@@ -58,9 +56,9 @@ const UITHEMES: Option[] = [
     text: 'Substrate',
     value: 'substrate'
   }
-];
+]
 
-const CHANGE_DEFAULT = 'auto';
+const CHANGE_DEFAULT = 'auto'
 
 const CHANGE_OPTIONS: Option[] = [
   {
@@ -72,14 +70,14 @@ const CHANGE_OPTIONS: Option[] = [
     info: 'manual',
     text: 'Manual (change node && indexer)',
     value: 'manual'
-  },
+  }
 ]
 
-const ICON_DEFAULT = 'default';
+const ICON_DEFAULT = 'default'
 
 const ICON_DEFAULT_HOST = isPolkadot
   ? 'polkadot'
-  : 'substrate';
+  : 'substrate'
 
 const ICONS: Option[] = [
   {
@@ -102,9 +100,9 @@ const ICONS: Option[] = [
     text: 'Beachball',
     value: 'beachball'
   }
-];
+]
 
-const NOTIFICATION_DEFAULT = 'popup';
+const NOTIFICATION_DEFAULT = 'popup'
 
 export {
   ICON_DEFAULT,
@@ -121,5 +119,5 @@ export {
   UITHEME_DEFAULT,
   UITHEMES,
   CHANGE_DEFAULT,
-  CHANGE_OPTIONS,
-};
+  CHANGE_OPTIONS
+}
