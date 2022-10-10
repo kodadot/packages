@@ -174,9 +174,13 @@ type Part = OffChainPart | OnChainFixedPart | OnChainSlotPart
 
 export type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
-export interface CreatedBASE {
+// From RMRK:TOOLS 
+// https://github.com/rmrk-team/rmrk-tools/blob/master/src/rmrk2.0.0/tools/types.ts
+export type BaseType = 'svg' | 'png' | 'audio' | 'video' | 'mixed' | string;
+
+export interface CreatedBase {
   symbol: string
-  type?: string
+  type?: BaseType
   themes?: Themes
   parts: Part[]
   metadata?: string
