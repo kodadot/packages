@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid'
 import { CreatedNFT } from './types'
 
 export const toSerialNumber = (index: number, offset = 0, plusOne = true): string => {
-  return String(index + offset + Number(plusOne)).padStart(16, '0')
+  return String(index + offset + Number(plusOne)).padStart(16, '0') // TODO RMRK v2 has 8 digits
 }
 
 export function toCollectionId(caller: string, symbol: string): string {
