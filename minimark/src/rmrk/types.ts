@@ -50,13 +50,16 @@ export type CreatedCollection = {
   symbol: string
 }
 
-export type CreatedNFT = {
+export type AbstractCreatedNFT = {
   collection: string
-  instance: string
-  metadata: string
-  name: string
-  sn: string
   transferable: BinaryBoolean
+  sn: string
+  metadata: string
+}
+
+export type CreatedNFT = AbstractCreatedNFT & {
+  instance: string
+  name: string
   currentOwner: string
 }
 
