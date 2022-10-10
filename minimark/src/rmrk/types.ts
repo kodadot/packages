@@ -52,7 +52,7 @@ export type CreatedCollection = {
 
 export type AbstractCreatedNFT = {
   collection: string
-  transferable: BinaryBoolean
+  transferable: BinaryBoolean | number
   sn: string
   metadata: string
 }
@@ -61,6 +61,7 @@ export type CreatedNFT = AbstractCreatedNFT & {
   instance: string
   name: string
   currentOwner: string
+  transferable: BinaryBoolean
 }
 
 export type CreatedCollectionWithNFT<C = CreatedCollection, N = CreatedNFT[]> = {
