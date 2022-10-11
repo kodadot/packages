@@ -61,7 +61,7 @@ export const createNFT = (index: number, collectionId: string, name: string | un
   // checkProps(props)
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
-  const instance = upperTrim(name || makeSymbol(), true)
+  const instance = makeSymbol(name)
   return {
     name, // KodaFlavour, not required by RMRK v2
     sn,
