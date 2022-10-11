@@ -1,4 +1,4 @@
-import { AbstractCreatedNFT, BinaryBoolean } from '../types'
+import { AbstractCreatedNFT } from '../types'
 import { InteractionV2 } from './constants'
 
 export type InteractionV2Type = keyof typeof InteractionV2
@@ -151,10 +151,12 @@ type Theme = string | Record<string, string>
 
 type Themes = Record<string, Theme>
 
-export interface OffChainPart {
+export interface BasicPart {
   id: string
   metadata: string
 }
+
+export type PartType = 'slot' | 'fixed'
 
 export interface OnChainFixedPart {
   id: string
@@ -170,7 +172,7 @@ export interface OnChainSlotPart extends Omit<OnChainFixedPart, 'type'> {
   equippable: string[]
 }
 
-type Part = OffChainPart | OnChainFixedPart | OnChainSlotPart
+type Part = BasicPart | OnChainFixedPart | OnChainSlotPart
 
 export type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
