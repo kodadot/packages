@@ -1,6 +1,6 @@
-import type { CreatedBASE } from './types';
+import type { CreatedBase } from './types';
 
-export function checkBase({ symbol, parts, themes }: CreatedBASE) {
+export function checkBase({ symbol, parts, themes }: CreatedBase) {
   if (symbol.includes('.') || symbol.includes('-')) {
     throw new Error('Symbol must not use dashes or dots')
   }

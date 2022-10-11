@@ -1,14 +1,14 @@
 import { InteractionV2 } from './constants'
 import {
-  CreatedBASE, CreatedNFT, CreateInteractionFunc
+  CreatedBase, CreatedNFT, CreateInteractionFunc
 } from './types'
 // import { isEmpty } from '../../utils/empty'
-import { upperTrim, wrapToString, wrapURI } from '../../utils'
+import { lowerTrim, upperTrim, wrapToString, wrapURI } from '../../utils'
 import { createCollection as createCollectionAsV1 } from '../create'
 import { makeSymbol } from '../identification'
 import { BinaryBoolean, CreatedCollection } from '../types'
 import { checkBase } from './consolidator'
-import { toSerialNumber } from './identification'
+import { makeBaseSymbol, toSerialNumber } from './identification'
 
 export const createInteraction: CreateInteractionFunc = ({ action, payload }) => {
   const convert = (props: string[]) => {
@@ -84,8 +84,9 @@ export const createCollection = (caller: string, symbol: string, name: string | 
   return createCollectionAsV1(caller, symbol, name || '', metadata, max)
 }
 
-export const createBase = (props: CreatedBASE) => {
-  const { symbol = '', parts = [], themes } = props
+export const createBase = (props: CreatedBase): CreatedBase => {
+  const { symbol: providedSymbol, parts = [], themes } = props
+  const symbol = makeBaseSymbol(providedSymbol)
   checkBase({ symbol, parts, themes })
   return {
     ...props,
