@@ -158,7 +158,7 @@ export interface BasicPart {
 
 export type PartType = 'slot' | 'fixed'
 
-export interface OnChainFixedPart {
+export interface FixedPart {
   id: string
   src: string
   type: 'fixed'
@@ -167,12 +167,12 @@ export interface OnChainFixedPart {
   metadata?: string
 }
 
-export interface OnChainSlotPart extends Omit<OnChainFixedPart, 'type'> {
+export interface SlotPart extends Omit<FixedPart, 'type'> {
   type: 'slot'
   equippable: string[]
 }
 
-type Part = BasicPart | OnChainFixedPart | OnChainSlotPart
+type Part = BasicPart | FixedPart | SlotPart
 
 export type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
