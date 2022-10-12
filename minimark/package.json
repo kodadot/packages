@@ -37,10 +37,9 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@subsquid/ss58": "^0.1.0",
-    "@subsquid/substrate-processor": "^1.7.0",
     "@vitest/coverage-c8": "latest",
     "eslint": "latest",
+    "husky": "^8.0.1",
     "standard-version": "latest",
     "typeorm": "^0.3.9",
     "typescript": "latest",
@@ -53,7 +52,7 @@
   "packageManager": "pnpm@7.9.5",
   "husky": {
     "hooks": {
-      "pre-commit": "lint"
+      "pre-push": "pnpm lint"
     }
   }
 }
