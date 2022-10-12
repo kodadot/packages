@@ -69,4 +69,4 @@ export type CreatedCollectionWithNFT<C = CreatedCollection, N = CreatedNFT[]> = 
   nfts: N
 }
 
-export type IPFSUri = `ipfs://${string}` | `ipfs://ipfs/${string}`
+// export type IPFSUri  = `ipfs://${string}` | `ipfs://ipfs/${string}`
