@@ -1,62 +1,48 @@
 {
   "name": "@kodadot1/minimark",
-  "version": "0.0.1-rc.10",
+  "version": "0.1.0-rc.0",
+  "description": "Utils for the RMRK",
+  "repository": "@kodadot/packages",
   "license": "MIT",
-  "author": "Viki Val",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=14"
-  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
-  },
-  "peerDependencies": {
-    "@polkadot/api": "~8.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 160,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "module": "dist/minimark.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/minimark.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/minimark.esm.js",
-      "limit": "10 KB"
-    }
-  ],
-  "devDependencies": {
-    "@polkadot/api": "^8.13.1",
-    "@size-limit/preset-small-lib": "^7.0.8",
-    "husky": "^8.0.1",
-    "size-limit": "^7.0.8",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "build": "unbuild",
+    "dev": "vitest dev",
+    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
+    "prepack": "unbuild",
+    "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
+    "test": "pnpm lint && vitest run --coverage"
   },
   "dependencies": {
+    "@polkadot/api": "^9.5.1",
+    "@polkadot/keyring": "^10.1.10",
+    "@polkadot/util": "^10.1.10",
     "nanoid": "^3.2.0",
     "slugify": "^1.6.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@subsquid/ss58": "^0.1.0",
+    "@subsquid/substrate-processor": "^1.7.0",
+    "@vitest/coverage-c8": "latest",
+    "eslint": "latest",
+    "standard-version": "latest",
+    "typeorm": "^0.3.9",
+    "typescript": "latest",
+    "unbuild": "latest",
+    "vitest": "latest"
+  },
+  "peerDependencies": {
+    "@polkadot/api": "~9.0"
+  },
+  "packageManager": "pnpm@7.9.5",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint"
+    }
   }
 }
