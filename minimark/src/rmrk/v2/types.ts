@@ -158,6 +158,7 @@ export interface BasicPart {
 
 export type PartType = 'slot' | 'fixed'
 
+// https://github.com/rmrk-team/rmrk-tools/blob/b3fe70f59db383d3b4d158bb0b4c3c88aaaf6158/src/rmrk2.0.0/classes/base.ts#L170
 export interface AbstractBasePart {
   id: string
   src: string

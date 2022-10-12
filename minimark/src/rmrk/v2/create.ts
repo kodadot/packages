@@ -2,11 +2,10 @@ import { InteractionV2 } from './constants'
 import {
   CreatedBase, CreatedNFT, CreateInteractionFunc
 } from './types'
-// import { isEmpty } from '../../utils/empty'
-import { lowerTrim, upperTrim, wrapToString, wrapURI } from '../../utils'
+import { wrapToString, wrapURI } from '../../utils'
 import { createCollection as createCollectionAsV1 } from '../create'
 import { makeSymbol } from '../identification'
-import { BinaryBoolean, CreatedCollection } from '../types'
+import { CreatedCollection } from '../types'
 import { checkBase } from './consolidator'
 import { makeBaseSymbol, toSerialNumber } from './identification'
 
