@@ -88,6 +88,6 @@ export const createBase = (props: CreatedBase): CreatedBase => {
   checkBase({ symbol, parts, themes })
   return {
     ...props,
-    symbol: makeSymbol(symbol)
+    symbol
   }
 }
