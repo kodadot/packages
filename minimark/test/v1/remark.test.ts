@@ -49,7 +49,6 @@ describe('MINIMARK::RMRK::1.0.0 ', () => {
     expect(value).toStrictEqual(expected)
   })
 
-
   it('should ::CHANGEISSUER', () => {
     const result = unwrap<InteractionValue>(changeUserRemarkValidMocks[0])
     const expected: InteractionValue = {

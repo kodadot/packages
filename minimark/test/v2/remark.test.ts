@@ -1,5 +1,7 @@
+import { expect, it, describe } from 'vitest'
+
 import unwrapV2 from '../../src/rmrk/v2/unwrap'
-import { base_json, CREATE_EVENT, MINT_EVENT, BURN_EVENT } from './mock'
+import { BaseJson, CREATE_EVENT, MINT_EVENT, BURN_EVENT } from './mock'
 
 type TestingSet = {
   input: string
@@ -21,8 +23,8 @@ describe('MINIMARK::RMRK::2.0.0', () => {
       type: 'LOCK',
       input: 'RMRK::LOCK::2.0.0::0aff6865bed3a66b-DLEP',
       expected: {
-        id: '0aff6865bed3a66b-DLEP',
-      },
+        id: '0aff6865bed3a66b-DLEP'
+      }
     }
     singleTest(test)
   })
@@ -34,8 +36,8 @@ describe('MINIMARK::RMRK::2.0.0', () => {
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
         entity_type: 'RES',
-        entity_id: 'V1i6B',
-      },
+        entity_id: 'V1i6B'
+      }
     }
     singleTest(test)
   })
@@ -43,10 +45,10 @@ describe('MINIMARK::RMRK::2.0.0', () => {
   it('should BASE', () => {
     const test: TestingSet = {
       type: 'BASE',
-      input: `RMRK::BASE::2.0.0::${JSON.stringify(base_json)}`,
+      input: `RMRK::BASE::2.0.0::${JSON.stringify(BaseJson)}`,
       expected: {
-        value: base_json,
-      },
+        value: BaseJson
+      }
     }
     singleTest(test)
   })
@@ -57,8 +59,8 @@ describe('MINIMARK::RMRK::2.0.0', () => {
       input: 'RMRK::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-00000001::base_1.slot_1',
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-ARMOR-00000001',
-        baseslot: 'base_1.slot_1',
-      },
+        baseslot: 'base_1.slot_1'
+      }
     }
     singleTest(test)
   })
@@ -70,8 +72,8 @@ describe('MINIMARK::RMRK::2.0.0', () => {
       expected: {
         id: 'base-575878273-kanaria_epic_birds',
         slot: 'wing_slot_1',
-        value: '*',
-      },
+        value: '*'
+      }
     }
     singleTest(test)
   })
@@ -86,12 +88,12 @@ describe('MINIMARK::RMRK::2.0.0', () => {
         value: {
           id: 'V1i6B',
           src: 'hash-of-metadata-guest-bird-art-with-jetpack',
-          metadata: 'hash-of-metadata-with-credits',
+          metadata: 'hash-of-metadata-with-credits'
         },
-        replace: undefined,
-      },
+        replace: undefined
+      }
     }
-    //TODO: find example that has replace field
+    // TODO: find example that has replace field
     singleTest(test)
   })
 
@@ -101,8 +103,8 @@ describe('MINIMARK::RMRK::2.0.0', () => {
       input: 'RMRK::SETPRIORITY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::bar,foo,baz',
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-        value: 'bar,foo,baz',
-      },
+        value: 'bar,foo,baz'
+      }
     }
     singleTest(test)
   })
@@ -114,8 +116,8 @@ describe('MINIMARK::RMRK::2.0.0', () => {
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
         name: 'color',
-        value: 'red',
-      },
+        value: 'red'
+      }
     }
     singleTest(test)
   })
@@ -128,9 +130,9 @@ describe('MINIMARK::RMRK::2.0.0', () => {
         base_id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
         name: 'good',
         value: {
-          primary_color: '#00ff00',
-        },
-      },
+          primary_color: '#00ff00'
+        }
+      }
     }
     singleTest(test)
   })
@@ -143,16 +145,16 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       input: 'rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
       expected: {
         id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
-        recipient: undefined,
-      },
+        recipient: undefined
+      }
     }
     const test2: TestingSet = {
       type: 'BUY',
       input: 'rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001::recipient_id',
       expected: {
         id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
-        recipient: 'recipient_id',
-      },
+        recipient: 'recipient_id'
+      }
     }
 
     singleTest(test)
@@ -166,8 +168,8 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
         emotion: '1F389',
-        namespace: 'RMRK1',
-      },
+        namespace: 'RMRK1'
+      }
     }
     singleTest(test)
     // Emoting on an account
@@ -177,8 +179,8 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       expected: {
         id: '0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10',
         emotion: '1F389',
-        namespace: 'PUBKEY',
-      },
+        namespace: 'PUBKEY'
+      }
     }
     singleTest(test2)
   })
@@ -189,8 +191,8 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       input: 'RMRK::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y',
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-        recipient: 'H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y',
-      },
+        recipient: 'H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y'
+      }
     })
   })
 
@@ -200,8 +202,8 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       input: 'RMRK::LIST::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::10000000000',
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-        price: '10000000000',
-      },
+        price: '10000000000'
+      }
     })
     // cancel case
     singleTest({
@@ -209,8 +211,8 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       input: 'RMRK::LIST::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::0',
       expected: {
         id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
-        price: '0',
-      },
+        price: '0'
+      }
     })
   })
 
@@ -220,8 +222,8 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       input: 'RMRK::CHANGEISSUER::2.0.0::0aff6865bed3a66b-DLEP::HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT',
       expected: {
         id: '0aff6865bed3a66b-DLEP',
-        newissuer: 'HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT',
-      },
+        newissuer: 'HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT'
+      }
     })
   })
 })
@@ -237,9 +239,9 @@ describe('RMRK:2.0.0 backward compatible', () => {
           issuer: 'CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp',
           symbol: 'DLEP',
           id: '0aff6865bed3a66b-DLEP',
-          metadata: 'ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j',
-        },
-      },
+          metadata: 'ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j'
+        }
+      }
     })
   })
 
@@ -253,10 +255,10 @@ describe('RMRK:2.0.0 backward compatible', () => {
           symbol: 'DL15',
           transferable: 1,
           sn: '00000001',
-          metadata: 'ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4',
+          metadata: 'ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4'
         },
-        recipient: undefined,
-      },
+        recipient: undefined
+      }
     })
   })
 
@@ -265,8 +267,8 @@ describe('RMRK:2.0.0 backward compatible', () => {
       type: 'BURN',
       input: BURN_EVENT,
       expected: {
-        id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001',
-      },
+        id: '5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001'
+      }
     })
   })
 })
