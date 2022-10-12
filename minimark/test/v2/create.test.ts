@@ -108,7 +108,7 @@ describe('RMRK2 Create Collection', () => {
   it('should throw Error for wrong parameter', () => {
     const wrongCollection = () => createCollection('CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp', collectionProps.symbol, undefined, collectionProps.metadata, -1)
     expect(createCollection)
-      .toThrowError(new Error('Props is undefined or null'))
+      .toThrowError(new Error('[RMRK] Could not create collection, because caller is empty'))
     // max checking
     expect(wrongCollection).toThrow()
   })
@@ -120,6 +120,7 @@ describe('RMRK2 Create Collection', () => {
       issuer: collectionProps.issuer,
       symbol: 'DLEP',
       id: '0AFF686563BED3A66B-DLEP',
+      name: '',
       metadata: 'ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j'
     })
   })
@@ -135,24 +136,30 @@ describe('RMRK2 Create NFT', () => {
   }
 
   it('should return created NFT', () => {
-    expect(createNFTV2(nftProps.index, nftProps.collectionId, '', nftProps.metadata)).toEqual({
+    expect(createNFTV2(nftProps.index, nftProps.collectionId, ' ChUnky_DleP-ONE ', nftProps.metadata)).toEqual({
       collection: '0aff6865bed3a66b-DLEP',
       transferable: 1,
       metadata: 'ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4',
-      sn: '0000000000000001',
-      symbol: 'DLEP'
+      name: ' ChUnky_DleP-ONE ',
+      sn: '00000001',
+      symbol: 'CHUNKY_DLEPONE'
     })
   })
 })
 
 describe('RMRK2 Create Base', () => {
+  it('should handle correctly the symbol', () => {
+    // symbol must not use dashes or dots
+    const baseWithDotSymbol = createBase({ symbol: 'this.at', parts: [] })
+
+    expect(baseWithDotSymbol.symbol).toBe('thisat')
+
+    const baseWithDashSymbol = createBase({ symbol: 'this-at', parts: [] })
+    expect(baseWithDashSymbol.symbol).toBe('thisat')
+  })
+
   it('should raise Error for wrong params', () => {
     // symbol must not use dashes or dots
-    expect(() => createBase({ symbol: 'this.at', parts: [] }))
-      .toThrowError(new Error('Symbol must not use dashes or dots'))
-    expect(() => createBase({ symbol: 'this-at', parts: [] }))
-      .toThrowError(new Error('Symbol must not use dashes or dots'))
-
     // each parts must have an uniquely Id
     expect(() => createBase({ parts: [{ src: 'ipfs://ipfs/hash' }] }))
       .toThrowError(new Error('Id is required for part'))
@@ -193,7 +200,7 @@ describe('RMRK2 Create Base', () => {
       ]
     }
 
-    expect(createBase(onChainBase)).toEqual({ ...onChainBase, symbol: 'KANARIA_SUPERBIRD' })
+    expect(createBase(onChainBase)).toEqual({ ...onChainBase, symbol: 'kanaria_superbird' })
   })
 
   it('should create off-chain BASE', () => {
@@ -208,7 +215,7 @@ describe('RMRK2 Create Base', () => {
     }
     expect(createBase(offChainBase)).toEqual({
       ...offChainBase,
-      symbol: 'KANARIA_SUPERBIRD'
+      symbol: 'kanaria_superbird'
     })
   })
 })
