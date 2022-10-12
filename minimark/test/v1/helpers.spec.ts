@@ -1,3 +1,5 @@
+import { expect, it, describe } from 'vitest'
+
 import { isCreateInteraction } from '../../src/rmrk/helpers'
 import { Interaction } from '../../src/rmrk/types'
 
