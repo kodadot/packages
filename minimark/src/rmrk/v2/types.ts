@@ -158,21 +158,28 @@ export interface BasicPart {
 
 export type PartType = 'slot' | 'fixed'
 
-export interface FixedPart {
+export interface AbstractBasePart {
   id: string
   src: string
-  type: 'fixed'
-  z: number
+  type: PartType
+  z?: number
   thumb?: string
   metadata?: string
 }
 
-export interface SlotPart extends Omit<FixedPart, 'type'> {
-  type: 'slot'
-  equippable: string[]
+
+export interface FixedPart extends AbstractBasePart {
+  type: 'fixed'
 }
 
-type Part = BasicPart | FixedPart | SlotPart
+export interface SlotPart extends AbstractBasePart {
+  type: 'slot'
+  equippable: string[] | '*'
+}
+
+type BasePart = FixedPart | SlotPart
+
+// type Resource = Basic | Base
 
 export type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
@@ -184,7 +191,7 @@ export interface CreatedBase {
   symbol: string
   type?: BaseType
   themes?: Themes
-  parts: Part[]
+  parts: BasePart[]
   metadata?: string
 }
 
