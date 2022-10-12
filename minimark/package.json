@@ -25,7 +25,8 @@
     "lint-fix": "eslint --ext .ts,.js,.mjs,.cjs ./src --fix",
     "prepack": "unbuild",
     "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
-    "test": "vitest run --coverage"
+    "test": "vitest run",
+    "test-coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@polkadot/api": "^9.5.1",
