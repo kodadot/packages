@@ -1,73 +1,73 @@
-import { unwrapJSON, unwrapURI } from "../../utils";
-import { isValidInteraction } from "../helpers";
+import { unwrapJSON, unwrapURI } from '../../utils'
+import { isValidInteraction } from '../helpers'
 
-import { InteractionV2Type, InteractionV2Value } from "./types";
-import { InteractionV2 } from "./constants";
+import { InteractionV2Type, InteractionV2Value } from './types'
+import { InteractionV2 } from './constants'
 export const toInteractionV2 = (interaction: string): InteractionV2 => {
-    isValidInteraction(interaction)
-    return interaction as InteractionV2
+  isValidInteraction(interaction)
+  return interaction as InteractionV2
 }
 
 export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, restValues: string[]): InteractionV2Value => {
   switch (interaction) {
     case InteractionV2.ACCEPT:
       return {
-        id: id,
-        entity_type: restValues[0] as "RES" | "NFT",
-        entity_id: restValues[1],
+        id,
+        entity_type: restValues[0] as 'RES' | 'NFT',
+        entity_id: restValues[1]
       }
     case InteractionV2.BASE:
       return {
-        value: unwrapJSON(id),
+        value: unwrapJSON(id)
       }
     case InteractionV2.EQUIP:
       return {
         id,
-        baseslot: restValues[0],
+        baseslot: restValues[0]
       }
     case InteractionV2.EQUIPPABLE:
       return {
         id,
         slot: restValues[0],
-        value: restValues[1],
+        value: restValues[1]
       }
     case InteractionV2.LOCK:
       return {
-        id,
+        id
       }
     case InteractionV2.RESADD:
       return {
         id,
         value: unwrapJSON(restValues[0]),
-        replace: restValues[1],
+        replace: restValues[1]
       }
     case InteractionV2.SETPRIORITY:
       return {
         id,
-        value: unwrapURI(restValues[0]),
+        value: unwrapURI(restValues[0])
       }
     case InteractionV2.SETPROPERTY:
       return {
         id,
         name: unwrapURI(restValues[0]),
-        value: unwrapURI(restValues[1]),
+        value: unwrapURI(restValues[1])
       }
     case InteractionV2.THEMEADD:
       return {
         base_id: id,
         name: restValues[0],
-        value: unwrapJSON(restValues[1]),
+        value: unwrapJSON(restValues[1])
       }
     case InteractionV2.BUY:
       return {
         id,
-        recipient: restValues[0],
+        recipient: restValues[0]
       }
     case InteractionV2.EMOTE:
       return {
         namespace: id,
         id: restValues[0],
-        emotion: restValues[1],
+        emotion: restValues[1]
       }
     case InteractionV2.SEND:
       return {
@@ -82,7 +82,7 @@ export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, re
     case InteractionV2.CHANGEISSUER:
       return {
         id,
-        newissuer: restValues[0],
+        newissuer: restValues[0]
       }
     case InteractionV2.CREATE:
       return {
@@ -95,9 +95,7 @@ export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, re
       }
     case InteractionV2.BURN:
       return {
-        id,
+        id
       }
   }
-
-  return
 }

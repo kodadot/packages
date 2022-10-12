@@ -10,7 +10,6 @@ export const makeBaseSymbol = (symbol?: string): string => {
   return !symbol ? toLowerCase(nanoid(13)) : lowerTrim(symbol, true)
 }
 
-
 export const toNFTId = (nft: CreatedNFT, blocknumber: string | number): string => {
   const { collection, symbol: instance, sn } = nft
   if (!collection || !instance || !sn) {

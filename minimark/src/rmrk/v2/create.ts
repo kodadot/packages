@@ -1,11 +1,11 @@
-import { InteractionV2 } from './constants'
-import {
-  CreatedBase, CreatedNFT, CreateInteractionFunc
-} from './types'
 import { wrapToString, wrapURI } from '../../utils'
 import { createCollection as createCollectionAsV1 } from '../create'
 import { makeSymbol } from '../identification'
 import { CreatedCollection } from '../types'
+import {
+  CreatedBase, CreatedNFT, CreateInteractionFunc
+} from './types'
+import { InteractionV2 } from './constants'
 import { checkBase } from './consolidator'
 import { makeBaseSymbol, toSerialNumber } from './identification'
 
@@ -55,7 +55,7 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
   }
 }
 
-// DEV: not sure if trasferable should be 
+// DEV: not sure if trasferable should be
 export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable: number = 1): CreatedNFT => {
   // checkProps(props)
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
@@ -67,10 +67,9 @@ export const createNFT = (index: number, collectionId: string, name: string | un
     transferable,
     collection: collectionId,
     metadata,
-    symbol: instance,
+    symbol: instance
   }
 }
-
 
 export const createCollection = (caller: string, symbol: string, name: string | undefined, metadata: string, max = 0): CreatedCollection => {
   // checkProps(props)
@@ -79,7 +78,7 @@ export const createCollection = (caller: string, symbol: string, name: string | 
   if (max < 0) {
     throw new Error('max should be equal or greater than zero')
   }
-  
+
   return createCollectionAsV1(caller, symbol, name || '', metadata, max)
 }
 
@@ -89,6 +88,6 @@ export const createBase = (props: CreatedBase): CreatedBase => {
   checkBase({ symbol, parts, themes })
   return {
     ...props,
-    symbol: makeSymbol(symbol),
+    symbol: makeSymbol(symbol)
   }
 }

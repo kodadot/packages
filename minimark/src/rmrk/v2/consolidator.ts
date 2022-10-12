@@ -1,4 +1,4 @@
-import type { CreatedBase } from './types';
+import type { CreatedBase } from './types'
 
 export function checkBase({ symbol, parts, themes }: CreatedBase) {
   if (symbol.includes('.') || symbol.includes('-')) {

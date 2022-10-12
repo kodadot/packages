@@ -168,7 +168,6 @@ export interface AbstractBasePart {
   metadata?: string
 }
 
-
 export interface FixedPart extends AbstractBasePart {
   type: 'fixed'
 }
@@ -184,7 +183,7 @@ type BasePart = FixedPart | SlotPart
 
 export type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
-// From RMRK:TOOLS 
+// From RMRK:TOOLS
 // https://github.com/rmrk-team/rmrk-tools/blob/master/src/rmrk2.0.0/tools/types.ts
 export type BaseType = 'svg' | 'png' | 'audio' | 'video' | 'mixed' | string;
 
