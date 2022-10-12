@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "paths": {
-      "*": [
-        "./dist/*"
-      ]
-    },
+    "outDir": "dist",
+    "strict": true,
+    "declaration": true
   },
   "include": [
     "src"
