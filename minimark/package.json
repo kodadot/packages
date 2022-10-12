@@ -10,9 +10,6 @@
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    },
-    "./v1": {
-      "import": "./dist/v1/index.mjs"
     }
   },
   "main": "./dist/index.cjs",
