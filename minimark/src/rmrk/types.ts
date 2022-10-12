@@ -33,7 +33,6 @@ export type UnwrappedRemark<T> = {
   version: string
 }
 
-
 export type InteractionValue = {
   id: string
   value?: string

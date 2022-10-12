@@ -4,9 +4,9 @@ import { UpdateFunction } from '../common/types'
 import { wrapToString } from '../utils/unwrap'
 import { toCollectionId, toSerialNumber, makeSymbol } from './identification'
 import { CreatedCollection, CreatedCollectionWithNFT, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
-import { InteractionV2MintType, JustInteractionV2 } from "./v2/types";
+import { InteractionV2MintType, JustInteractionV2 } from './v2/types'
 
-export const createInteraction = (action: JustInteraction | JustInteractionV2,  version = '1.0.0', objectId: string, meta: string): string => {
+export const createInteraction = (action: JustInteraction | JustInteractionV2, version = '1.0.0', objectId: string, meta: string): string => {
   if (!objectId) {
     throw new ReferenceError(`[${action}] Could not create, because nftId`)
   }
@@ -32,7 +32,7 @@ export const createNFT = (caller: string, index: number, collectionId: string, n
     collection: collectionId,
     sn,
     metadata,
-    currentOwner: caller,
+    currentOwner: caller
   }
 }
 
@@ -44,7 +44,7 @@ export const createCollection = (caller: string, symbol: string, name: string, m
     issuer: caller,
     name: trim(name),
     max,
-    metadata,
+    metadata
   }
 }
 
@@ -75,6 +75,6 @@ export const createCollectionWithNFT = (
 
   return {
     collection,
-    nfts,
+    nfts
   }
 }

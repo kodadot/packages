@@ -1,7 +1,7 @@
-import { unwrapJSON, } from '../utils/unwrap'
+import { unwrapJSON } from '../utils/unwrap'
 import { RMRK, SQUARE } from './constants'
-import { Interaction, InteractionValue, } from './types'
-import { InteractionV2 } from "./v2/constants";
+import { Interaction, InteractionValue } from './types'
+import { InteractionV2 } from './v2/constants'
 
 export const isRemark = (text: string): boolean => {
   return RMRK.test(text)
@@ -22,7 +22,6 @@ export const toInteraction = (interaction: string): Interaction => {
   isValidInteraction(interaction)
   return interaction as Interaction
 }
-
 
 export const isCreateInteraction = (interaction: Interaction): boolean => {
   return interaction === Interaction.MINT || interaction === Interaction.MINTNFT
@@ -51,6 +50,6 @@ export const resolveValue = <T>(interaction: Interaction, mayIdOrValue: string, 
 
   return {
     id: mayIdOrValue,
-    value: mayValue,
+    value: mayValue
   }
 }
