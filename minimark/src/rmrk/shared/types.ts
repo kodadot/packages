@@ -1,5 +1,7 @@
 // meta
-export type VersionedRemark = `${0 | 1 | 2}.${0}.${0 | 1}`
+export type RemarkVersion = `${1 | 2}.${0}.${0}`
+type LegacyRemarkVersion = '0.0.1'
+export type VersionedRemark = LegacyRemarkVersion | RemarkVersion
 export type BinaryBoolean = 0 | 1
 
 export type AbstractCreatedNFT = {
