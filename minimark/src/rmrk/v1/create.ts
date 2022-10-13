@@ -2,15 +2,14 @@ import { UpdateFunction } from '../../common/types'
 import { trim, upperTrim } from '../../utils/string'
 import { toSerialNumber } from '../identification'
 import { makeCollection, makeCreateInteaction, makeInteraction } from '../shared/make'
-import { RemarkVersion } from '../types'
 import { CreatedCollection, CreatedCollectionWithNFT, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
 
-export const createInteraction = (action: JustInteraction, version = '1.0.0', objectId: string, meta: string): string => {
-  return makeInteraction(action, version as RemarkVersion, objectId, meta)
+export const createInteraction = (action: JustInteraction, objectId: string, meta: string): string => {
+  return makeInteraction(action, '1.0.0', objectId, meta)
 }
 
-export const createMintInteaction = (action: OnlyMintInteraction, version = '1.0.0', object: CreatedNFT | CreatedCollection): string => {
-  return makeCreateInteaction(action, version as RemarkVersion, object)
+export const createMintInteaction = (action: OnlyMintInteraction, object: CreatedNFT | CreatedCollection): string => {
+  return makeCreateInteaction(action, '1.0.0', object)
 }
 
 export const createNFT = (caller: string, index: number, collectionId: string, name: string, metadata: string): CreatedNFT => {
