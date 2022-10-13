@@ -1,4 +1,4 @@
-import { AbstractCreatedNFT, BinaryBoolean, UnwrappedRemark as AbstractRemarkWrapper } from '../shared/types'
+import { AbstractCreatedNFT, BinaryBoolean, UnwrappedRemark as AbstractRemarkWrapper, AbstractCreatedCollection } from '../shared/types'
 import { Interaction } from './enums'
 
 export type JustInteraction = Exclude<Interaction, Interaction.MINT | Interaction.MINTNFT | Interaction.UNLIST>
@@ -11,14 +11,7 @@ export type InteractionValue = {
   value?: string
 }
 
-export type CreatedCollection = {
-  id: string
-  issuer: string
-  max: number
-  metadata: string
-  name: string
-  symbol: string
-}
+export type CreatedCollection = AbstractCreatedCollection
 
 export type CreatedNFT = AbstractCreatedNFT & {
   instance: string

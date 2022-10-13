@@ -1,25 +1,16 @@
-import { isEmpty } from '../utils/empty'
-import { trim, upperTrim } from '../utils/string'
-import { UpdateFunction } from '../common/types'
-import { wrapToString } from '../utils/unwrap'
-import { toCollectionId, toSerialNumber, makeSymbol } from './identification'
+import { UpdateFunction } from '../../common/types'
+import { trim, upperTrim } from '../../utils/string'
+import { toSerialNumber } from '../identification'
+import { makeCollection, makeCreateInteaction, makeInteraction } from '../shared/make'
+import { RemarkVersion } from '../types'
 import { CreatedCollection, CreatedCollectionWithNFT, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
-import { InteractionV2MintType, JustInteractionV2 } from './v2/types'
 
-export const createInteraction = (action: JustInteraction | JustInteractionV2, version = '1.0.0', objectId: string, meta: string): string => {
-  if (!objectId) {
-    throw new ReferenceError(`[${action}] Could not create, because nftId`)
-  }
-
-  return `RMRK::${action}::${version}::${objectId}${meta ? '::' + meta : ''}`
+export const createInteraction = (action: JustInteraction, version = '1.0.0', objectId: string, meta: string): string => {
+  return makeInteraction(action, version as RemarkVersion, objectId, meta)
 }
 
-export const createMintInteaction = (action: OnlyMintInteraction | InteractionV2MintType, version = '1.0.0', object: CreatedNFT | CreatedCollection): string => {
-  if (isEmpty(object)) {
-    throw new ReferenceError(`[${action}] Could not create, because ${object} is empty`)
-  }
-
-  return `RMRK::${action}::${version}::${wrapToString(object)}`
+export const createMintInteaction = (action: OnlyMintInteraction, version = '1.0.0', object: CreatedNFT | CreatedCollection): string => {
+  return makeCreateInteaction(action, version as RemarkVersion, object)
 }
 
 export const createNFT = (caller: string, index: number, collectionId: string, name: string, metadata: string): CreatedNFT => {
@@ -37,15 +28,7 @@ export const createNFT = (caller: string, index: number, collectionId: string, n
 }
 
 export const createCollection = (caller: string, symbol: string, name: string, metadata: string, max = 0): CreatedCollection => {
-  const theSymbol = makeSymbol(symbol)
-  return {
-    id: toCollectionId(caller, theSymbol),
-    symbol: theSymbol,
-    issuer: caller,
-    name: trim(name),
-    max,
-    metadata
-  }
+  return makeCollection(caller, symbol, name, metadata, max)
 }
 
 export const createMultipleNFT = (
