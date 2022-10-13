@@ -5,7 +5,7 @@ import { CreatedCollection } from '../types'
 import {
   CreatedBase, CreatedNFT, CreateInteractionFunc
 } from './types'
-import { InteractionV2 } from './constants'
+import { InteractionV2 } from './enums'
 import { checkBase } from './consolidator'
 import { makeBaseSymbol, toSerialNumber } from './identification'
 
