@@ -1,16 +1,14 @@
 import { decodeHex } from '../utils/hex'
 import { unwrapURI } from '../utils/unwrap'
-import { isRemark, splitBySquare, toVersion } from './shared/helpers'
 import { RMRK_V0, RMRK_V1, RMRK_V2 } from './shared/constants'
+import { isRemark, splitBySquare, toVersion } from './shared/helpers'
 
-import { InteractionV2, InteractionValue, UnwrappedRemark } from './types'
+import { InteractionValue, UnwrappedRemark as UnwrapV1 } from './v1/types'
 import { unwrapRemark } from './v1/unwrap'
-import { InteractionV2Value, unwrapRemarkV2 } from './v2'
+import { unwrapRemarkV2 } from './v2'
+import { UnwrappedRemark2 as UnwrapV2 } from './v2/types'
 
-type V1 = InteractionValue
-type V2 = InteractionV2 | InteractionV2Value
-
-const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | V1 | V2 > => {
+const unwrap = <T = InteractionValue>(text: string): UnwrapV1<T> | UnwrapV2<T> => {
   const decoded = unwrapURI(decodeHex(text))
 
   if (!isRemark(decoded)) {
@@ -27,7 +25,7 @@ const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | V1 | V2
   }
 
   if (version === RMRK_V2) {
-    return unwrapRemarkV2(text) as UnwrappedRemark<T | V1 | V2>
+    return unwrapRemarkV2(text) as UnwrapV2<T>
   }
 
   throw new TypeError(`RMRK: Unable to unwrap version ${version}`)
