@@ -1,7 +1,7 @@
-import { unwrapJSON } from '../utils/unwrap'
+import { unwrapJSON } from '../../utils/unwrap'
+import { Interaction, InteractionValue } from '../types'
+import { InteractionV2 } from '../v2/constants'
 import { RMRK, SQUARE } from './constants'
-import { Interaction, InteractionValue } from './types'
-import { InteractionV2 } from './v2/constants'
 
 export const isRemark = (text: string): boolean => {
   return RMRK.test(text)

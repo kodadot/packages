@@ -1,6 +1,6 @@
 import { decodeHex } from '../../utils/hex'
 import { unwrapURI } from '../../utils/unwrap'
-import { isRemark, splitBySquare, toVersion } from '../helpers'
+import { isRemark, splitBySquare, toVersion } from '../shared/helpers'
 import { toInteractionV2, resolveRmrk2Value } from './helper'
 import { UnwrappedRemark2, InteractionV2Value } from './types'
 

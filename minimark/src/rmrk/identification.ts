@@ -13,7 +13,7 @@ export function toCollectionId(caller: string, symbol: string): string {
   }
 
   const pubkey = addressToHex(caller)
-
+  // TODO: use substring instead of substr
   return (pubkey?.substr(2, 10) + pubkey?.substring(pubkey.length - 8) + '-' + (symbol || '')).toUpperCase()
 }
 

@@ -1,6 +1,6 @@
 import { expect, it, describe } from 'vitest'
 
-import { unwrapRemark as unwrap } from '../../src/rmrk/unwrap'
+import { unwrapRemark as unwrap } from '../../src/rmrk/v1/unwrap'
 import { InteractionValue } from '../../src/rmrk/types'
 import {
   validMintNFTRemarkEvent,

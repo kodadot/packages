@@ -1,5 +1,5 @@
 import { unwrapJSON, unwrapURI } from '../../utils'
-import { isValidInteraction } from '../helpers'
+import { isValidInteraction } from '../shared/helpers'
 
 import { InteractionV2Type, InteractionV2Value } from './types'
 import { InteractionV2 } from './constants'
