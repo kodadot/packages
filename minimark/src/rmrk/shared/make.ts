@@ -14,7 +14,7 @@ export const makeCollection = (caller: string, symbol: string, name: string, met
   }
 }
 
-export const makeInteraction = <T>(action: T, version: RemarkVersion = '1.0.0', objectId: string, meta: string): RemarkableString => {
+export const makeInteraction = <I, T = string>(action: I, version: RemarkVersion = '1.0.0', objectId: string, meta: T): RemarkableString => {
   if (!objectId) {
     throw new ReferenceError(`[${action}] Could not create, because nftId`)
   }
