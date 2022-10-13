@@ -1,15 +1,11 @@
-import { AbstractCreatedNFT } from '../types'
+import { AbstractCreatedNFT, UnwrappedRemark as AbstractRemarkWrapper } from '../shared/types'
 import { InteractionV2 } from './constants'
 
 export type InteractionV2Type = keyof typeof InteractionV2
 export type InteractionV2MintType = Extract<InteractionV2Type, 'MINT' | 'CREATE'>
 export type JustInteractionV2 = Exclude<InteractionV2Type, 'MINT' | 'CREATE'>
 
-export type UnwrappedRemark2<T> = {
-  interaction: InteractionV2Type
-  value: T
-  version: string
-}
+export type UnwrappedRemark2<T> = AbstractRemarkWrapper<T, InteractionV2Type>
 
 export type Base = {
   value: any
