@@ -1,5 +1,5 @@
 import { AbstractCreatedNFT, UnwrappedRemark as AbstractRemarkWrapper } from '../shared/types'
-import { InteractionV2 } from './constants'
+import { InteractionV2 } from './enums'
 
 export type InteractionV2Type = keyof typeof InteractionV2
 export type InteractionV2MintType = Extract<InteractionV2Type, 'MINT' | 'CREATE'>

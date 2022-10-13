@@ -1,17 +1,5 @@
 import { AbstractCreatedNFT, BinaryBoolean, UnwrappedRemark as AbstractRemarkWrapper } from '../shared/types'
-
-// v1
-export enum Interaction {
-  MINT = 'MINT',
-  MINTNFT = 'MINTNFT',
-  LIST = 'LIST',
-  UNLIST = 'UNLIST',
-  BUY = 'BUY',
-  SEND = 'SEND',
-  CONSUME = 'CONSUME',
-  CHANGEISSUER = 'CHANGEISSUER',
-  EMOTE = 'EMOTE',
-}
+import { Interaction } from './enums'
 
 export type JustInteraction = Exclude<Interaction, Interaction.MINT | Interaction.MINTNFT | Interaction.UNLIST>
 export type OnlyMintInteraction = Interaction.MINT | Interaction.MINTNFT

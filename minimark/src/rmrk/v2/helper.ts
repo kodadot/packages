@@ -2,7 +2,7 @@ import { unwrapJSON, unwrapURI } from '../../utils'
 import { isValidInteraction } from '../shared/helpers'
 
 import { InteractionV2Type, InteractionV2Value } from './types'
-import { InteractionV2 } from './constants'
+import { InteractionV2 } from './enums'
 export const toInteractionV2 = (interaction: string): InteractionV2 => {
   isValidInteraction(interaction)
   return interaction as InteractionV2

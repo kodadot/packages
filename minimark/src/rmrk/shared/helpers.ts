@@ -1,7 +1,9 @@
 import { unwrapJSON } from '../../utils/unwrap'
-import { Interaction, InteractionValue } from '../types'
-import { InteractionV2 } from '../v2/constants'
+import { Interaction } from '../v1/enums'
+import { InteractionValue } from '../v1/types'
+import { InteractionV2 } from '../v2/enums'
 import { RMRK, SQUARE } from './constants'
+import { VersionedRemark } from './types'
 
 export const isRemark = (text: string): boolean => {
   return RMRK.test(text)
@@ -28,11 +30,11 @@ export const isCreateInteraction = (interaction: Interaction): boolean => {
 }
 
 // Some KodaDot Remarks are not valid Remarks, but are valid KodaDot Remarks. // made by Copilot
-export const toVersion = (version?: string): string => {
+export const toVersion = (version?: string): VersionedRemark => {
   if (!version) {
     return '1.0.0'
   }
-  return version
+  return version as VersionedRemark // TODO: Unsafe
 }
 
 export const resolveValue = <T>(interaction: Interaction, mayIdOrValue: string, mayValue?: string): T | InteractionValue => {
