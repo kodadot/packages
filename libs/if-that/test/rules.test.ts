@@ -5,7 +5,7 @@ import { nftList, SomeNFT } from './data'
 describe('Rules should', () => {
   const nft = nftList[0]
 
-  it.only('be resolved properly', () => {
+  it('be resolved properly', () => {
     const newMeta = 'ipfs://ipfs/bafkreie6aheicniw2ene6iofxj7e6cettjioxojdstwabdqkxozjk2tyru'
     const rules = '[{"===":[{"var":"currentOwner"},{"var":"issuer"}]},"metadata","ipfs://ipfs/bafkreie6aheicniw2ene6iofxj7e6cettjioxojdstwabdqkxozjk2tyru"]'
     const ifThat = parse<SomeNFT>(rules)
