@@ -1,0 +1,25 @@
+{
+  "name": "@kodadot1/packages",
+  "version": "1.0.0",
+  "description": "Monorepository of npm packages we use in our projects.",
+  "main": "index.js",
+  "devDependencies": {
+    "turbo": "^1.5.6"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodadot/packages.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kodadot/packages/issues"
+  },
+  "homepage": "https://github.com/kodadot/packages#readme"
+}
