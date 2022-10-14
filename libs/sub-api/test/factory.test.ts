@@ -10,4 +10,4 @@ describe('Factory instance', () => {
     expect(ss58).eq('2')
     api.disconnect()
   })
-})
+}, { timeout: 30000 })
