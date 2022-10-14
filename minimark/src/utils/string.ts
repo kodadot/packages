@@ -19,3 +19,5 @@ export const lowerTrim = (name: string, shouldSlugify?: boolean): string => {
 
 export const toUpperCase = (name: string): string => name.toUpperCase()
 export const toLowerCase = (name: string): string => name.toLowerCase()
+
+export const isEmptyString = (text?: string): boolean => text === undefined || text === null || text === ''
