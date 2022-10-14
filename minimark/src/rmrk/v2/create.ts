@@ -1,17 +1,19 @@
-import { wrapToString, wrapURI } from '../../utils'
-import { createCollection as createCollectionAsV1 } from '../create'
+import { isEmptyString, wrapToString, wrapURI } from '../../utils'
 import { makeSymbol } from '../identification'
-import { CreatedCollection } from '../types'
-import {
-  CreatedBase, CreatedNFT, CreateInteractionFunc
-} from './types'
-import { InteractionV2 } from './enums'
+import { SQUARE } from '../shared/constants'
+import { makeCollection } from '../shared/make'
+import { RemarkableString } from '../types'
 import { checkBase } from './consolidator'
+import { InteractionV2 } from './enums'
 import { makeBaseSymbol, toSerialNumber } from './identification'
+import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc } from './types'
+
+const filterEmpty = (field?: string) => !isEmptyString(field)
 
 export const createInteraction: CreateInteractionFunc = ({ action, payload }) => {
-  const convert = (props: string[]) => {
-    return `RMRK::${action}::2.0.0::${props.filter(field => ![undefined, ''].includes(field)).join('::')}`
+  const convert = (props: string[]): RemarkableString => {
+    const args: string = props.filter(filterEmpty).join(SQUARE)
+    return `RMRK::${action}::2.0.0::${args}`
   }
 
   switch (action) {
@@ -72,14 +74,7 @@ export const createNFT = (index: number, collectionId: string, name: string | un
 }
 
 export const createCollection = (caller: string, symbol: string, name: string | undefined, metadata: string, max = 0): CreatedCollection => {
-  // checkProps(props)
-  // const { issuer, symbol, max, metadata } = props || {}
-
-  if (max < 0) {
-    throw new Error('max should be equal or greater than zero')
-  }
-
-  return createCollectionAsV1(caller, symbol, name || '', metadata, max)
+  return makeCollection(caller, symbol, name ?? '', metadata, max)
 }
 
 export const createBase = (props: CreatedBase): CreatedBase => {
