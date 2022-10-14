@@ -1,8 +1,8 @@
 build:
-  yarn build
+  pnpm build
 
 publish:
-  yarn publish --access public
+  pnpm publish --access public
 
 c VERSION:
   git commit -am "Updated minimark@{{VERSION}}"

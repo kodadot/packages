@@ -23,11 +23,11 @@
     "dev": "vitest dev",
     "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
     "prepack": "unbuild",
-    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "release": "pnpm test && standard-version && git push --follow-tags && npm publish",
     "test": "vitest run"
   },
   "dependencies": {
-    "@kodadot1/vuex-options": "^0.0.1-rc.2",
+    "@kodadot1/vuex-options": "workspace:*",
     "gql-query-builder": "^3.5.7",
     "scule": "^0.2.1"
   },
