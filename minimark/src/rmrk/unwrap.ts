@@ -21,7 +21,7 @@ const unwrap = <T = InteractionValue>(text: string): UnwrapV1<T> | UnwrapV2<T> =
   const version = toVersion(mayVersion)
 
   if ([RMRK_V0, RMRK_V1].includes(version)) {
-    return unwrapRemark(text)
+    return unwrapRemark(text) as UnwrapV1<T>
   }
 
   if (version === RMRK_V2) {

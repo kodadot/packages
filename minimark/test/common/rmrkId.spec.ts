@@ -1,6 +1,6 @@
 import { expect, it, describe } from 'vitest'
 
-import { toSerialNumber, findUniqueSymbol } from '../../src/rmrk/identification'
+import { toSerialNumber, findUniqueSymbol } from '../../src/rmrk/shared/identification'
 
 describe('RMRK/identification ', () => {
   describe('toSerialNumber', () => {

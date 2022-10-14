@@ -1,6 +1,6 @@
 import { UpdateFunction } from '../../common/types'
 import { trim, upperTrim } from '../../utils/string'
-import { toSerialNumber } from '../identification'
+import { toSerialNumber } from '../shared/identification'
 import { makeCollection, makeCreateInteaction, makeInteraction } from '../shared/make'
 import { CreatedCollection, CreatedCollectionWithNFT, CreatedNFT, JustInteraction, OnlyMintInteraction } from './types'
 

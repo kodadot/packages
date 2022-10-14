@@ -1,7 +1,7 @@
 import { decodeHex } from '../../utils/hex'
 import { unwrapURI } from '../../utils/unwrap'
 import { isRemark, resolveValue, splitBySquare, toInteraction, toVersion } from '../shared/helpers'
-import { InteractionValue, UnwrappedRemark } from '../types'
+import { InteractionValue, UnwrappedRemark } from './types'
 
 const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | InteractionValue> => {
   const decoded = unwrapURI(decodeHex(text))

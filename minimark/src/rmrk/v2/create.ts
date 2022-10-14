@@ -1,5 +1,5 @@
 import { isEmptyString, wrapToString, wrapURI } from '../../utils'
-import { makeSymbol } from '../identification'
+import { makeSymbol } from '../shared/identification'
 import { SQUARE } from '../shared/constants'
 import { makeCollection } from '../shared/make'
 import { RemarkableString } from '../types'

@@ -1,5 +1,5 @@
 import { isEmpty, trim, wrapToString } from '../../utils'
-import { makeSymbol, toCollectionId } from '../identification'
+import { makeSymbol, toCollectionId } from './identification'
 import { AbstractCreatedCollection, RemarkableString, RemarkVersion } from './types'
 
 export const makeCollection = (caller: string, symbol: string, name: string, metadata: string, max = 0): AbstractCreatedCollection => {
