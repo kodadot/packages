@@ -3,6 +3,10 @@ import { makeSymbol, toCollectionId } from '../identification'
 import { AbstractCreatedCollection, RemarkableString, RemarkVersion } from './types'
 
 export const makeCollection = (caller: string, symbol: string, name: string, metadata: string, max = 0): AbstractCreatedCollection => {
+  if (max < 0) {
+    throw new Error('max should be equal or greater than zero')
+  }
+
   const theSymbol = makeSymbol(symbol)
   return {
     id: toCollectionId(caller, theSymbol),
