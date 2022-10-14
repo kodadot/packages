@@ -9,9 +9,9 @@
 // const getSingle = <T>(url: string, baseURL: string): Promise<T> => $fetch<T>(url, { baseURL })
 
 export const DEFAULT_PROVIDER_LIST = [
-  ' https://cloudflare-ipfs.com',
+  'https://cloudflare-ipfs.com',
   'https://kodadot.mypinata.cloud',
-  'https://nftstorage.link/'
+  'https://nftstorage.link'
 ]
 export type ProviderUrl = typeof DEFAULT_PROVIDER_LIST[number];
 
