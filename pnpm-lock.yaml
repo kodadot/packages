@@ -8,7 +8,7 @@ importers:
     devDependencies:
       turbo: 1.5.6
 
-  packages/if-that:
+  libs/if-that:
     specifiers:
       '@nuxtjs/eslint-config-typescript': latest
       '@types/json-logic-js': ^1.2.1
@@ -31,7 +31,7 @@ importers:
       unbuild: 0.9.1
       vitest: 0.24.1
 
-  packages/metasquid:
+  libs/metasquid:
     specifiers:
       '@nuxtjs/eslint-config-typescript': latest
       '@subsquid/ss58': ^0.1.0
@@ -55,7 +55,7 @@ importers:
       unbuild: 0.9.1
       vitest: 0.24.1
 
-  packages/minimark:
+  libs/minimark:
     specifiers:
       '@nuxtjs/eslint-config-typescript': latest
       '@polkadot/api': ^9.5.1
@@ -88,7 +88,7 @@ importers:
       unbuild: 0.9.1
       vitest: 0.24.1
 
-  packages/sub-api:
+  libs/sub-api:
     specifiers:
       '@nuxtjs/eslint-config-typescript': latest
       '@polkadot/api': ^9.4.2
@@ -115,7 +115,7 @@ importers:
       unbuild: 0.9.1
       vitest: 0.24.1
 
-  packages/uniquery:
+  libs/uniquery:
     specifiers:
       '@kodadot1/vuex-options': ^0.0.1-rc.2
       '@nuxtjs/eslint-config-typescript': latest
@@ -140,7 +140,7 @@ importers:
       unbuild: 0.9.1
       vitest: 0.24.1
 
-  packages/vuex-options:
+  libs/vuex-options:
     specifiers:
       '@nuxtjs/eslint-config-typescript': latest
       '@polkadot/networks': 10.1.7
