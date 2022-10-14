@@ -1,15 +1,15 @@
 import { expect, it, describe } from 'vitest'
-import { testFunction } from '../src'
+import { serializer } from '../src'
 
 describe('packageName', () => {
   const tests = [
-    { input: 'foo', output: 'Hello foo' },
-    { input: 'bar', output: 'Hello bar' }
+    { input: BigInt(9007199254740991), output: '9007199254740991' },
+    { input: 9007199254740991, output: 9007199254740991 }
   ]
 
   for (const test of tests) {
-    it(test.input, () => {
-      expect(testFunction(test.input)).eq(test.output)
+    it(`${test.input}`, () => {
+      expect(serializer('', test.input)).eq(test.output)
     })
   }
 })

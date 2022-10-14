@@ -48,6 +48,6 @@ export const resolveValue = <T>(interaction: Interaction, mayIdOrValue: string, 
 
   return {
     id: mayIdOrValue,
-    value: mayValue,
+    value: mayValue
   }
 }
