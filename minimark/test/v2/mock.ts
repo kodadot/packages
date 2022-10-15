@@ -34,6 +34,10 @@ export const CREATE_EVENT = 'RMRK::CREATE::2.0.0::%7B%22max%22%3A100%2C%22issuer
 export const MINT_EVENT = 'RMRK::MINT::2.0.0::%7B%22collection%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%2200000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D'
 export const BURN_EVENT = 'RMRK::BURN::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001'
 
+// export const CREATE_EVENT = 'RMRK::CREATE::2.0.0::%7B%22max%22%3A0%2C%22issuer%22%3A%22Fksmad33PFxhrQXNYPPJozgWrv82zuFLvXK7Rh8m1xQhe98%22%2C%22symbol%22%3A%22CHNKITMS%22%2C%22id%22%3A%228cc1b91e899d9be40e-CHNKITMS%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2Fbafkreibzeyetfssguxrzoltvluyjac7hp3bzvzgpa27jkbpek23tqkfpmi%22%7D'
+// export const MINT_EVENT = 'RMRK::MINT::2.0.0::%7B%22collection%22%3A%228cc1b91e899d9be40e-CHNKITMS%22%2C%22symbol%22%3A%22CHUNKY_1%22%2C%22transferable%22%3A1%2C%22sn%22%3A%2200000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2Fbafkreihk23kbw5sfn7vcd777vaj3d7jz6nw5zocwt6gvfvnun7gipuly7m%22%7D'
+// export const BURN_EVENT = 'RMRK::BURN::2.0.0::10-8cc1b91e899d9be40e-CHNKITMS-CHUNKY_1-00000001'
+
 export type Test = {
     type: string
     input: string

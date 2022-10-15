@@ -1,7 +1,7 @@
-import { expect, it, describe } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
-import { createInteraction, createCollection, createNFT as createNFTV2, createBase } from '../../src/rmrk/v2/create'
-import { InteractionV2 } from '../../src/rmrk/v2/constants'
+import { createBase, createCollection, createInteraction, createNFT as createNFTV2 } from '../../src/rmrk/v2/create'
+import { InteractionV2 } from '../../src/rmrk/v2/enums'
 import {
   acceptTest,
   baseTest,
@@ -11,18 +11,11 @@ import {
   changeissuerTest,
   createTest,
   emoteTest,
-  emoteTestWithAccount,
-  equipTest,
-  equippableTest,
-  listTest,
+  emoteTestWithAccount, equippableTest, equipTest, listTest,
   listTestWithCancel,
   mintTest,
   resAddTest,
-  sendTest,
-  setPropertyTest,
-  setPriorityTest,
-  themeAddTest,
-  Test
+  sendTest, setPriorityTest, setPropertyTest, Test, themeAddTest
 } from './mock'
 
 describe('RMRK2 Create Interaction', () => {

@@ -1,7 +1,7 @@
 import { expect, it, describe } from 'vitest'
 
-import { isCreateInteraction } from '../../src/rmrk/helpers'
-import { Interaction } from '../../src/rmrk/types'
+import { isCreateInteraction } from '../../src/rmrk/shared/helpers'
+import { Interaction } from '../../src/rmrk/v1/enums'
 
 describe('RMRK/helpers ', () => {
   describe('isCreateInteraction', () => {

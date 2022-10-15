@@ -1,6 +1,6 @@
 import { expect, it, describe } from 'vitest'
 
-import unwrapV2 from '../../src/rmrk/v2/unwrap'
+import { unwrapRemarkV2 } from '../../src/rmrk/v2/unwrap'
 import { BaseJson, CREATE_EVENT, MINT_EVENT, BURN_EVENT } from './mock'
 
 type TestingSet = {
@@ -10,7 +10,7 @@ type TestingSet = {
 }
 
 function singleTest(item: TestingSet) {
-  const result = unwrapV2(item.input)
+  const result = unwrapRemarkV2(item.input)
   expect(result.interaction).toBe(item.type)
   expect(result.version).toBe('2.0.0')
   const { value } = result
