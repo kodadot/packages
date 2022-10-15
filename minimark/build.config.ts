@@ -4,12 +4,28 @@ export default defineBuildConfig({
   // If entries is not provided, will be automatically inferred from package.json
   entries: [
     // default
-    'src/index'
+    'src/index',
     // this is how to make whole package tree available
     // {
     //   input: './src/rmrk/',
     //   outDir: './dist/v1'
     // },
+    {
+      input: 'src/rmrk/shared/index',
+      name: 'shared'
+    },
+    {
+      input: 'src/utils/index',
+      name: 'utils'
+    },
+    {
+      input: 'src/rmrk/v1/index',
+      name: 'v1'
+    },
+    {
+      input: 'src/rmrk/v2/index',
+      name: 'v2'
+    }
   ],
   outDir: 'dist',
   clean: true,
