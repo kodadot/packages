@@ -3,14 +3,14 @@
 
 ### PR type
 
-- [ ] Bugfix
+- [ ] Fix
 - [ ] Feature
 - [ ] Refactoring
+- [ ] Chore
 
 ### What's new?
 
 - [ ] PR closes #<issue_number>
-- [ ] Requires deployment <rubick/magick_issue>
 - [ ] <brief_description_of_what_I've_added>
 
 ### Before submitting Pull Request, please make sure:
@@ -20,13 +20,11 @@
 - [ ] I've tried to respect high code quality standards
 - [ ] I've didn't break any original functionality
 - [ ] I've posted a screenshot of demonstrated change in this PR
+- [ ] I've written some unit tests 🧪
 
 ### Optional
 
-- [ ] I've tested it at </rmrk/collection/26902bc2f7c20c546a-1FVG7>
-- [ ] I've tested PR on mobile and everything seems works
 - [ ] I found edge cases
-- [ ] I've written some unit tests 🧪
 
 ### Had issue bounty label?
 
@@ -35,7 +33,3 @@
 ### Community participation
 
 - [ ] [Are you at KodaDot Discord?](https://discord.gg/35hzy2dXXh)
-
-### Screenshot
-
-- [ ] My fix has changed **something** on UI; a screenshot is best to understand changes for others.
