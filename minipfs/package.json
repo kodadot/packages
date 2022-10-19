@@ -21,12 +21,13 @@
   "scripts": {
     "build": "unbuild",
     "dev": "vitest dev",
-    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
+    "lint": "eslint --fix --ext .ts,.js,.mjs,.cjs .",
     "prepack": "unbuild",
     "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
     "test": "pnpm lint && vitest run"
   },
   "dependencies": {
+    "is-ipfs": "^7.0.3",
     "ohmyfetch": "^0.4.20"
   },
   "devDependencies": {
