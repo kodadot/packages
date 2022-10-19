@@ -1,11 +1,32 @@
-const isV0Cid = (cid: string): boolean => {
-  return cid.length === 46 && cid.startsWith('Qm')
+import { cid, path } from 'is-ipfs'
+import { HTTP_REGEX } from './constants'
+
+export const isCID = (uri: string): boolean => {
+  return cid(uri)
 }
 
-const isV1Cid = (cid: string): boolean => {
-  return cid.length === 59 && cid.startsWith('baf')
+export const isHTTP = (uri: string): boolean => {
+  return HTTP_REGEX.test(uri)
 }
 
-export const isCID = (ipfsLink: string): boolean => {
-  return isV0Cid(ipfsLink) || isV1Cid(ipfsLink)
+export const isPath = (uri: string): boolean => {
+  return path(uri)
 }
+
+export const toIPFSPath = (uri: string): string => {
+  if (isCID(uri)) {
+    return `/ipfs/${uri}`
+  }
+
+  if (isPath(uri)) {
+    return uri
+  }
+
+  throw new TypeError(`Invalid IPFS URI: ${uri}`)
+}
+
+// Exported from kodadot
+// export const isIpfsCid = (url: stng): boolean => {
+//   return /^[0-9a-zA-Z]{44,}$/.test(url)
+// }
+
