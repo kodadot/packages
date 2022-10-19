@@ -1,6 +1,6 @@
+import { nanoid } from 'nanoid'
 import { addressToHex } from '../utils/hex'
 import { toUpperCase, upperTrim } from '../utils/string'
-import { nanoid } from 'nanoid'
 import { CreatedNFT } from './types'
 
 export const toSerialNumber = (index: number, offset = 0, plusOne = true): string => {
@@ -9,7 +9,7 @@ export const toSerialNumber = (index: number, offset = 0, plusOne = true): strin
 
 export function toCollectionId(caller: string, symbol: string): string {
   if (!caller) {
-    throw new ReferenceError(`[RMRK] Could not create collection, because caller is empty`)
+    throw new ReferenceError('[RMRK] Could not create collection, because caller is empty')
   }
 
   const pubkey = addressToHex(caller)
@@ -31,7 +31,7 @@ export const toNFTId = (nft: CreatedNFT, blocknumber: string | number): string =
 }
 
 export const findUniqueSymbol = (symbol: string | undefined, usedSymbols: string[]): string => {
-  let result = symbol || makeSymbol()
+  const result = symbol || makeSymbol()
   const hasSymbol = usedSymbols.includes(result)
   if (!hasSymbol) {
     return result

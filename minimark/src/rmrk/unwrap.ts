@@ -24,7 +24,7 @@ const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | Interac
   return {
     interaction,
     value,
-    version: toVersion(mayVersion),
+    version: toVersion(mayVersion)
   }
 }
 

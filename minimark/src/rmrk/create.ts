@@ -31,7 +31,7 @@ export const createNFT = (caller: string, index: number, collectionId: string, n
     collection: collectionId,
     sn,
     metadata,
-    currentOwner: caller,
+    currentOwner: caller
   }
 }
 
@@ -43,7 +43,7 @@ export const createCollection = (caller: string, symbol: string, name: string, m
     issuer: caller,
     name: trim(name),
     max,
-    metadata,
+    metadata
   }
 }
 
@@ -74,6 +74,6 @@ export const createCollectionWithNFT = (
 
   return {
     collection,
-    nfts,
+    nfts
   }
 }
