@@ -1,15 +1,15 @@
 # @kodadot1/minipfs
 
-The strangest IPFS utility ever.
+A set of tools to work with IPFS URIs.
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-> Package description
+![minimark pokemon](.github/minimark.png)
 
-## Usage
+## 🚀 Quick Start
 
 Install package:
 
@@ -28,11 +28,57 @@ Import:
 
 ```js
 // ESM
-import { } from '@kodadot1/minipfs'
+import { $obtain } from '@kodadot1/minipfs'
 
 // CommonJS
-const { } = require('@kodadot1/minipfs')
+const { $obtain } = require('@kodadot1/minipfs')
 ```
+
+## ⚓️ Exported functions
+
+### ✔️  Arweave
+
+- `toArweavePath` - Convert AR URI to Arweave HTTP URI
+
+### ✔️  CID
+
+- `isCID` - is URI CID?
+- `isHTTP` - is URI HTTP?
+- `isPath` - is URI IPFS path?
+- `toIPFSPath` - Convert IPFS something to IPFS path
+- `isDefaultPinataProvider` - check if URI is default HTTPS Pinata gateway
+- `canBeIPFS` - check if URI can be IPFS path or IPFS CID
+- `extractIPFS` - convert `ipfs://` prefixed URI to IPFS path
+
+### ✔️  Gateways
+
+- `IPFSProviders` - named list of IPFS gateways
+- `AvailableProviders` - IPFSProviders Array
+- `ipfsProviders:` - Record of IPFSProviders and their URLs
+- `getProviderList` - convert IPFSProviders Array to URL Array
+
+### ✔️  Magic
+
+- `$obtain<T>` - put any URI and get back your T (Put your Metadata type here)
+
+### ✔️  Obtain
+
+- `obtain:` - Wrapper around `$fetch` from `ohmyfetch`
+- `obtainSafe` - Same as `obtain` but returns empty object if error
+- `obtainMedia` - use for fetching media files
+- `obtainMimeType` - use for fetching mime type of file
+
+### ✔️  Race
+
+- `competition` - put IPFS path, provider list and get back fastest response
+
+### ✔️  Sanitize
+
+- `sanitize` - convert any URI into usable URI to fetch
+
+### ...Rest
+
+`types` and `constants` were exported as well, but omitted here.
 
 ## 💻 Development
 
@@ -43,7 +89,7 @@ const { } = require('@kodadot1/minipfs')
 
 ## License
 
-Made with 💛
+Made with 💖
 
 Published under [MIT License](./LICENSE).
 
