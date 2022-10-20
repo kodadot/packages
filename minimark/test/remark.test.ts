@@ -1,13 +1,15 @@
+import { expect, it, describe } from 'vitest'
+
+import { unwrapRemark as unwrap } from '../src/rmrk/unwrap'
+import { InteractionValue } from '../src/rmrk/types'
 import {
   validMintNFTRemarkEvent,
   mintRemarkValidMocks,
   changeUserRemarkValidMocks,
   validSendRemarkEvent,
   validListRemarkEvent,
-  validBuyRemarkEvent,
+  validBuyRemarkEvent
 } from './mock'
-import { unwrapRemark as unwrap } from '../src/rmrk/unwrap'
-import { InteractionValue } from '../src/rmrk/types'
 
 describe('MINIMARK::RMRK ', () => {
   it('should ::MINTNFT', () => {
@@ -19,7 +21,7 @@ describe('MINIMARK::RMRK ', () => {
       name: 'VIP Invitation #1',
       metadata: 'ipfs://ipfs/QmQ2Q57PVpaP8QvWvvH9kfn1CdCY49pcv1AaLBjDwS2p4g',
       currentOwner: 'HPSgWwpjnMe9oyBq4t2dA3dRTU8PwDAU32q6E76xjFDDrEX',
-      instance: 'VIP_INVITATION_1',
+      instance: 'VIP_INVITATION_1'
     }
 
     expect(result.interaction).toBe('MINTNFT')
@@ -37,7 +39,7 @@ describe('MINIMARK::RMRK ', () => {
       issuer: '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY',
       symbol: 'FOO',
       id: 'd43593c715a56da27d-FOO',
-      metadata: 'https://some.url',
+      metadata: 'https://some.url'
     }
 
     expect(result.interaction).toBe('MINT')
@@ -51,7 +53,7 @@ describe('MINIMARK::RMRK ', () => {
     const result = unwrap<InteractionValue>(changeUserRemarkValidMocks[0])
     const expected: InteractionValue = {
       id: 'd43593c715a56da27d-BAR',
-      value: '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty',
+      value: '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty'
     }
 
     expect(result.interaction).toBe('CHANGEISSUER')
@@ -65,7 +67,7 @@ describe('MINIMARK::RMRK ', () => {
     const result = unwrap<InteractionValue>(validSendRemarkEvent)
     const expected: InteractionValue = {
       id: 'F4677F38191256A73F-TTNKARDS-Celadon Woodash Tankard-0000000000000001',
-      value: 'Fksmad33PFxhrQXNYPPJozgWrv82zuFLvXK7Rh8m1xQhe98',
+      value: 'Fksmad33PFxhrQXNYPPJozgWrv82zuFLvXK7Rh8m1xQhe98'
     }
 
     expect(result.interaction).toBe('SEND')
@@ -79,7 +81,7 @@ describe('MINIMARK::RMRK ', () => {
     const result = unwrap<InteractionValue>(validListRemarkEvent)
     const expected: InteractionValue = {
       id: '6435603-D4E195CCE7ADB3F876-INVITATION-VIP_INVITATION_1-0000000000000001',
-      value: '1000000000000',
+      value: '1000000000000'
     }
 
     expect(result.interaction).toBe('LIST')
@@ -93,7 +95,7 @@ describe('MINIMARK::RMRK ', () => {
     const result = unwrap<InteractionValue>(validBuyRemarkEvent)
     const expected: InteractionValue = {
       id: '6309833-282781680602E07B32-BIR-BIRTH_1-0000000000000001',
-      value: undefined,
+      value: undefined
     }
 
     expect(result.interaction).toBe('BUY')

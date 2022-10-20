@@ -1,39 +1,34 @@
 // Copyright 2017-2021 @polkadot/ui-settings authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../types.js';
+import type { Option } from '../types.js'
 
-export const PREFIX_DEFAULT = 'rmrk';
+export const PREFIX_DEFAULT = 'bsx'
 
 export const PREFIXES: Option[] = [
   {
-    info: 'kusama',
-    text: 'RMRK (Kusama)',
-    value: 'rmrk'
-  },
-  {
-    info: 'westend',
-    text: 'RMRK (Westend)',
-    value: 'westend'
-  },
-  {
-    info: 'statemine',
-    text: 'Statemine',
-    value: 'statemine'
-  },
-  {
-    info: 'westmint',
-    text: 'Westmint',
-    value: 'westmint'
-  },
-  {
     info: 'basilisk',
-    text: 'Basilisk (Sandbox)',
+    text: 'Basilisk',
     value: 'bsx'
   },
   {
+    info: 'kusama',
+    text: 'RMRK',
+    value: 'rmrk'
+  },
+  {
+    info: 'snek',
+    text: 'Snek [Rococo]',
+    value: 'snek'
+  },
+  {
     info: 'moonriver',
-    text: 'Moonsama (read-only)',
-    value: 'moonsama'
+    text: 'Moonriver [Beta]',
+    value: 'movr'
+  },
+  {
+    info: 'moonbeam',
+    text: 'Moonbeam [Beta]',
+    value: 'glmr'
   }
-];
+]
