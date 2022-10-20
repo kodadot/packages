@@ -6,6 +6,13 @@ export function obtain<T>(uri: URI): Promise<T> {
   return $fetch<T>(uri)
 }
 
+export function obtainSafe<T>(uri: URI): Promise<T> {
+  return $fetch<T>(uri).catch((err: Error) => {
+    console.warn(err)
+    return {} as T
+  })
+}
+
 export function obtainMedia(uri: URI): Promise<Blob> {
   return $fetch(uri, { responseType: 'blob' })
 }
