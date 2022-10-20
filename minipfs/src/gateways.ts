@@ -1,4 +1,5 @@
 import { HTTPS_URI } from './types'
+export const PINATA_GATEWAY: HTTPS_URI = 'https://gateway.pinata.cloud'
 
 // LIST: https://ipfs.github.io/public-gateway-checker/
 export type IPFSProviders =
@@ -32,10 +33,18 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   gateway: 'https://ipfs-gateway.cloud/'
 }
 
-const DEFAULT_PROVIDER_LIST: AvailableProviders = ['kodadot', 'cloudflare', 'nftstorage']
+const DEFAULT_PROVIDER_LIST: AvailableProviders = [
+  'kodadot',
+  'cloudflare',
+  'nftstorage'
+]
 
-export const getProviderList = (providers: AvailableProviders = DEFAULT_PROVIDER_LIST): string[] => {
-  const list: AvailableProviders = providers.length ? providers : DEFAULT_PROVIDER_LIST
+export const getProviderList = (
+  providers: AvailableProviders = DEFAULT_PROVIDER_LIST
+): HTTPS_URI[] => {
+  const list: AvailableProviders = providers.length
+    ? providers
+    : DEFAULT_PROVIDER_LIST
   return list.map(provider => ipfsProviders[provider])
 }
 
