@@ -7,7 +7,7 @@ A set of tools to work with IPFS URIs.
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-![minimark pokemon](.github/minimark.png)
+![minimark pokemon](.github/minipfs.png)
 
 ## 🚀 Quick Start
 
