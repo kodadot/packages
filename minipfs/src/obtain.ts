@@ -7,7 +7,7 @@ export function obtain<T>(uri: URI): Promise<T> {
 }
 
 export function obtainSafe<T>(uri: URI): Promise<T> {
-  return $fetch<T>(uri).catch((err: Error) => {
+  return obtain<T>(uri).catch((err: Error) => {
     console.warn(err)
     return {} as T
   })
