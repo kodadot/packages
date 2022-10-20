@@ -1,5 +1,5 @@
 import { cid, path, url } from 'is-ipfs'
-import { HTTP_REGEX } from './constants'
+import { HTTP_REGEX, IPFS_FS_PREFIX, IPFS_NS_PREFIX, IPFS_PREFIX } from './constants'
 import { PINATA_GATEWAY } from './gateways'
 import { IPFS_HASH, IPFS_PATH, IPNS_PATH } from './types'
 
@@ -33,4 +33,12 @@ export function isDefaultPinataProvider(uri: string): boolean {
 
 export const canBeIPFS = (uri: string): boolean => {
   return isCID(uri) || isPath(uri)
+}
+
+export const extractIPFS = (uri: string): IPFS_HASH | IPFS_PATH | IPNS_PATH => {
+  if (uri.startsWith(IPFS_FS_PREFIX) || uri.startsWith(IPFS_NS_PREFIX)) {
+    return uri.replace('ipfs:/', '') as IPFS_PATH | IPNS_PATH
+  }
+
+  return uri.replace(IPFS_PREFIX, '') as IPFS_HASH
 }
