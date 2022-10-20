@@ -24,7 +24,7 @@
     "lint": "eslint --fix --ext .ts,.js,.mjs,.cjs .",
     "prepack": "unbuild",
     "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
-    "test": "pnpm lint && vitest run"
+    "test": "vitest run"
   },
   "dependencies": {
     "is-ipfs": "^7.0.3",
