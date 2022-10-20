@@ -19,18 +19,18 @@ export type IPFSProviders =
 export type AvailableProviders = IPFSProviders[]
 
 export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
-  pinata: 'https://kodadot.mypinata.cloud/',
-  cloudflare: 'https://cloudflare-ipfs.com/',
-  ipfs: 'https://ipfs.io/',
-  dweb: 'https://dweb.link/',
-  kodadot: 'https://kodadot.mypinata.cloud/',
-  rmrk: 'https://rmrk.mypinata.cloud/',
-  fleek: 'https://ipfs.fleek.co/',
-  nftstorage: 'https://nftstorage.link/',
-  aragon: 'https://ipfs.eth.aragon.network/',
-  cf: 'https://cf-ipfs.com/',
-  infura: 'https://infura-ipfs.io/',
-  gateway: 'https://ipfs-gateway.cloud/'
+  pinata: 'https://kodadot.mypinata.cloud',
+  cloudflare: 'https://cloudflare-ipfs.com',
+  ipfs: 'https://ipfs.io',
+  dweb: 'https://dweb.link',
+  kodadot: 'https://kodadot.mypinata.cloud',
+  rmrk: 'https://rmrk.mypinata.cloud',
+  fleek: 'https://ipfs.fleek.co',
+  nftstorage: 'https://nftstorage.link',
+  aragon: 'https://ipfs.eth.aragon.network',
+  cf: 'https://cf-ipfs.com',
+  infura: 'https://infura-ipfs.io',
+  gateway: 'https://ipfs-gateway.cloud'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
