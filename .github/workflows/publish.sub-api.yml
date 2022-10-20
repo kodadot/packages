@@ -5,7 +5,7 @@ on:
       - main
       - master
     paths:
-      - 'packages/sub-api/**'
+      - 'sub-api/**'
 jobs:
   build:
     runs-on: ubuntu-latest
