@@ -60,6 +60,7 @@ const { $obtain } = require('@kodadot1/minipfs')
 ### ✔️  Magic
 
 - `$obtain<T>` - put any URI and get back your T (Put your Metadata type here)
+- `$purify` - put any URI and get sanitized HTTP URI
 
 ### ✔️  Obtain
 
