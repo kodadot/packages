@@ -1,10 +1,19 @@
-import { cid, path, url } from '@vikiival/is-ipfs'
+// import { path, url } from '@vikiival/is-ipfs'
 import { HTTP_REGEX, IPFS_FS_PREFIX, IPFS_NS_PREFIX, IPFS_PREFIX } from './constants'
 import { PINATA_GATEWAY } from './gateways'
 import { IPFS_HASH, IPFS_PATH, IPNS_PATH } from './types'
 
+const isV0Cid = (cid: string): boolean => {
+  return cid.length === 46 && cid.startsWith('Qm')
+}
+
+const isV1Cid = (cid: string): boolean => {
+  return cid.length === 59 && cid.startsWith('baf')
+}
+
 export const isCID = (uri: string): boolean => {
-  return cid(uri)
+  return isV0Cid(uri) || isV1Cid(uri)
+  // return cid(uri)
 }
 
 export const isHTTP = (uri: string): boolean => {
@@ -12,7 +21,8 @@ export const isHTTP = (uri: string): boolean => {
 }
 
 export const isPath = (uri: string): boolean => {
-  return path(uri)
+  return /^\/ip[fn]s\//.test(uri)
+  // return path(uri)
 }
 
 export const toIPFSPath = (uri: string): IPFS_HASH | IPFS_PATH | IPNS_PATH => {
@@ -28,7 +38,8 @@ export const toIPFSPath = (uri: string): IPFS_HASH | IPFS_PATH | IPNS_PATH => {
 }
 
 export function isDefaultPinataProvider(uri: string): boolean {
-  return uri.startsWith(PINATA_GATEWAY) && url(uri)
+  return uri.startsWith(PINATA_GATEWAY)
+  // && url(uri)
 }
 
 export const canBeIPFS = (uri: string): boolean => {
