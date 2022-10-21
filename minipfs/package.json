@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/minipfs",
-  "version": "0.0.1-rc.2",
+  "version": "0.1.0-rc.0",
   "description": "",
   "repository": "kodadot/packages",
   "license": "MIT",
@@ -27,7 +27,6 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@vikiival/is-ipfs": "7.0.4-rc.4",
     "ohmyfetch": "^0.4.20"
   },
   "devDependencies": {
