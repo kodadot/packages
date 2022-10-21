@@ -23,4 +23,6 @@ export function sanitize(path: string): SanitizedOutput {
   if (ARWEAVE_REGEX.test(path)) {
     return { path: toArweavePath(path), needProvider: false }
   }
+
+  throw new Error(`[KODADOT::MINIPFS] Invalid URI: ${path}`)
 }
