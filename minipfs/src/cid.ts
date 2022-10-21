@@ -1,4 +1,4 @@
-import { cid, path, url } from 'is-ipfs'
+import { cid, path, url } from '@vikiival/is-ipfs'
 import { HTTP_REGEX, IPFS_FS_PREFIX, IPFS_NS_PREFIX, IPFS_PREFIX } from './constants'
 import { PINATA_GATEWAY } from './gateways'
 import { IPFS_HASH, IPFS_PATH, IPNS_PATH } from './types'
