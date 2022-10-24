@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/minimark",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Utils for the RMRK",
   "repository": "kodadot/packages",
   "license": "MIT",
@@ -36,7 +36,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "*.d.ts"
   ],
   "scripts": {
     "build": "unbuild",
