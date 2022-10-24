@@ -40,7 +40,7 @@ export type Store = EntityManager
 export type BaseContext = CommonHandlerContext<Store>;
 
 // meta:
-export type Optional<T> = T | undefined
+export type Optional<T> = T | undefined | null;
 export type CallWith<T> = BaseCall & T
 
 // subsquid
