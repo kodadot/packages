@@ -16,17 +16,17 @@ export function wrapSubqueryList<T>(fields: Fields<T>): [{ nodes: Fields<T> }] {
 
 export function optionToQuery(
   options: QueryOptions,
-  replaceLimitWithFirst = false
+  injectDefault = true
 ): string {
-  const limit = replaceLimitWithFirst ? 'first' : 'limit'
+  const final = injectDefault ? ensureOptions(options) : options
   let query = ''
-  if (options.limit) {
-    query += `${limit}: ${options.limit}`
+  if (final.limit) {
+    query += `limit: ${options.limit}`
   }
-  if (options.offset) {
+  if (final.offset) {
     query += `, offset: ${options.offset}`
   }
-  if (options.orderBy) {
+  if (final.orderBy) {
     query += `, orderBy: "${options.orderBy}"`
   }
   return query
