@@ -78,6 +78,7 @@ console.log(query)
 - eventListByCollectionId - returns events for NFTs by collection id
 - eventListByCollectionIdAndInteraction - returns events for NFTs by collection id and interaction
 - lastNftIdbyCollectionId - returns last token id for collection by id
+- eventListByAddress - returns events by address
 
 
 ## Development 💻
