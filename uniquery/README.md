@@ -46,6 +46,14 @@ console.log(query)
 }
 ```
 
+## ⚓️ Exported functions
+
+### ✔️  Uniquery
+
+### ✔️  REST
+
+### ✔️  Missing functions
+
 ## Development 💻
 
 - Clone this repository
