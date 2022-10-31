@@ -10,7 +10,7 @@ publish:
   yarn publish --access public
 
 c VERSION:
-  git commit -am "Updated kodapi@{{VERSION}}"
+  git commit -am ":bookmark: uniquery@{{VERSION}}"
 
 up: build publish
 

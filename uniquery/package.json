@@ -2,7 +2,7 @@
   "name": "@kodadot1/uniquery",
   "version": "0.0.1-rc.1",
   "description": "",
-  "repository": "vikiival/kodapi",
+  "repository": "kodadot/packages",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",

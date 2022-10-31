@@ -1,4 +1,4 @@
-# @kodadot1/kodapi
+# @kodadot1/uniquery
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -13,23 +13,23 @@ Add Uniquery to your project
 
 ```sh
 # with npm
-npm install @kodadot1/kodapi
+npm install @kodadot1/uniquery
 
 # with yarn
-yarn install @kodadot1/kodapi
+yarn install @kodadot1/uniquery
 
 # with pnpm
-pnpm install @kodadot1/kodapi
+pnpm install @kodadot1/uniquery
 ```
 
 Import:
 
 ```js
 // ESM
-import getClient from '@kodadot1/kodapi'
+import getClient from '@kodadot1/uniquery'
 
 // CommonJS
-const getClient = require('@kodadot1/kodapi')
+const getClient = require('@kodadot1/uniquery')
 ```
 
 ```js
@@ -46,7 +46,7 @@ console.log(query)
 }
 ```
 
-## Development 💻 
+## Development 💻
 
 - Clone this repository
 ```bash
@@ -54,12 +54,12 @@ git clone https://github.com/kodadot/packages.git
 
 ```
 
-- Navigate to the packages directory 
+- Navigate to the packages directory
 ```bash
 cd packages
 ```
 
-- Navigate to the uniquery directory 
+- Navigate to the uniquery directory
 ```bash
 cd uniquery
 ```
@@ -70,17 +70,17 @@ cd uniquery
 corepack enable
 ```
 
-or 
+or
 
 ```bash
 npm i -g corepack
 ```
 
-- Install Dependencies 
+- Install Dependencies
 ```bash
 yarn install
 ```
-- Run interactive tests 
+- Run interactive tests
 
 ```bash
 yarn dev
@@ -93,14 +93,14 @@ Made with 💛
 Published under [MIT License](./LICENSE).
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@kodadot1/kodapi?style=flat-square
-[npm-version-href]: https://npmjs.com/package/@kodadot1/kodapi
+[npm-version-src]: https://img.shields.io/npm/v/@kodadot1/uniquery?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@kodadot1/uniquery
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/@kodadot1/kodapi?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/@kodadot1/kodapi
+[npm-downloads-src]: https://img.shields.io/npm/dm/@kodadot1/uniquery?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@kodadot1/uniquery
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/@kodadot1/kodapi/ci/main?style=flat-square
-[github-actions-href]: https://github.com/unjs/@kodadot1/kodapi/actions?query=workflow%3Aci
+[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/@kodadot1/uniquery/ci/main?style=flat-square
+[github-actions-href]: https://github.com/unjs/@kodadot1/uniquery/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/@kodadot1/kodapi/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/unjs/@kodadot1/kodapi
+[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/@kodadot1/uniquery/main?style=flat-square
+[codecov-href]: https://codecov.io/gh/unjs/@kodadot1/uniquery
