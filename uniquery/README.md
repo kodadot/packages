@@ -50,9 +50,28 @@ console.log(query)
 
 ### ✔️  Uniquery
 
+- `getClient` - returns GrahpQL query builder
+
+### ✔️  Uniquery.client
+
+- nftById - returns NFT by id
+- nftListByOwner - returns NFTs where owner is equal to provided address
+- nftListByIssuer - returns NFTs where issuer (creator) is equal to provided address
+- nftListCollectedBy - returns NFTs where owner is equal to provided address however it's not the issuer of the NFT
+- nftListSoldBy - no idea :shrug:
+- nftListByCollectionId - returns NFTs where collection id is equal to provided id
+- nftListForSale - returns NFTs where price is greater than 0
+- collectionById - returns collection by id
+- collectionListByOwner - returns collections where owner is equal to provided address
+- collectionListByIssuer - returns collections where issuer (creator) is equal to provided address
+
 ### ✔️  REST
 
 ### ✔️  Missing functions
+
+- nftListByCollectionIdList - return list of NFTs by list of collectionIds
+- nftListByMetadataId - returns NFTs where metadata is equal to provided uri
+
 
 ## Development 💻
 
