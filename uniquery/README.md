@@ -71,6 +71,13 @@ console.log(query)
 
 - nftListByCollectionIdList - return list of NFTs by list of collectionIds
 - nftListByMetadataId - returns NFTs where metadata is equal to provided uri
+- nftListByCollectionIdAndOwner - returns NFTs where collection id is equal to provided id and owner is equal to provided address
+- collectionStatListById - returns collection metrics by id
+- eventListByNftId - returns events by nft id
+- eventListByInteraction - returns events by interaction
+- eventListByCollectionId - returns events for NFTs by collection id
+- eventListByCollectionIdAndInteraction - returns events for NFTs by collection id and interaction
+- lastNftIdbyCollectionId - returns last token id for collection by id
 
 
 ## Development 💻
