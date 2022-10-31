@@ -1,21 +1,24 @@
 #!/usr/bin/env just --justfile
 
 update-deps:
-  pnpm i -D typescript@latest
   pnpm i @polkadot/networks@latest
 
-update: update-deps
+c VERSION:
+  git commit -am ':bookmark: vuex-options@{{VERSION}}'
 
 build:
-  pnpm run build
+  @pnpm run build
 
 link:
-  pnpm link
+  @pnpm link
+
+pack:
+  @pnpm pack
 
 publish:
   pnpm publish --access public
 
-c VERSION:
-  git commit -am "Updated vuex-options@{{VERSION}}"
+release: publish
 
-up: build publish
+test:
+  @pnpm run test

@@ -1,0 +1,66 @@
+{
+  "name": "@kodadot1/metasquid",
+  "version": "0.1.0-rc.3",
+  "description": "Utils for the @subsquid indexers",
+  "repository": "@kodadot1/metasquid",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./consolidator": {
+      "types": "./dist/consolidator.d.ts",
+      "import": "./dist/consolidator.mjs",
+      "require": "./dist/consolidator.cjs"
+    },
+    "./entity": {
+      "types": "./dist/entity.d.ts",
+      "import": "./dist/entity.mjs",
+      "require": "./dist/entity.cjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "vitest dev",
+    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
+    "prepack": "unbuild",
+    "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
+    "test": "pnpm lint && vitest run --coverage"
+  },
+  "peerDependencies": {
+    "@subsquid/ss58": "0.1.x",
+    "@subsquid/substrate-processor": ">= 1",
+    "typeorm": "0.3.x"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@subsquid/ss58": "^0.1.0",
+    "@subsquid/substrate-processor": "^1.7.0",
+    "@vitest/coverage-c8": "latest",
+    "eslint": "latest",
+    "standard-version": "latest",
+    "typeorm": "^0.3.9",
+    "typescript": "latest",
+    "unbuild": "latest",
+    "vitest": "latest"
+  },
+  "packageManager": "pnpm@7.9.5",
+  "engines": {
+    "node": ">=14"
+  }
+}
