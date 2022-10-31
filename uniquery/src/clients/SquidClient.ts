@@ -8,7 +8,7 @@ import { getFields, optionToQuery } from './defaults'
 class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
   nftById(id: string, fields?: ObjProp<SquidNFT>): GraphQuery {
     const toQuery = getFields(fields)
-    return build('nft: nftEntityById', toQuery, { id: { type: 'ID', required: true, value: id, name: 'id' } })
+    return build('nft: nftEntityById', toQuery, { id: { type: 'String', required: true, value: id, name: 'id' } })
   }
 
   nftListByOwner(owner: string, fields?: ObjProp<SquidNFT>): GraphQuery {
@@ -49,7 +49,7 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
 
   collectionById(id: string, fields?: ObjProp<SquidCollection>): GraphQuery {
     const toQuery = getFields(fields)
-    return build('collection: collectionEntityById', toQuery, { id: { type: 'ID', required: true, value: id, name: 'id' } })
+    return build('collection: collectionEntityById', toQuery, { id: { type: 'String', required: true, value: id, name: 'id' } })
   }
 
   collectionListByOwner(owner: string, fields?: ObjProp<SquidCollection>): GraphQuery {
