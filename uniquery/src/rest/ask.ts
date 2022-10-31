@@ -5,7 +5,7 @@ import { getOptions } from './utils'
 
 const GRAPHQL_PATH = '/graphql'
 
-function askFor<T> (path: string): Promise<T> {
+function askFor<T>(path: string): Promise<T> {
   const request = pathToRequest(path)
   const options = getOptions(request)
   return $fetch<T>(GRAPHQL_PATH, options)

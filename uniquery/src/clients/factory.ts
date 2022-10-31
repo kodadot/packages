@@ -7,7 +7,7 @@ function getClient(): Client {
   return new SquidClient()
 }
 
-export function isSubQuery (provider?: Provider) {
+export function isSubQuery(provider?: Provider) {
   return provider === 'subquery'
 }
 

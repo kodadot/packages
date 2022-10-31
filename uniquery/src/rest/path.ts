@@ -30,7 +30,7 @@ const urlOf = (path: string): $URL => new $URL(path)
 
 // /bsx/nft/:id
 // TODO: should return GraphRequest
-export function pathToRequest (path: string): GraphRequest {
+export function pathToRequest(path: string): GraphRequest {
   const { query, pathname } = urlOf(path)
   const [chain, call, id] = parsePath(pathname)
   validate(chain, call, id)
