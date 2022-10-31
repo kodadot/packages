@@ -1,13 +1,13 @@
 #!/usr/bin/env just --justfile
 
 build:
-  yarn build
+  pnpm build
 
 link:
-  yarn link
+  pnpm link
 
 publish:
-  yarn publish --access public
+  pnpm publish --access public
 
 c VERSION:
   git commit -am ":bookmark: uniquery@{{VERSION}}"
