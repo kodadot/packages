@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import build from '../queryBuilder'
-import { GraphQuery, ObjProp, BaseCollection, BaseNFT, QueryOptions } from '../types'
+import { GraphQuery, ObjProp, BaseCollection, BaseNFT, QueryOptions, BaseEvent } from '../types'
 
 import AbstractClient from './abstractClient'
 import { getFields, optionToQuery, wrapSubqueryList } from './defaults'
@@ -55,6 +56,38 @@ class SubqueryClient implements AbstractClient<BaseCollection, BaseNFT> {
   collectionListByIssuer(issuer: string, fields?: ObjProp<BaseCollection>): GraphQuery {
     const toQuery = wrapSubqueryList(getFields(fields))
     return build(`collections: collectionEntities(filter: { issuer: { equalTo: ${issuer} } })`, toQuery)
+  }
+
+  eventListByAddress(address: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByCollectionId(id: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByCollectionIdAndInteraction(id: string, interaction: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByInteraction(interaction: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByNftId(id: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  nftListByCollectionIdAndOwner(id: string, owner: string, fields?: ObjProp<BaseNFT>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  nftListByCollectionIdList(ids: string[], fields?: ObjProp<BaseNFT>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  nftListByMetadataId(id: string, fields?: ObjProp<BaseNFT>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
   }
 }
 
