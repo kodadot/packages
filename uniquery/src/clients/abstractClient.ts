@@ -1,5 +1,5 @@
 
-import { ObjProp, GraphQuery, QueryOptions, BaseEvent, KeyOf } from '../types'
+import { BaseEvent, GraphQuery, ObjProp, QueryOptions } from '../types'
 // Collection, Token
 interface AbstractClient<C, T, E = BaseEvent> {
   collectionById(id: string, fields?: ObjProp<C>): GraphQuery
@@ -7,8 +7,8 @@ interface AbstractClient<C, T, E = BaseEvent> {
   collectionListByIssuer(issuer: string, fields?: ObjProp<C>, options?: QueryOptions): GraphQuery
   collectionListByOwner(owner: string, fields?: ObjProp<C>, options?: QueryOptions): GraphQuery
   eventListByAddress(address: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
-  eventListByCollectionId(id: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
-  eventListByCollectionIdAndInteraction(id: string, interaction: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
+  // eventListByCollectionId(id: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
+  // eventListByCollectionIdAndInteraction(id: string, interaction: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
   eventListByInteraction(interaction: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
   eventListByNftId(id: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
   nftById(id: string, fields?: ObjProp<T>): GraphQuery
