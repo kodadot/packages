@@ -88,15 +88,21 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
   }
 
   nftListByCollectionIdAndOwner(id: string, owner: string, fields?: ObjProp<SquidNFT>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
+    const toQuery = getFields(fields)
+    const optionList = optionToQuery(options, true)
+    return build(`nfts: nftEntities(where: { currentOwner_eq: ${owner}, collection: {id_eq: ${id}}} ${optionList})`, toQuery)
   }
 
   nftListByCollectionIdList(ids: string[], fields?: ObjProp<SquidNFT>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
+    const toQuery = getFields(fields)
+    const optionList = optionToQuery(options, true)
+    return build(`nfts: nftEntities(where: {collection: {id_in: ${ids}}} ${optionList})`, toQuery)
   }
 
   nftListByMetadataId(id: string, fields?: ObjProp<SquidNFT>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
+    const toQuery = getFields(fields)
+    const optionList = optionToQuery(options, true)
+    return build(`nfts: nftEntities(where: {meta: {id_eq: ${id}}} ${optionList})`, toQuery)
   }
 }
 
