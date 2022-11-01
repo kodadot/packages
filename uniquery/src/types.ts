@@ -37,7 +37,7 @@ export type BaseCollection = {
   id: string
   metadata: string
   currentOwner: string
-  blockNumber: BigInt
+  blockNumber: bigint
   createdAt: Date
 }
 
@@ -57,11 +57,21 @@ export type BaseNFT = {
   id: string
   metadata: string
   currentOwner: string
-  price: BigInt
+  price: bigint
   burned: Boolean
-  blockNumber: BigInt
+  blockNumber: bigint
   createdAt: Date
   updatedAt: Date
+}
+
+export type BaseEvent = {
+  id: string
+  blockNumber: bigint
+  timestamp: Date
+  caller: string
+  currentOwner: string
+  interaction: string
+  meta: string
 }
 
 export type SquidNFT = BaseNFT & {
