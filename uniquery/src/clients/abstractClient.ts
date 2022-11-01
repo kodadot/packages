@@ -1,29 +1,29 @@
 
-import { BaseEvent, GraphQuery, ObjProp, QueryOptions } from '../types'
+import { BaseEvent, GraphQuery, ObjProp, QueryProps } from '../types'
 // Collection, Token
 interface AbstractClient<C, T, E = BaseEvent> {
   collectionById(id: string, fields?: ObjProp<C>): GraphQuery
   // collectionListBy(id: string, field: KeyOf<C>, fields?: ObjProp<C>): GraphQuery
-  collectionListByIssuer(issuer: string, fields?: ObjProp<C>, options?: QueryOptions): GraphQuery
-  collectionListByOwner(owner: string, fields?: ObjProp<C>, options?: QueryOptions): GraphQuery
-  eventListByAddress(address: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
-  // eventListByCollectionId(id: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
-  // eventListByCollectionIdAndInteraction(id: string, interaction: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
-  eventListByInteraction(interaction: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
-  eventListByNftId(id: string, fields?: ObjProp<E>, options?: QueryOptions): GraphQuery
+  collectionListByIssuer(issuer: string, options?: QueryProps<C>): GraphQuery
+  collectionListByOwner(owner: string, options?: QueryProps<C>): GraphQuery
+  eventListByAddress(address: string, options?: QueryProps<E>): GraphQuery
+  // eventListByCollectionId(id: string, options?: QueryProps<E>): GraphQuery
+  // eventListByCollectionIdAndInteraction(id: string, interaction: string, options?: QueryProps<E>): GraphQuery
+  eventListByInteraction(interaction: string, options?: QueryProps<E>): GraphQuery
+  eventListByNftId(id: string, options?: QueryProps<E>): GraphQuery
   nftById(id: string, fields?: ObjProp<T>): GraphQuery
   // nftListBy(id: string, field: KeyOf<T>, fields?: ObjProp<T>): GraphQuery
-  nftListByCollectionId(collectionId: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListByCollectionIdAndOwner(id: string, owner: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListByCollectionIdList(ids: string[], fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListByIssuer(issuer: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListByMetadataId(id: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListByOwner(owner: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListCollectedBy(address: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListForSale(fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  nftListSoldBy(address: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  // collectionStatListById(id: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
-  // lastNftIdbyCollectionId(id: string, fields?: ObjProp<T>, options?: QueryOptions): GraphQuery
+  nftListByCollectionId(id: string, options?: QueryProps<T>): GraphQuery
+  nftListByCollectionIdAndOwner(id: string, owner: string, options?: QueryProps<T>): GraphQuery
+  nftListByCollectionIdList(ids: string[], options?: QueryProps<T>): GraphQuery
+  nftListByIssuer(issuer: string, options?: QueryProps<T>): GraphQuery
+  nftListByMetadataId(id: string, options?: QueryProps<T>): GraphQuery
+  nftListByOwner(owner: string, options?: QueryProps<T>): GraphQuery
+  nftListCollectedBy(address: string, options?: QueryProps<T>): GraphQuery
+  nftListForSale(options?: QueryProps<T>): GraphQuery
+  nftListSoldBy(address: string, options?: QueryProps<T>): GraphQuery
+  // collectionStatListById(id: string, options?: QueryProps<T>): GraphQuery
+  // lastNftIdbyCollectionId(id: string, options?: QueryProps<T>): GraphQuery
 }
 
 export default AbstractClient
