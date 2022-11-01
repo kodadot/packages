@@ -1,4 +1,6 @@
 // /bsx/nft/:id
+// TODO: fn returns { data: T } but should return T
+// unwrap data should be done in the caller
 import { $fetch } from 'ohmyfetch'
 import { pathToRequest } from './path'
 import { getOptions } from './utils'
