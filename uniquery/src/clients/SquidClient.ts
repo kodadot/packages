@@ -1,11 +1,51 @@
 
 import build from '../queryBuilder'
-import { GraphQuery, KeyOf, ObjProp, QueryOptions, SquidCollection, SquidNFT } from '../types'
+import { BaseEvent, GraphQuery, KeyOf, ObjProp, QueryOptions, SquidCollection, SquidNFT } from '../types'
 
 import AbstractClient from './abstractClient'
 import { getFields, optionToQuery } from './defaults'
 
 class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
+  collectionById(id: string, fields?: ObjProp<SquidCollection>): GraphQuery {
+    const toQuery = getFields(fields)
+    return build('collection: collectionEntityById', toQuery, { id: { type: 'String', required: true, value: id, name: 'id' } })
+  }
+
+  collectionListBy(id: string, field: KeyOf<SquidCollection>, fields?: ObjProp<SquidCollection>): GraphQuery {
+    const toQuery = getFields(fields)
+    return build(`collections: collectionEntities(where: {${field}_eq: ${id}})`, toQuery)
+  }
+
+  collectionListByIssuer(issuer: string, fields?: ObjProp<SquidCollection>): GraphQuery {
+    const toQuery = getFields(fields)
+    return build(`collections: collectionEntities(where: {issuer_eq: ${issuer}})`, toQuery)
+  }
+
+  collectionListByOwner(owner: string, fields?: ObjProp<SquidCollection>): GraphQuery {
+    const toQuery = getFields(fields)
+    return build(`collections: collectionEntities(where: {currentOwner_eq: ${owner}})`, toQuery)
+  }
+
+  eventListByAddress(address: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByCollectionId(id: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByCollectionIdAndInteraction(id: string, interaction: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByInteraction(interaction: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
+  eventListByNftId(id: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
+
   nftById(id: string, fields?: ObjProp<SquidNFT>): GraphQuery {
     const toQuery = getFields(fields)
     return build('nft: nftEntityById', toQuery, { id: { type: 'String', required: true, value: id, name: 'id' } })
@@ -47,24 +87,16 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
     return build(`nfts: nftEntities(where: {${field}_eq: ${id}})`, toQuery)
   }
 
-  collectionById(id: string, fields?: ObjProp<SquidCollection>): GraphQuery {
-    const toQuery = getFields(fields)
-    return build('collection: collectionEntityById', toQuery, { id: { type: 'String', required: true, value: id, name: 'id' } })
+  nftListByCollectionIdAndOwner(id: string, owner: string, fields?: ObjProp<SquidNFT>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
   }
 
-  collectionListByOwner(owner: string, fields?: ObjProp<SquidCollection>): GraphQuery {
-    const toQuery = getFields(fields)
-    return build(`collections: collectionEntities(where: {currentOwner_eq: ${owner}})`, toQuery)
+  nftListByCollectionIdList(ids: string[], fields?: ObjProp<SquidNFT>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
   }
 
-  collectionListByIssuer(issuer: string, fields?: ObjProp<SquidCollection>): GraphQuery {
-    const toQuery = getFields(fields)
-    return build(`collections: collectionEntities(where: {issuer_eq: ${issuer}})`, toQuery)
-  }
-
-  collectionListBy(id: string, field: KeyOf<SquidCollection>, fields?: ObjProp<SquidCollection>): GraphQuery {
-    const toQuery = getFields(fields)
-    return build(`collections: collectionEntities(where: {${field}_eq: ${id}})`, toQuery)
+  nftListByMetadataId(id: string, fields?: ObjProp<SquidNFT>, options?: QueryOptions): GraphQuery {
+    throw new Error('Method not implemented.')
   }
 }
 
