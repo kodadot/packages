@@ -27,23 +27,21 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
   }
 
   eventListByAddress(address: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
-  }
-
-  eventListByCollectionId(id: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
-  }
-
-  eventListByCollectionIdAndInteraction(id: string, interaction: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
+    const toQuery = getFields(fields)
+    const optionList = optionToQuery(options, true)
+    return build(`events(where: {caller_eq: ${address}} ${optionList})`, toQuery)
   }
 
   eventListByInteraction(interaction: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
+    const toQuery = getFields(fields)
+    const optionList = optionToQuery(options, true)
+    return build(`events(where: {interaction_eq: ${interaction}} ${optionList})`, toQuery)
   }
 
   eventListByNftId(id: string, fields?: ObjProp<BaseEvent>, options?: QueryOptions): GraphQuery {
-    throw new Error('Method not implemented.')
+    const toQuery = getFields(fields)
+    const optionList = optionToQuery(options, true)
+    return build(`events(where: {nft: {id_eq: ${id}}}) ${optionList})`, toQuery)
   }
 
   nftById(id: string, fields?: ObjProp<SquidNFT>): GraphQuery {

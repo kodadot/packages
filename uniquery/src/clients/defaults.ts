@@ -2,6 +2,7 @@ import { ObjProp, Fields, QueryOptions } from '../types'
 
 export const defaultField = ['id', 'metadata', 'currentOwner', 'issuer']
 export const DEFAULT_LIMIT = 20
+// todo: add default orderBy
 export const defaultQueryOptions: QueryOptions = {
   limit: DEFAULT_LIMIT
 }
