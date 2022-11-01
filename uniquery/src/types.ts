@@ -18,6 +18,12 @@ export type QueryOptions = {
   orderBy?: string
 }
 
+// NOW: client.eventListByNftId('123', ['id', 'name'], { limit: 10 })
+// NEW: client.eventListByNftId('123', { fields: ['id', 'name'], limit: 10 })
+export type QueryProp<T> = QueryOptions & {
+  fields?: ObjProp<T>
+}
+
 type MetadataEntity = {
   id: string
   name: string
