@@ -1,5 +1,5 @@
 import { FetchOptions } from 'ohmyfetch'
-import { GraphRequest } from './types'
+import { GraphLike, GraphRequest } from './types'
 
 export const getOptions = ({
   baseURL,
@@ -9,3 +9,13 @@ export const getOptions = ({
   method: 'POST',
   body: query
 })
+
+export const uwrapRequest = <T>(req: GraphLike<T>): T => {
+  const data = (req as any).data
+
+  if (data) {
+    return data as T
+  }
+
+  return req as T
+}
