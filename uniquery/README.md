@@ -67,6 +67,23 @@ console.log(query)
 
 ### ✔️  REST
 
+- collectionById/:id
+- collectionListByIssuer/:issuer
+- collectionListByOwner/:owner
+- eventListByAddress/:address
+- eventListByInteraction/:interaction
+- eventListByNftId/:id
+- nftById/:id
+- nftListByCollectionId/:id
+- nftListByCollectionIdAndOwner/:id/:owner
+- nftListByCollectionIdList/:ids
+- nftListByIssuer/:issuer
+- nftListByMetadataId/:id
+- nftListByOwner/:owner
+- nftListCollectedBy/:address
+- nftListForSale
+- nftListSoldBy/:address
+
 ### ✔️  Missing functions
 
 - nftListByCollectionIdList - return list of NFTs by list of collectionIds
