@@ -41,7 +41,7 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
   eventListByNftId(id: string, options?: QueryProps<BaseEvent>): GraphQuery {
     const toQuery = getFields(options?.fields ?? defaultEventField)
     const optionList = optionToQuery(options, true)
-    return build(`events(where: {nft: {id_eq: "${id}"}}) ${optionList})`, toQuery)
+    return build(`events(where: {nft: {id_eq: "${id}"}} ${optionList})`, toQuery)
   }
 
   nftById(id: string, fields?: ObjProp<SquidNFT>): GraphQuery {
