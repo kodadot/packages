@@ -1,1 +1,1 @@
-export default './ask'
+export * from './ask'

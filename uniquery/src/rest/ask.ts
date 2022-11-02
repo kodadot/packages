@@ -13,4 +13,4 @@ function askFor<T>(path: string): Promise<T> {
   return $fetch<T>(GRAPHQL_PATH, options)
 }
 
-export default askFor
+export { askFor as ask }
