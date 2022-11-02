@@ -1,14 +1,15 @@
 import { ObjProp, Fields, QueryOptions } from '../types'
 
 export const defaultField = ['id', 'metadata', 'currentOwner', 'issuer']
+export const defaultEventField = ['id', 'interaction', 'timestamp', 'caller', 'meta']
 export const DEFAULT_LIMIT = 20
 // todo: add default orderBy
 export const defaultQueryOptions: QueryOptions = {
   limit: DEFAULT_LIMIT
 }
 
-export function getFields<T>(fields?: ObjProp<T>): Fields<T> {
-  return fields ?? defaultField
+export function getFields<T>(fields?: ObjProp<T>, defaultList: ObjProp<T> | string[] = defaultField): Fields<T> {
+  return fields ?? defaultList
 }
 
 export function wrapSubqueryList<T>(fields: Fields<T>): [{ nodes: Fields<T> }] {
