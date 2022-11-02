@@ -22,13 +22,13 @@ export function optionToQuery(
   const final = injectDefault ? ensureOptions(options) : options
   let query = ''
   if (final.limit) {
-    query += `limit: ${options.limit}`
+    query += `limit: ${final.limit}`
   }
   if (final.offset) {
-    query += `, offset: ${options.offset}`
+    query += `, offset: ${final.offset}`
   }
   if (final.orderBy) {
-    query += `, orderBy: "${options.orderBy}"`
+    query += `, orderBy: "${final.orderBy}"`
   }
   return query
 }
