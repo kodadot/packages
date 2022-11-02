@@ -12,3 +12,5 @@ export type GraphLike<T> = { data: T } | T
 export type ClientCall = keyof AbstractClient<any, any>
 
 export type MayString = Or<string, undefined>
+
+export type Prefix = 'ksm' | 'bsx' | 'snek' | 'movr' | 'glmr'
