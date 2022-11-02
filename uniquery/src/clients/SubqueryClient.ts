@@ -89,6 +89,10 @@ class SubqueryClient implements AbstractClient<BaseCollection, BaseNFT> {
   nftListByMetadataId(id: string, options?: QueryProps<BaseNFT>): GraphQuery {
     throw new Error('Method not implemented.')
   }
+
+  nftListByMetadataIdMatch(id: string, options?: QueryProps<BaseNFT>): GraphQuery {
+    throw new Error('Method not implemented.')
+  }
 }
 
 export default SubqueryClient
