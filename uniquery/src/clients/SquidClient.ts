@@ -103,6 +103,12 @@ class SquidClient implements AbstractClient<SquidCollection, SquidNFT> {
     const optionList = optionToQuery(options, true)
     return build(`nfts: nftEntities(where: {meta: {id_eq: "${id}"}} ${optionList})`, toQuery)
   }
+
+  nftListByMetadataIdMatch(id: string, options?: QueryProps<SquidNFT>): GraphQuery {
+    const toQuery = getFields(options?.fields)
+    const optionList = optionToQuery(options, true)
+    return build(`nfts: nftEntities(where: {meta: {id_containsInsensitive: "${id}"}} ${optionList})`, toQuery)
+  }
 }
 
 export default SquidClient
