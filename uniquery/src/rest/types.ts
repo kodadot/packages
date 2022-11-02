@@ -7,6 +7,8 @@ export type GraphRequest = {
   path: string
 }
 
+export type GraphLike<T> = { data: T } | T
+
 export type ClientCall = keyof AbstractClient<any, any>
 
 export type MayString = Or<string, undefined>
