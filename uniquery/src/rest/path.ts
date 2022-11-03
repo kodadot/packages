@@ -3,7 +3,6 @@ import getClient from '../clients/factory'
 import { GraphQuery } from '../types'
 import { getUrl } from './indexers'
 import { ClientCall, GraphRequest, Prefix } from './types'
-import validate from './validation'
 
 const pathMap: Record<string, ClientCall> = {
   collection: 'collectionById',
@@ -48,10 +47,8 @@ const makeQuery = (call: string, id: string): GraphQuery => {
 // /bsx/nft/:id
 // TODO: should return GraphRequest
 export function pathToRequest(path: string): GraphRequest {
-  const { query, pathname } = urlOf(path)
+  const { pathname } = urlOf(path) // query: options
   const [chain, call, id] = parsePath(pathname)
-  validate(chain, call, id)
-  console.log(query)
   if (!hasCall(call) || !supportChain(chain)) {
     throw new ReferenceError(`[UNIQUERY::REST] Invalid path: ${path}`)
   }
