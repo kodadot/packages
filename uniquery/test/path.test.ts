@@ -1,7 +1,7 @@
 import { expect, it, describe } from 'vitest'
-import { parsePath } from '../src/rest/path'
+import { parsePath, pathToRequest } from '../src/rest/path'
 
-describe('PATH UTILS', () => {
+describe.only('Path utils', () => {
   describe('parse path should', () => {
     it('be fully defined', () => {
       const pathname = '/bsx/nft/0-1'
@@ -18,5 +18,32 @@ describe('PATH UTILS', () => {
       expect(call).eq('nft')
       expect(id).eq(undefined)
     })
+  })
+
+  describe('path to request', () => {
+    const tests = [
+      { input: 'collection/2305670031' },
+      { input: 'collectionByIssuer/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' },
+      { input: 'collectionByOwner/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' },
+      { input: 'eventByAddress/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' },
+      { input: 'eventByInteraction/BUY' },
+      { input: 'eventByNftId/2305670031-1' },
+      { input: 'nft/2305670031-1' },
+      { input: 'nftByCollection/2305670031' },
+      { input: 'nftByIssuer/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' },
+      { input: 'nftByCid/bafkreihdgtq6ufy2i2ow7ff264lk5mwhnsrlnwgsikz534b2bybdxdrbjm' },
+      { input: 'nftByOwner/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' },
+      { input: 'nftCollectedBy/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' },
+      { input: 'nftSoldBy/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' }
+    ]
+
+    for (const test of tests) {
+      it(test.input, () => {
+        const res = pathToRequest(`/bsx/${test.input}`)
+        expect(res.baseURL).toBe('https://squid.subsquid.io/snekk/v/005')
+        expect(res).haveOwnProperty('query')
+        expect(res.query).not.toBeUndefined()
+      })
+    }
   })
 })
