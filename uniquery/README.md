@@ -54,16 +54,23 @@ console.log(query)
 
 ### ✔️  Uniquery.client
 
-- nftById - returns NFT by id
-- nftListByOwner - returns NFTs where owner is equal to provided address
-- nftListByIssuer - returns NFTs where issuer (creator) is equal to provided address
-- nftListCollectedBy - returns NFTs where owner is equal to provided address however it's not the issuer of the NFT
-- nftListSoldBy - no idea :shrug:
-- nftListByCollectionId - returns NFTs where collection id is equal to provided id
-- nftListForSale - returns NFTs where price is greater than 0
 - collectionById - returns collection by id
-- collectionListByOwner - returns collections where owner is equal to provided address
 - collectionListByIssuer - returns collections where issuer (creator) is equal to provided address
+- collectionListByOwner - returns collections where owner is equal to provided address
+- eventListByAddress - returns events by address
+- eventListByInteraction - returns events by interaction
+- eventListByNftId - returns events by nft id
+- nftById - returns NFT by id
+- nftListByCollectionId - returns NFTs where collection id is equal to provided id
+- nftListByCollectionIdAndOwner - returns NFTs where collection id is equal to provided id and owner is equal to provided address
+- nftListByCollectionIdList - return list of NFTs by list of collectionIds
+- nftListByIssuer - returns NFTs where issuer (creator) is equal to provided address
+- nftListByMetadataId - returns NFTs where metadata is equal to provided uri
+- nftListByMetadataIdMatch -returns NFTs where metadata can match provided CID
+- nftListByOwner - returns NFTs where owner is equal to provided address
+- nftListCollectedBy - returns NFTs where owner is equal to provided address however it's not the issuer of the NFT
+- nftListForSale - returns NFTs where price is greater than 0
+- nftListSoldBy - no idea :shrug:
 
 ### ✔️  REST
 
@@ -89,17 +96,10 @@ Please open a pull-request if you know how to fix this
 
 ### ✔️  Missing functions
 
-- nftListByCollectionIdList - return list of NFTs by list of collectionIds
-- nftListByMetadataId - returns NFTs where metadata is equal to provided uri
-- nftListByCollectionIdAndOwner - returns NFTs where collection id is equal to provided id and owner is equal to provided address
 - collectionStatListById - returns collection metrics by id
-- eventListByNftId - returns events by nft id
-- eventListByInteraction - returns events by interaction
 - eventListByCollectionId - returns events for NFTs by collection id
 - eventListByCollectionIdAndInteraction - returns events for NFTs by collection id and interaction
 - lastNftIdbyCollectionId - returns last token id for collection by id
-- eventListByAddress - returns events by address
-
 
 ## Development 💻
 
