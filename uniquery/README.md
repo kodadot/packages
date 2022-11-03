@@ -67,22 +67,25 @@ console.log(query)
 
 ### ✔️  REST
 
-- collectionById/:id
-- collectionListByIssuer/:issuer
-- collectionListByOwner/:owner
-- eventListByAddress/:address
-- eventListByInteraction/:interaction
-- eventListByNftId/:id
-- nftById/:id
-- nftListByCollectionId/:id
-- nftListByCollectionIdAndOwner/:id/:owner
-- nftListByCollectionIdList/:ids
-- nftListByIssuer/:issuer
-- nftListByMetadataId/:id
-- nftListByOwner/:owner
-- nftListCollectedBy/:address
-- nftListForSale
-- nftListSoldBy/:address
+- collection/:id
+- collectionByIssuer/:issuer
+- collectionByOwner/:owner
+- eventByAddress/:address
+- eventByInteraction/:interaction
+- eventByNftId/:id
+- nft/:id
+- nftByCollection/:id
+- nftByCollectionList/:ids
+- nftByIssuer/:issuer
+- nftByCid/:id
+- nftByOwner/:owner
+- nftCollectedBy/:address
+- nftSoldBy/:address
+
+#### ⚠️ Caveats
+
+REST implementation supports only functions that requires exactly one parameter.
+Please open a pull-request if you know how to fix this
 
 ### ✔️  Missing functions
 
