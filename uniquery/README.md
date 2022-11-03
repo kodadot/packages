@@ -26,14 +26,14 @@ Import:
 
 ```js
 // ESM
-import getClient from '@kodadot1/uniquery'
+import { getClient } from '@kodadot1/uniquery'
 
 // CommonJS
-const getClient = require('@kodadot1/uniquery')
+const  { getClient } = require('@kodadot1/uniquery')
 ```
 
 ```js
-const client = getClient('subquery')
+const client = getClient()
 const query = client.collectionListByIssuer('vikiival')
 
 console.log(query)
@@ -45,6 +45,65 @@ console.log(query)
   variables: {}
 }
 ```
+
+## ✨ Rationale
+As we were onboarding developers for our NFT Gallery, most of the developers have seen GraphQL for the first. We wanted to make it easier for them to get started with KodaDot API. Uniquery is a simple tool to help you build GraphQL queries for KodaDot API.
+
+Without Uniquery you would have to write something like this:
+
+```graphql
+query nftListByCollectionIdList {
+  nft: nftEntities(where: {collection: { id_eq: "2305670031" }}) {
+    id
+    metadata
+    currentOwner
+    issuer
+  }
+}
+```
+
+With Uniquery you can write this:
+
+```js
+const id = '2305670031'
+const query = client.nftListByCollectionId(id)
+```
+
+**To be aware every client function returns `GraphQuery` object**
+
+This `GraphQuery` object represents a GraphQL query that should be passed to your preffered `fetch` library (`fetch`, `axios`, `ohmyfetch`)
+
+> **Note:** Uniquery is not a GraphQL client. It's a tool to help you build GraphQL queries
+> It's possible to use it with any GraphQL client (such as Apollo)
+
+
+We have currently two implementations
+- 1. Client
+
+```js
+import { getClient } from '@kodadot1/uniquery'
+import { $fetch } from 'ohmyfetch'
+
+const id = '2305670031'
+const query = client.collectionById(id)
+const result = await $fetch(SUBSQUID_INDEXER_ENDPOINT, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: query,
+})
+```
+```
+
+- 2. REST
+
+```js
+import { ask } from '@kodadot1/uniquery'
+const id = '2305670031'
+const result = await ask(`/bsx/nftByCollection/${id}`)
+```
+
 
 ## ⚓️ Exported functions
 
@@ -119,12 +178,7 @@ git clone https://github.com/kodadot/packages.git
 
 - Navigate to the packages directory
 ```bash
-cd packages
-```
-
-- Navigate to the uniquery directory
-```bash
-cd uniquery
+cd packages/uniquery
 ```
 
 - Enable [Corepack](https://github.com/nodejs/corepack) by running:
@@ -141,12 +195,12 @@ npm i -g corepack
 
 - Install Dependencies
 ```bash
-yarn install
+pnpm install
 ```
 - Run interactive tests
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## License
