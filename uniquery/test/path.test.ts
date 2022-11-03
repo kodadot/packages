@@ -46,4 +46,19 @@ describe.only('Path utils', () => {
       })
     }
   })
+
+  describe('faioled path to request', () => {
+    const tests = [
+      { input: 'sbx/collection/2305670031' },
+      { input: 'rmrk/nftById/2305670031-1' },
+      { input: 'collectionByIssuer/bXhUWXbffHMJk2FoTriLixXjQY36RPDkX5Tugy5WYSmafJsGi' }
+    ]
+
+    for (const test of tests) {
+      it(test.input, () => {
+        const fn = () => pathToRequest(`/${test.input}`)
+        expect(fn).toThrow(ReferenceError)
+      })
+    }
+  })
 })
