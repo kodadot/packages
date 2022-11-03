@@ -51,6 +51,14 @@ console.log(query)
 ### ✔️  Uniquery
 
 - `getClient` - returns GrahpQL query builder
+- `getUrl` - returns GrahpQL indexer url
+- `SquidClient` - returns SquidClient instance
+
+From REST:
+
+- `ask` - obtain data from GraphQL indexer by selected route
+- `pathToRequest` - converts route to corresponding GraphQL query
+
 
 ### ✔️  Uniquery.client
 
