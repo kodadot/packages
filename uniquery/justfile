@@ -1,15 +1,18 @@
 #!/usr/bin/env just --justfile
 
 build:
-  yarn build
+  pnpm build
 
 link:
-  yarn link
+  pnpm link
 
 publish:
-  yarn publish --access public
+  pnpm publish --access public
 
 c VERSION:
-  git commit -am "Updated kodapi@{{VERSION}}"
+  git commit -am ":bookmark: uniquery@{{VERSION}}"
 
 up: build publish
+
+update-deps:
+  npx npm-check-updates -u

@@ -1,11 +1,7 @@
-// nftId(variables, fields, indexer)
-
-// diff between subsquid and subquery
-
 import { query } from 'gql-query-builder'
 import { KeyValue, FieldList, GraphQuery } from './types'
 
-function build (operation: string, fields: FieldList, variables?: KeyValue): GraphQuery {
+function build(operation: string, fields: FieldList, variables?: KeyValue): GraphQuery {
   return query({
     operation,
     variables,
