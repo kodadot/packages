@@ -66,6 +66,7 @@ With Uniquery you can write this:
 
 ```js
 const id = '2305670031'
+const client = getClient()
 const query = client.nftListByCollectionId(id)
 ```
 
@@ -93,7 +94,6 @@ const result = await $fetch(SUBSQUID_INDEXER_ENDPOINT, {
   },
   body: query,
 })
-```
 ```
 
 - 2. REST
