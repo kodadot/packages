@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/metasquid",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.3",
   "description": "Utils for the @subsquid indexers",
   "repository": "@kodadot1/metasquid",
   "license": "MIT",
@@ -31,7 +31,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "*.d.ts"
   ],
   "scripts": {
     "build": "unbuild",

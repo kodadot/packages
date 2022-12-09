@@ -19,5 +19,5 @@ export function competition<T>(
     .map<HTTPS_URI>(provider => `${provider}${path}`)
     .map(uri => callback(uri))
 
-  return Promise.race(urls)
+  return Promise.any(urls)
 }
