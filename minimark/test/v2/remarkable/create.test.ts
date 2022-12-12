@@ -25,7 +25,7 @@ describe.only('RMRK-team represents Create', () => {
   })
 
   describe('NFT', () => {
-    const symbol = 'chunky_bird_1'
+    const symbol = 'CHUNKY_BIRD_1'
     const collectionId = 'd43593c715a56da27d-CHNK'
     const metadata = 'ipfs://ipfs/bafkreiefmtvvjnqnlqs2dzavsyble5ft5ly7xtu4pg7tpo5gf4sovputwy'
     const rmrk = new NFT({ block: 0, collection: collectionId, metadata, sn: '00000001', symbol, transferable: 1 })
@@ -43,8 +43,8 @@ describe.only('RMRK-team represents Create', () => {
 
   describe('BASE', () => {
     const metadata = 'ipfs://ipfs/bafkreiefmtvvjnqnlqs2dzavsyble5ft5ly7xtu4pg7tpo5gf4sovputwy'
-    const rmrk = new Base(0, 'CHNKBS', issuer, 'svg', undefined, undefined, metadata)
-    const minimark = createBase({ symbol: 'CHNKBS', metadata, type: 'svg', parts: [] })
+    const rmrk = new Base(0, 'chnkbs', issuer, 'svg', undefined, undefined, metadata)
+    const minimark = createBase({ symbol: 'chnkbs', metadata, type: 'svg', parts: [] })
 
     const toTest: (keyof Base)[] = ['symbol', 'metadata', 'type']
 
