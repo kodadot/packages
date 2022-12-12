@@ -51,9 +51,9 @@
     "test-coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@polkadot/api": "^9.5.1",
-    "@polkadot/keyring": "^10.1.10",
-    "@polkadot/util": "^10.1.10",
+    "@polkadot/api": "^9.6.2",
+    "@polkadot/keyring": "^10.2.1",
+    "@polkadot/util": "^10.2.1",
     "nanoid": "^3.2.0",
     "slugify": "^1.6.5"
   },
@@ -62,6 +62,7 @@
     "@vitest/coverage-c8": "latest",
     "eslint": "latest",
     "husky": "^8.0.1",
+    "rmrk-tools": "^2.1.0",
     "standard-version": "latest",
     "typeorm": "^0.3.9",
     "typescript": "latest",
@@ -69,7 +70,7 @@
     "vitest": "latest"
   },
   "peerDependencies": {
-    "@polkadot/api": "~9.0"
+    "@polkadot/api": "~9.5"
   },
   "packageManager": "pnpm@7.9.5",
   "husky": {
