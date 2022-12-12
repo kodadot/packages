@@ -79,7 +79,7 @@ export const createCollection = (caller: string, symbol: string, name: string | 
 
 export const createBase = (props: CreatedBase): CreatedBase => {
   const { symbol: providedSymbol, parts = [], themes } = props
-  const symbol = makeBaseSymbol(providedSymbol)
+  const symbol = makeSymbol(providedSymbol)
   checkBase({ symbol, parts, themes })
   return {
     ...props,
