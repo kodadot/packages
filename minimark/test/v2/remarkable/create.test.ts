@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
 
-import { createBase, createCollection, createInteraction, createNFT } from '../../../src/rmrk/v2/create'
+import { createBase, createCollection, createNFT } from '../../../src/rmrk/v2/create'
 
 import { Base, Collection, NFT } from 'rmrk-tools'
 
 const issuer = 'HNZata7iMYWmk5RvZRTiAsSDhV8366zq2YGb3tLH5Upf74F'
 
 
-describe.only('RMRK-team represents Create', () => {
+describe('RMRK-team represents Create', () => {
   describe('Collection', () => {
     const symbol = 'CHNK'
     const max = 20
