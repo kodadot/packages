@@ -31,8 +31,8 @@
     "test": "pnpm lint && vitest run"
   },
   "dependencies": {
-    "@polkadot/api": "^9.10.2",
-    "@polkadot/types-codec": "^9.10.2"
+    "@polkadot/api": "^9.11.1",
+    "@polkadot/types-codec": "^9.11.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
