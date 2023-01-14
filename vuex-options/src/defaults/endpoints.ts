@@ -6,6 +6,11 @@ import type { Option } from '../types.js'
 export const ENDPOINTS: Option[] = [
   {
     info: 'basilisk',
+    text: 'Basilisk (Dwellir)',
+    value: 'wss://basilisk-rpc.dwellir.com'
+  },
+  {
+    info: 'basilisk',
     text: 'Basilisk (HydraDX)',
     value: 'wss://rpc.basilisk.cloud'
   },
