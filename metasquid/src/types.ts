@@ -22,8 +22,10 @@ export type WithBlockNumber<T = string> = {
   blockNumber: T;
 }
 
+export type BaseBlock = WithTimestamp & WithBlockNumber;
+
 // shared
-export type BaseCall = WithCaller & WithTimestamp & WithBlockNumber;
+export type BaseCall = BaseBlock & WithCaller;
 
 export type IEvent<T> = WithCaller & WithTimestamp & WithBlockNumber<bigint> & {
   interaction: T;

@@ -1,4 +1,6 @@
-import { BaseCall, BaseContext, IEvent } from './types'
+/* eslint-disable no-redeclare */
+import { BatchBlock, SubstrateBlock } from '@subsquid/substrate-processor'
+import { BaseBlock, BaseCall, BaseContext, IEvent } from './types'
 
 export function eventFrom<T>(interaction: T, { blockNumber, caller, timestamp }: BaseCall, meta: string, currentOwner?: string): IEvent<T> {
   return {
@@ -25,4 +27,26 @@ export function ensure<T>(value: any): T {
 
 export function metadataOf({ metadata }: { metadata?: string }): string {
   return metadata ?? ''
+}
+
+export function toBaseBlock(context: BatchBlock<any>): BaseBlock;
+export function toBaseBlock(context: BaseContext): BaseBlock;
+export function toBaseBlock(context: SubstrateBlock): BaseBlock;
+export function toBaseBlock(context: BatchBlock<any> | BaseContext | SubstrateBlock): BaseBlock {
+  const blockFrom = (): SubstrateBlock => {
+    if ('block' in context) {
+      return context.block
+    }
+
+    if ('header' in context) {
+      return context.header
+    }
+    return context
+  }
+
+  const block = blockFrom()
+  const blockNumber = block.height.toString()
+  const timestamp = new Date(block.timestamp)
+
+  return { blockNumber, timestamp }
 }
