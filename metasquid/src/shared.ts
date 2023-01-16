@@ -15,8 +15,7 @@ export function eventFrom<T>(interaction: T, { blockNumber, caller, timestamp }:
 
 export function toBaseCall(context: BaseContext): BaseCall {
   const caller = ''
-  const blockNumber = context.block.height.toString()
-  const timestamp = new Date(context.block.timestamp)
+  const { blockNumber, timestamp } = toBaseBlock(context)
 
   return { caller, blockNumber, timestamp }
 }
