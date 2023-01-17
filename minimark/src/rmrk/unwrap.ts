@@ -1,9 +1,10 @@
-import { decodeHex } from '../utils/hex'
-import { unwrapURI } from '../utils/unwrap'
-import { isRemark, resolveValue, splitBySquare, toInteraction, toVersion } from './helpers'
-import { InteractionValue, UnwrappedRemark } from './types'
+import { decodeHex, unwrapURI } from '../utils'
+import { RMRK_V0, RMRK_V1, RMRK_V2, isRemark, splitBySquare, toVersion } from './shared'
 
-const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | InteractionValue> => {
+import { InteractionValue, UnwrappedRemark as UnwrapV1, unwrapRemark } from './v1'
+import { UnwrappedRemark2 as UnwrapV2, unwrapRemarkV2 } from './v2'
+
+const unwrap = <T = InteractionValue>(text: string): UnwrapV1<T> | UnwrapV2<T> => {
   const decoded = unwrapURI(decodeHex(text))
 
   if (!isRemark(decoded)) {
@@ -11,21 +12,19 @@ const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | Interac
   }
 
   // DEV: skipping prefix intetionally
-  const [, mayInteraction, mayVersion, mayIdOrValue, mayValue] = splitBySquare(decoded)
+  const [, , mayVersion] = splitBySquare(decoded)
 
-  const interaction = toInteraction(mayInteraction)
+  const version = toVersion(mayVersion)
 
-  const value = resolveValue<T>(interaction, mayIdOrValue, mayValue)
-
-  if (!value) {
-    throw new TypeError(`RMRK: Unable to unwrap value ${decoded}`)
+  if ([RMRK_V0, RMRK_V1].includes(version)) {
+    return unwrapRemark(text) as UnwrapV1<T>
   }
 
-  return {
-    interaction,
-    value,
-    version: toVersion(mayVersion),
+  if (version === RMRK_V2) {
+    return unwrapRemarkV2(text) as UnwrapV2<T>
   }
+
+  throw new TypeError(`RMRK: Unable to unwrap version ${version}`)
 }
 
 export { unwrap as unwrapRemark }

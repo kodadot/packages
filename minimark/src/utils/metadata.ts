@@ -15,8 +15,8 @@ export const createMetadata = (
     description,
     image: unSanitizeIpfsUrl(imageHash),
     animation_url: unSanitizeIpfsUrl(animationUrl),
-    attributes: attributes,
+    attributes,
     external_url: externalUrl || 'https://kodadot.xyz',
-    type,
+    type
   }
 }

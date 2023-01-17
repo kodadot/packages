@@ -1,7 +1,7 @@
 import { expect, it, describe } from 'vitest'
 
-import { unwrapRemark as unwrap } from '../src/rmrk/unwrap'
-import { InteractionValue } from '../src/rmrk/types'
+import { unwrapRemark as unwrap } from '../../src/rmrk/v1/unwrap'
+import { InteractionValue } from '../../src/rmrk/v1/types'
 import {
   validMintNFTRemarkEvent,
   mintRemarkValidMocks,
@@ -11,7 +11,7 @@ import {
   validBuyRemarkEvent
 } from './mock'
 
-describe('MINIMARK::RMRK ', () => {
+describe('MINIMARK::RMRK::1.0.0 ', () => {
   it('should ::MINTNFT', () => {
     const result = unwrap<any>(validMintNFTRemarkEvent)
     const expected = {
