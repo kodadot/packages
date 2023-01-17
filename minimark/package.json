@@ -1,5 +1,5 @@
 {
-  "name": "@kodadot1/minimark",
+  "name": "@vikiival/minimark",
   "version": "0.1.0-rc.2",
   "description": "Utils for the RMRK",
   "repository": "kodadot/packages",
@@ -51,20 +51,20 @@
     "test-coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@polkadot/api": "^9.6.2",
-    "@polkadot/keyring": "^10.2.1",
-    "@polkadot/util": "^10.2.1",
-    "nanoid": "^3.2.0",
+    "@polkadot/api": "^9.11.3",
+    "@polkadot/keyring": "^10.2.6",
+    "@polkadot/util": "^10.2.6",
+    "nanoid": "^4.0.0",
     "slugify": "^1.6.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@vitest/coverage-c8": "latest",
     "eslint": "latest",
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
     "rmrk-tools": "^2.1.0",
     "standard-version": "latest",
-    "typeorm": "^0.3.9",
+    "typeorm": "^0.3.11",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
