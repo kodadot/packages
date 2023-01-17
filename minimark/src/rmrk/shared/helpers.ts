@@ -1,7 +1,7 @@
 import { unwrapJSON } from '../../utils/unwrap'
 import { Interaction } from '../v1/enums'
 import { InteractionValue } from '../v1/types'
-import { InteractionV2 } from '../v2/enums'
+import { Interaction as InteractionV2 } from '../v2/enums'
 import { RMRK, SQUARE } from './constants'
 import { VersionedRemark } from './types'
 
