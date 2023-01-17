@@ -1,99 +1,99 @@
 import { unwrapJSON, unwrapURI } from '../../utils'
 import { isValidInteraction } from '../shared/helpers'
 
-import { InteractionV2Type, InteractionV2Value } from './types'
-import { InteractionV2 } from './enums'
-export const toInteractionV2 = (interaction: string): InteractionV2 => {
+import { InteractionValue } from './types'
+import { Interaction } from './enums'
+export const toInteraction = (interaction: string): Interaction => {
   isValidInteraction(interaction)
-  return interaction as InteractionV2
+  return interaction as Interaction
 }
 
-export const resolveRmrk2Value = (interaction: InteractionV2Type, id: string, restValues: string[]): InteractionV2Value => {
+export const resolveValue = (interaction: Interaction, id: string, restValues: string[]): InteractionValue => {
   switch (interaction) {
-    case InteractionV2.ACCEPT:
+    case Interaction.ACCEPT:
       return {
         id,
         entity_type: restValues[0] as 'RES' | 'NFT',
         entity_id: restValues[1]
       }
-    case InteractionV2.BASE:
+    case Interaction.BASE:
       return {
         value: unwrapJSON(id)
       }
-    case InteractionV2.EQUIP:
+    case Interaction.EQUIP:
       return {
         id,
         baseslot: restValues[0]
       }
-    case InteractionV2.EQUIPPABLE:
+    case Interaction.EQUIPPABLE:
       return {
         id,
         slot: restValues[0],
         value: restValues[1]
       }
-    case InteractionV2.LOCK:
+    case Interaction.LOCK:
       return {
         id
       }
-    case InteractionV2.RESADD:
+    case Interaction.RESADD:
       return {
         id,
         value: unwrapJSON(restValues[0]),
         replace: restValues[1]
       }
-    case InteractionV2.SETPRIORITY:
+    case Interaction.SETPRIORITY:
       return {
         id,
         value: unwrapURI(restValues[0])
       }
-    case InteractionV2.SETPROPERTY:
+    case Interaction.SETPROPERTY:
       return {
         id,
         name: unwrapURI(restValues[0]),
         value: unwrapURI(restValues[1])
       }
-    case InteractionV2.THEMEADD:
+    case Interaction.THEMEADD:
       return {
         base_id: id,
         name: restValues[0],
         value: unwrapJSON(restValues[1])
       }
-    case InteractionV2.BUY:
+    case Interaction.BUY:
       return {
         id,
         recipient: restValues[0]
       }
-    case InteractionV2.EMOTE:
+    case Interaction.EMOTE:
       return {
         namespace: id,
         id: restValues[0],
         emotion: restValues[1]
       }
-    case InteractionV2.SEND:
+    case Interaction.SEND:
       return {
         id,
         recipient: restValues[0]
       }
-    case InteractionV2.LIST:
+    case Interaction.LIST:
       return {
         id,
         price: restValues[0]
       }
-    case InteractionV2.CHANGEISSUER:
+    case Interaction.CHANGEISSUER:
       return {
         id,
         newissuer: restValues[0]
       }
-    case InteractionV2.CREATE:
+    case Interaction.CREATE:
       return {
         value: unwrapJSON(id)
       }
-    case InteractionV2.MINT:
+    case Interaction.MINT:
       return {
         value: unwrapJSON(id),
         recipient: restValues[0]
       }
-    case InteractionV2.BURN:
+    case Interaction.BURN:
       return {
         id
       }
