@@ -1,11 +1,11 @@
+/* eslint-disable no-use-before-define */
 import { AbstractCreatedCollection, AbstractCreatedNFT, UnwrappedRemark as AbstractRemarkWrapper } from '../shared/types'
-import { InteractionV2 } from './enums'
+import { Interaction } from './enums'
 
-export type InteractionV2Type = keyof typeof InteractionV2
-export type InteractionV2MintType = Extract<InteractionV2Type, 'MINT' | 'CREATE'>
-export type JustInteractionV2 = Exclude<InteractionV2Type, 'MINT' | 'CREATE'>
+export type OnlyMintInteraction = Interaction.CREATE | Interaction.MINT
+export type JustInteraction = Exclude<Interaction, OnlyMintInteraction | Interaction.UNLIST>
 
-export type UnwrappedRemark2<T> = AbstractRemarkWrapper<T, InteractionV2Type>
+export type UnwrappedRemark<T> = AbstractRemarkWrapper<T, Interaction>
 
 export type CreatedCollection = AbstractCreatedCollection
 
@@ -13,10 +13,20 @@ export type Base = {
   value: any
 }
 
-export type InteractionValue = {
+export type WithId = {
   id: string
+}
+
+// more fancy
+// export type WithValue<T extends boolean = true> = {
+//   value: T extends true ? string : undefined
+// }
+
+export type WithValue = {
   value: string
 }
+
+export type BasicInteraction = WithId & WithValue
 
 export type Accept = {
   id: string
@@ -24,24 +34,24 @@ export type Accept = {
   entity_id: string
 }
 
-export type Equip = Omit<InteractionValue, 'value'> & {
+export type Equip = WithId & {
   baseslot: string
 }
 
-export type Equippable = InteractionValue & {
+export type Equippable = BasicInteraction & {
   slot: string
 }
 
-export type Lock = Omit<InteractionValue, 'value'>
+export type Lock = WithId
 
-export type Resadd = InteractionValue & {
+export type Resadd = BasicInteraction & {
   value: Record<string, string>
   replace: string
 }
 
-export type SetPriority = InteractionValue
+export type SetPriority = BasicInteraction
 
-export type SetProperty = InteractionValue & {
+export type SetProperty = BasicInteraction & {
   name: string
 }
 
@@ -62,7 +72,7 @@ export type Emote = {
   namespace: string
 }
 
-export type Send = Omit<InteractionValue, 'value'> & {
+export type Send = WithId & {
   recipient: string
 }
 
@@ -85,9 +95,9 @@ export type Mint = {
   recipient?: string
 }
 
-export type Burn = Omit<InteractionValue, 'value'>
+export type Burn = WithId
 
-export type InteractionV2Value =
+export type InteractionValue =
   | Accept
   | Base
   | Equip
@@ -123,7 +133,7 @@ export interface IAttribute {
   _mutation?: {
     allowed: boolean
     with?: {
-      opType: InteractionV2Type
+      opType: Interaction
       condition?: string
     }
   }
@@ -194,23 +204,23 @@ export interface CreatedBase {
 }
 
 export type CreateInteractionProps =
-  | { action: InteractionV2.ACCEPT; payload: Accept }
-  | { action: InteractionV2.BASE; payload: Base }
-  | { action: InteractionV2.EQUIP; payload: Equip }
-  | { action: InteractionV2.EQUIPPABLE; payload: Equippable }
-  | { action: InteractionV2.LOCK; payload: Lock }
-  | { action: InteractionV2.RESADD; payload: Resadd }
-  | { action: InteractionV2.SETPRIORITY; payload: SetPriority }
-  | { action: InteractionV2.SETPROPERTY; payload: SetProperty }
-  | { action: InteractionV2.THEMEADD; payload: ThemeAdd }
-  | { action: InteractionV2.BUY; payload: BUY }
-  | { action: InteractionV2.EMOTE; payload: Emote }
-  | { action: InteractionV2.SEND; payload: Send }
-  | { action: InteractionV2.LIST; payload: List }
-  | { action: InteractionV2.CHANGEISSUER; payload: ChangeIssuer }
-  | { action: InteractionV2.CREATE; payload: Create }
-  | { action: InteractionV2.MINT; payload: Mint }
-  | { action: InteractionV2.BURN; payload: Burn }
+  | { action: Interaction.ACCEPT; payload: Accept }
+  | { action: Interaction.BASE; payload: Base }
+  | { action: Interaction.EQUIP; payload: Equip }
+  | { action: Interaction.EQUIPPABLE; payload: Equippable }
+  | { action: Interaction.LOCK; payload: Lock }
+  | { action: Interaction.RESADD; payload: Resadd }
+  | { action: Interaction.SETPRIORITY; payload: SetPriority }
+  | { action: Interaction.SETPROPERTY; payload: SetProperty }
+  | { action: Interaction.THEMEADD; payload: ThemeAdd }
+  | { action: Interaction.BUY; payload: BUY }
+  | { action: Interaction.EMOTE; payload: Emote }
+  | { action: Interaction.SEND; payload: Send }
+  | { action: Interaction.LIST; payload: List }
+  | { action: Interaction.CHANGEISSUER; payload: ChangeIssuer }
+  | { action: Interaction.CREATE; payload: Create }
+  | { action: Interaction.MINT; payload: Mint }
+  | { action: Interaction.BURN; payload: Burn }
 
 export type CreateNFTProps = {
   collectionId: string
