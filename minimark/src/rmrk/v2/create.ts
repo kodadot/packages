@@ -2,9 +2,9 @@ import { isEmptyString, wrapToString, wrapURI } from '../../utils'
 import { makeSymbol } from '../shared/identification'
 import { SQUARE } from '../shared/constants'
 import { makeCollection } from '../shared/make'
-import { RemarkableString } from '../shared/types'
+import { BinaryBoolean, RemarkableString } from '../shared/types'
 import { checkBase } from './consolidator'
-import { InteractionV2 } from './enums'
+import { Interaction } from './enums'
 import { makeBaseSymbol, toSerialNumber } from './identification'
 import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc } from './types'
 
@@ -17,40 +17,40 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
   }
 
   switch (action) {
-    case InteractionV2.ACCEPT:
+    case Interaction.ACCEPT:
       return convert([payload.id, payload.entity_type, payload.entity_id])
-    case InteractionV2.BASE:
+    case Interaction.BASE:
       return convert([wrapToString(payload.value)])
-    case InteractionV2.BUY:
+    case Interaction.BUY:
       return convert([payload.id, payload.recipient ?? ''])
-    case InteractionV2.CHANGEISSUER:
+    case Interaction.CHANGEISSUER:
       return convert([payload.id, payload.newissuer])
-    case InteractionV2.BURN:
+    case Interaction.BURN:
       return convert([payload.id])
-    case InteractionV2.CREATE:
+    case Interaction.CREATE:
       return convert([wrapToString(payload.value)])
-    case InteractionV2.EMOTE:
+    case Interaction.EMOTE:
       return convert([payload.namespace, payload.id, payload.emotion])
-    case InteractionV2.EQUIP:
+    case Interaction.EQUIP:
       return convert([payload.id, payload.baseslot])
-    case InteractionV2.EQUIPPABLE:
+    case Interaction.EQUIPPABLE:
       return convert([payload.id, payload.slot, payload.value])
-    case InteractionV2.LIST:
+    case Interaction.LIST:
       return convert([payload.id, payload.price])
-    case InteractionV2.LOCK:
+    case Interaction.LOCK:
       return convert([payload.id])
-    case InteractionV2.MINT:
+    case Interaction.MINT:
       return convert([wrapToString(payload.value), payload.recipient ?? ''])
-    case InteractionV2.RESADD:
+    case Interaction.RESADD:
       return convert([payload.id, wrapToString(payload.value), payload.replace])
-    case InteractionV2.SEND:
+    case Interaction.SEND:
       return convert([payload.id, payload.recipient])
-    case InteractionV2.SETPROPERTY:
+    case Interaction.SETPROPERTY:
       return convert([payload.id, wrapURI(payload.name), wrapURI(payload.value)])
-    case InteractionV2.SETPRIORITY:
+    case Interaction.SETPRIORITY:
       // value should always be ',' separated
       return convert([payload.id, payload.value])
-    case InteractionV2.THEMEADD:
+    case Interaction.THEMEADD:
       return convert([payload.base_id, payload.name, wrapToString(payload.value)])
     default:
       throw new Error(`Unsupported action: ${action}`)
@@ -58,7 +58,7 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
 }
 
 // DEV: not sure if trasferable should be
-export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable: number = 1): CreatedNFT => {
+export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable: BinaryBoolean = 1): CreatedNFT => {
   // checkProps(props)
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
