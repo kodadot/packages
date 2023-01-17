@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { createBase, createCollection, createInteraction, createNFT as createNFTV2 } from '../../src/rmrk/v2/create'
-import { InteractionV2 } from '../../src/rmrk/v2/enums'
+import { Interaction } from '../../src/rmrk/v2/enums'
 import {
   acceptTest,
   baseTest,
@@ -19,7 +19,7 @@ import {
 } from './mock'
 
 describe('RMRK2 Create Interaction', () => {
-  function runInteractionTest(action: InteractionV2, mock: Test) {
+  function runInteractionTest(action: Interaction, mock: Test) {
     expect(createInteraction({
       action,
       payload: mock.payload
@@ -33,60 +33,60 @@ describe('RMRK2 Create Interaction', () => {
   })
 
   it('should create ACCEPT interaction', () => {
-    runInteractionTest(InteractionV2.ACCEPT, acceptTest)
+    runInteractionTest(Interaction.ACCEPT, acceptTest)
   })
   it('should create BASE interaction', () => {
-    runInteractionTest(InteractionV2.BASE, baseTest)
+    runInteractionTest(Interaction.BASE, baseTest)
   })
   it('should create BURN interaction', () => {
-    runInteractionTest(InteractionV2.BURN, burnTest)
+    runInteractionTest(Interaction.BURN, burnTest)
   })
   it('should create BUY interaction', () => {
-    runInteractionTest(InteractionV2.BUY, buyTest)
-    runInteractionTest(InteractionV2.BUY, buyTestWithRecipient)
+    runInteractionTest(Interaction.BUY, buyTest)
+    runInteractionTest(Interaction.BUY, buyTestWithRecipient)
   })
   it('should create CHANGEISSUER interaction', () => {
-    runInteractionTest(InteractionV2.CHANGEISSUER, changeissuerTest)
+    runInteractionTest(Interaction.CHANGEISSUER, changeissuerTest)
   })
   it('should create CREATE interaction', () => {
-    runInteractionTest(InteractionV2.CREATE, createTest)
+    runInteractionTest(Interaction.CREATE, createTest)
   })
 
   it('should create EMOTE interaction', () => {
-    runInteractionTest(InteractionV2.EMOTE, emoteTest)
-    runInteractionTest(InteractionV2.EMOTE, emoteTestWithAccount)
+    runInteractionTest(Interaction.EMOTE, emoteTest)
+    runInteractionTest(Interaction.EMOTE, emoteTestWithAccount)
   })
 
   it('should create EQUIP interaction', () => {
-    runInteractionTest(InteractionV2.EQUIP, equipTest)
+    runInteractionTest(Interaction.EQUIP, equipTest)
   })
 
   it('should create EQUIPPABLE interaction', () => {
-    runInteractionTest(InteractionV2.EQUIPPABLE, equippableTest)
+    runInteractionTest(Interaction.EQUIPPABLE, equippableTest)
   })
 
   it('should create LIST interaction ', () => {
-    runInteractionTest(InteractionV2.LIST, listTest)
-    runInteractionTest(InteractionV2.LIST, listTestWithCancel)
+    runInteractionTest(Interaction.LIST, listTest)
+    runInteractionTest(Interaction.LIST, listTestWithCancel)
   })
 
   it('should create MINT interaction', () => {
-    runInteractionTest(InteractionV2.MINT, mintTest)
+    runInteractionTest(Interaction.MINT, mintTest)
   })
   it('should create RESADD interaction', () => {
-    runInteractionTest(InteractionV2.RESADD, resAddTest)
+    runInteractionTest(Interaction.RESADD, resAddTest)
   })
   it('should create SEND interaction', () => {
-    runInteractionTest(InteractionV2.SEND, sendTest)
+    runInteractionTest(Interaction.SEND, sendTest)
   })
   it('should create SETPROPERTY interaction', () => {
-    runInteractionTest(InteractionV2.SETPROPERTY, setPropertyTest)
+    runInteractionTest(Interaction.SETPROPERTY, setPropertyTest)
   })
   it('should create SETPRIORITY interaction', () => {
-    runInteractionTest(InteractionV2.SETPRIORITY, setPriorityTest)
+    runInteractionTest(Interaction.SETPRIORITY, setPriorityTest)
   })
   it('should create THEMEADD interaction', () => {
-    runInteractionTest(InteractionV2.THEMEADD, themeAddTest)
+    runInteractionTest(Interaction.THEMEADD, themeAddTest)
   })
 })
 

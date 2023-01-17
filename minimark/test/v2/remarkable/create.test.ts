@@ -1,11 +1,9 @@
 import { describe, expect, it } from 'vitest'
+import { Base, Collection, NFT } from 'rmrk-tools'
 
 import { createBase, createCollection, createNFT } from '../../../src/rmrk/v2/create'
 
-import { Base, Collection, NFT } from 'rmrk-tools'
-
 const issuer = 'HNZata7iMYWmk5RvZRTiAsSDhV8366zq2YGb3tLH5Upf74F'
-
 
 describe('RMRK-team represents Create', () => {
   describe('Collection', () => {
@@ -39,7 +37,6 @@ describe('RMRK-team represents Create', () => {
       })
     }
   })
-
 
   describe('BASE', () => {
     const metadata = 'ipfs://ipfs/bafkreiefmtvvjnqnlqs2dzavsyble5ft5ly7xtu4pg7tpo5gf4sovputwy'
