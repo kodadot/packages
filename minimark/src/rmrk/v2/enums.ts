@@ -1,4 +1,4 @@
-export enum InteractionV2 {
+export enum Interaction {
     ACCEPT = 'ACCEPT',
     BASE = 'BASE',
     EQUIP = 'EQUIP',
@@ -14,6 +14,7 @@ export enum InteractionV2 {
     CHANGEISSUER = 'CHANGEISSUER',
     SEND = 'SEND',
     LIST = 'LIST',
+    UNLIST = 'UNLIST', // KodaFlavour: not supported by RMRK v2
 
     CREATE = 'CREATE',
     MINT = 'MINT',
