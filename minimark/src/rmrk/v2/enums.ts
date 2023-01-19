@@ -18,5 +18,6 @@ export enum Interaction {
 
     CREATE = 'CREATE',
     MINT = 'MINT',
-    BURN = 'BURN'
+    BURN = 'BURN',
+    DESTROY = 'DESTROY',
 }
