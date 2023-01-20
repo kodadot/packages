@@ -26,7 +26,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   cloudflare: 'https://cloudflare-ipfs.com',
   ipfs: 'https://ipfs.io',
   dweb: 'https://dweb.link',
-  kodadot: 'https://kodadot.mypinata.cloud',
+  kodadot: 'https://image.w.kodadot.xyz',
   rmrk: 'https://rmrk.mypinata.cloud',
   fleek: 'https://ipfs.fleek.co',
   nftstorage: 'https://nftstorage.link',
@@ -35,8 +35,8 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   infura: 'https://infura-ipfs.io',
   gateway: 'https://ipfs-gateway.cloud',
   cf_worker_cdn: 'https://cdn.preschian.xyz', // temporary
-  infura_dedicated_1: 'https://r2.infura-ipfs.io',  // temporary
-  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io'  // temporary
+  infura_dedicated_1: 'https://r2.infura-ipfs.io', // temporary
+  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io' // temporary
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
