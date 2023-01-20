@@ -12,7 +12,9 @@ export type UnwrappedRemark<T> = AbstractRemarkWrapper<T, Interaction>
 
 export type CreatedCollection = AbstractCreatedCollection
 
-export type Base = CreatedBase
+export type Base = {
+  value: CreatedBase
+}
 
 export type WithId = {
   id: string
