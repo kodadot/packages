@@ -1,10 +1,10 @@
 import { decodeHex } from '../../utils/hex'
 import { unwrapURI } from '../../utils/unwrap'
 import { isRemark, splitBySquare, toVersion } from '../shared/helpers'
-import { toInteraction, resolveValue } from './helper'
-import { UnwrappedRemark, InteractionValue } from './types'
+import { resolveValue, toInteraction } from './helper'
+import { UnwrappedRemark, UnwrapValue } from './types'
 
-const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | InteractionValue> => {
+const unwrap = <T extends keyof UnwrapValue = 'NONE'>(text: string): UnwrappedRemark<UnwrapValue[T]> => {
   const decoded = unwrapURI(decodeHex(text))
 
   if (!isRemark(decoded)) {
@@ -19,7 +19,7 @@ const unwrap = <T = InteractionValue>(text: string): UnwrappedRemark<T | Interac
     interaction,
     value,
     version: toVersion(mayVersion)
-  }
+  } as UnwrappedRemark<UnwrapValue[T]>
 }
 
 export { unwrap as unwrapRemarkV2 }

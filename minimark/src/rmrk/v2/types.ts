@@ -5,6 +5,10 @@ import { Interaction } from './enums'
 export type OnlyMintInteraction = Interaction.CREATE | Interaction.MINT
 export type JustInteraction = Exclude<Interaction, OnlyMintInteraction | Interaction.UNLIST>
 
+export type InteractionUnion = keyof typeof Interaction
+// type AvailableAction = Exclude<InteractionUnion, Interaction.UNLIST>
+
+
 export type UnwrappedRemark<T> = AbstractRemarkWrapper<T, Interaction>
 
 export type CreatedCollection = AbstractCreatedCollection
@@ -203,6 +207,9 @@ export interface CreatedBase {
   metadata?: string
 }
 
+// usage // | ActionWithPayload<'CREATE', Create>
+// type ActionWithPayload<T extends AvailableAction, P> = { action: T; payload: P }
+
 export type CreateInteractionProps =
   | { action: Interaction.ACCEPT; payload: Accept }
   | { action: Interaction.BASE; payload: Base }
@@ -222,6 +229,27 @@ export type CreateInteractionProps =
   | { action: Interaction.MINT; payload: Mint }
   | { action: Interaction.BURN; payload: Burn }
 
+export type UnwrapValue = {
+  [Interaction.ACCEPT]: Accept,
+  [Interaction.BASE]: Base,
+  [Interaction.EQUIP]: Equip,
+  [Interaction.EQUIPPABLE]: Equippable,
+  [Interaction.LOCK]: Lock,
+  [Interaction.RESADD]: Resadd,
+  [Interaction.SETPRIORITY]: SetPriority,
+  [Interaction.SETPROPERTY]: SetProperty,
+  [Interaction.THEMEADD]: ThemeAdd,
+  [Interaction.BUY]: BUY,
+  [Interaction.EMOTE]: Emote,
+  [Interaction.SEND]: Send,
+  [Interaction.LIST]: List,
+  [Interaction.CHANGEISSUER]: ChangeIssuer,
+  [Interaction.CREATE]: Create,
+  [Interaction.MINT]: Mint,
+  [Interaction.BURN]: Burn,
+  'NONE': BasicInteraction
+}
+
 export type CreateNFTProps = {
   collectionId: string
   symbol: string
@@ -229,6 +257,10 @@ export type CreateNFTProps = {
   index: number
   metadata: string
 }
+
+// function fn<T extends keyof UnwrapValue = 'NONE'>(value: Record<any, any>): UnwrapValue[T] {
+//   return value as UnwrapValue[T]
+// }
 
 export type CreateNFTFunc = (props: CreateNFTProps) => CreatedNFTV2
 
