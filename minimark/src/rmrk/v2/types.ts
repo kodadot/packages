@@ -8,14 +8,11 @@ export type JustInteraction = Exclude<Interaction, OnlyMintInteraction | Interac
 export type InteractionUnion = keyof typeof Interaction
 // type AvailableAction = Exclude<InteractionUnion, Interaction.UNLIST>
 
-
 export type UnwrappedRemark<T> = AbstractRemarkWrapper<T, Interaction>
 
 export type CreatedCollection = AbstractCreatedCollection
 
-export type Base = {
-  value: any
-}
+export type Base = CreatedBase
 
 export type WithId = {
   id: string
@@ -65,7 +62,7 @@ export type ThemeAdd = {
   value: Record<string, string>
 }
 
-export type BUY = {
+export type Buy = {
   id: string
   recipient?: string
 }
@@ -112,7 +109,7 @@ export type InteractionValue =
   | SetProperty
   | ThemeAdd
   | undefined
-  | BUY
+  | Buy
   | Emote
   | Send
   | List
@@ -220,7 +217,7 @@ export type CreateInteractionProps =
   | { action: Interaction.SETPRIORITY; payload: SetPriority }
   | { action: Interaction.SETPROPERTY; payload: SetProperty }
   | { action: Interaction.THEMEADD; payload: ThemeAdd }
-  | { action: Interaction.BUY; payload: BUY }
+  | { action: Interaction.BUY; payload: Buy }
   | { action: Interaction.EMOTE; payload: Emote }
   | { action: Interaction.SEND; payload: Send }
   | { action: Interaction.LIST; payload: List }
@@ -239,7 +236,7 @@ export type UnwrapValue = {
   [Interaction.SETPRIORITY]: SetPriority,
   [Interaction.SETPROPERTY]: SetProperty,
   [Interaction.THEMEADD]: ThemeAdd,
-  [Interaction.BUY]: BUY,
+  [Interaction.BUY]: Buy,
   [Interaction.EMOTE]: Emote,
   [Interaction.SEND]: Send,
   [Interaction.LIST]: List,
