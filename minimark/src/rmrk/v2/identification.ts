@@ -10,11 +10,19 @@ export const makeBaseSymbol = (symbol?: string): string => {
   return !symbol ? toLowerCase(nanoid(13)) : lowerTrim(symbol, true)
 }
 
-export const toNFTId = (nft: CreatedNFT, blocknumber: string | number): string => {
+export const toNFTId = (nft: CreatedNFT, blockNumber: string | number): string => {
   const { collection, symbol: instance, sn } = nft
   if (!collection || !instance || !sn) {
     throw new ReferenceError('[APP] toNFTId: invalid nft')
   }
 
-  return `${blocknumber}-${collection}-${instance}-${sn}`
+  return `${blockNumber}-${collection}-${instance}-${sn}`
+}
+
+export const toBaseId = (symbol: string, blockNumber: string | number): string => {
+  if (!blockNumber || !symbol) {
+    throw new EvalError('[MINIMARK] unable to construct Base ID since block or symbol is miising')
+  }
+
+  return `base-${blockNumber}-${symbol}`
 }
