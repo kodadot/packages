@@ -48,7 +48,7 @@ export type Equippable = BasicInteraction & {
 export type Lock = WithId
 
 export type Resadd = BasicInteraction & {
-  value: Record<string, string>
+  value: Resource
   replace: string
 }
 
@@ -190,7 +190,14 @@ export interface SlotPart extends AbstractBasePart {
 
 type BasePart = FixedPart | SlotPart
 
-// type Resource = Basic | Base
+export type Resource = {
+  id: string, // 'nanoid-of-resource',
+  base?: string // 'base-uri',
+  src?: string // 'media-uri', // points to image or video
+  metadata?: string // 'metadata-uri',
+  slot?: string // 'baseslot',
+  thumb?: string // 'uri-of-thumbnail',
+}
 
 export type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
