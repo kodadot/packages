@@ -47,7 +47,7 @@ export type Equippable = BasicInteraction & {
 
 export type Lock = WithId
 
-export type Resadd = BasicInteraction & {
+export type Resadd = WithId & {
   value: Resource
   replace: string
 }
