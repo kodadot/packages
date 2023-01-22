@@ -52,7 +52,9 @@ export type Resadd = WithId & {
   replace: string
 }
 
-export type SetPriority = BasicInteraction
+export type SetPriority = WithId & {
+  value: string[]
+}
 
 export type SetProperty = BasicInteraction & {
   name: string
