@@ -1,6 +1,6 @@
 import { FindOneOptions, FindOptionsRelations, FindOptionsWhere, In } from 'typeorm'
 import { toMap } from './shared'
-import { Store, EntityConstructor } from './types'
+import { EntityConstructor, Store } from './types'
 
 export type EntityWithId = {
   id: string

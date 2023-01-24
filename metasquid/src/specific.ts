@@ -1,7 +1,7 @@
 import * as ss58 from '@subsquid/ss58'
 import { decodeHex } from '@subsquid/substrate-processor'
 
-let prefix: string = 'kusama'
+let prefix = 'kusama'
 
 function addressOf(address: Uint8Array | string): string {
   const value = typeof address === 'string' ? decodeHex(address) : address

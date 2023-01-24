@@ -1,4 +1,3 @@
-/* eslint-disable no-redeclare */
 import { BatchBlock, SubstrateBlock } from '@subsquid/substrate-processor'
 import { BaseBlock, BaseCall, BaseContext, EntityWithId, IEvent } from './types'
 
