@@ -1,4 +1,5 @@
 import { FindOneOptions, FindOptionsRelations, FindOptionsWhere, In } from 'typeorm'
+import { toMap } from './shared'
 import { Store, EntityConstructor } from './types'
 
 export type EntityWithId = {
@@ -90,4 +91,12 @@ export function findByIdList<T extends EntityWithId>(
 ): Promise<T[]> {
   const where: FindOptionsWhere<T> = { id: In([...idList]) } as FindOptionsWhere<T>
   return store.findBy<T>(entityConstructor, where)
+}
+
+export function findByIdListAsMap<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  idList: string[]
+): Promise<Map<string, T>> {
+  return findByIdList(store, entityConstructor, idList).then(toMap)
 }
