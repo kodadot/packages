@@ -1,6 +1,6 @@
 /* eslint-disable no-redeclare */
 import { BatchBlock, SubstrateBlock } from '@subsquid/substrate-processor'
-import { BaseBlock, BaseCall, BaseContext, IEvent } from './types'
+import { BaseBlock, BaseCall, BaseContext, EntityWithId, IEvent } from './types'
 
 export function eventFrom<T>(interaction: T, { blockNumber, caller, timestamp }: BaseCall, meta: string, currentOwner?: string): IEvent<T> {
   return {
@@ -48,4 +48,8 @@ export function toBaseBlock(context: BatchBlock<any> | BaseContext | SubstrateBl
   const timestamp = new Date(block.timestamp)
 
   return { blockNumber, timestamp }
+}
+
+export function toMap<T extends EntityWithId>(array: T[]): Map<string, T> {
+  return new Map(array.map(item => [item.id, item]))
 }
