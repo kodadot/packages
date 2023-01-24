@@ -1,4 +1,4 @@
-import { FindOneOptions, FindOptionsRelations, FindOptionsWhere } from 'typeorm'
+import { FindOneOptions, FindOptionsRelations, FindOptionsWhere, In } from 'typeorm'
 import { Store, EntityConstructor } from './types'
 
 export type EntityWithId = {
@@ -81,4 +81,13 @@ export function findOneWithJoin<T extends EntityWithId>(
   relations?: FindOptionsRelations<T>
 ): Promise<T | null> {
   return findOne(store, entityConstructor, id, { relations })
+}
+
+export function findByIdList<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  idList: string[]
+): Promise<T[]> {
+  const where: FindOptionsWhere<T> = { id: In([...idList]) } as FindOptionsWhere<T>
+  return store.findBy<T>(entityConstructor, where)
 }
