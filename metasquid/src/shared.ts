@@ -52,3 +52,11 @@ export function toBaseBlock(context: BatchBlock<any> | BaseContext | SubstrateBl
 export function toMap<T extends EntityWithId>(array: T[]): Map<string, T> {
   return new Map(array.map(item => [item.id, item]))
 }
+
+export function toEntityId<T extends EntityWithId>(item: T): string {
+  return item.id
+}
+
+export function toUniqueSet<T extends EntityWithId>(array: T[]): Set<string> {
+  return new Set(array.map(toEntityId))
+}
