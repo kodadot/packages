@@ -87,7 +87,7 @@ export function findOneWithJoin<T extends EntityWithId>(
 export function findByIdList<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
-  idList: string[]
+  idList: Iterable<string>
 ): Promise<T[]> {
   const where: FindOptionsWhere<T> = { id: In([...idList]) } as FindOptionsWhere<T>
   return store.findBy<T>(entityConstructor, where)
