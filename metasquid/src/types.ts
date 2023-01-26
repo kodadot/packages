@@ -51,6 +51,12 @@ export type ArchiveCall<T = any> = {
   value: T
 }
 
+export type ItemKind = 'evmLog' | 'event' | 'transaction' | 'call'
+
+export type ItemWithKind = {
+  kind: ItemKind
+}
+
 export type ArchiveCallWithOptionalValue = ArchiveCall<Optional<any>>
 
 // entity
