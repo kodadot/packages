@@ -21,6 +21,11 @@
       "import": "./dist/entity.mjs",
       "require": "./dist/entity.cjs"
     },
+    "./is": {
+      "types": "./dist/is.d.ts",
+      "import": "./dist/is.mjs",
+      "require": "./dist/is.cjs"
+    },
     "./types": {
       "types": "./dist/types.d.ts",
       "import": "./dist/types.mjs",
