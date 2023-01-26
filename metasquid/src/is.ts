@@ -19,3 +19,7 @@ export function isTranasction(item: ItemWithKind): boolean {
 export function isEvm(item: ItemWithKind): boolean {
   return isType(item, 'evmLog')
 }
+
+export function isNotEmpty<T>(value: T | null | undefined): value is T {
+  return value !== null && value !== undefined
+}
