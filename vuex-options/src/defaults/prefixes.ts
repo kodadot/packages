@@ -13,7 +13,7 @@ export const PREFIXES: Option[] = [
   },
   {
     info: 'kusama',
-    text: 'RMRK',
+    text: 'Kusama',
     value: 'rmrk'
   },
   {
@@ -30,5 +30,5 @@ export const PREFIXES: Option[] = [
     info: 'moonbeam',
     text: 'Moonbeam [Beta]',
     value: 'glmr'
-  }
+  },
 ]
