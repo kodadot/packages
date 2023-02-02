@@ -96,7 +96,7 @@ export type Create = {
 }
 
 export type Mint = {
-  value: CreatedNFTV2
+  value: CreatedNFT
   recipient?: string
 }
 
@@ -131,6 +131,7 @@ export interface CreatedCollectionV2 {
   properties?: IProperties
 }
 
+
 // from https://github.com/rmrk-team/rmrk-spec/blob/master/standards/rmrk2.0.0/entities/collection.md#properties-format
 export type IProperties = Record<string, IAttribute>
 
@@ -146,18 +147,9 @@ export interface IAttribute {
   value: any
 }
 
-export interface CreatedNFTV2 {
-  collection: string
-  metadata: string
-  sn: string
-  transferable: number
-  symbol: string
-}
-
 export type CreatedNFT = AbstractCreatedNFT & {
   name?: string
   symbol: string
-  transferable: number
 }
 
 type Theme = string | Record<string, string>
