@@ -10,7 +10,9 @@ export type InteractionUnion = keyof typeof Interaction
 
 export type UnwrappedRemark<T> = AbstractRemarkWrapper<T, Interaction>
 
-export type CreatedCollection = AbstractCreatedCollection
+export type CreatedCollection = AbstractCreatedCollection & {
+  properties?: IProperties
+}
 
 export type Base = {
   value: CreatedBase
@@ -92,7 +94,7 @@ export type ChangeIssuer = {
 }
 
 export type Create = {
-  value: CreatedCollectionV2
+  value: CreatedCollection
 }
 
 export type Mint = {
@@ -121,16 +123,6 @@ export type InteractionValue =
   | Create
   | Mint
   | Burn
-
-export interface CreatedCollectionV2 {
-  max: number
-  issuer: string
-  symbol: string
-  id: string
-  metadata: string
-  properties?: IProperties
-}
-
 
 // from https://github.com/rmrk-team/rmrk-spec/blob/master/standards/rmrk2.0.0/entities/collection.md#properties-format
 export type IProperties = Record<string, IAttribute>
@@ -261,14 +253,3 @@ export type CreateNFTProps = {
 // function fn<T extends keyof UnwrapValue = 'NONE'>(value: Record<any, any>): UnwrapValue[T] {
 //   return value as UnwrapValue[T]
 // }
-
-export type CreateNFTFunc = (props: CreateNFTProps) => CreatedNFTV2
-
-export type CreateCollectionProps = {
-  issuer: string
-  max: number
-  metadata: string
-  symbol: string
-}
-
-export type CreateCollectionFunc = (props: CreateCollectionProps) => CreatedCollectionV2

@@ -1,7 +1,7 @@
 import { unwrapJSON, unwrapURI } from '../../utils'
 import { isValidInteraction } from '../shared/helpers'
 
-import { CreatedBase, CreatedCollectionV2, CreatedNFTV2, InteractionValue } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, InteractionValue } from './types'
 import { Interaction } from './enums'
 export const toInteraction = (interaction: string): Interaction => {
   isValidInteraction(interaction)
@@ -86,11 +86,11 @@ export const resolveValue = (interaction: Interaction, id: string, restValues: s
       }
     case Interaction.CREATE:
       return {
-        value: unwrapJSON(id) as CreatedCollectionV2
+        value: unwrapJSON(id) as CreatedCollection
       }
     case Interaction.MINT:
       return {
-        value: unwrapJSON(id) as CreatedNFTV2,
+        value: unwrapJSON(id) as CreatedNFT,
         recipient: restValues[0]
       }
     case Interaction.BURN:
