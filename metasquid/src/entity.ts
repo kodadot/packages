@@ -96,7 +96,7 @@ export function findByIdList<T extends EntityWithId>(
 export function findByIdListAsMap<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
-  idList: string[]
+  idList: Iterable<string>
 ): Promise<Map<string, T>> {
   return findByIdList(store, entityConstructor, idList).then(toMap)
 }
