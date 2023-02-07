@@ -18,7 +18,7 @@ export async function createOrElseThrow<T extends EntityWithId>(
   id: string,
   init: Partial<T>
 ): Promise<T> {
-  const entity = await get(store, entityConstructor, id)
+  const entity = await getOptional(store, entityConstructor, id)
   if (entity) {
     throw new Error(`Entity with id ${id} already exists`)
   }
@@ -38,7 +38,7 @@ export async function getOrCreate<T extends EntityWithId>(
   init: Partial<T>
 ): Promise<T> {
   // attempt to get the entity from the database
-  let entity = await get(store, entityConstructor, id)
+  let entity = await getOptional(store, entityConstructor, id)
 
   // if the entity does not exist, construct a new one
   // and assign the provided ID to it
@@ -51,7 +51,19 @@ export async function getOrCreate<T extends EntityWithId>(
   return entity
 }
 
-export function get<T extends EntityWithId>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function get<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  id: string,
+  optional?: boolean
+): Promise<T | null> {
+  const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>
+  const callback = optional ? store.findOneBy : store.findOneByOrFail
+  return callback<T>(entityConstructor, where)
+}
+
+export function getOptional<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string
@@ -60,7 +72,7 @@ export function get<T extends EntityWithId>(
   return store.findOneBy<T>(entityConstructor, where)
 }
 
-export function getForSure<T extends EntityWithId>(
+export function getOrThrow<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string
