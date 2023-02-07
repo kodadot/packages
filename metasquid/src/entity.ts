@@ -60,6 +60,15 @@ export function get<T extends EntityWithId>(
   return store.findOneBy<T>(entityConstructor, where)
 }
 
+export function getForSure<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  id: string
+): Promise<T> {
+  const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>
+  return store.findOneByOrFail<T>(entityConstructor, where)
+}
+
 export function create<T extends EntityWithId>(
   entityConstructor: EntityConstructor<T>,
   id: string,
