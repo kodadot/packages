@@ -52,7 +52,7 @@ export async function getOrCreate<T extends EntityWithId>(
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function get<T extends EntityWithId>(
+function _get<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string,
@@ -72,7 +72,7 @@ export function getOptional<T extends EntityWithId>(
   return store.findOneBy<T>(entityConstructor, where)
 }
 
-export function getOrThrow<T extends EntityWithId>(
+export function get<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string
