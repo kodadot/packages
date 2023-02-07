@@ -2,6 +2,8 @@
 
 Monorepository of npm packages we use in our projects.
 
+![image](https://user-images.githubusercontent.com/5887929/217076003-3204c70f-c2c9-459f-9fd6-51f397a50be2.png)
+
 ## 📦 if-that
 
 Library for conditional rendering.
