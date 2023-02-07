@@ -1,4 +1,10 @@
-import { FindOneOptions, FindOptionsRelations, FindOptionsWhere, In } from 'typeorm'
+import {
+  FindOneOptions,
+  FindOptionsRelations,
+  FindOptionsWhere,
+  In,
+  Repository
+} from 'typeorm'
 import { toMap } from './shared'
 import { EntityConstructor, Store } from './types'
 
@@ -89,7 +95,9 @@ export function findByIdList<T extends EntityWithId>(
   entityConstructor: EntityConstructor<T>,
   idList: Iterable<string>
 ): Promise<T[]> {
-  const where: FindOptionsWhere<T> = { id: In([...idList]) } as FindOptionsWhere<T>
+  const where: FindOptionsWhere<T> = {
+    id: In([...idList])
+  } as FindOptionsWhere<T>
   return store.findBy<T>(entityConstructor, where)
 }
 
@@ -99,4 +107,22 @@ export function findByIdListAsMap<T extends EntityWithId>(
   idList: Iterable<string>
 ): Promise<Map<string, T>> {
   return findByIdList(store, entityConstructor, idList).then(toMap)
+}
+
+export function findByRawQuery<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  query: string,
+  args?: any[]
+): Promise<T[]> {
+  const repository = store.getRepository(entityConstructor)
+  return genericRepositoryQuery(repository, query, args)
+}
+
+export function genericRepositoryQuery<T extends EntityWithId, V>(
+  repository: Repository<T>,
+  query: string,
+  args?: any[]
+): Promise<V> {
+  return repository.query(query, args) as Promise<V>
 }
