@@ -5,7 +5,7 @@ import {
   In,
   Repository
 } from 'typeorm'
-import { toMap } from './shared'
+import { toEntity, toMap } from './shared'
 import { EntityConstructor, Store } from './types'
 
 export type EntityWithId = {
@@ -145,7 +145,8 @@ export function findByRawQuery<T extends EntityWithId>(
   args?: any[]
 ): Promise<T[]> {
   const repository = store.getRepository(entityConstructor)
-  return genericRepositoryQuery(repository, query, args)
+  return genericRepositoryQuery<T, T[]>(repository, query, args)
+    .then(res => res.map(el => toEntity(entityConstructor, el)))
 }
 
 export function genericRepositoryQuery<T extends EntityWithId, V>(
