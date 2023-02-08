@@ -74,3 +74,7 @@ export function toEntity<T>(
   }
   return entity
 }
+
+export function takeFirst<T>(list: T[]): T | undefined {
+  return list.at(0)
+}
