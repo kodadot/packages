@@ -63,6 +63,14 @@ function _get<T extends EntityWithId>(
   return callback<T>(entityConstructor, where)
 }
 
+export function get<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  id: string
+): Promise<T | null> {
+  return getOptional(store, entityConstructor, id)
+}
+
 export function getOptional<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
@@ -72,7 +80,7 @@ export function getOptional<T extends EntityWithId>(
   return store.findOneBy<T>(entityConstructor, where)
 }
 
-export function get<T extends EntityWithId>(
+export function getOrFail<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string
