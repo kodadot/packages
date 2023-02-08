@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/metasquid",
-  "version": "0.1.2-rc.1",
+  "version": "0.1.2-rc.2",
   "description": "Utils for the @subsquid indexers",
   "repository": "@kodadot1/metasquid",
   "license": "MIT",
@@ -67,5 +67,8 @@
   "packageManager": "pnpm@7.9.5",
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "scule": "^1.0.0"
   }
 }
