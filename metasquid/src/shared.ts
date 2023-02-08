@@ -1,5 +1,8 @@
 import { BatchBlock, SubstrateBlock } from '@subsquid/substrate-processor'
-import { BaseBlock, BaseCall, BaseContext, EntityWithId, IEvent } from './types'
+import { camelCase } from 'scule'
+import { BaseBlock, BaseCall, BaseContext, EntityConstructor, EntityWithId, IEvent } from './types'
+
+export { camelCase } from 'scule'
 
 export function eventFrom<T>(interaction: T, { blockNumber, caller, timestamp }: BaseCall, meta: string, currentOwner?: string): IEvent<T> {
   return {
@@ -59,4 +62,15 @@ export function toEntityId<T extends EntityWithId>(item: T): string {
 
 export function toUniqueSet<T extends EntityWithId>(array: T[]): Set<string> {
   return new Set(array.map(toEntityId))
+}
+
+export function toEntity<T>(
+  entityConstructor: EntityConstructor<T>,
+  el: any
+): T {
+  const entity: T = new entityConstructor()
+  for (const prop in el) {
+    entity[camelCase(prop) as keyof T] = el[prop]
+  }
+  return entity
 }
