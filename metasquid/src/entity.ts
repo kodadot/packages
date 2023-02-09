@@ -89,6 +89,14 @@ export function getOrFail<T extends EntityWithId>(
   return store.findOneByOrFail<T>(entityConstructor, where)
 }
 
+export function getWhere<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  where: FindOptionsWhere<T>
+): Promise<T> {
+  return store.findOneByOrFail<T>(entityConstructor, where)
+}
+
 export function create<T extends EntityWithId>(
   entityConstructor: EntityConstructor<T>,
   id: string,
