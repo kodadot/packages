@@ -92,9 +92,11 @@ export function getOrFail<T extends EntityWithId>(
 export function getWhere<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
+  id: string,
   where: FindOptionsWhere<T>
 ): Promise<T> {
-  return store.findOneByOrFail<T>(entityConstructor, where)
+  const options: FindOptionsWhere<T> = { id, ...where }
+  return store.findOneByOrFail<T>(entityConstructor, options)
 }
 
 export function create<T extends EntityWithId>(
@@ -155,6 +157,15 @@ export function findByRawQuery<T extends EntityWithId>(
   const repository = store.getRepository(entityConstructor)
   return genericRepositoryQuery<T, T[]>(repository, query, args)
     .then(res => res.map(el => toEntity(entityConstructor, el)))
+}
+
+export function has<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  idOrOptions: string | FindOptionsWhere<T>
+): Promise<boolean> {
+  const where: FindOptionsWhere<T> = typeof idOrOptions === 'string' ? { id: idOrOptions } as FindOptionsWhere<T> : idOrOptions
+  return store.exists(entityConstructor, { where })
 }
 
 export function genericRepositoryQuery<T extends EntityWithId, V>(
