@@ -48,7 +48,8 @@
     "prepack": "unbuild",
     "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
     "test": "vitest run",
-    "test-coverage": "vitest run --coverage"
+    "test-coverage": "vitest run --coverage",
+    "update": "npx npm-check-updates --filter /polkadot/ --upgrade"
   },
   "dependencies": {
     "@polkadot/api": "9.11.3",
