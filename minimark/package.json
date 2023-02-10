@@ -52,9 +52,9 @@
     "update": "npx npm-check-updates --filter /polkadot/ --upgrade"
   },
   "dependencies": {
-    "@polkadot/api": "9.11.3",
-    "@polkadot/keyring": "10.2.6",
-    "@polkadot/util": "10.2.6",
+    "@polkadot/api": "9.13.6",
+    "@polkadot/keyring": "10.3.1",
+    "@polkadot/util": "10.3.1",
     "nanoid": "3.3.4",
     "slugify": "^1.6.5"
   },
