@@ -1,5 +1,3 @@
-// import { BaseContext } from './types'
+import { createLogger } from '@subsquid/logger'
 
-// export function loggerOf(ctx: BaseContext) {
-//   return ctx.log
-// }
+export const logger = createLogger('squid:log')
