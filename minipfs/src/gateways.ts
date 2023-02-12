@@ -15,7 +15,6 @@ export type IPFSProviders =
   | 'cf'
   | 'infura'
   | 'gateway'
-  | 'cf_worker_cdn'
   | 'infura_dedicated_1'
   | 'infura_dedicated_2'
 
@@ -34,14 +33,13 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   cf: 'https://cf-ipfs.com',
   infura: 'https://infura-ipfs.io',
   gateway: 'https://ipfs-gateway.cloud',
-  cf_worker_cdn: 'https://cdn.preschian.xyz', // temporary
   infura_dedicated_1: 'https://r2.infura-ipfs.io', // temporary
   infura_dedicated_2: 'https://r2-backup.infura-ipfs.io' // temporary
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
   'kodadot',
-  'cf_worker_cdn'
+  'infura_dedicated_1'
 ]
 
 export const getProviderList = (
