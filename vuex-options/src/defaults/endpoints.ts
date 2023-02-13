@@ -16,8 +16,8 @@ export const ENDPOINTS: Option[] = [
   },
   {
     info: 'kusama',
-    text: 'Kusama (OnFinality)',
-    value: 'wss://kusama.api.onfinality.io/public-ws'
+    text: 'Kusama (Dwellir)',
+    value: 'wss://kusama-rpc.dwellir.com'
   },
   {
     info: 'kusama',
@@ -31,8 +31,8 @@ export const ENDPOINTS: Option[] = [
   },
   {
     info: 'rmrk',
-    text: 'Kusama (OnFinality)',
-    value: 'wss://kusama.api.onfinality.io/public-ws'
+    text: 'Kusama (Dwellir)',
+    value: 'wss://kusama-rpc.dwellir.com'
   },
   {
     info: 'rmrk',
