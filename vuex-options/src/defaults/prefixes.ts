@@ -17,6 +17,11 @@ export const PREFIXES: Option[] = [
     value: 'rmrk'
   },
   {
+    info: 'rmrk',
+    text: 'RMKR 2.0 [Beta]',
+    value: 'rmrk2'
+  },
+  {
     info: 'snek',
     text: 'Snek [Rococo]',
     value: 'snek'
@@ -30,5 +35,5 @@ export const PREFIXES: Option[] = [
     info: 'moonbeam',
     text: 'Moonbeam [Beta]',
     value: 'glmr'
-  },
+  }
 ]

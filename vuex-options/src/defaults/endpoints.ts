@@ -30,6 +30,21 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://kusama.elara.patract.io'
   },
   {
+    info: 'rmrk',
+    text: 'Kusama (OnFinality)',
+    value: 'wss://kusama.api.onfinality.io/public-ws'
+  },
+  {
+    info: 'rmrk',
+    text: 'Kusama (Parity)',
+    value: 'wss://kusama-rpc.polkadot.io'
+  },
+  {
+    info: 'rmrk',
+    text: 'Kusama (Patract Elara)',
+    value: 'wss://kusama.elara.patract.io'
+  },
+  {
     info: 'statemine',
     text: 'Statemine (Patract Elara)',
     value: 'wss://pub.elara.patract.io/statemine'
