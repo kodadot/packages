@@ -7,7 +7,12 @@ export const INDEXERS: Option[] = [
   {
     info: 'kusama',
     text: 'Kusama (rubick)',
-    value: 'https://squid.subsquid.io/rubick/v/008/graphql'
+    value: 'https://squid.subsquid.io/rubick/graphql'
+  },
+  {
+    info: 'rmrk',
+    text: 'RMRK 2.0 (rubick)',
+    value: 'https://squid.subsquid.io/rubick/v/009-rc0/graphql'
   },
   {
     info: 'basilisk',
