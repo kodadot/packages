@@ -1,8 +1,8 @@
 # packages
 
-Monorepository of npm packages we use in our projects.
+<img src="https://user-images.githubusercontent.com/5887929/217076003-3204c70f-c2c9-459f-9fd6-51f397a50be2.png" alt="Talisman" width="15%" align="right" />
 
-![image](https://user-images.githubusercontent.com/5887929/217076003-3204c70f-c2c9-459f-9fd6-51f397a50be2.png)
+Monorepository of npm packages we use in our projects.
 
 ## 📦 if-that
 
