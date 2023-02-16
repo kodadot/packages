@@ -6,11 +6,15 @@ export function obtain<T>(uri: URI): Promise<T> {
   return $fetch<T>(uri)
 }
 
-export function obtainSafe<T>(uri: URI): Promise<T> {
-  return obtain<T>(uri).catch((err: Error) => {
-    console.warn(err)
-    return {} as T
-  })
+export async function obtainSafe<T>(uri: URI): Promise<T> {
+  try {
+    return await obtain<T>(uri)
+  } catch (err) {
+    const message = `[KODADOT::MINIPFS] Fail to Obtain: ${err.message}`
+    console.warn(message)
+    return Promise.reject<T>(message)
+    // throw new Error(`[KODADOT::MINIPFS] Fail to Obtain: ${err.message}`)
+  }
 }
 
 export function obtainMedia(uri: URI): Promise<Blob> {
