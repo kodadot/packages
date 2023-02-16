@@ -18,7 +18,7 @@ export const PREFIXES: Option[] = [
   },
   {
     info: 'rmrk',
-    text: 'RMKR 2.0 [Beta]',
+    text: 'RMRK 2.0 [Beta]',
     value: 'rmrk2'
   },
   {
