@@ -41,7 +41,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
   'kodadot',
-  'infura_dedicated_1'
+  'infura_kodadot1'
 ]
 
 export const getProviderList = (
