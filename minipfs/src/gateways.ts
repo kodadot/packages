@@ -17,6 +17,7 @@ export type IPFSProviders =
   | 'gateway'
   | 'infura_dedicated_1'
   | 'infura_dedicated_2'
+  | 'infura_kodadot1'
 
 export type AvailableProviders = IPFSProviders[]
 
@@ -34,7 +35,8 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   infura: 'https://infura-ipfs.io',
   gateway: 'https://ipfs-gateway.cloud',
   infura_dedicated_1: 'https://r2.infura-ipfs.io', // temporary
-  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io' // temporary
+  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io', // temporary
+  infura_kodadot1: 'https://kodadot1.infura-ipfs.io'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
