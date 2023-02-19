@@ -8,6 +8,7 @@ export type IPFSProviders =
   | 'ipfs'
   | 'dweb'
   | 'kodadot'
+  | 'kodadot_beta'
   | 'rmrk'
   | 'fleek'
   | 'nftstorage'
@@ -27,6 +28,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   ipfs: 'https://ipfs.io',
   dweb: 'https://dweb.link',
   kodadot: 'https://image.w.kodadot.xyz',
+  kodadot_beta: 'https://image-beta.w.kodadot.xyz/',
   rmrk: 'https://rmrk.mypinata.cloud',
   fleek: 'https://ipfs.fleek.co',
   nftstorage: 'https://nftstorage.link',

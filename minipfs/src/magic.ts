@@ -4,7 +4,7 @@ import { competition } from './race'
 import { sanitize } from './sanitize'
 import { HTTPS_URI, IPFS_PATH, IPNS_PATH, SanitizedOutput, URI } from './types'
 
-export function $obtain<T>(uri: URI | string, providers: AvailableProviders = [], safe: boolean = true): Promise<T> {
+export function $obtain<T>(uri: URI | string, providers: AvailableProviders = [], safe?: boolean): Promise<T> {
   const { needProvider, path }: SanitizedOutput = sanitize(uri)
   const callback = safe ? obtainSafe : obtain
 
