@@ -48,23 +48,23 @@ Vuex options for KodaDot NFT Gallery.
 
 
 <!-- Badges -->
-[if-that-version-src]: https://img.shields.io/npm/v/@kodadot1/if-that/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[if-that-version-src]: https://img.shields.io/npm/v/@kodadot1/if-that/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [if-that-version-href]: https://npmjs.com/package/@kodadot1/if-that
 
-[metasquid-version-src]: https://img.shields.io/npm/v/@kodadot1/metasquid/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[metasquid-version-src]: https://img.shields.io/npm/v/@kodadot1/metasquid/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [metasquid-version-href]: https://npmjs.com/package/@kodadot1/metasquid
 
-[minimark-version-src]: https://img.shields.io/npm/v/@kodadot1/minimark/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[minimark-version-src]: https://img.shields.io/npm/v/@kodadot1/minimark/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [minimark-version-href]: https://npmjs.com/package/@kodadot1/minimark
 
-[minipfs-version-src]: https://img.shields.io/npm/v/@kodadot1/minipfs/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[minipfs-version-src]: https://img.shields.io/npm/v/@kodadot1/minipfs/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [minipfs-version-href]: https://npmjs.com/package/@kodadot1/minipfs
 
-[sub-api-version-src]: https://img.shields.io/npm/v/@kodadot1/sub-api/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[sub-api-version-src]: https://img.shields.io/npm/v/@kodadot1/sub-api/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [sub-api-version-href]: https://npmjs.com/package/@kodadot1/sub-api
 
-[uniquery-version-src]: https://img.shields.io/npm/v/@kodadot1/uniquery/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[uniquery-version-src]: https://img.shields.io/npm/v/@kodadot1/uniquery/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [uniquery-version-href]: https://npmjs.com/package/@kodadot1/uniquery
 
-[vuex-options-version-src]: https://img.shields.io/npm/v/@kodadot1/vuex-options/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[vuex-options-version-src]: https://img.shields.io/npm/v/@kodadot1/vuex-options/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [vuex-options-version-href]: https://npmjs.com/package/@kodadot1/vuex-options
