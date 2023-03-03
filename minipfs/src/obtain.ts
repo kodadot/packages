@@ -4,8 +4,15 @@ import { URI } from './types'
 
 export function obtain<T>(uri: URI): Promise<T> {
   return $fetch<T>(uri, {
+    retry: 3,
+    mode: 'no-cors',
+    redirect: 'follow',
     onRequestError({ error }) {
       const message = `[KODADOT::MINIPFS] Fail to Obtain: ${error.message}`
+      console.warn(message)
+    },
+    onResponseError({ request, response }) {
+      const message = `[KODADOT::MINIPFS] Obtaininig ${request} failed with status ${response.status}`
       console.warn(message)
     }
   })
