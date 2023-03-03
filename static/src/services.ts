@@ -6,4 +6,3 @@ export const SERVICES: Record<string, string> = {
   image: 'https://image.w.kodadot.xyz/',
   imageBeta: 'https://image-beta.w.kodadot.xyz/',
 }
-

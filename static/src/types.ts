@@ -1,28 +1,16 @@
-export type Prefix =
-  | 'bsx'
-  | 'glmr'
-  | 'ksm'
-  | 'movr'
-  | 'rmrk2'
-  | 'snek'
-  // | 'statemine'
-  // | 'westmint'
+export type Prefix = 'bsx' | 'glmr' | 'ksm' | 'movr' | 'rmrk2' | 'snek'
+// | 'statemine'
+// | 'westmint'
 
-export type Squid =
- | 'rubick'
- | 'snekk'
- | 'click'
- | 'antick'
-
+export type Squid = 'rubick' | 'snekk' | 'click' | 'antick'
 
 export type Config<T = boolean> = Record<Prefix, T>
 
-
 export type Option = {
-  disabled?: boolean;
-  info: string;
-  text: string;
-  value: string | number;
+  disabled?: boolean
+  info: string
+  text: string
+  value: string | number
 }
 
 export type ApolloEndpoint = {
