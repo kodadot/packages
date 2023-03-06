@@ -26,10 +26,10 @@ Import:
 
 ```js
 // ESM
-import {} from "@kodadot1/static";
+import * as static from "@kodadot1/static";
 
 // CommonJS
-const {} = require("@kodadot1/static");
+const static = require("@kodadot1/static");
 ```
 
 ## Available config files
@@ -38,22 +38,41 @@ const {} = require("@kodadot1/static");
 
 Static chain files such as decimals, symbol, ss58
 
+```js
+import { CHAINS } from "@kodadot1/static";
+```
+
 ### 🔧 endpoints
 
 Map of RPC endpoints for each chain
 
+```js
+import { ENDPOINT_MAP } from "@kodadot1/static";
+```
 
 ### 🔧 indexers
 
 Map of subsquid indexer endpoints for each chain
 
+```js
+import { INDEXERS, APOLLO_ENDPOINTS, toApolloEndpoint } from "@kodadot1/static";
+```
+
 ### 🔧 names
 
 Map of chain names for each chain. Suitable for frontend
 
+```js
+import { NAMES } from "@kodadot1/static";
+```
+
 ### 🔧 services
 
 Map of clodflare workers we use
+
+```js
+import { SERVICES } from "@kodadot1/static";
+```
 
 ### 🔧 types
 
