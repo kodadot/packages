@@ -6,10 +6,6 @@ on:
         description: 'Name of the package to deploy'
         required: true
 
-defaults:
-  run:
-    working-directory: ${{ github.event.inputs.package }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,6 +19,7 @@ jobs:
           node-version: 18
           cache: "pnpm"
           registry-url: 'https://registry.npmjs.org'
+      - working-directory: ${{ github.event.inputs.package }}
       - run: pnpm install
       - run: pnpm publish --access public
         env:
