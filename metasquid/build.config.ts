@@ -6,6 +6,8 @@ export default defineBuildConfig({
     'src/index',
     'src/consolidator',
     'src/entity',
+    'src/is',
+    'src/logger',
     'src/types'
   ],
   rollup: {

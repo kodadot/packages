@@ -8,6 +8,7 @@ export type IPFSProviders =
   | 'ipfs'
   | 'dweb'
   | 'kodadot'
+  | 'kodadot_beta'
   | 'rmrk'
   | 'fleek'
   | 'nftstorage'
@@ -15,9 +16,9 @@ export type IPFSProviders =
   | 'cf'
   | 'infura'
   | 'gateway'
-  | 'cf_worker_cdn'
   | 'infura_dedicated_1'
   | 'infura_dedicated_2'
+  | 'infura_kodadot1'
 
 export type AvailableProviders = IPFSProviders[]
 
@@ -26,7 +27,8 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   cloudflare: 'https://cloudflare-ipfs.com',
   ipfs: 'https://ipfs.io',
   dweb: 'https://dweb.link',
-  kodadot: 'https://kodadot.mypinata.cloud',
+  kodadot: 'https://image.w.kodadot.xyz',
+  kodadot_beta: 'https://image-beta.w.kodadot.xyz/',
   rmrk: 'https://rmrk.mypinata.cloud',
   fleek: 'https://ipfs.fleek.co',
   nftstorage: 'https://nftstorage.link',
@@ -34,14 +36,14 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   cf: 'https://cf-ipfs.com',
   infura: 'https://infura-ipfs.io',
   gateway: 'https://ipfs-gateway.cloud',
-  cf_worker_cdn: 'https://cdn.preschian.xyz', // temporary
-  infura_dedicated_1: 'https://r2.infura-ipfs.io',  // temporary
-  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io'  // temporary
+  infura_dedicated_1: 'https://r2.infura-ipfs.io', // temporary
+  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io', // temporary
+  infura_kodadot1: 'https://kodadot1.infura-ipfs.io'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
   'kodadot',
-  'cf_worker_cdn'
+  'infura_kodadot1'
 ]
 
 export const getProviderList = (

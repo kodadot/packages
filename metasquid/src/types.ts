@@ -22,8 +22,10 @@ export type WithBlockNumber<T = string> = {
   blockNumber: T;
 }
 
+export type BaseBlock = WithTimestamp & WithBlockNumber;
+
 // shared
-export type BaseCall = WithCaller & WithTimestamp & WithBlockNumber;
+export type BaseCall = BaseBlock & WithCaller;
 
 export type IEvent<T> = WithCaller & WithTimestamp & WithBlockNumber<bigint> & {
   interaction: T;
@@ -47,6 +49,12 @@ export type CallWith<T> = BaseCall & T
 export type ArchiveCall<T = any> = {
   __kind: string,
   value: T
+}
+
+export type ItemKind = 'evmLog' | 'event' | 'transaction' | 'call'
+
+export type ItemWithKind = {
+  kind: ItemKind
 }
 
 export type ArchiveCallWithOptionalValue = ArchiveCall<Optional<any>>
