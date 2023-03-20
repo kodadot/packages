@@ -99,7 +99,7 @@ export function getWhere<T extends EntityWithId>(
   return store.findOneByOrFail<T>(entityConstructor, options)
 }
 
-export function getWithJoin<T extends EntityWithId>(
+export function getWith<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string,
