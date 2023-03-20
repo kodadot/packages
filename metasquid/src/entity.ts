@@ -99,6 +99,17 @@ export function getWhere<T extends EntityWithId>(
   return store.findOneByOrFail<T>(entityConstructor, options)
 }
 
+export function getWithJoin<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  id: string,
+  relations?: FindOptionsRelations<T>
+): Promise<T> {
+  const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>
+  const options: FindOneOptions<T> = { relations, where }
+  return store.findOneOrFail<T>(entityConstructor, options)
+}
+
 export function create<T extends EntityWithId>(
   entityConstructor: EntityConstructor<T>,
   id: string,
