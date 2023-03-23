@@ -135,13 +135,14 @@ export interface IAttribute {
       condition?: string
     }
   }
-  type: 'array' | 'object' | 'int' | 'float' | 'boolean' | 'datetime' | 'string'
+  type: 'array' | 'object' | 'int' | 'float' | 'boolean' | 'datetime' | 'string' | 'royalty'
   value: any
 }
 
 export type CreatedNFT = AbstractCreatedNFT & {
   name?: string
   symbol: string
+  properties?: IProperties
 }
 
 type Theme = string | Record<string, string>
@@ -248,6 +249,11 @@ export type CreateNFTProps = {
   transferable: number
   index: number
   metadata: string
+}
+
+export type RoyaltyInfo = {
+  receiver: string
+  percent: number
 }
 
 // function fn<T extends keyof UnwrapValue = 'NONE'>(value: Record<any, any>): UnwrapValue[T] {
