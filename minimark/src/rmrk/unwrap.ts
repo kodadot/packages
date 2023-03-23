@@ -2,7 +2,7 @@ import { decodeHex, unwrapURI } from '../utils'
 import { RMRK_V0, RMRK_V1, RMRK_V2, isRemark, splitBySquare, toVersion } from './shared'
 
 import { InteractionValue, UnwrappedRemark as UnwrapV1, unwrapRemark } from './v1'
-import { UnwrappedRemark2 as UnwrapV2, unwrapRemarkV2 } from './v2'
+import { UnwrappedRemark as UnwrapV2, unwrapRemarkV2 } from './v2'
 
 const unwrap = <T = InteractionValue>(text: string): UnwrapV1<T> | UnwrapV2<T> => {
   const decoded = unwrapURI(decodeHex(text))

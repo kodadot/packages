@@ -1,12 +1,12 @@
 import { isEmptyString, wrapToString, wrapURI } from '../../utils'
-import { makeSymbol } from '../shared/identification'
 import { SQUARE } from '../shared/constants'
+import { makeSymbol } from '../shared/identification'
 import { makeCollection } from '../shared/make'
 import { BinaryBoolean, RemarkableString } from '../shared/types'
 import { checkBase } from './consolidator'
 import { Interaction } from './enums'
 import { makeBaseSymbol, toSerialNumber } from './identification'
-import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IAttribute, IRoyaltyAttribute, RoyaltyInfo } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IRoyaltyAttribute, RoyaltyInfo } from './types'
 
 const filterEmpty = (field?: string) => !isEmptyString(field)
 

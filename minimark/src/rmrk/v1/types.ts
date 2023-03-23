@@ -1,4 +1,4 @@
-import { AbstractCreatedNFT, BinaryBoolean, UnwrappedRemark as AbstractRemarkWrapper, AbstractCreatedCollection } from '../shared/types'
+import { AbstractCreatedCollection, AbstractCreatedNFT, BinaryBoolean, UnwrappedRemark as AbstractRemarkWrapper } from '../shared/types'
 import { Interaction } from './enums'
 
 export type JustInteraction = Exclude<Interaction, Interaction.MINT | Interaction.MINTNFT | Interaction.UNLIST>
