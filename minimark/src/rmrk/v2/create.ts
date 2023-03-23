@@ -6,7 +6,7 @@ import { BinaryBoolean, RemarkableString } from '../shared/types'
 import { checkBase } from './consolidator'
 import { Interaction } from './enums'
 import { makeBaseSymbol, toSerialNumber } from './identification'
-import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IAttribute, RoyaltyInfo } from './types'
 
 const filterEmpty = (field?: string) => !isEmptyString(field)
 
@@ -58,18 +58,29 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
 }
 
 // DEV: not sure if trasferable should be
-export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable: BinaryBoolean = 1): CreatedNFT => {
+export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable: BinaryBoolean = 1, royalty?: RoyaltyInfo): CreatedNFT => {
   // checkProps(props)
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
   const instance = makeSymbol(name)
+  const royaltyInfo: IAttribute | undefined = royalty
+    ? {
+        type: 'royalty',
+        value: {
+          receiver: royalty.receiver,
+          royaltyPercentFloat: royalty.percent
+        }
+      }
+
+    : undefined
   return {
     name, // KodaFlavour, not required by RMRK v2
     sn,
     transferable,
     collection: collectionId,
     metadata,
-    symbol: instance
+    symbol: instance,
+    properties: royaltyInfo ? { royaltyInfo } : undefined
   }
 }
 
