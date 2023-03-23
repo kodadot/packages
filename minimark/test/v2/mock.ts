@@ -105,7 +105,7 @@ export const resAddTest = {
 
 export const setPriorityTest = {
   type: 'SETPRIORITY',
-  input: 'RMRK::SETPRIORITY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::bar%2Cfoo%2Cbaz',
+  input: 'RMRK::SETPRIORITY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%5B%22bar%22%2C%22foo%22%2C%22baz%22%5D',
   payload: {
     id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
     value: 'bar,foo,baz'.split(',')
