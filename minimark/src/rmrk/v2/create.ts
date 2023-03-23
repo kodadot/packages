@@ -49,7 +49,7 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
       return convert([payload.id, wrapURI(payload.name), wrapURI(payload.value)])
     case Interaction.SETPRIORITY:
       // value should always be ',' separated
-      return convert([payload.id, wrapToString(payload.value)])
+      return convert([payload.id, wrapURI(payload.value.join())])
     case Interaction.THEMEADD:
       return convert([payload.base_id, payload.name, wrapToString(payload.value)])
     default:
