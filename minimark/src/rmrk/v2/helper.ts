@@ -1,7 +1,7 @@
 import { unwrapJSON, unwrapURI } from '../../utils'
 import { isValidInteraction } from '../shared/helpers'
 
-import { CreatedBase, CreatedCollection, CreatedNFT, InteractionValue, IProperties, RoyaltyInfo } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, InteractionValue, IProperties, IRoyaltyAttribute, RoyaltyInfo } from './types'
 import { Interaction } from './enums'
 export const toInteraction = (interaction: string): Interaction => {
   isValidInteraction(interaction)
@@ -104,8 +104,7 @@ export const resolveRoyalty = (properties?: IProperties): RoyaltyInfo | undefine
   if (!properties) {
     return undefined
   }
-
-  const { royaltyInfo } = properties
+  const royaltyInfo: IRoyaltyAttribute = properties.royaltyInfo as IRoyaltyAttribute
 
   if (!royaltyInfo) {
     return undefined

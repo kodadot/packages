@@ -125,7 +125,7 @@ export type InteractionValue =
   | Burn
 
 // from https://github.com/rmrk-team/rmrk-spec/blob/master/standards/rmrk2.0.0/entities/collection.md#properties-format
-export type IProperties = Record<string, IAttribute>
+export type IProperties = Record<string, IAttribute | IRoyaltyAttribute>
 
 export interface IAttribute {
   _mutation?: {
@@ -137,6 +137,14 @@ export interface IAttribute {
   }
   type: 'array' | 'object' | 'int' | 'float' | 'boolean' | 'datetime' | 'string' | 'royalty'
   value: any
+}
+
+export interface IRoyaltyAttribute extends IAttribute {
+  type: 'royalty';
+  value: {
+      receiver: string;
+      royaltyPercentFloat: number;
+  };
 }
 
 export type CreatedNFT = AbstractCreatedNFT & {

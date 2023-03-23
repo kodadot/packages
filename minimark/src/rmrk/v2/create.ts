@@ -6,7 +6,7 @@ import { BinaryBoolean, RemarkableString } from '../shared/types'
 import { checkBase } from './consolidator'
 import { Interaction } from './enums'
 import { makeBaseSymbol, toSerialNumber } from './identification'
-import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IAttribute, RoyaltyInfo } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IAttribute, IRoyaltyAttribute, RoyaltyInfo } from './types'
 
 const filterEmpty = (field?: string) => !isEmptyString(field)
 
@@ -63,7 +63,7 @@ export const createNFT = (index: number, collectionId: string, name: string | un
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
   const instance = makeSymbol(name)
-  const royaltyInfo: IAttribute | undefined = royalty
+  const royaltyInfo: IRoyaltyAttribute | undefined = royalty
     ? {
         type: 'royalty',
         value: {
