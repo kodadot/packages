@@ -21,14 +21,16 @@ import {
 describe('RMRK2 Create Interaction', () => {
   function runInteractionTest(action: Interaction, mock: Test) {
     expect(createInteraction({
-      action,
+      action: action as any,
       payload: mock.payload
     })).toBe(mock.input)
   }
 
   it('should raise Error for unsupported interaction', () => {
+    const action = 'HELLO' as any
     expect(() => createInteraction({
-      action: 'HELLO'
+      action,
+      payload: { id: 'asd' }
     })).toThrowError(new Error('Unsupported action: HELLO'))
   })
 
@@ -154,11 +156,12 @@ describe('RMRK2 Create Base', () => {
   it('should raise Error for wrong params', () => {
     // symbol must not use dashes or dots
     // each parts must have an uniquely Id
-    expect(() => createBase({ parts: [{ src: 'ipfs://ipfs/hash' }] }))
+    const parts = [{ src: 'ipfs://ipfs/hash' }] as any
+    expect(() => createBase({ parts, symbol: 'KEK' }))
       .toThrowError(new Error('Id is required for part'))
 
     // default theme should set first before other theme was added
-    expect(() => createBase({ themes: { sepia: 'ipfs://ipfs/theme1hash' } }))
+    expect(() => createBase({ themes: { sepia: 'ipfs://ipfs/theme1hash' }, parts, symbol: 'KEK' }))
       .toThrowError(new Error('Missing default key for theme'))
   })
 
@@ -193,7 +196,7 @@ describe('RMRK2 Create Base', () => {
       ]
     }
 
-    expect(createBase(onChainBase)).toEqual({ ...onChainBase, symbol: 'kanaria_superbird' })
+    expect(createBase(onChainBase as any)).toEqual({ ...onChainBase, symbol: 'kanaria_superbird' })
   })
 
   it('should create off-chain BASE', () => {
@@ -206,7 +209,7 @@ describe('RMRK2 Create Base', () => {
         }
       ]
     }
-    expect(createBase(offChainBase)).toEqual({
+    expect(createBase(offChainBase as any)).toEqual({
       ...offChainBase,
       symbol: 'kanaria_superbird'
     })
