@@ -58,7 +58,7 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
 }
 
 // DEV: not sure if trasferable should be
-export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable: BinaryBoolean = 1, royalty?: RoyaltyInfo): CreatedNFT => {
+export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable = 1, royalty?: RoyaltyInfo): CreatedNFT => {
   // checkProps(props)
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
