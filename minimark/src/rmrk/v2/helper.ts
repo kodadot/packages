@@ -1,7 +1,7 @@
 import { unwrapJSON, unwrapURI } from '../../utils'
 import { isValidInteraction } from '../shared/helpers'
 
-import { CreatedBase, CreatedCollection, CreatedNFT, InteractionValue } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, InteractionValue, IProperties, RoyaltyInfo } from './types'
 import { Interaction } from './enums'
 export const toInteraction = (interaction: string): Interaction => {
   isValidInteraction(interaction)
@@ -97,5 +97,28 @@ export const resolveValue = (interaction: Interaction, id: string, restValues: s
       return {
         id
       }
+  }
+}
+
+export const resolveRoyalty = (properties?: IProperties): RoyaltyInfo | undefined => {
+  if (!properties) {
+    return undefined
+  }
+
+  const { royaltyInfo } = properties
+
+  if (!royaltyInfo) {
+    return undefined
+  }
+
+  const { value } = royaltyInfo
+
+  if (!value) {
+    return undefined
+  }
+
+  return {
+    receiver: value.receiver,
+    percent: Number(value.royaltyPercentFloat)
   }
 }
