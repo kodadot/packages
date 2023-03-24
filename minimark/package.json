@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/minimark",
-  "version": "0.1.4-rc.0",
+  "version": "0.1.4-rc.1",
   "description": "Utils for the RMRK",
   "repository": "kodadot/packages",
   "license": "MIT",
@@ -46,7 +46,7 @@
     "lint-fix": "eslint --ext .ts,.js,.mjs,.cjs ./src --fix",
     "pack": "pnpm pack",
     "prepack": "unbuild",
-    "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
+    "release": "pnpm test && changelogen && git push --follow-tags && pnpm publish",
     "test": "vitest run",
     "test-coverage": "vitest run --coverage",
     "update": "npx npm-check-updates --filter /polkadot/ --upgrade"
@@ -61,11 +61,10 @@
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@vitest/coverage-c8": "latest",
+    "changelogen": "^0.5.1",
     "eslint": "latest",
     "husky": "^8.0.3",
-    "rmrk-tools": "^2.1.0",
-    "standard-version": "latest",
-    "typeorm": "^0.3.11",
+    "rmrk-tools": "^2.1.8",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
