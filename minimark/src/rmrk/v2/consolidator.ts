@@ -13,3 +13,12 @@ export function checkBase({ symbol, parts, themes }: CreatedBase) {
     throw new Error('Missing default key for theme')
   }
 }
+
+export function isTransferable(nft: { blockNumber: bigint, transferable: number }, currentBlock: number) {
+  const block = Number(nft.blockNumber)
+  return (
+    nft.transferable === 1 ||
+    (nft.transferable < 0 && block - nft.transferable >= currentBlock) ||
+    (nft.transferable > 1 && currentBlock >= nft.transferable)
+  )
+}
