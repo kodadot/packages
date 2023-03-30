@@ -5,6 +5,7 @@ import { makeCollection } from '../shared/make'
 import { RemarkableString } from '../shared/types'
 import { checkBase } from './consolidator'
 import { Interaction } from './enums'
+import { makeRoyalty } from './helper'
 import { makeBaseSymbol, toSerialNumber } from './identification'
 import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IRoyaltyAttribute, RoyaltyInfo } from './types'
 
@@ -63,16 +64,7 @@ export const createNFT = (index: number, collectionId: string, name: string | un
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
   const instance = makeSymbol(name)
-  const royaltyInfo: IRoyaltyAttribute | undefined = royalty
-    ? {
-        type: 'royalty',
-        value: {
-          receiver: royalty.receiver,
-          royaltyPercentFloat: royalty.percent
-        }
-      }
-
-    : undefined
+  const royaltyInfo: IRoyaltyAttribute | undefined = makeRoyalty(royalty)
   return {
     name, // KodaFlavour, not required by RMRK v2
     sn,
