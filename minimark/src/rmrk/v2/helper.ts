@@ -121,3 +121,23 @@ export const resolveRoyalty = (properties?: IProperties): RoyaltyInfo | undefine
     percent: Number(value.royaltyPercentFloat)
   }
 }
+
+export const makeRoyalty = (royalty?: RoyaltyInfo): IRoyaltyAttribute | undefined => {
+  if (!royalty || !royalty.receiver || !royalty.percent) {
+    return undefined
+  }
+
+  if (royalty.percent < 0 || royalty.percent > 100) {
+    // eslint-disable-next-line no-console
+    console.warn('[MINIMARK] Royalty percent should be between 0 and 100')
+    return undefined
+  }
+
+  return {
+    type: 'royalty',
+    value: {
+      receiver: royalty.receiver,
+      royaltyPercentFloat: royalty.percent
+    }
+  }
+}
