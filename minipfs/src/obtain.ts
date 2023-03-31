@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
-import { $fetch } from 'ohmyfetch'
+import { $fetch, FetchOptions } from 'ofetch'
 import { URI } from './types'
 
-export function obtain<T>(uri: URI): Promise<T> {
+export function obtain<T>(uri: URI, options?: FetchOptions<'json'>): Promise<T> {
   return $fetch<T>(uri, {
     retry: 3,
     mode: 'no-cors',
     redirect: 'follow',
+    ...options,
     onRequestError({ error }) {
       const message = `[KODADOT::MINIPFS] Fail to Obtain: ${error.message}`
       console.warn(message)

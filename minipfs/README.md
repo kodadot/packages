@@ -64,7 +64,7 @@ const { $obtain } = require('@kodadot1/minipfs')
 
 ### ✔️  Obtain
 
-- `obtain:` - Wrapper around `$fetch` from `ohmyfetch`
+- `obtain:` - Wrapper around `$fetch` from `ofetch`
 - `obtainSafe` - Same as `obtain` but returns empty object if error
 - `obtainMedia` - use for fetching media files
 - `obtainMimeType` - use for fetching mime type of file
