@@ -8,8 +8,8 @@ export function obtain<T>(uri: URI, options?: FetchOptions<'json'>): Promise<T> 
     mode: 'no-cors',
     redirect: 'follow',
     ...options,
-    onRequestError({ error }) {
-      const message = `[KODADOT::MINIPFS] Fail to Obtain: ${error.message}`
+    onRequestError({ error, request }) {
+      const message = `[KODADOT::MINIPFS] Fail to Obtain ${request}: ${error.message}`
       console.warn(message)
     },
     onResponseError({ request, response }) {
