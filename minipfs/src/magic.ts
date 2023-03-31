@@ -1,12 +1,12 @@
 import { AvailableProviders, getProperURI } from './gateways'
-import { obtain, obtainSafe } from './obtain'
+import { obtain, obtainFast } from './obtain'
 import { competition } from './race'
 import { sanitize } from './sanitize'
 import { HTTPS_URI, IPFS_PATH, IPNS_PATH, SanitizedOutput, URI } from './types'
 
-export function $obtain<T>(uri: URI | string, providers: AvailableProviders = [], safe?: boolean): Promise<T> {
+export function $obtain<T>(uri: URI | string, providers: AvailableProviders = [], fast?: boolean): Promise<T> {
   const { needProvider, path }: SanitizedOutput = sanitize(uri)
-  const callback = safe ? obtainSafe : obtain
+  const callback = fast ? obtainFast : obtain
 
   if (needProvider) {
     return competition<T>(path as IPFS_PATH | IPNS_PATH, providers, callback)
