@@ -27,6 +27,10 @@ export async function obtainSafe<T>(uri: URI): Promise<T> {
   }
 }
 
+export async function obtainFast<T>(uri: URI): Promise<T> {
+  return obtain<T>(uri, { signal: AbortSignal.timeout(8000) })
+}
+
 export function obtainMedia(uri: URI): Promise<Blob> {
   return $fetch(uri, { responseType: 'blob' })
 }
