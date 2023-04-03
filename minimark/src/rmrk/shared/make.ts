@@ -18,15 +18,15 @@ export const makeCollection = (caller: string, symbol: string, name: string, met
   }
 }
 
-export const makeInteraction = <I, T = string>(action: I, version: RemarkVersion = '1.0.0', objectId: string, meta: T): RemarkableString => {
-  if (!objectId) {
-    throw new ReferenceError(`[${action}] Could not create, because nftId`)
+export const makeInteraction = <I, T = string>(action: I, version: RemarkVersion, objectId: string, meta: T): RemarkableString => {
+  if (!objectId || objectId === '') {
+    throw new ReferenceError(`[${action}] Could not create, because NFT ID is empty`)
   }
 
   return `RMRK::${action}::${version}::${objectId}${meta ? '::' + meta : ''}`
 }
 
-export const makeCreateInteaction = <I, T extends Record<string, any>>(action: I, version: RemarkVersion = '1.0.0', object: T): RemarkableString => {
+export const makeCreateInteraction = <I, T extends Record<string, any>>(action: I, version: RemarkVersion, object: T): RemarkableString => {
   if (isEmpty(object)) {
     throw new ReferenceError(`[${action}] Could not create, because ${object} is empty`)
   }
