@@ -7,7 +7,7 @@ import { checkBase } from './consolidator'
 import { Interaction } from './enums'
 import { makeRoyalty } from './helper'
 import { makeBaseSymbol, toSerialNumber } from './identification'
-import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IRoyaltyAttribute, RoyaltyInfo } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IRoyaltyAttribute, Resource, RoyaltyInfo } from './types'
 
 const filterEmpty = (field?: string) => !isEmptyString(field)
 
@@ -88,4 +88,8 @@ export const createBase = (props: CreatedBase): CreatedBase => {
     ...props,
     symbol
   }
+}
+
+export const createResource = (obj: any): Resource | null => {
+  return null
 }
