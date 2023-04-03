@@ -38,7 +38,7 @@ export const toVersion = (version?: string): VersionedRemark => {
   if (!version) {
     return '1.0.0'
   }
-  return version as VersionedRemark // TODO: Unsafe
+  return version as VersionedRemark
 }
 
 export const resolveValue = <T>(interaction: Interaction, mayIdOrValue: string, mayValue?: string): T | InteractionValue => {
