@@ -19,12 +19,12 @@ export const makeSymbol = (symbol?: string): string => {
   return !symbol ? toUpperCase(nanoid(13)) : upperTrim(symbol, true)
 }
 
-export const toNFTId = (collectionId: string, symbol: string, serialNumber: string, blocknumber: string | number): string => {
-  if (isEmptyString(collectionId) || isEmptyString(symbol) || isEmptyString(serialNumber)) {
+export const toNFTId = (collectionId: string, symbol: string, sn: string, blocknumber: string | number): string => {
+  if (isEmptyString(collectionId) || isEmptyString(symbol) || isEmptyString(sn)) {
     throw new ReferenceError('[MINIMARK] toNFTId: invalid nft')
   }
 
-  return `${blocknumber}-${collectionId}-${symbol}-${serialNumber}`
+  return `${blocknumber}-${collectionId}-${symbol}-${sn}`
 }
 
 export const findUniqueSymbol = (symbol: string | undefined, usedSymbols: string[]): string => {
