@@ -64,8 +64,9 @@ const { $obtain } = require('@kodadot1/minipfs')
 
 ### ✔️  Obtain
 
-- `obtain:` - Wrapper around `$fetch` from `ohmyfetch`
+- `obtain:` - Wrapper around `$fetch` from `ofetch`
 - `obtainSafe` - Same as `obtain` but returns empty object if error
+- `obtainFast` - Same as `obtain` but throws Error after 8 seconds
 - `obtainMedia` - use for fetching media files
 - `obtainMimeType` - use for fetching mime type of file
 
@@ -101,8 +102,8 @@ Published under [MIT License](./LICENSE).
 [npm-downloads-src]: https://img.shields.io/npm/dm/@kodadot1/minipfs?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/@kodadot1/minipfs
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/@kodadot1/minipfs/ci/main?style=flat-square
-[github-actions-href]: https://github.com/unjs/@kodadot1/minipfs/actions?query=workflow%3Aci
+[github-actions-src]: https://img.shields.io/github/workflow/status/@kodadot1/minipfs/ci/main?style=flat-square
+[github-actions-href]: https://github.com/@kodadot1/minipfs/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/@kodadot1/minipfs/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/unjs/@kodadot1/minipfs
+[codecov-src]: https://img.shields.io/codecov/c/gh/@kodadot1/minipfs/main?style=flat-square
+[codecov-href]: https://codecov.io/gh/@kodadot1/minipfs

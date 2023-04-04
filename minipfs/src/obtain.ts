@@ -1,14 +1,15 @@
 /* eslint-disable no-console */
-import { $fetch } from 'ohmyfetch'
+import { $fetch, FetchOptions } from 'ofetch'
 import { URI } from './types'
 
-export function obtain<T>(uri: URI): Promise<T> {
+export function obtain<T>(uri: URI, options?: FetchOptions<'json'>): Promise<T> {
   return $fetch<T>(uri, {
     retry: 3,
     mode: 'no-cors',
     redirect: 'follow',
-    onRequestError({ error }) {
-      const message = `[KODADOT::MINIPFS] Fail to Obtain: ${error.message}`
+    ...options,
+    onRequestError({ error, request }) {
+      const message = `[KODADOT::MINIPFS] Fail to Obtain ${request}: ${error.message}`
       console.warn(message)
     },
     onResponseError({ request, response }) {
@@ -24,6 +25,10 @@ export async function obtainSafe<T>(uri: URI): Promise<T> {
   } catch (err) {
     return {} as T
   }
+}
+
+export async function obtainFast<T>(uri: URI): Promise<T> {
+  return obtain<T>(uri, { signal: AbortSignal.timeout(8000) })
 }
 
 export function obtainMedia(uri: URI): Promise<Blob> {
