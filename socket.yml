@@ -1,0 +1,14 @@
+# top level version field is required
+version: 2
+
+issueRules:
+  unresolvedRequire: true
+  installScripts: false # enable/disable installation of scripts in the project
+
+githubApp:
+  enabled: true # enable/disable the Socket.dev GitHub app entirely
+  pullRequestAlertsEnabled: true # enable/disable GitHub app pull request alert checks
+  dependencyOverviewEnabled: true # enable/disable GitHub app dependency overview comments in pull request alerts.
+  projectReportsEnabled: true # enable/disable Github app project report checks
+  
+  ignoreUsers: ["vikiival"] # list of GitHub usernames to ignore for Socket.dev GitHub app alerts
