@@ -1,8 +1,23 @@
-build:
-  yarn build
+#!/usr/bin/env just --justfile
 
-publish:
-  yarn publish --access public
+default: test
 
 c VERSION:
-  git commit -am "Updated minimark@{{VERSION}}"
+  git commit -am ':bookmark: minimark@{{VERSION}}'
+
+build:
+  @pnpm run build
+
+link:
+  @pnpm link
+
+pack:
+  @pnpm pack
+
+publish:
+  pnpm publish --access public
+
+release: publish
+
+test:
+  @pnpm run test

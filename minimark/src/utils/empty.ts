@@ -1,4 +1,5 @@
 export function isEmpty(obj: Record<string, any>) {
+  // eslint-disable-next-line no-unreachable-loop
   for (const _ in obj) {
     return false
   }
@@ -11,4 +12,15 @@ export function emptyObject<T>(): T {
 
 export function emptyArray<T>(): T[] {
   return [] as T[]
+}
+
+export function checkProps(props: Record<string, any>): Error | void {
+  if (props === undefined || props === null) {
+    throw new Error('Props is undefined or null')
+  }
+  Object.keys(props).forEach((key) => {
+    if (props[key] === undefined || props[key] === null) {
+      throw new Error(`Property ${key} should not be undefined or null`)
+    }
+  })
 }

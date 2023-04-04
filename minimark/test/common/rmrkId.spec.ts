@@ -1,8 +1,8 @@
 import { expect, it, describe } from 'vitest'
 
-import { toSerialNumber, findUniqueSymbol } from '../src/rmrk/identification'
+import { toSerialNumber, findUniqueSymbol } from '../../src/rmrk/shared/identification'
 
-describe.skip('RMRK/identification ', () => {
+describe('RMRK/identification ', () => {
   describe('toSerialNumber', () => {
     it('should return +1', () => {
       expect(toSerialNumber(0)).toBe('0000000000000001')

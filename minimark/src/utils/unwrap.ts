@@ -11,7 +11,7 @@ export const unwrapJSON = <T = any>(json: string, throwable = true): T | undefin
   }
 }
 
-const wrapURI = (uri: string): string => encodeURIComponent(uri)
+export const wrapURI = (uri: string): string => encodeURIComponent(uri)
 
 const wrapJSON = <T>(json: T): string => JSON.stringify(json)
 
