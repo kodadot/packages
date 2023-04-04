@@ -90,6 +90,8 @@ export const createBase = (props: CreatedBase): CreatedBase => {
   }
 }
 
-export const createResource = (obj: any): Resource | null => {
+export const createResource = (_obj: any): Resource | null => {
+  // eslint-disable-next-line no-console
+  console.warn('createResource is not implemented yet')
   return null
 }
