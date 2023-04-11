@@ -67,7 +67,7 @@ export const resolveValue = (interaction: Interaction, id: string, restValues: s
       return {
         namespace: id,
         id: restValues[0],
-        emotion: restValues[1]
+        value: restValues[1]
       }
     case Interaction.SEND:
       return {

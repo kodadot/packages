@@ -75,7 +75,7 @@ export type Buy = {
 
 export type Emote = {
   id: string
-  emotion: string
+  value: string
   namespace: string
 }
 
