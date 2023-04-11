@@ -222,7 +222,7 @@ describe('RMRK:2.0.0 Existing Interactions', () => {
       input: 'RMRK::CHANGEISSUER::2.0.0::0aff6865bed3a66b-DLEP::HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT',
       expected: {
         id: '0aff6865bed3a66b-DLEP',
-        newissuer: 'HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT'
+        value: 'HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT'
       }
     })
   })
