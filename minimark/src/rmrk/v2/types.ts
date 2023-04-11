@@ -90,7 +90,7 @@ export type List = {
 
 export type ChangeIssuer = {
   id: string
-  newissuer: string
+  value: string
 }
 
 export type Create = {

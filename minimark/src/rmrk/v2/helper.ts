@@ -82,7 +82,7 @@ export const resolveValue = (interaction: Interaction, id: string, restValues: s
     case Interaction.CHANGEISSUER:
       return {
         id,
-        newissuer: restValues[0]
+        value: restValues[0]
       }
     case Interaction.CREATE:
       return {

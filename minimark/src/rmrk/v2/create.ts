@@ -25,7 +25,7 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
     case Interaction.BUY:
       return convert([payload.id, payload.recipient ?? ''])
     case Interaction.CHANGEISSUER:
-      return convert([payload.id, payload.newissuer])
+      return convert([payload.id, payload.value])
     case Interaction.BURN:
       return convert([payload.id])
     case Interaction.CREATE:
