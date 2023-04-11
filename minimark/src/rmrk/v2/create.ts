@@ -31,7 +31,7 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
     case Interaction.CREATE:
       return convert([wrapToString(payload.value)])
     case Interaction.EMOTE:
-      return convert([payload.namespace, payload.id, payload.emotion])
+      return convert([payload.namespace, payload.id, payload.value])
     case Interaction.EQUIP:
       return convert([payload.id, payload.baseslot])
     case Interaction.EQUIPPABLE:
