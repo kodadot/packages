@@ -264,6 +264,11 @@ export type RoyaltyInfo = {
   percent: number
 }
 
+export type EquippableOption = {
+  operation: '+' | '-' | '*',
+  collection: string
+}
+
 // function fn<T extends keyof UnwrapValue = 'NONE'>(value: Record<any, any>): UnwrapValue[T] {
 //   return value as UnwrapValue[T]
 // }
