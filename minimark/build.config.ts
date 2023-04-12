@@ -25,6 +25,10 @@ export default defineBuildConfig({
     {
       input: 'src/rmrk/v2/index',
       name: 'v2'
+    },
+    {
+      input: 'src/common/index',
+      name: 'common'
     }
   ],
   outDir: 'dist',
