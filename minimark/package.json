@@ -11,6 +11,11 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
+    "./common": {
+      "types": "./dist/common.d.ts",
+      "import": "./dist/common.mjs",
+      "require": "./dist/common.cjs"
+    },
     "./shared": {
       "types": "./dist/shared.d.ts",
       "import": "./dist/shared.mjs",
