@@ -1,7 +1,7 @@
 import { unwrapJSON, unwrapURI } from '../../utils'
 import { isValidInteraction } from '../shared/helpers'
 
-import { CreatedBase, CreatedCollection, CreatedNFT, InteractionValue, IProperties, IRoyaltyAttribute, RoyaltyInfo } from './types'
+import { CreatedBase, CreatedCollection, CreatedNFT, EquippableOption, InteractionValue, IProperties, IRoyaltyAttribute, RoyaltyInfo } from './types'
 import { Interaction } from './enums'
 export const toInteraction = (interaction: string): Interaction => {
   isValidInteraction(interaction)
@@ -139,5 +139,14 @@ export const makeRoyalty = (royalty?: RoyaltyInfo): IRoyaltyAttribute | undefine
       receiver: royalty.receiver,
       royaltyPercentFloat: royalty.percent
     }
+  }
+}
+
+export const resolveEquippable = (value: string): EquippableOption => {
+  const operation = value[0] as '+' | '-' | '*'
+
+  return {
+    operation,
+    collection: value.slice(1)
   }
 }
