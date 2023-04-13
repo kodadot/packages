@@ -21,8 +21,16 @@ export const toNFTId = (nft: CreatedNFT, blockNumber: string | number): string =
 
 export const toBaseId = (symbol: string, blockNumber: string | number): string => {
   if (!blockNumber || !symbol) {
-    throw new EvalError('[MINIMARK] unable to construct Base ID since block or symbol is miising')
+    throw new EvalError('[MINIMARK] unable to construct Base ID since block or symbol is missing')
   }
 
   return `base-${blockNumber}-${symbol}`
+}
+
+export const toThemeId = (baseId: string, name: string): string => {
+  if (!baseId || !name) {
+    throw new EvalError('[MINIMARK] unable to construct Theme ID since baseId or name is missing')
+  }
+
+  return baseId.replace('base', 'theme') + '-' + name
 }
