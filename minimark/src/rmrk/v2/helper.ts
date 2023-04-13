@@ -145,6 +145,13 @@ export const makeRoyalty = (royalty?: RoyaltyInfo): IRoyaltyAttribute | undefine
 export const resolveEquippable = (value: string): EquippableOption => {
   const operation = value[0] as '+' | '-' | '*'
 
+  if (['+', '-', '*'].includes(operation) === false) {
+    return {
+      operation: '*',
+      collection: value
+    }
+  }
+
   return {
     operation,
     collection: value.slice(1)
