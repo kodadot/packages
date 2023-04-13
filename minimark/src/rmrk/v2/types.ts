@@ -63,7 +63,7 @@ export type SetProperty = BasicInteraction & {
 }
 
 export type ThemeAdd = {
-  base_id: string
+  id: string
   name: string
   value: Record<string, string>
 }

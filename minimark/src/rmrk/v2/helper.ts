@@ -54,7 +54,7 @@ export const resolveValue = (interaction: Interaction, id: string, restValues: s
       }
     case Interaction.THEMEADD:
       return {
-        base_id: id,
+        id: id,
         name: restValues[0],
         value: unwrapJSON(restValues[1]) as Record<string, string>
       }

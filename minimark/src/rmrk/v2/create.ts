@@ -52,7 +52,7 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
       // value should always be ',' separated
       return convert([payload.id, wrapToString(payload.value)])
     case Interaction.THEMEADD:
-      return convert([payload.base_id, payload.name, wrapToString(payload.value)])
+      return convert([payload.id, payload.name, wrapToString(payload.value)])
     default:
       throw new Error(`Unsupported action: ${action}`)
   }
