@@ -127,7 +127,7 @@ describe('MINIMARK::RMRK::2.0.0', () => {
       type: 'THEMEADD',
       input: 'RMRK::THEMEADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::good::%7B%22primary_color%22%3A%22%2300ff00%22%7D',
       expected: {
-        base_id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
+        id: '5105000-0aff6865bed3a66b-DLEP-DL15-00000001',
         name: 'good',
         value: {
           primary_color: '#00ff00'
