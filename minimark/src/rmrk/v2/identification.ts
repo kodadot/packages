@@ -34,3 +34,11 @@ export const toThemeId = (baseId: string, name: string): string => {
 
   return baseId.replace('base', 'theme') + '-' + name
 }
+
+export const toPartId = (baseId: string, name: string): string => {
+  if (!baseId || !name) {
+    throw new EvalError('[MINIMARK] unable to construct Part ID since baseId or name is missing')
+  }
+
+  return `${baseId}.${name}`
+}
