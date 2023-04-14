@@ -47,8 +47,8 @@
   "scripts": {
     "build": "unbuild",
     "dev": "vitest dev",
-    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
-    "lint-fix": "eslint --ext .ts,.js,.mjs,.cjs ./src --fix",
+    "lint": "eslint --ext .ts,.js,.mjs,.cjs ./src",
+    "lint:fix": "eslint --ext .ts,.js,.mjs,.cjs ./src --fix",
     "pack": "pnpm pack",
     "prepack": "unbuild",
     "release": "pnpm test && changelogen && git push --follow-tags && pnpm publish",
