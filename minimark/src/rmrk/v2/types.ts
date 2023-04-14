@@ -1,12 +1,15 @@
 /* eslint-disable no-use-before-define */
-import { AbstractCreatedCollection, AbstractCreatedNFT, UnwrappedRemark as AbstractRemarkWrapper } from '../shared/types'
+import {
+  AbstractCreatedCollection,
+  AbstractCreatedNFT,
+  UnwrappedRemark as AbstractRemarkWrapper,
+} from '../shared/types'
 import { Interaction } from './enums'
 
 export type OnlyMintInteraction = Interaction.CREATE | Interaction.MINT
 export type JustInteraction = Exclude<Interaction, OnlyMintInteraction | Interaction.UNLIST>
 
 export type InteractionUnion = keyof typeof Interaction
-// type AvailableAction = Exclude<InteractionUnion, Interaction.UNLIST>
 
 export type UnwrappedRemark<T> = AbstractRemarkWrapper<T, Interaction>
 
@@ -140,17 +143,18 @@ export interface IAttribute {
 }
 
 export interface IRoyaltyAttribute extends IAttribute {
-  type: 'royalty';
+  type: 'royalty'
   value: {
-      receiver: string;
-      royaltyPercentFloat: number;
-  };
+    receiver: string
+    royaltyPercentFloat: number
+  }
 }
 
 export type CreatedNFT = AbstractCreatedNFT & {
   name?: string
   symbol: string
   properties?: IProperties
+  currentOwner?: string
 }
 
 type Theme = string | Record<string, string>
@@ -186,7 +190,7 @@ export interface SlotPart extends AbstractBasePart {
 type BasePart = FixedPart | SlotPart
 
 export type Resource = {
-  id: string, // 'nanoid-of-resource',
+  id: string // 'nanoid-of-resource',
   base?: string // 'base-uri',
   src?: string // 'media-uri', // points to image or video
   metadata?: string // 'metadata-uri',
@@ -198,7 +202,7 @@ export type CreateInteractionFunc = (props: CreateInteractionProps) => string
 
 // From RMRK:TOOLS
 // https://github.com/rmrk-team/rmrk-tools/blob/master/src/rmrk2.0.0/tools/types.ts
-export type BaseType = 'svg' | 'png' | 'audio' | 'video' | 'mixed' | string;
+export type BaseType = 'svg' | 'png' | 'audio' | 'video' | 'mixed' | string
 
 export interface CreatedBase {
   symbol: string
@@ -231,24 +235,24 @@ export type CreateInteractionProps =
   | { action: Interaction.BURN; payload: Burn }
 
 export type UnwrapValue = {
-  [Interaction.ACCEPT]: Accept,
-  [Interaction.BASE]: Base,
-  [Interaction.EQUIP]: Equip,
-  [Interaction.EQUIPPABLE]: Equippable,
-  [Interaction.LOCK]: Lock,
-  [Interaction.RESADD]: Resadd,
-  [Interaction.SETPRIORITY]: SetPriority,
-  [Interaction.SETPROPERTY]: SetProperty,
-  [Interaction.THEMEADD]: ThemeAdd,
-  [Interaction.BUY]: Buy,
-  [Interaction.EMOTE]: Emote,
-  [Interaction.SEND]: Send,
-  [Interaction.LIST]: List,
-  [Interaction.CHANGEISSUER]: ChangeIssuer,
-  [Interaction.CREATE]: Create,
-  [Interaction.MINT]: Mint,
-  [Interaction.BURN]: Burn,
-  'NONE': BasicInteraction
+  [Interaction.ACCEPT]: Accept
+  [Interaction.BASE]: Base
+  [Interaction.EQUIP]: Equip
+  [Interaction.EQUIPPABLE]: Equippable
+  [Interaction.LOCK]: Lock
+  [Interaction.RESADD]: Resadd
+  [Interaction.SETPRIORITY]: SetPriority
+  [Interaction.SETPROPERTY]: SetProperty
+  [Interaction.THEMEADD]: ThemeAdd
+  [Interaction.BUY]: Buy
+  [Interaction.EMOTE]: Emote
+  [Interaction.SEND]: Send
+  [Interaction.LIST]: List
+  [Interaction.CHANGEISSUER]: ChangeIssuer
+  [Interaction.CREATE]: Create
+  [Interaction.MINT]: Mint
+  [Interaction.BURN]: Burn
+  NONE: BasicInteraction
 }
 
 export type CreateNFTProps = {
@@ -265,7 +269,7 @@ export type RoyaltyInfo = {
 }
 
 export type EquippableOption = {
-  operation: '+' | '-' | '*',
+  operation: '+' | '-' | '*'
   collection: string
 }
 

@@ -1,3 +1,4 @@
+import { UpdateFunction } from '../../common/types'
 import { isEmptyString, wrapToString, wrapURI } from '../../utils'
 import { SQUARE } from '../shared/constants'
 import { makeSymbol } from '../shared/identification'
@@ -7,7 +8,15 @@ import { checkBase } from './consolidator'
 import { Interaction } from './enums'
 import { makeRoyalty } from './helper'
 import { makeBaseSymbol, toSerialNumber } from './identification'
-import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IRoyaltyAttribute, Resource, RoyaltyInfo } from './types'
+import {
+  CreatedBase,
+  CreatedCollection,
+  CreatedNFT,
+  CreateInteractionFunc,
+  IRoyaltyAttribute,
+  Resource,
+  RoyaltyInfo,
+} from './types'
 
 const filterEmpty = (field?: string) => !isEmptyString(field)
 
@@ -59,7 +68,15 @@ export const createInteraction: CreateInteractionFunc = ({ action, payload }) =>
 }
 
 // DEV: not sure if trasferable should be
-export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable = 1, royalty?: RoyaltyInfo): CreatedNFT => {
+export const createNFT = (
+  index: number,
+  collectionId: string,
+  name: string | undefined,
+  metadata: string,
+  transferable = 1,
+  royalty?: RoyaltyInfo,
+  caller?: string
+): CreatedNFT => {
   // checkProps(props)
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
   const sn = toSerialNumber(index)
@@ -72,11 +89,44 @@ export const createNFT = (index: number, collectionId: string, name: string | un
     collection: collectionId,
     metadata,
     symbol: instance,
-    properties: royaltyInfo ? { royaltyInfo } : undefined
+    properties: royaltyInfo ? { royaltyInfo } : undefined,
+    currentOwner: caller,
   }
 }
 
-export const createCollection = (caller: string, symbol: string, name: string | undefined, metadata: string, max = 0): CreatedCollection => {
+export const createMultipleItem = (
+  max: number,
+  caller: string,
+  collectionId: string,
+  name: string,
+  metadata: string,
+  offset = 0,
+  updateName?: UpdateFunction,
+  transferable?: 0 | 1,
+  royalty?: RoyaltyInfo
+): CreatedNFT[] => {
+  return Array(max)
+    .fill(null)
+    .map((_, i) =>
+      createNFT(
+        i + offset,
+        collectionId,
+        updateName ? updateName(name, i) : name,
+        metadata,
+        transferable,
+        royalty,
+        caller
+      )
+    )
+}
+
+export const createCollection = (
+  caller: string,
+  symbol: string,
+  name: string | undefined,
+  metadata: string,
+  max = 0
+): CreatedCollection => {
   return makeCollection(caller, symbol, name ?? '', metadata, max)
 }
 
@@ -86,7 +136,7 @@ export const createBase = (props: CreatedBase): CreatedBase => {
   checkBase({ symbol, parts, themes })
   return {
     ...props,
-    symbol
+    symbol,
   }
 }
 
