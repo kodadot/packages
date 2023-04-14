@@ -15,7 +15,7 @@ import {
   CreateInteractionFunc,
   IRoyaltyAttribute,
   Resource,
-  RoyaltyInfo,
+  RoyaltyInfo
 } from './types'
 
 const filterEmpty = (field?: string) => !isEmptyString(field)
