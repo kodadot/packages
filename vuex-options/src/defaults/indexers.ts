@@ -11,7 +11,7 @@ export const INDEXERS: Option[] = [
   },
   {
     info: 'ksm',
-    text: 'RMRK 2.0 (marck)',
+    text: 'RMRK2 (marck)',
     value: 'https://squid.subsquid.io/marck/graphql'
   },
   {
