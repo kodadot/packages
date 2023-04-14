@@ -1,70 +1,102 @@
-import { isEmptyString, wrapToString, wrapURI } from '../../utils'
-import { SQUARE } from '../shared/constants'
-import { makeSymbol } from '../shared/identification'
-import { makeCollection } from '../shared/make'
-import { RemarkableString } from '../shared/types'
-import { checkBase } from './consolidator'
-import { Interaction } from './enums'
-import { makeRoyalty } from './helper'
-import { makeBaseSymbol, toSerialNumber } from './identification'
-import { CreatedBase, CreatedCollection, CreatedNFT, CreateInteractionFunc, IRoyaltyAttribute, Resource, RoyaltyInfo } from './types'
+import { UpdateFunction } from "../../common/types";
+import { isEmptyString, wrapToString, wrapURI } from "../../utils";
+import { SQUARE } from "../shared/constants";
+import { makeSymbol } from "../shared/identification";
+import { makeCollection } from "../shared/make";
+import { RemarkableString } from "../shared/types";
+import { checkBase } from "./consolidator";
+import { Interaction } from "./enums";
+import { makeRoyalty } from "./helper";
+import { makeBaseSymbol, toSerialNumber } from "./identification";
+import {
+  CreatedBase,
+  CreatedCollection,
+  CreatedNFT,
+  CreateInteractionFunc,
+  IRoyaltyAttribute,
+  Resource,
+  RoyaltyInfo,
+} from "./types";
 
-const filterEmpty = (field?: string) => !isEmptyString(field)
+const filterEmpty = (field?: string) => !isEmptyString(field);
 
-export const createInteraction: CreateInteractionFunc = ({ action, payload }) => {
+export const createInteraction: CreateInteractionFunc = ({
+  action,
+  payload,
+}) => {
   const convert = (props: string[]): RemarkableString => {
-    const args: string = props.filter(filterEmpty).join(SQUARE)
-    return `RMRK::${action}::2.0.0::${args}`
-  }
+    const args: string = props.filter(filterEmpty).join(SQUARE);
+    return `RMRK::${action}::2.0.0::${args}`;
+  };
 
   switch (action) {
     case Interaction.ACCEPT:
-      return convert([payload.id, payload.entity_type, payload.entity_id])
+      return convert([payload.id, payload.entity_type, payload.entity_id]);
     case Interaction.BASE:
-      return convert([wrapToString(payload.value)])
+      return convert([wrapToString(payload.value)]);
     case Interaction.BUY:
-      return convert([payload.id, payload.recipient ?? ''])
+      return convert([payload.id, payload.recipient ?? ""]);
     case Interaction.CHANGEISSUER:
-      return convert([payload.id, payload.value])
+      return convert([payload.id, payload.value]);
     case Interaction.BURN:
-      return convert([payload.id])
+      return convert([payload.id]);
     case Interaction.CREATE:
-      return convert([wrapToString(payload.value)])
+      return convert([wrapToString(payload.value)]);
     case Interaction.EMOTE:
-      return convert([payload.namespace, payload.id, payload.value])
+      return convert([payload.namespace, payload.id, payload.value]);
     case Interaction.EQUIP:
-      return convert([payload.id, payload.baseslot])
+      return convert([payload.id, payload.baseslot]);
     case Interaction.EQUIPPABLE:
-      return convert([payload.id, payload.slot, payload.value])
+      return convert([payload.id, payload.slot, payload.value]);
     case Interaction.LIST:
-      return convert([payload.id, payload.price])
+      return convert([payload.id, payload.price]);
     case Interaction.LOCK:
-      return convert([payload.id])
+      return convert([payload.id]);
     case Interaction.MINT:
-      return convert([wrapToString(payload.value), payload.recipient ?? ''])
+      return convert([wrapToString(payload.value), payload.recipient ?? ""]);
     case Interaction.RESADD:
-      return convert([payload.id, wrapToString(payload.value), payload.replace])
+      return convert([
+        payload.id,
+        wrapToString(payload.value),
+        payload.replace,
+      ]);
     case Interaction.SEND:
-      return convert([payload.id, payload.recipient])
+      return convert([payload.id, payload.recipient]);
     case Interaction.SETPROPERTY:
-      return convert([payload.id, wrapURI(payload.name), wrapURI(payload.value)])
+      return convert([
+        payload.id,
+        wrapURI(payload.name),
+        wrapURI(payload.value),
+      ]);
     case Interaction.SETPRIORITY:
       // value should always be ',' separated
-      return convert([payload.id, wrapToString(payload.value)])
+      return convert([payload.id, wrapToString(payload.value)]);
     case Interaction.THEMEADD:
-      return convert([payload.base_id, payload.name, wrapToString(payload.value)])
+      return convert([
+        payload.base_id,
+        payload.name,
+        wrapToString(payload.value),
+      ]);
     default:
-      throw new Error(`Unsupported action: ${action}`)
+      throw new Error(`Unsupported action: ${action}`);
   }
-}
+};
 
 // DEV: not sure if trasferable should be
-export const createNFT = (index: number, collectionId: string, name: string | undefined, metadata: string, transferable = 1, royalty?: RoyaltyInfo): CreatedNFT => {
+export const createNFT = (
+  index: number,
+  collectionId: string,
+  name: string | undefined,
+  metadata: string,
+  transferable = 1,
+  royalty?: RoyaltyInfo,
+  caller?: string
+): CreatedNFT => {
   // checkProps(props)
   // const { symbol, index, transferable = 1, collectionId, metadata } = props
-  const sn = toSerialNumber(index)
-  const instance = makeSymbol(name)
-  const royaltyInfo: IRoyaltyAttribute | undefined = makeRoyalty(royalty)
+  const sn = toSerialNumber(index);
+  const instance = makeSymbol(name);
+  const royaltyInfo: IRoyaltyAttribute | undefined = makeRoyalty(royalty);
   return {
     name, // KodaFlavour, not required by RMRK v2
     sn,
@@ -72,26 +104,59 @@ export const createNFT = (index: number, collectionId: string, name: string | un
     collection: collectionId,
     metadata,
     symbol: instance,
-    properties: royaltyInfo ? { royaltyInfo } : undefined
-  }
-}
+    properties: royaltyInfo ? { royaltyInfo } : undefined,
+    currentOwner: caller,
+  };
+};
 
-export const createCollection = (caller: string, symbol: string, name: string | undefined, metadata: string, max = 0): CreatedCollection => {
-  return makeCollection(caller, symbol, name ?? '', metadata, max)
-}
+export const createMultipleItem = (
+  max: number,
+  caller: string,
+  collectionId: string,
+  name: string,
+  metadata: string,
+  offset = 0,
+  updateName?: UpdateFunction,
+  transferable?: 0 | 1,
+  royalty?: RoyaltyInfo
+): CreatedNFT[] => {
+  return Array(max)
+    .fill(null)
+    .map((_, i) =>
+      createNFT(
+        i + offset,
+        collectionId,
+        updateName ? updateName(name, i) : name,
+        metadata,
+        transferable,
+        royalty,
+        caller
+      )
+    );
+};
+
+export const createCollection = (
+  caller: string,
+  symbol: string,
+  name: string | undefined,
+  metadata: string,
+  max = 0
+): CreatedCollection => {
+  return makeCollection(caller, symbol, name ?? "", metadata, max);
+};
 
 export const createBase = (props: CreatedBase): CreatedBase => {
-  const { symbol: providedSymbol, parts = [], themes } = props
-  const symbol = makeBaseSymbol(providedSymbol)
-  checkBase({ symbol, parts, themes })
+  const { symbol: providedSymbol, parts = [], themes } = props;
+  const symbol = makeBaseSymbol(providedSymbol);
+  checkBase({ symbol, parts, themes });
   return {
     ...props,
-    symbol
-  }
-}
+    symbol,
+  };
+};
 
 export const createResource = (_obj: any): Resource | null => {
   // eslint-disable-next-line no-console
-  console.warn('createResource is not implemented yet')
-  return null
-}
+  console.warn("createResource is not implemented yet");
+  return null;
+};
