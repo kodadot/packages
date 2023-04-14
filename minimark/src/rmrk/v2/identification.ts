@@ -42,3 +42,7 @@ export const toPartId = (baseId: string, name: string): string => {
 
   return `${baseId}.${name}`
 }
+
+export const baseIdFromPartId = (partId: string): string => {
+  return partId.split('.')[0]
+}
