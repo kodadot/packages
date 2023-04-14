@@ -144,16 +144,18 @@ export const makeRoyalty = (royalty?: RoyaltyInfo): IRoyaltyAttribute | undefine
 
 export const resolveEquippable = (value: string): EquippableOption => {
   const operation = value[0] as '+' | '-' | '*'
+  const offset = Number(['+', '-', '*'].includes(operation))
+  const collections = value.slice(offset).split(',').filter(Boolean)
 
-  if (['+', '-', '*'].includes(operation) === false) {
+  if (operation === '*' || (!offset && collections.length)) {
     return {
       operation: '*',
-      collection: value
+      collections: !offset ? collections : ['*']
     }
   }
 
   return {
     operation,
-    collection: value.slice(1)
+    collections
   }
 }
