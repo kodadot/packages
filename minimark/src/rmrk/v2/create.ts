@@ -90,7 +90,7 @@ export const createNFT = (
     metadata,
     symbol: instance,
     properties: royaltyInfo ? { royaltyInfo } : undefined,
-    currentOwner: caller,
+    currentOwner: caller
   }
 }
 
@@ -136,7 +136,7 @@ export const createBase = (props: CreatedBase): CreatedBase => {
   checkBase({ symbol, parts, themes })
   return {
     ...props,
-    symbol,
+    symbol
   }
 }
 
