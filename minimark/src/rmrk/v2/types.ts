@@ -270,7 +270,7 @@ export type RoyaltyInfo = {
 
 export type EquippableOption = {
   operation: '+' | '-' | '*'
-  collection: string
+  collections: string[]
 }
 
 // function fn<T extends keyof UnwrapValue = 'NONE'>(value: Record<any, any>): UnwrapValue[T] {
