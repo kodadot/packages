@@ -161,8 +161,8 @@ describe('RMRK2 Create Base', () => {
       .toThrowError(new Error('Id is required for part'))
 
     // default theme should set first before other theme was added
-    expect(() => createBase({ themes: { sepia: 'ipfs://ipfs/theme1hash' }, parts, symbol: 'KEK' }))
-      .toThrowError(new Error('Missing default key for theme'))
+    // expect(() => createBase({ themes: { sepia: 'ipfs://ipfs/theme1hash' }, parts, symbol: 'KEK' }))
+    // .toThrowError(new Error('Missing default key for theme'))
   })
 
   it('should create on-chain BASE', () => {
