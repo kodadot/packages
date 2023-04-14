@@ -2,7 +2,7 @@
 import {
   AbstractCreatedCollection,
   AbstractCreatedNFT,
-  UnwrappedRemark as AbstractRemarkWrapper,
+  UnwrappedRemark as AbstractRemarkWrapper
 } from '../shared/types'
 import { Interaction } from './enums'
 
