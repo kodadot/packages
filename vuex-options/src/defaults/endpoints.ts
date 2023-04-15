@@ -3,6 +3,44 @@
 
 import type { Option } from '../types.js'
 
+const KUSAMA_ENDPOINTS: Option[] = [
+  {
+    info: 'kusama',
+    text: 'Kusama (Parity)',
+    value: 'wss://kusama-rpc.polkadot.io'
+  },
+  {
+    info: 'kusama',
+    text: 'Kusama (RadiumBlock)',
+    value: 'wss://kusama.public.curie.radiumblock.co/ws'
+  },
+  {
+    info: 'kusama',
+    text: 'Kusama (IBP-GeoDNS1)',
+    value: 'wss://rpc.ibp.network/kusama'
+  },
+  {
+    info: 'kusama',
+    text: 'Kusama (IBP-GeoDNS2)',
+    value: 'wss://rpc.dotters.network/kusama'
+  },
+  {
+    info: 'kusama',
+    text: 'Kusama (Automata 1RPC)',
+    value: 'wss://1rpc.io/ksm'
+  },
+  {
+    info: 'kusama',
+    text: 'Kusama (OnFinality)',
+    value: 'wss://kusama.api.onfinality.io/public-ws'
+  },
+  {
+    info: 'kusama',
+    text: 'Kusama (Dwellir)',
+    value: 'wss://kusama-rpc.dwellir.com'
+  }
+]
+
 export const ENDPOINTS: Option[] = [
   {
     info: 'basilisk',
@@ -14,36 +52,8 @@ export const ENDPOINTS: Option[] = [
     text: 'Basilisk (HydraDX)',
     value: 'wss://rpc.basilisk.cloud'
   },
-  {
-    info: 'kusama',
-    text: 'Kusama (Dwellir)',
-    value: 'wss://kusama-rpc.dwellir.com'
-  },
-  {
-    info: 'kusama',
-    text: 'Kusama (Parity)',
-    value: 'wss://kusama-rpc.polkadot.io'
-  },
-  {
-    info: 'kusama',
-    text: 'Kusama (Patract Elara)',
-    value: 'wss://kusama.elara.patract.io'
-  },
-  {
-    info: 'rmrk',
-    text: 'Kusama (Dwellir)',
-    value: 'wss://kusama-rpc.dwellir.com'
-  },
-  {
-    info: 'rmrk',
-    text: 'Kusama (Parity)',
-    value: 'wss://kusama-rpc.polkadot.io'
-  },
-  {
-    info: 'rmrk',
-    text: 'Kusama (Patract Elara)',
-    value: 'wss://kusama.elara.patract.io'
-  },
+  ...KUSAMA_ENDPOINTS,
+  ...KUSAMA_ENDPOINTS.map(({ info: _info, ...rest }) => ({ info: 'rmrk', ...rest })),
   {
     info: 'statemine',
     text: 'Statemine (Patract Elara)',
