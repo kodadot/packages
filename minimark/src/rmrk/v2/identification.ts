@@ -46,3 +46,11 @@ export const toPartId = (baseId: string, name: string): string => {
 export const baseIdFromPartId = (partId: string): string => {
   return partId.split('.')[0]
 }
+
+export const toPropertyId = (nftId: string, key: string, value: string): string => {
+  if (!nftId || !key || !value) {
+    throw new EvalError('[MINIMARK] unable to construct Property ID since nftId, key or value is missing')
+  }
+
+  return `${nftId}-${key}-${value}`
+}
