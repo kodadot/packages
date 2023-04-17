@@ -1,8 +1,9 @@
 import { unwrapJSON, unwrapURI } from '../../utils'
 import { isValidInteraction } from '../shared/helpers'
 
-import { CreatedBase, CreatedCollection, CreatedNFT, EquippableOption, InteractionValue, IProperties, IRoyaltyAttribute, RoyaltyInfo } from './types'
+import { Attribute } from '../../common'
 import { Interaction } from './enums'
+import { CreatedBase, CreatedCollection, CreatedNFT, EquippableOption, IAttribute, InteractionValue, IProperties, IRoyaltyAttribute, RoyaltyInfo } from './types'
 export const toInteraction = (interaction: string): Interaction => {
   isValidInteraction(interaction)
   return interaction as Interaction
@@ -157,5 +158,29 @@ export const resolveEquippable = (value: string): EquippableOption => {
   return {
     operation,
     collections
+  }
+}
+
+export const makeProperty = (value: number | string, type?: string): IAttribute => {
+  return {
+    type: type || typeof value === 'number' ? 'int' : 'string',
+    value
+  }
+}
+
+export const convertAttributesToProperties = (attributes: Attribute[]): IProperties => {
+  const properties: IProperties = {}
+
+  attributes.filter(attr => attr.trait_type).forEach((attribute) => {
+    properties[attribute.trait_type as string] = makeProperty(attribute.value)
+  })
+
+  return properties
+}
+
+export const mergeProperties = (properties: IProperties, key: string, value: IAttribute | IRoyaltyAttribute): IProperties => {
+  return {
+    ...properties,
+    [key]: value
   }
 }
