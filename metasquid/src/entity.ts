@@ -58,7 +58,7 @@ function _get<T extends EntityWithId>(
   id: string,
   optional?: boolean
 ): Promise<T | null> {
-  const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>
+  const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>;
   const callback = optional ? store.findOneBy : store.findOneByOrFail
   return callback<T>(entityConstructor, where)
 }
@@ -157,6 +157,14 @@ export function findByIdListAsMap<T extends EntityWithId>(
   idList: Iterable<string>
 ): Promise<Map<string, T>> {
   return findByIdList(store, entityConstructor, idList).then(toMap)
+}
+
+export function findWhere<T extends EntityWithId>(
+  store: Store,
+  entityConstructor: EntityConstructor<T>,
+  where: FindOptionsWhere<T>
+): Promise<T[]> {
+  return store.findBy<T>(entityConstructor, where)
 }
 
 export function findByRawQuery<T extends EntityWithId>(
