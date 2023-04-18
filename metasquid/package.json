@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/metasquid",
-  "version": "0.1.5-rc.0",
+  "version": "0.1.6-rc.0",
   "description": "Utils for the @subsquid indexers",
   "repository": "@kodadot1/metasquid",
   "license": "MIT",
