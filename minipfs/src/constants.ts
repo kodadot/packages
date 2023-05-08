@@ -6,3 +6,4 @@ export const IPFS_PREFIX = 'ipfs://'
 export const HTTP_REGEX = /^https?:\/\//
 export const ARWEAVE_REGEX = /^ar:\/\//
 export const IPFS_REGEX = /^ipfs:\/\//
+export const SMART_IPFS_REGEX = /^ipfs:\/\/(ip[fn]s\/)?(baf|Qm)/
