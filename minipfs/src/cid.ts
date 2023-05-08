@@ -1,5 +1,5 @@
 // import { path, url } from '@vikiival/is-ipfs'
-import { HTTP_REGEX, IPFS_FS_PREFIX, IPFS_NS_PREFIX, IPFS_PREFIX } from './constants'
+import { HTTP_REGEX, IPFS_FS_PREFIX, IPFS_NS_PREFIX, IPFS_PREFIX, SMART_IPFS_REGEX } from './constants'
 import { PINATA_GATEWAY } from './gateways'
 import { IPFS_HASH, IPFS_PATH, IPNS_PATH } from './types'
 
@@ -23,6 +23,14 @@ export const isHTTP = (uri: string): boolean => {
 export const isPath = (uri: string): boolean => {
   return /^\/ip[fn]s\//.test(uri)
   // return path(uri)
+}
+
+export const isFullPath = (uri: string): boolean => {
+  return SMART_IPFS_REGEX.test(uri)
+}
+
+export const isFetchable = (uri: string): boolean => {
+  return isCID(uri) || isHTTP(uri) || isPath(uri) || isFullPath(uri)
 }
 
 export const toIPFSPath = (uri: string): IPFS_HASH | IPFS_PATH | IPNS_PATH => {
