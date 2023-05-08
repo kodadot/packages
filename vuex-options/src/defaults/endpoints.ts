@@ -56,17 +56,17 @@ export const ENDPOINTS: Option[] = [
   ...KUSAMA_ENDPOINTS.map(({ info: _info, ...rest }) => ({ info: 'rmrk', ...rest })),
   {
     info: 'statemine',
-    text: 'Statemine (Patract Elara)',
-    value: 'wss://pub.elara.patract.io/statemine'
-  },
-  {
-    info: 'statemine',
     text: 'Statemine (Parity)',
     value: 'wss://statemine-rpc.polkadot.io'
   },
   {
     info: 'statemine',
     text: 'Statemine (OnFinality)',
+    value: 'wss://statemine.api.onfinality.io/public-ws'
+  },
+  {
+    info: 'statemine',
+    text: 'Statemine (RadiumBlock)',
     value: 'wss://statemine.api.onfinality.io/public-ws'
   },
   {
