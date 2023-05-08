@@ -62,11 +62,16 @@ export const ENDPOINTS: Option[] = [
   {
     info: 'statemine',
     text: 'Statemine (Parity)',
-    value: 'wss://kusama-statemine-rpc.paritytech.net'
+    value: 'wss://statemine-rpc.polkadot.io'
   },
   {
     info: 'statemine',
     text: 'Statemine (OnFinality)',
+    value: 'wss://statemine.api.onfinality.io/public-ws'
+  },
+  {
+    info: 'statemine',
+    text: 'Statemine (RadiumBlock)',
     value: 'wss://statemine.api.onfinality.io/public-ws'
   },
   {
