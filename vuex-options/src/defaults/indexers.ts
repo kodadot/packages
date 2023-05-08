@@ -25,6 +25,11 @@ export const INDEXERS: Option[] = [
     value: 'https://squid.subsquid.io/snekk/v/004/graphql'
   },
   {
+    info: 'statemine',
+    text: 'Statemine (stick)',
+    value: 'https://squid.subsquid.io/v/v1/graphql'
+  },
+  {
     info: 'moonriver',
     text: 'Moonbeam (antick)',
     value: 'http://localhost:4350/graphql'
