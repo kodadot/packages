@@ -27,7 +27,7 @@ export async function obtainSafe<T>(uri: URI): Promise<T> {
   }
 }
 
-export async function obtainFast<T>(uri: URI): Promise<T> {
+export function obtainFast<T>(uri: URI): Promise<T> {
   return obtain<T>(uri, { signal: AbortSignal.timeout(8000) })
 }
 
