@@ -67,7 +67,7 @@ class InstantApi extends ApiPromise {
     }, DETATCH_IN)
   }
 
-  private setSpawn(spawn: boolean = true) {
+  private setSpawn(spawn = true) {
     this._isSpawned = spawn
   }
 
