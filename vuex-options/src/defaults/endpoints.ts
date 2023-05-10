@@ -101,5 +101,5 @@ export const ENDPOINTS: Option[] = [
   }
 ]
 
-export const ENDPOINT_DEFAULT =
-  ENDPOINTS[0].value || 'wss://kusama-rpc.polkadot.io'
+export const ENDPOINT_DEFAULT: string | number =
+  KUSAMA_ENDPOINTS[0].value || 'wss://kusama-rpc.polkadot.io'

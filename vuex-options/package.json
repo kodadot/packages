@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/vuex-options",
-  "version": "0.1.3",
+  "version": "0.1.4-beta.0",
   "description": "Polkadot Settings for KodaDot",
   "repository": {
     "type": "git",
