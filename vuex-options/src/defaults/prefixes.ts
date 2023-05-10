@@ -3,7 +3,7 @@
 
 import type { Option } from '../types.js'
 
-export const PREFIX_DEFAULT = 'bsx'
+export const PREFIX_DEFAULT = 'ksm'
 
 export const PREFIXES: Option[] = [
   {
