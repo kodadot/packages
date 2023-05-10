@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@nuxtjs/eslint-config-typescript': latest
-  '@polkadot/networks': 12.1.2
+  '@polkadot/networks': ^12.1.2
   '@types/express': ^4.17.17
   c8: latest
   changelogen: ^0.5.3
@@ -1364,7 +1364,7 @@ packages:
     dev: true
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
   /concordance/5.0.4:
