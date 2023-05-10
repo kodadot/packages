@@ -90,7 +90,7 @@ export default class Api extends EventEmitter implements ApiService {
    * tryEmit
    *
    */
-  public _emit(message: string = 'event', payload?: any) {
+  public _emit(message = 'event', payload?: any) {
     this.emit(message, payload)
   }
 }

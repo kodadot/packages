@@ -7,8 +7,8 @@
     "url": "git+https://github.com/kodadot/packages.git"
   },
   "license": "MIT",
-  "sideEffects": false,
   "author": "Viki Val <viktorko99@gmail.com>",
+  "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {
@@ -31,13 +31,13 @@
     "test": "pnpm lint && vitest run"
   },
   "dependencies": {
-    "@polkadot/networks": "12.1.2"
+    "@polkadot/networks": "^12.1.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/express": "^4.17.17",
-    "changelogen": "^0.5.3",
     "c8": "latest",
+    "changelogen": "^0.5.3",
     "eslint": "latest",
     "typescript": "latest",
     "unbuild": "latest",
