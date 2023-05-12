@@ -1,3 +1,4 @@
+import { ENDPOINT_MAP } from '@kodadot1/static'
 import type { ApiPromise } from '@polkadot/api'
 import Api from './instantapi'
 
@@ -42,9 +43,14 @@ class ApiFactory {
   }
 
   private initConnection(prefixOrUrl: string): ApiType<Api> {
-    const api = new Api(prefixOrUrl)
+    const url = this.getUrl(prefixOrUrl)
+    const api = new Api(url)
     connectionMap.set(prefixOrUrl, api)
     return api
+  }
+
+  private getUrl(prefixOrUrl: string): string {
+    return ENDPOINT_MAP[prefixOrUrl] || prefixOrUrl
   }
 }
 
