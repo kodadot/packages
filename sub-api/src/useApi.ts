@@ -1,5 +1,4 @@
 import { ApiPromise } from '@polkadot/api'
-// import { ApiExtension } from './types'
 import { HTTP_PREFIX, WS_PREFIX } from './constants'
 import { asHttpProvider } from './helpers'
 
