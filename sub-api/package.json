@@ -31,6 +31,7 @@
     "test": "pnpm lint && vitest run"
   },
   "dependencies": {
+    "@kodadot1/static": "^0.0.2",
     "@polkadot/api": "^10.6.1",
     "@polkadot/types-codec": "^10.6.1"
   },
