@@ -10,4 +10,11 @@ describe('Factory instance', () => {
     expect(ss58).eq('2')
     api.disconnect()
   })
+
+  it('Should create a meaningfull connection via prefix', async () => {
+    const api = await Factory.useApiInstance('ksm')
+    const ss58 = api.consts.system.ss58Prefix.toString()
+    expect(ss58).eq('2')
+    api.disconnect()
+  })
 })
