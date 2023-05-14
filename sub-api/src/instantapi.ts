@@ -1,20 +1,19 @@
 import { ApiPromise } from '@polkadot/api'
-import { getApiOptions } from './utils.js'
-import { ApiExtension } from './types.js'
-import { asWsProvider } from './helpers.js'
 import { DETATCH_IN } from './constants'
+import { asWsProvider } from './helpers.js'
+import { ApiExtension, ApiUrl } from './types.js'
 
 /**
  * Some wrapper Instance for @polkadot/api.
  */
 class InstantApi extends ApiPromise {
-  private _apiUrl: string
+  private _apiUrl: ApiUrl
   private _isSpawned: boolean
   // private _initiatedAt: number
 
-  constructor(apiUrl: string, overrideOptions?: ApiExtension) {
+  constructor(apiUrl: ApiUrl, overrideOptions?: ApiExtension) {
     const provider = asWsProvider(apiUrl)
-    const options = overrideOptions ?? getApiOptions(apiUrl)
+    const options = overrideOptions
     super({ provider, ...options, throwOnConnect: true })
     this.setUrl(apiUrl)
     this.setSpawn()
@@ -71,7 +70,7 @@ class InstantApi extends ApiPromise {
     this._isSpawned = spawn
   }
 
-  private setUrl(apiUrl: string) {
+  private setUrl(apiUrl: ApiUrl) {
     this._apiUrl = apiUrl
   }
 
@@ -79,7 +78,7 @@ class InstantApi extends ApiPromise {
     return this.isConnected === false
   }
 
-  get url(): string {
+  get url(): ApiUrl {
     return this._apiUrl
   }
 }

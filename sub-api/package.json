@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/sub-api",
-  "version": "0.1.2",
+  "version": "0.2.0-rc.0",
   "description": "Smart wrapper for Substrate API",
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "test": "pnpm lint && vitest run"
   },
   "dependencies": {
+    "@kodadot1/static": "^0.0.2",
     "@polkadot/api": "^10.6.1",
     "@polkadot/types-codec": "^10.6.1"
   },
@@ -45,5 +46,5 @@
     "unbuild": "latest",
     "vitest": "latest"
   },
-  "packageManager": "pnpm@7.0.0"
+  "packageManager": "pnpm@8.5.0"
 }
