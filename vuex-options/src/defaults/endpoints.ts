@@ -41,6 +41,14 @@ const KUSAMA_ENDPOINTS: Option[] = [
   }
 ]
 
+const POLKADOT_ENDPOINTS: Option[] = [
+  {
+    info: 'polkadot',
+    text: 'Polkadot (Parity)',
+    value: 'wss://rpc.polkadot.io'
+  }
+]
+
 export const ENDPOINTS: Option[] = [
   {
     info: 'basilisk',
@@ -53,7 +61,10 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://rpc.basilisk.cloud'
   },
   ...KUSAMA_ENDPOINTS,
-  ...KUSAMA_ENDPOINTS.map(({ info: _info, ...rest }) => ({ info: 'rmrk', ...rest })),
+  ...KUSAMA_ENDPOINTS.map(({ info: _info, ...rest }) => ({
+    info: 'rmrk',
+    ...rest
+  })),
   {
     info: 'statemine',
     text: 'Statemine (Parity)',
@@ -74,6 +85,7 @@ export const ENDPOINTS: Option[] = [
     text: 'Statemine (RadiumBlock)',
     value: 'wss://statemine.api.onfinality.io/public-ws'
   },
+  ...POLKADOT_ENDPOINTS,
   {
     info: 'snek',
     text: 'Snek Rococo (HydraDX)',

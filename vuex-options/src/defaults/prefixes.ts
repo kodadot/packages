@@ -27,6 +27,11 @@ export const PREFIXES: Option[] = [
     value: 'stmn'
   },
   {
+    info: 'polkadot',
+    text: 'Polkadot',
+    value: 'dot'
+  },
+  {
     info: 'snek',
     text: 'Snek [Rococo]',
     value: 'snek'
