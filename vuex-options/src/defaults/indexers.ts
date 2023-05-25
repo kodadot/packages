@@ -30,6 +30,11 @@ export const INDEXERS: Option[] = [
     value: 'https://squid.subsquid.io/v/v1/graphql'
   },
   {
+    info: 'statemint',
+    text: 'Statemint (speck)',
+    value: 'https://squid.subsquid.io/speck/v/v1/graphql'
+  },
+  {
     info: 'polkadot',
     text: 'Polkadot (:4350)',
     value: 'http://127.0.0.1:4350/graphql'

@@ -32,6 +32,11 @@ export const PREFIXES: Option[] = [
     value: 'dot'
   },
   {
+    info: 'statemint',
+    text: 'Statemint',
+    value: 'stt'
+  },
+  {
     info: 'snek',
     text: 'Snek [Rococo]',
     value: 'snek'
