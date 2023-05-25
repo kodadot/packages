@@ -46,6 +46,64 @@ const POLKADOT_ENDPOINTS: Option[] = [
     info: 'polkadot',
     text: 'Polkadot (Parity)',
     value: 'wss://rpc.polkadot.io'
+  },
+  {
+    info: 'polkadot',
+    text: 'Polkadot (RadiumBlock)',
+    value: 'wss://polkadot.public.curie.radiumblock.co/ws'
+  },
+  {
+    info: 'polkadot',
+    text: 'Polkadot (IBP-GeoDNS1)',
+    value: 'wss://rpc.ibp.network/polkadot'
+  },
+  {
+    info: 'polkadot',
+    text: 'Polkadot (IBP-GeoDNS2)',
+    value: 'wss://rpc.dotters.network/polkadot'
+  },
+  {
+    info: 'polkadot',
+    text: 'Polkadot (Automata 1RPC)',
+    value: 'wss://1rpc.io/dot'
+  },
+  {
+    info: 'polkadot',
+    text: 'Polkadot (OnFinality)',
+    value: 'wss://polkadot.api.onfinality.io/public-ws'
+  },
+  {
+    info: 'polkadot',
+    text: 'Polkadot (Dwellir)',
+    value: 'wss://polkadot-rpc.dwellir.com'
+  }
+]
+
+const STATEMINT_ENDPOINTS: Option[] = [
+  {
+    info: 'statemint',
+    text: 'Statemint (Parity)',
+    value: 'wss://statemint-rpc.polkadot.io'
+  },
+  {
+    info: 'statemint',
+    text: 'Statemint (IBP-GeoDNS1)',
+    value: 'wss://rpc.ibp.network/statemint'
+  },
+  {
+    info: 'statemint',
+    text: 'Statemint (IBP-GeoDNS2)',
+    value: 'wss://rpc.dotters.network/statemint'
+  },
+  {
+    info: 'statemint',
+    text: 'Statemint (OnFinality)',
+    value: 'wss://statemint.api.onfinality.io/public-ws'
+  },
+  {
+    info: 'statemint',
+    text: 'Statemint (Dwellir)',
+    value: 'wss://statemint-rpc.dwellir.com'
   }
 ]
 
@@ -86,6 +144,7 @@ export const ENDPOINTS: Option[] = [
     value: 'wss://statemine.api.onfinality.io/public-ws'
   },
   ...POLKADOT_ENDPOINTS,
+  ...STATEMINT_ENDPOINTS,
   {
     info: 'snek',
     text: 'Snek Rococo (HydraDX)',
