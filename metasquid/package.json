@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/metasquid",
-  "version": "0.1.6-rc.0",
+  "version": "0.2.0-rc.0",
   "description": "Utils for the @subsquid indexers",
   "repository": "@kodadot1/metasquid",
   "license": "MIT",
@@ -53,20 +53,20 @@
     "test": "pnpm lint && vitest run --coverage"
   },
   "peerDependencies": {
-    "@subsquid/logger": "0.3.x",
+    "@subsquid/logger": ">= 1",
     "@subsquid/ss58": "0.1.x",
     "@subsquid/substrate-processor": ">= 1",
     "typeorm": "0.3.x"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@subsquid/logger": "^0.3.1",
+    "@subsquid/logger": "^1.2.0",
     "@subsquid/ss58": "^0.1.4",
     "@subsquid/substrate-processor": "^2.4.1",
     "@vitest/coverage-c8": "latest",
     "changelogen": "^0.5.3",
     "eslint": "latest",
-    "typeorm": "^0.3.15",
+    "typeorm": "^0.3.16",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
