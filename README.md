@@ -34,13 +34,9 @@ Fetching data from IPFS has never been easier.
 
 Logical and friendly wrapper for Substrate API (@polkadot).
 
-## 📦 uniquery
-
-[![uniquery version][uniquery-version-src]][uniquery-version-href]
-
-Simple tool to help you build GraphQL queries for KodaDot API.
-
 ## 📦 vuex-options
+
+> ⚠️ package was deprecated, proceed with care
 
 [![vuex-options version][vuex-options-version-src]][vuex-options-version-href]
 
@@ -62,9 +58,6 @@ Vuex options for KodaDot NFT Gallery.
 
 [sub-api-version-src]: https://img.shields.io/npm/v/@kodadot1/sub-api/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [sub-api-version-href]: https://npmjs.com/package/@kodadot1/sub-api
-
-[uniquery-version-src]: https://img.shields.io/npm/v/@kodadot1/uniquery/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
-[uniquery-version-href]: https://npmjs.com/package/@kodadot1/uniquery
 
 [vuex-options-version-src]: https://img.shields.io/npm/v/@kodadot1/vuex-options/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [vuex-options-version-href]: https://npmjs.com/package/@kodadot1/vuex-options
