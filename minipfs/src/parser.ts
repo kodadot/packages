@@ -28,7 +28,7 @@ export function baseSixtyFourReviver(_key: string, value: unknown) {
 
 export function baseSixtyFourFormatter<T>(data: string): T {
   if (isBaseSixtyFourJSON(data)) {
-    return JSON.parse(fromBaseSixtyFour(data), baseSixtyFourReviver) as T
+    return JSON.parse(fromBaseSixtyFour(data)) as T
   }
 
   return fromBaseSixtyFour(data) as unknown as T
