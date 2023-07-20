@@ -2,8 +2,12 @@ export function isBaseSixtyFour(data: string): boolean {
   return /^data:([a-z]+)\/([.-+a-z]+);base64,/.test(data)
 }
 
-export function isJSON(data: string): boolean {
-  return data.startsWith('{') && data.endsWith('}')
+function isBaseSixtyFourJSON(data: string): boolean {
+  return /^data:application\/json;base64,/.test(data)
+}
+
+export function canBeJSON(data: string): boolean {
+  return (data.startsWith('{') && data.endsWith('}')) || (data.startsWith('[') && data.endsWith(']'))
 }
 
 export function fromBaseSixtyFour(data: string): string {
@@ -11,7 +15,7 @@ export function fromBaseSixtyFour(data: string): string {
     return atob(data.split(',').at(1))
   }
 
-  throw new Error('Not a base64 string')
+  return ''
 }
 
 export function baseSixtyFourReviver(_key: string, value: unknown) {
@@ -20,4 +24,12 @@ export function baseSixtyFourReviver(_key: string, value: unknown) {
   }
 
   return value
+}
+
+export function baseSixtyFourFormatter<T>(data: string): T {
+  if (isBaseSixtyFourJSON(data)) {
+    return JSON.parse(fromBaseSixtyFour(data), baseSixtyFourReviver) as T
+  }
+
+  return fromBaseSixtyFour(data) as unknown as T
 }
