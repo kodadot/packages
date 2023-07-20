@@ -2,11 +2,20 @@ import { toArweavePath } from './arweave'
 import { canBeIPFS, extractIPFS, isDefaultPinataProvider, toIPFSPath } from './cid'
 import { ARWEAVE_REGEX, HTTP_REGEX, IPFS_REGEX } from './constants'
 import { PINATA_GATEWAY } from './gateways'
+import { baseSixtyFourFormatter, canBeJSON, isBaseSixtyFour } from './parser'
 import { HTTPS_URI, IPFS_PATH, IPNS_PATH, SanitizedOutput } from './types'
 
 export function sanitize(path: string): SanitizedOutput {
   if (canBeIPFS(path)) {
     return { path: toIPFSPath(path), needProvider: true }
+  }
+
+  if (canBeJSON(path)) {
+    return { path: path as HTTPS_URI, needProvider: false, formatter: JSON.parse }
+  }
+
+  if (isBaseSixtyFour(path)) {
+    return { path: path as HTTPS_URI, needProvider: false, formatter: baseSixtyFourFormatter }
   }
 
   if (IPFS_REGEX.test(path)) {

@@ -11,9 +11,12 @@ export type IPFS = IPFS_PATH | IPNS_PATH | IPFS_HASH | IPFS_URI
 
 export type URI = HTTPS_URI | IPFS | ARWEAVE_URI
 
+export type Formatter = <T>(uri: string) => T
+
 export type SanitizedOutput = {
   path: HTTPS_URI | IPFS,
-  needProvider: boolean
+  needProvider: boolean,
+  formatter?: Formatter
 }
 
 export type Callback<T = any, V = any> = (param: T) => Promise<V>
