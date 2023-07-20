@@ -1,35 +1,19 @@
-**Thank you for your contribution** to the [KodaDot NFT gallery](https://kodadot.xyz).
-👇 \_ Let's make a quick check before the contribution.
+**Thank you for your contribution** to the [KodaDot - One Stop Shop for Polkadot NFTs](https://kodadot.xyz).
 
-### PR type
+👇 __ Let's make a quick check before the contribution.
 
-- [ ] Fix
+## PR Type
+
+- [ ] Bugfix
 - [ ] Feature
 - [ ] Refactoring
 - [ ] Chore
 
-### What's new?
+## Context
 
-- [ ] PR closes #<issue_number>
-- [ ] <brief_description_of_what_I've_added>
+- [ ] Closes #<issue_number>
+- [ ] Requires deployment <snek/rubick/worker>
 
-### Before submitting Pull Request, please make sure:
+#### Did your issue had any of the "$" label on it?
 
-- [ ] My contribution builds **clean without any errors or warnings**
-- [ ] I've merged recent default branch -- **main** and I've no conflicts
-- [ ] I've tried to respect high code quality standards
-- [ ] I've didn't break any original functionality
-- [ ] I've posted a screenshot of demonstrated change in this PR
-- [ ] I've written some unit tests 🧪
-
-### Optional
-
-- [ ] I found edge cases
-
-### Had issue bounty label?
-
-- [ ] Fill up your KSM address: [Payout](https://beta.kodadot.xyz/transfer/?target=<My_Kusama_Address_check_https://github.com/kodadot/nft-gallery/blob/main/CONTRIBUTING.md#creating-your-ksm-address>)
-
-### Community participation
-
-- [ ] [Are you at KodaDot Discord?](https://discord.gg/35hzy2dXXh)
+- [ ] My DOT address: [Payout](https://canary.kodadot.xyz/dot/transfer/?target=<My_Polkadot_Address_check_https://github.com/kodadot/nft-gallery/blob/main/REWARDS.md#creating-your-dot-address>)
