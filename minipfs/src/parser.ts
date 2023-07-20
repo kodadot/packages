@@ -1,5 +1,5 @@
 export function isBaseSixtyFour(data: string): boolean {
-  return /^data:([a-z]+)\/([.-+a-z]+);base64,/.test(data)
+  return /^data:([a-z]+)\/([\.\-\+a-z]+);base64,/.test(data)
 }
 
 function isBaseSixtyFourJSON(data: string): boolean {
