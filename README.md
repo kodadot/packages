@@ -34,14 +34,6 @@ Fetching data from IPFS has never been easier.
 
 Logical and friendly wrapper for Substrate API (@polkadot).
 
-## 📦 vuex-options
-
-> ⚠️ package was deprecated, proceed with care
-
-[![vuex-options version][vuex-options-version-src]][vuex-options-version-href]
-
-Vuex options for KodaDot NFT Gallery.
-
 
 <!-- Badges -->
 [if-that-version-src]: https://img.shields.io/npm/v/@kodadot1/if-that/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
@@ -58,6 +50,3 @@ Vuex options for KodaDot NFT Gallery.
 
 [sub-api-version-src]: https://img.shields.io/npm/v/@kodadot1/sub-api/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [sub-api-version-href]: https://npmjs.com/package/@kodadot1/sub-api
-
-[vuex-options-version-src]: https://img.shields.io/npm/v/@kodadot1/vuex-options/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
-[vuex-options-version-href]: https://npmjs.com/package/@kodadot1/vuex-options
