@@ -3,7 +3,6 @@ export const PINATA_GATEWAY: HTTPS_URI = 'https://gateway.pinata.cloud'
 
 // LIST: https://ipfs.github.io/public-gateway-checker/
 export type IPFSProviders =
-  | 'pinata'
   | 'cloudflare'
   | 'ipfs'
   | 'dweb'
@@ -23,7 +22,6 @@ export type IPFSProviders =
 export type AvailableProviders = IPFSProviders[]
 
 export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
-  pinata: 'https://kodadot.mypinata.cloud',
   cloudflare: 'https://cloudflare-ipfs.com',
   ipfs: 'https://ipfs.io',
   dweb: 'https://dweb.link',
@@ -43,7 +41,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
   'kodadot',
-  'infura_kodadot1'
+  'filebase_kodadot'
 ]
 
 export const getProviderList = (
