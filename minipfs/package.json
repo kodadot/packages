@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/minipfs",
-  "version": "0.4.0-rc.0",
+  "version": "0.4.0-rc.1",
   "description": "",
   "repository": "kodadot/packages",
   "license": "MIT",
@@ -27,12 +27,12 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "ofetch": "^1.1.1"
+    "ofetch": "^1.3.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "c8": "latest",
-    "changelogen": "^0.5.4",
+    "changelogen": "^0.5.5",
     "eslint": "latest",
     "typescript": "latest",
     "unbuild": "latest",
