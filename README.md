@@ -4,6 +4,12 @@
 
 Monorepository of npm packages we use in our projects.
 
+## 📦 hyperdata
+
+[![hyperdata version][hyperdata-version-src]][hyperdata-version-href]
+
+Library for working with NFT metadata.
+
 ## 📦 if-that
 
 [![if-that version][if-that-version-src]][if-that-version-href]
@@ -36,6 +42,9 @@ Logical and friendly wrapper for Substrate API (@polkadot).
 
 
 <!-- Badges -->
+[hyperdata-version-src]: https://img.shields.io/npm/v/@kodadot1/hyperdata/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
+[hyperdata-version-href]: https://npmjs.com/package/@kodadot1/hyperdata
+
 [if-that-version-src]: https://img.shields.io/npm/v/@kodadot1/if-that/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [if-that-version-href]: https://npmjs.com/package/@kodadot1/if-that
 
