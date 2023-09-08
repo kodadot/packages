@@ -25,6 +25,10 @@ describe('Sanitize', () => {
         'ipfs://ipfs/bafybeiennmmolv3keadouvgrhqkkfhprobvikl6hmblg4x2nxsn7s7lrjq',
       output:
         '/ipfs/bafybeiennmmolv3keadouvgrhqkkfhprobvikl6hmblg4x2nxsn7s7lrjq'
+    },
+    {
+      input: 'ipfs://bafybeibe6ihmid6i5a777n4znvnovok6szkju6ijde4wzprd2zkntqj4gi/4.json',
+      output: '/ipfs/bafybeibe6ihmid6i5a777n4znvnovok6szkju6ijde4wzprd2zkntqj4gi/4.json'
     }
   ]
 
