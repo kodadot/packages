@@ -1,4 +1,4 @@
-# @kodadot1/content
+# @kodadot1/hyperdata
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -13,23 +13,23 @@ Install package:
 
 ```sh
 # npm
-npm install @kodadot1/content
+npm install @kodadot1/hyperdata
 
 # yarn
-yarn add @kodadot1/content
+yarn add @kodadot1/hyperdata
 
 # pnpm
-pnpm install @kodadot1/content
+pnpm install @kodadot1/hyperdata
 ```
 
 Import:
 
 ```js
 // ESM
-import * as static from "@kodadot1/content";
+import * as static from "@kodadot1/hyperdata";
 
 // CommonJS
-const static = require("@kodadot1/content");
+const static = require("@kodadot1/hyperdata");
 ```
 
 ## Available files
@@ -63,11 +63,11 @@ Published under [MIT License](./LICENSE).
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@kodadot1/content?style=flat-square
-[npm-version-href]: https://npmjs.com/package/@kodadot1/content
-[npm-downloads-src]: https://img.shields.io/npm/dm/@kodadot1/content?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/@kodadot1/content
-[github-actions-src]: https://img.shields.io/github/actions/workflow/status/@kodadot1/content/ci.yml?branch=main&style=flat-square
-[github-actions-href]: https://github.com/@kodadot1/content/actions?query=workflow%3Aci
-[codecov-src]: https://img.shields.io/codecov/c/gh/@kodadot1/content/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/@kodadot1/content
+[npm-version-src]: https://img.shields.io/npm/v/@kodadot1/hyperdata?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@kodadot1/hyperdata
+[npm-downloads-src]: https://img.shields.io/npm/dm/@kodadot1/hyperdata?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@kodadot1/hyperdata
+[github-actions-src]: https://img.shields.io/github/actions/workflow/status/@kodadot1/hyperdata/ci.yml?branch=main&style=flat-square
+[github-actions-href]: https://github.com/@kodadot1/hyperdata/actions?query=workflow%3Aci
+[codecov-src]: https://img.shields.io/codecov/c/gh/@kodadot1/hyperdata/main?style=flat-square
+[codecov-href]: https://codecov.io/gh/@kodadot1/hyperdata
