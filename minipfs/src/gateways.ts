@@ -16,7 +16,6 @@ export type IPFSProviders =
   | 'infura'
   | 'gateway'
   | 'filebase_kodadot'
-  | 'infura_dedicated_2'
   | 'infura_kodadot1'
 
 export type AvailableProviders = IPFSProviders[]
@@ -34,8 +33,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   cf: 'https://cf-ipfs.com',
   infura: 'https://infura-ipfs.io',
   gateway: 'https://ipfs-gateway.cloud',
-  filebase_kodadot: 'https://kodadot-ultra.myfilebase.com', // temporary
-  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io', // temporary
+  filebase_kodadot: 'https://kodadot-ultra.myfilebase.com',
   infura_kodadot1: 'https://kodadot1.infura-ipfs.io'
 }
 
