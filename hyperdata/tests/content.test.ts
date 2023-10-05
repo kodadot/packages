@@ -6,12 +6,14 @@ describe('contentFrom', () => {
   it(`should parse FXhash metadata to Content correctly`, () => {
     const metadata = fxhash as TezosMetadata
     expect(contentFrom(metadata)).toStrictEqual({
+      _raw: undefined,
       name: metadata.name,
       description: metadata.description,
       image: metadata.displayUri,
       animationUrl: metadata.artifactUri,
       attributes: [],
       externalUrl: metadata.externalUri,
+      generative: undefined,
       tags: [],
       thumbnail: metadata.thumbnailUri,
       type: '',
