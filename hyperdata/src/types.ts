@@ -139,6 +139,7 @@ export type Content = {
   externalUrl?: string
   thumbnail?: string
   generative?: GenArt
+  _raw?: PossibleMetadata
 }
 
 export type Attribute = {
