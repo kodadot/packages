@@ -61,6 +61,7 @@ export function contentFrom(meta: any, eager?: boolean): Content {
     tags,
     thumbnail,
     generative,
+    _raw: eager ? meta : undefined,
   }
 }
 
