@@ -8,4 +8,4 @@ publish:
   pnpm publish --access public
 
 c VERSION:
-  git commit -am ":bookmark: static@{{VERSION}}"
+  git commit -am ":bookmark: hyperdata@{{VERSION}}"
