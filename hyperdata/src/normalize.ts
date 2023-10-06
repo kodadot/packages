@@ -73,14 +73,14 @@ export function generativeFrom(meta: any): GenArt | undefined {
     return undefined
   }
 
-  const previewHash = meta.previewHash
+  const hash = meta.previewHash || meta.iterationHash
   const previewParam = meta.previewParam || 'fxhash'
   const capture = meta.capture
   const settings = meta.settings
 
   return {
     uri,
-    previewHash,
+    hash,
     previewParam,
     capture,
     settings,

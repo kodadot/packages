@@ -7,7 +7,7 @@ describe('generativeFrom', () => {
     const metadata = fxhash as FXHashMetadata
     const res: GenArt = {
       uri: metadata.generativeUri || metadata.generatorUri || '',
-      previewHash: metadata.previewHash,
+      hash: metadata.previewHash,
       previewParam: 'fxhash',
       capture: metadata.capture || {},
       settings: metadata.settings || {},

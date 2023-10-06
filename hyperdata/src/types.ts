@@ -66,11 +66,11 @@ export type TezosMetadata = BaseMetadata &
 export type GenerativeMetadata = {
   generativeUri?: string
   generatorUri?: string
-  previewHash: string
 }
 
 type GenerativeFxHash = {
   previewHash?: string
+  iterationHash?: string
   capture?: Record<string, unknown>
   settings?: Record<string, unknown>
 }
@@ -149,6 +149,7 @@ export type Attribute = {
 }
 
 export type GenArt = GenerativeFxHash & {
+  hash?: string // previewHash or iterationHash
   uri: string
   previewParam?: string
 }
