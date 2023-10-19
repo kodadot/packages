@@ -1,0 +1,19 @@
+{
+  "name": "Rare Dolphin",
+  "image": "ipfs://QmR3YP9ZryaxQLuoChRFe7Fnmw6sisLVdt54ep8y9dS8Vq",
+  "description": "",
+  "attributes": [
+    {
+      "trait_type": "ID",
+      "value": "1082"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Dolphin"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    }
+  ]
+}
