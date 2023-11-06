@@ -4,6 +4,7 @@ import {
   Content,
   FXHashMetadata,
   GenArt,
+  KodaMetadata,
   OpenSeaAttribute,
   OpenSeaMetadata,
   PluralAssetMetadata,
@@ -33,6 +34,7 @@ export function contentFrom(meta: OpenSeaMetadata, eager?: boolean): Content
 export function contentFrom(meta: FXHashMetadata, eager?: boolean): Content
 export function contentFrom(meta: TezosMetadata, eager?: boolean): Content
 export function contentFrom(meta: PluralAssetMetadata, eager?: boolean): Content
+export function contentFrom(meta: KodaMetadata, eager?: boolean): Content
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function contentFrom(meta: any, eager?: boolean): Content {
   const description = meta.description || ''

@@ -36,6 +36,10 @@ export type OpenSeaMetadata = BaseMetadata &
     // youtube_url?: string  //Effectively deprecated. Do not use this attribute.
   }
 
+export type KodaMetadata = OpenSeaMetadata & {
+  banner?: string
+}
+
 export type TezosAttribute = {
   name: string
   value: string
@@ -115,6 +119,7 @@ export type PossibleMetadata =
   | TezosMetadata
   | PluralAssetMetadata
   | FXHashMetadata
+  | KodaMetadata
 export type PossibleAttribute =
   | OpenSeaAttribute
   | TezosAttribute
@@ -123,7 +128,8 @@ export type PossibleAttribute =
 export type AllMetadata = OpenSeaMetadata &
   TezosMetadata &
   PluralAssetMetadata &
-  FXHashMetadata
+  FXHashMetadata &
+  KodaMetadata
 
 // TARGETS
 
