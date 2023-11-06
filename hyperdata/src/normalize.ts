@@ -44,7 +44,7 @@ export function contentFrom(meta: any, eager?: boolean): Content {
   const attributes = meta.attributes?.map(attributeFrom) || []
   const name = meta.name
   const type = meta.mimeType || meta.type
-  const banner = meta.banner
+  const banner = meta.banner || meta.cover
   const externalUrl = meta.external_url || meta.youtube_url || meta.externalUri
   const tags = Array.isArray(meta.tags) ? meta.tags : []
   let generative: GenArt | undefined
