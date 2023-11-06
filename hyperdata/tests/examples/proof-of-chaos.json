@@ -1,0 +1,32 @@
+{
+  "external_url": "https://www.proofofchaos.app/",
+  "mediaUri": "ipfs://ipfs/QmcfALNaGnYzujGiPWL2Q2PPBC7nBhr8JnT4bxFkFBH7gT",
+  "image": "ipfs://ipfs/Qmf1pn8Zsjk3NdgeVPufmRW68sMQH4MR5DqeSZ9UnqwD89",
+  "type": "video/mp4",
+  "animation_url": "ipfs://ipfs/QmcfALNaGnYzujGiPWL2Q2PPBC7nBhr8JnT4bxFkFBH7gT",
+  "name": "deef - afterlife review of moments in love - [epic]",
+  "description": "Herein lies the epic culmination, concealed yet not forgotten, in the form of 'deef - Afterlife Review of Moments in Love', the clandestine audiovisual finale from the forthcomming chronicles known as 'Love Loops Explorer' (2023/2024).\n\n[https://deef.xyz/](https://deef.xyz/)\n\n_This NFT was created with [proofofchaos.app](https://proofofchaos.app/referendum-rewards)_",
+  "attributes": [
+    { "trait_type": "rarity", "value": "epic" },
+    {
+      "trait_type": "name",
+      "value": "deef - afterlife review of moments in love - [epic]"
+    },
+    {
+      "trait_type": "description",
+      "value": "Herein lies the epic culmination, concealed yet not forgotten, in the form of 'deef - Afterlife Review of Moments in Love', the clandestine audiovisual finale from the forthcomming chronicles known as 'Love Loops Explorer' (2023/2024)."
+    },
+    { "trait_type": "artist", "value": "deef" },
+    { "trait_type": "referendum", "value": 99 },
+    {
+      "trait_type": "recipient",
+      "value": [
+        ["HAPBZTbxZd4gtptAZwU3XjbFs2d1FnQ6sKd7W8FAAsJmKCw", 80],
+        ["Go8NpTvzdpfpK1rprXW1tE4TFTHtd2NDJCqZLw5V77GR8r4", 20]
+      ]
+    },
+    { "trait_type": "totalSupply", "value": 427 },
+    { "trait_type": "totalSupplyRarity", "value": 33 },
+    { "trait_type": "royalty", "value": 30 }
+  ]
+}
