@@ -130,6 +130,7 @@ export type AllMetadata = OpenSeaMetadata &
 export type Content = {
   animationUrl: string
   attributes: Attribute[]
+  banner?: string
   description: string
   // id: string
   image: string

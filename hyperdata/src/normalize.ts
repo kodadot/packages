@@ -41,7 +41,8 @@ export function contentFrom(meta: any, eager?: boolean): Content {
   const animationUrl = meta.animation_url || meta.mediaUri || meta.artifactUri
   const attributes = meta.attributes?.map(attributeFrom) || []
   const name = meta.name
-  const type = meta.type
+  const type = meta.mimeType || meta.type
+  const banner = meta.banner
   const externalUrl = meta.external_url || meta.youtube_url || meta.externalUri
   const tags = Array.isArray(meta.tags) ? meta.tags : []
   let generative: GenArt | undefined
@@ -54,6 +55,7 @@ export function contentFrom(meta: any, eager?: boolean): Content {
     description,
     image,
     animationUrl, // rename to media?
+    banner,
     attributes,
     name,
     type: MIME_TYPE.test(type) ? type : '',
