@@ -14,8 +14,8 @@ export type URI = HTTPS_URI | IPFS | ARWEAVE_URI
 export type Formatter = <T>(uri: string) => T
 
 export type SanitizedOutput = {
-  path: HTTPS_URI | IPFS,
-  needProvider: boolean,
+  path: HTTPS_URI | IPFS
+  needProvider: boolean
   formatter?: Formatter
 }
 

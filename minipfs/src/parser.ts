@@ -1,4 +1,5 @@
 export function isBaseSixtyFour(data: string): boolean {
+  // eslint-disable-next-line no-useless-escape
   return /^data:([a-z]+)\/([\.\-\+a-z]+);base64,/.test(data)
 }
 
@@ -7,7 +8,8 @@ function isBaseSixtyFourJSON(data: string): boolean {
 }
 
 export function canBeJSON(data: string): boolean {
-  return (data.startsWith('{') && data.endsWith('}')) || (data.startsWith('[') && data.endsWith(']'))
+  return (data.startsWith('{') && data.endsWith('}')) ||
+    (data.startsWith('[') && data.endsWith(']'))
 }
 
 export function fromBaseSixtyFour(data: string): string {

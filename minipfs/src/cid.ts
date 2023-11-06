@@ -1,5 +1,12 @@
 // import { path, url } from '@vikiival/is-ipfs'
-import { HTTP_REGEX, IPFS_FS_PREFIX, IPFS_NS_PREFIX, IPFS_PREFIX, IPNS_PREFIX, SMART_IPFS_REGEX } from './constants'
+import {
+  HTTP_REGEX,
+  IPFS_FS_PREFIX,
+  IPFS_NS_PREFIX,
+  IPFS_PREFIX,
+  IPNS_PREFIX,
+  SMART_IPFS_REGEX
+} from './constants'
 import { PINATA_GATEWAY } from './gateways'
 import { IPFS_HASH, IPFS_PATH, IPNS_PATH } from './types'
 

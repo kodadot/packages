@@ -2,18 +2,23 @@
 import { $fetch, FetchOptions } from 'ofetch'
 import { URI } from './types'
 
-export function obtain<T>(uri: URI, options?: FetchOptions<'json'>): Promise<T> {
+export function obtain<T>(
+  uri: URI,
+  options?: FetchOptions<'json'>
+): Promise<T> {
   return $fetch<T>(uri, {
     retry: 3,
     mode: 'no-cors',
     redirect: 'follow',
     ...options,
     onRequestError({ error, request }) {
-      const message = `[KODADOT::MINIPFS] Fail to Obtain ${request}: ${error.message}`
+      const message =
+        `[KODADOT::MINIPFS] Fail to Obtain ${request}: ${error.message}`
       console.warn(message)
     },
     onResponseError({ request, response }) {
-      const message = `[KODADOT::MINIPFS] Obtaininig ${request} failed with status ${response.status}`
+      const message =
+        `[KODADOT::MINIPFS] Obtaininig ${request} failed with status ${response.status}`
       console.warn(message)
     }
   })

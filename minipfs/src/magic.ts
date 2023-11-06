@@ -4,7 +4,11 @@ import { competition } from './race'
 import { sanitize } from './sanitize'
 import { HTTPS_URI, IPFS_PATH, IPNS_PATH, SanitizedOutput, URI } from './types'
 
-export function $obtain<T>(uri: URI | string, providers: AvailableProviders = [], fast?: boolean): Promise<T> {
+export function $obtain<T>(
+  uri: URI | string,
+  providers: AvailableProviders = [],
+  fast?: boolean
+): Promise<T> {
   const { needProvider, path, formatter }: SanitizedOutput = sanitize(uri)
   const callback = fast ? obtainFast : obtain
 
@@ -19,7 +23,10 @@ export function $obtain<T>(uri: URI | string, providers: AvailableProviders = []
   return callback(path)
 }
 
-export function $purify(uri: URI | string, providers: AvailableProviders = []): HTTPS_URI[] {
+export function $purify(
+  uri: URI | string,
+  providers: AvailableProviders = []
+): HTTPS_URI[] {
   const { needProvider, path }: SanitizedOutput = sanitize(uri)
 
   if (needProvider) {
