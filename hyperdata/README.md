@@ -7,6 +7,7 @@
 
 > Magic static void main
 
+
 ## Usage
 
 Install package:
@@ -54,6 +55,7 @@ Misc types for metadata namely:
 - FxHash
 - Tezos (TZIP-16)
 - ERC-5773
+- [NFT Metadata CheatSheet](https://www.pob.studio/learn/metadata-cheat-sheet)
 
 ## License
 

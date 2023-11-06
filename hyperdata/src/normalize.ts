@@ -4,6 +4,7 @@ import {
   Content,
   FXHashMetadata,
   GenArt,
+  KodaMetadata,
   OpenSeaAttribute,
   OpenSeaMetadata,
   PluralAssetMetadata,
@@ -33,6 +34,7 @@ export function contentFrom(meta: OpenSeaMetadata, eager?: boolean): Content
 export function contentFrom(meta: FXHashMetadata, eager?: boolean): Content
 export function contentFrom(meta: TezosMetadata, eager?: boolean): Content
 export function contentFrom(meta: PluralAssetMetadata, eager?: boolean): Content
+export function contentFrom(meta: KodaMetadata, eager?: boolean): Content
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function contentFrom(meta: any, eager?: boolean): Content {
   const description = meta.description || ''
@@ -41,7 +43,8 @@ export function contentFrom(meta: any, eager?: boolean): Content {
   const animationUrl = meta.animation_url || meta.mediaUri || meta.artifactUri
   const attributes = meta.attributes?.map(attributeFrom) || []
   const name = meta.name
-  const type = meta.type
+  const type = meta.mimeType || meta.type
+  const banner = meta.banner
   const externalUrl = meta.external_url || meta.youtube_url || meta.externalUri
   const tags = Array.isArray(meta.tags) ? meta.tags : []
   let generative: GenArt | undefined
@@ -54,6 +57,7 @@ export function contentFrom(meta: any, eager?: boolean): Content {
     description,
     image,
     animationUrl, // rename to media?
+    banner,
     attributes,
     name,
     type: MIME_TYPE.test(type) ? type : '',
