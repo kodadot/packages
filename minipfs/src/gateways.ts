@@ -51,11 +51,16 @@ export const getProviderList = (
   return list.map(provider => ipfsProviders[provider])
 }
 
-export const getProperURI = (uri: IPFS_PATH | IPNS_PATH, providers: AvailableProviders = []): HTTPS_URI[] => {
+export const getProperURI = (
+  uri: IPFS_PATH | IPNS_PATH,
+  providers: AvailableProviders = []
+): HTTPS_URI[] => {
   const providerList = getProviderList(providers)
   return providerList.map<HTTPS_URI>(provider => `${provider}${uri}`)
 }
 
-export const getGatewayURI = (uri: IPFS_PATH | IPNS_PATH) => (provider: IPFSProviders): HTTPS_URI => {
-  return `${ipfsProviders[provider]}${uri}`
-}
+export const getGatewayURI =
+  (uri: IPFS_PATH | IPNS_PATH) =>
+    (provider: IPFSProviders): HTTPS_URI => {
+      return `${ipfsProviders[provider]}${uri}`
+    }

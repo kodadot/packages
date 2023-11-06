@@ -1,6 +1,6 @@
 // import { AvailableProviders } from './gateways'
 import { AvailableProviders, getProviderList } from './gateways'
-import { HTTPS_URI, IPFS_PATH, IPNS_PATH, FetchCallback } from './types'
+import { FetchCallback, HTTPS_URI, IPFS_PATH, IPNS_PATH } from './types'
 
 // export const race = async <T, X, R = any>(param: X, callback: UnwrapCallback, providers: AvailableProviders) => {
 //   return Promise.race()
