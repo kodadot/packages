@@ -3,38 +3,42 @@ export const PINATA_GATEWAY: HTTPS_URI = 'https://gateway.pinata.cloud'
 
 // LIST: https://ipfs.github.io/public-gateway-checker/
 export type IPFSProviders =
+  | 'apillon'
+  | 'aragon'
+  | 'astyanax'
+  | 'cf'
   | 'cloudflare'
-  | 'ipfs'
   | 'dweb'
+  | 'filebase_kodadot'
+  | 'fleek'
+  | 'gateway'
+  | 'infura'
+  | 'infura_kodadot1'
+  | 'ipfs'
   | 'kodadot'
   | 'kodadot_beta'
-  | 'rmrk'
-  | 'fleek'
   | 'nftstorage'
-  | 'aragon'
-  | 'cf'
-  | 'infura'
-  | 'gateway'
-  | 'filebase_kodadot'
-  | 'infura_kodadot1'
+  | 'rmrk'
 
 export type AvailableProviders = IPFSProviders[]
 
 export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
+  apillon: 'https://ipfs.apillon.io',
+  aragon: 'https://ipfs.eth.aragon.network',
+  astyanax: 'https://ipfs.astyanax.io',
+  cf: 'https://cf-ipfs.com',
   cloudflare: 'https://cloudflare-ipfs.com',
-  ipfs: 'https://ipfs.io',
   dweb: 'https://dweb.link',
+  filebase_kodadot: 'https://kodadot-ultra.myfilebase.com',
+  fleek: 'https://ipfs.fleek.co',
+  gateway: 'https://ipfs-gateway.cloud',
+  infura: 'https://infura-ipfs.io',
+  infura_kodadot1: 'https://kodadot1.infura-ipfs.io',
+  ipfs: 'https://gateway.ipfs.io',
   kodadot: 'https://image.w.kodadot.xyz',
   kodadot_beta: 'https://image-beta.w.kodadot.xyz',
-  rmrk: 'https://ipfs2.rmrk.link',
-  fleek: 'https://ipfs.fleek.co',
   nftstorage: 'https://nftstorage.link',
-  aragon: 'https://ipfs.eth.aragon.network',
-  cf: 'https://cf-ipfs.com',
-  infura: 'https://infura-ipfs.io',
-  gateway: 'https://ipfs-gateway.cloud',
-  filebase_kodadot: 'https://kodadot-ultra.myfilebase.com',
-  infura_kodadot1: 'https://kodadot1.infura-ipfs.io'
+  rmrk: 'https://ipfs2.rmrk.link'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
