@@ -32,7 +32,7 @@ export type OpenSeaMetadata = BaseMetadata &
   BaseOpenMetadata & {
     attributes?: OpenSeaAttribute[]
     external_url?: string
-    background_color?: string
+    // background_color?: string
     // youtube_url?: string  //Effectively deprecated. Do not use this attribute.
   }
 
