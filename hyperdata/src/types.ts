@@ -33,7 +33,7 @@ export type OpenSeaMetadata = BaseMetadata &
     attributes?: OpenSeaAttribute[]
     external_url?: string
     background_color?: string
-    youtube_url?: string
+    // youtube_url?: string  //Effectively deprecated. Do not use this attribute.
   }
 
 export type TezosAttribute = {
