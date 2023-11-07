@@ -95,6 +95,7 @@ export const resolveValue = (interaction: Interaction, id: string, restValues: s
         recipient: restValues[0]
       }
     case Interaction.BURN:
+    case Interaction.DESTROY:
       return {
         id
       }
