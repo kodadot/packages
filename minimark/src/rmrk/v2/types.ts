@@ -233,6 +233,7 @@ export type CreateInteractionProps =
   | { action: Interaction.CREATE; payload: Create }
   | { action: Interaction.MINT; payload: Mint }
   | { action: Interaction.BURN; payload: Burn }
+  | { action: Interaction.DESTROY; payload: Burn }
 
 export type UnwrapValue = {
   [Interaction.ACCEPT]: Accept
