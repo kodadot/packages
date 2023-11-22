@@ -83,4 +83,5 @@ export type TokenMetadata = {
   mediaUri?: string;
   type?: string;
   thumbnailUri?: string;
+  banner?: string;
 }
