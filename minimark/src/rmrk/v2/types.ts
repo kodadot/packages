@@ -252,6 +252,7 @@ export type UnwrapValue = {
   [Interaction.CREATE]: Create
   [Interaction.MINT]: Mint
   [Interaction.BURN]: Burn
+  [Interaction.DESTROY]: Burn
   NONE: BasicInteraction
 }
 
