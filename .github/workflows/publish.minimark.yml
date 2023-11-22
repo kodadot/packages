@@ -1,4 +1,5 @@
 name: Publish minimark package to npmjs
+
 on:
   push:
     branches:
@@ -6,6 +7,11 @@ on:
       - master
     paths:
       - 'minimark/**'
+
+defaults:
+  run:
+    working-directory: minimark
+
 jobs:
   build:
     runs-on: ubuntu-latest
