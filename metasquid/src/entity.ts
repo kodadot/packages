@@ -1,9 +1,10 @@
+import { FindOneOptions } from '@subsquid/typeorm-store'
 import {
-  FindOneOptions,
   FindOptionsRelations,
   FindOptionsWhere,
   In,
-  Repository
+  Repository,
+  type EntityManager
 } from 'typeorm'
 import { toEntity, toMap } from './shared'
 import { EntityConstructor, Store } from './types'
@@ -57,7 +58,7 @@ function _get<T extends EntityWithId>(
   entityConstructor: EntityConstructor<T>,
   id: string,
   optional?: boolean
-): Promise<T | null> {
+): Promise<T | undefined> {
   const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>
   const callback = optional ? store.findOneBy : store.findOneByOrFail
   return callback<T>(entityConstructor, where)
@@ -67,7 +68,7 @@ export function get<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string
-): Promise<T | null> {
+): Promise<T | undefined> {
   return getOptional(store, entityConstructor, id)
 }
 
@@ -75,7 +76,7 @@ export function getOptional<T extends EntityWithId>(
   store: Store,
   entityConstructor: EntityConstructor<T>,
   id: string
-): Promise<T | null> {
+): Promise<T | undefined> {
   const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>
   return store.findOneBy<T>(entityConstructor, where)
 }
@@ -126,7 +127,7 @@ function findOne<T extends EntityWithId>(
   entityConstructor: EntityConstructor<T>,
   id: string,
   options?: FindOneOptions<T>
-): Promise<T | null> {
+): Promise<T | undefined> {
   const where: FindOptionsWhere<T> = { id } as FindOptionsWhere<T>
   return store.findOne<T>(entityConstructor, { ...options, where })
 }
@@ -136,7 +137,7 @@ export function findOneWithJoin<T extends EntityWithId>(
   entityConstructor: EntityConstructor<T>,
   id: string,
   relations?: FindOptionsRelations<T>
-): Promise<T | null> {
+): Promise<T | undefined> {
   return findOne(store, entityConstructor, id, { relations })
 }
 
@@ -184,7 +185,7 @@ export function findByRawQuery<T extends EntityWithId>(
   query: string,
   args?: any[]
 ): Promise<T[]> {
-  const repository = store.getRepository(entityConstructor)
+  const repository = emOf(store).getRepository(entityConstructor)
   return genericRepositoryQuery<T, T[]>(repository, query, args)
     .then(res => res.map(el => toEntity(entityConstructor, el)))
 }
@@ -195,7 +196,7 @@ export function has<T extends EntityWithId>(
   idOrOptions: string | FindOptionsWhere<T>
 ): Promise<boolean> {
   const where: FindOptionsWhere<T> = typeof idOrOptions === 'string' ? { id: idOrOptions } as FindOptionsWhere<T> : idOrOptions
-  return store.exists(entityConstructor, { where })
+  return emOf(store).exists(entityConstructor, { where })
 }
 
 export function genericRepositoryQuery<T extends EntityWithId, V>(
@@ -204,4 +205,11 @@ export function genericRepositoryQuery<T extends EntityWithId, V>(
   args?: any[]
 ): Promise<V> {
   return repository.query(query, args) as Promise<V>
+}
+
+/**
+ * Returns the EntityManager of the provided store
+ */
+export function emOf(store: Store): EntityManager {
+  return (store as any).em() as EntityManager
 }

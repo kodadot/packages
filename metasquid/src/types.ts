@@ -1,5 +1,5 @@
-import type { CommonHandlerContext } from '@subsquid/substrate-processor'
-import type { EntityManager } from 'typeorm'
+import type { DataHandlerContext, FieldSelection } from '@subsquid/substrate-processor'
+import type { Store as SquidStore } from '@subsquid/typeorm-store'
 
 export type EntityWithId = {
   id: string;
@@ -38,8 +38,8 @@ export type EntityConstructor<T> = {
   new (...args: any[]): T;
 };
 
-export type Store = EntityManager
-export type BaseContext = CommonHandlerContext<Store>;
+export type Store = SquidStore // & { em: () => EntityManager }
+export type BatchContext<S = Store, F extends FieldSelection = FieldSelection> = DataHandlerContext<S, F>
 
 // meta:
 export type Optional<T> = T | undefined | null;
