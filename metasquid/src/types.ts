@@ -1,5 +1,5 @@
 import type { DataHandlerContext, FieldSelection } from '@subsquid/substrate-processor'
-import { Store as SquidStore } from '@subsquid/typeorm-store'
+import type { Store as SquidStore } from '@subsquid/typeorm-store'
 
 export type EntityWithId = {
   id: string;
