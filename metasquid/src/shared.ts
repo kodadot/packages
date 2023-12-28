@@ -75,6 +75,17 @@ export function toEntity<T>(
   return entity
 }
 
+export function merge<T extends EntityWithId>(item: T, update: Partial<T>): T {
+  Object.assign(item, update)
+  return item
+}
+
+// export function defaultMerge<T extends EntityWithId>(item: T): (item: Partial<T>) => T {
+//   return function (update: Partial<T>): T {
+//     return merge(item, update)
+//   }
+// }
+
 export function takeFirst<T>(list: T[]): T | undefined {
   return list.at(0)
 }
