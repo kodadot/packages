@@ -4,6 +4,12 @@
 
 Monorepository of npm packages we use in our projects.
 
+## 📦 hyperdata
+
+[![hyperdata version][hyperdata-version-src]][hyperdata-version-href]
+
+Library for working with NFT metadata.
+
 ## 📦 if-that
 
 [![if-that version][if-that-version-src]][if-that-version-href]
@@ -34,16 +40,11 @@ Fetching data from IPFS has never been easier.
 
 Logical and friendly wrapper for Substrate API (@polkadot).
 
-## 📦 vuex-options
-
-> ⚠️ package was deprecated, proceed with care
-
-[![vuex-options version][vuex-options-version-src]][vuex-options-version-href]
-
-Vuex options for KodaDot NFT Gallery.
-
 
 <!-- Badges -->
+[hyperdata-version-src]: https://img.shields.io/npm/v/@kodadot1/hyperdata/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
+[hyperdata-version-href]: https://npmjs.com/package/@kodadot1/hyperdata
+
 [if-that-version-src]: https://img.shields.io/npm/v/@kodadot1/if-that/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [if-that-version-href]: https://npmjs.com/package/@kodadot1/if-that
 
@@ -58,6 +59,3 @@ Vuex options for KodaDot NFT Gallery.
 
 [sub-api-version-src]: https://img.shields.io/npm/v/@kodadot1/sub-api/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
 [sub-api-version-href]: https://npmjs.com/package/@kodadot1/sub-api
-
-[vuex-options-version-src]: https://img.shields.io/npm/v/@kodadot1/vuex-options/latest.svg?style=flat&colorA=18181B&colorB=FF7AC3
-[vuex-options-version-href]: https://npmjs.com/package/@kodadot1/vuex-options

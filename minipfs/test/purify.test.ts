@@ -31,6 +31,11 @@ describe.only('Sanitize', () => {
         'ar://sTHc-EK1UcA32wGF1fwD-Tbuc5Cn2Bsup6bwdzUKqlE',
       output:
         'https://arweave.net/sTHc-EK1UcA32wGF1fwD-Tbuc5Cn2Bsup6bwdzUKqlE'
+    },
+    {
+      input: 'ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/18',
+      output:
+        'https://ipfs.io/ipfs/QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/18'
     }
   ]
 

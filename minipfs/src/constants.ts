@@ -1,6 +1,7 @@
 export const IPFS_FS_PREFIX = 'ipfs://ipfs/'
 export const IPFS_NS_PREFIX = 'ipfs://ipns/'
 export const IPFS_PREFIX = 'ipfs://'
+export const IPNS_PREFIX = 'ipns://'
 
 // regex
 export const HTTP_REGEX = /^https?:\/\//

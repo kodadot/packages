@@ -3,47 +3,47 @@ export const PINATA_GATEWAY: HTTPS_URI = 'https://gateway.pinata.cloud'
 
 // LIST: https://ipfs.github.io/public-gateway-checker/
 export type IPFSProviders =
-  | 'pinata'
+  | 'apillon'
+  | 'aragon'
+  | 'astyanax'
+  | 'cf'
   | 'cloudflare'
-  | 'ipfs'
   | 'dweb'
+  | 'filebase_kodadot'
+  | 'fleek'
+  | 'gateway'
+  | 'infura'
+  | 'infura_kodadot1'
+  | 'ipfs'
   | 'kodadot'
   | 'kodadot_beta'
-  | 'rmrk'
-  | 'fleek'
   | 'nftstorage'
-  | 'aragon'
-  | 'cf'
-  | 'infura'
-  | 'gateway'
-  | 'filebase_kodadot'
-  | 'infura_dedicated_2'
-  | 'infura_kodadot1'
+  | 'rmrk'
 
 export type AvailableProviders = IPFSProviders[]
 
 export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
-  pinata: 'https://kodadot.mypinata.cloud',
+  apillon: 'https://ipfs.apillon.io',
+  aragon: 'https://ipfs.eth.aragon.network',
+  astyanax: 'https://ipfs.astyanax.io',
+  cf: 'https://cf-ipfs.com',
   cloudflare: 'https://cloudflare-ipfs.com',
-  ipfs: 'https://ipfs.io',
   dweb: 'https://dweb.link',
+  filebase_kodadot: 'https://kodadot-ultra.myfilebase.com',
+  fleek: 'https://ipfs.fleek.co',
+  gateway: 'https://gateway.ipfs.io',
+  infura: 'https://infura-ipfs.io',
+  infura_kodadot1: 'https://kodadot1.infura-ipfs.io',
+  ipfs: 'https://ipfs.io',
   kodadot: 'https://image.w.kodadot.xyz',
   kodadot_beta: 'https://image-beta.w.kodadot.xyz',
-  rmrk: 'https://ipfs2.rmrk.link',
-  fleek: 'https://ipfs.fleek.co',
   nftstorage: 'https://nftstorage.link',
-  aragon: 'https://ipfs.eth.aragon.network',
-  cf: 'https://cf-ipfs.com',
-  infura: 'https://infura-ipfs.io',
-  gateway: 'https://ipfs-gateway.cloud',
-  filebase_kodadot: 'https://kodadot-ultra.myfilebase.com', // temporary
-  infura_dedicated_2: 'https://r2-backup.infura-ipfs.io', // temporary
-  infura_kodadot1: 'https://kodadot1.infura-ipfs.io'
+  rmrk: 'https://ipfs2.rmrk.link'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
   'kodadot',
-  'infura_kodadot1'
+  'filebase_kodadot'
 ]
 
 export const getProviderList = (
@@ -55,11 +55,16 @@ export const getProviderList = (
   return list.map(provider => ipfsProviders[provider])
 }
 
-export const getProperURI = (uri: IPFS_PATH | IPNS_PATH, providers: AvailableProviders = []): HTTPS_URI[] => {
+export const getProperURI = (
+  uri: IPFS_PATH | IPNS_PATH,
+  providers: AvailableProviders = []
+): HTTPS_URI[] => {
   const providerList = getProviderList(providers)
   return providerList.map<HTTPS_URI>(provider => `${provider}${uri}`)
 }
 
-export const getGatewayURI = (uri: IPFS_PATH | IPNS_PATH) => (provider: IPFSProviders): HTTPS_URI => {
-  return `${ipfsProviders[provider]}${uri}`
-}
+export const getGatewayURI =
+  (uri: IPFS_PATH | IPNS_PATH) =>
+    (provider: IPFSProviders): HTTPS_URI => {
+      return `${ipfsProviders[provider]}${uri}`
+    }
