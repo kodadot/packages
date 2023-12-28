@@ -59,7 +59,8 @@
     "@subsquid/logger": ">= 1",
     "@subsquid/ss58": ">= 2",
     "@subsquid/substrate-processor": ">= 7",
-    "@subsquid/typeorm-store": ">= 1"
+    "@subsquid/typeorm-store": ">= 1",
+    "typeorm": "0.3.x"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
