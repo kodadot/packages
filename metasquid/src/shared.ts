@@ -1,6 +1,5 @@
-import { BatchBlock, SubstrateBlock } from '@subsquid/substrate-processor'
 import { camelCase } from 'scule'
-import { BaseBlock, BaseCall, BaseContext, EntityConstructor, EntityWithId, IEvent } from './types'
+import { BaseCall, EntityConstructor, EntityWithId, IEvent } from './types'
 
 export { camelCase } from 'scule'
 
@@ -15,12 +14,12 @@ export function eventFrom<T>(interaction: T, { blockNumber, caller, timestamp }:
   }
 }
 
-export function toBaseCall(context: BaseContext): BaseCall {
-  const caller = ''
-  const { blockNumber, timestamp } = toBaseBlock(context)
+// export function toBaseCall(context: BatchContext): BaseCall {
+//   const caller = ''
+//   const { blockNumber, timestamp } = toBaseBlock(context)
 
-  return { caller, blockNumber, timestamp }
-}
+//   return { caller, blockNumber, timestamp }
+// }
 
 export function ensure<T>(value: any): T {
   return value as T
@@ -30,27 +29,26 @@ export function metadataOf({ metadata }: { metadata?: string }): string {
   return metadata ?? ''
 }
 
-export function toBaseBlock(context: BatchBlock<any>): BaseBlock;
-export function toBaseBlock(context: BaseContext): BaseBlock;
-export function toBaseBlock(context: SubstrateBlock): BaseBlock;
-export function toBaseBlock(context: BatchBlock<any> | BaseContext | SubstrateBlock): BaseBlock {
-  const blockFrom = (): SubstrateBlock => {
-    if ('block' in context) {
-      return context.block
-    }
+// // export function toBaseBlock(context: BaseContext): BaseBlock;
+// export function toBaseBlock(context: SubstrateBlock): BaseBlock;
+// export function toBaseBlock(context: SubstrateBlock): BaseBlock {
+//   const blockFrom = (): SubstrateBlock => {
+//     if ('block' in context) {
+//       return context.block
+//     }
 
-    if ('header' in context) {
-      return context.header
-    }
-    return context
-  }
+//     if ('header' in context) {
+//       return context.header
+//     }
+//     return context
+//   }
 
-  const block = blockFrom()
-  const blockNumber = block.height.toString()
-  const timestamp = new Date(block.timestamp)
+//   const block = blockFrom()
+//   const blockNumber = block.height.toString()
+//   const timestamp = new Date((block as any).timestamp)
 
-  return { blockNumber, timestamp }
-}
+//   return { blockNumber, timestamp }
+// }
 
 export function toMap<T extends EntityWithId>(array: T[]): Map<string, T> {
   return new Map(array.map(item => [item.id, item]))
