@@ -10,4 +10,11 @@ export const asUtilityBatch = (api: ApiPromise, calls: Extrinsic[]): Extrinsic =
 export const asBalanceTransfer = (api: ApiPromise, to: string, amount: string | bigint | number): Extrinsic => {
   return api.tx.balances.transferAllowDeath(to, amount)
 }
-// transferKeepAlive
+
+export const asBalanceTransferAlive = (api: ApiPromise, to: string, amount: string | bigint | number): Extrinsic => {
+  return api.tx.balances.transferKeepAlive(to, amount)
+}
+
+export const asBalanceTransferAll = (api: ApiPromise, to: string): Extrinsic => {
+  return api.tx.balances.transferAll(to, false)
+}
