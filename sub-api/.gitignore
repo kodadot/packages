@@ -5,3 +5,4 @@ package-lock.json
 dist/
 suite/
 *.tgz
+.vscode
