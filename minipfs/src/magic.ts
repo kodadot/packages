@@ -1,4 +1,4 @@
-import { AvailableProviders, getProperURI } from './gateways'
+import { AvailableProviders, IPFSProviders, getProperURI } from './gateways'
 import { obtain, obtainFast } from './obtain'
 import { competition } from './race'
 import { sanitize } from './sanitize'
@@ -34,4 +34,11 @@ export function $purify(
   }
 
   return [path as HTTPS_URI]
+}
+
+export function $purifyOne(
+  uri: URI | string,
+  providers: IPFSProviders
+): HTTPS_URI {
+  return $purify(uri, [providers]).at(0)
 }
