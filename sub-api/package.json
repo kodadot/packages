@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@kodadot1/static": "^0.0.4",
-    "@polkadot/api": "^10.11.2",
-    "@polkadot/types-codec": "^10.11.2"
+    "@polkadot/api": "^10.12.4",
+    "@polkadot/types-codec": "^10.12.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
@@ -41,7 +41,7 @@
     "c8": "latest",
     "changelogen": "^0.5.5",
     "eslint": "latest",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
