@@ -19,6 +19,7 @@ export type IPFSProviders =
   | 'kodadot_beta'
   | 'nftstorage'
   | 'rmrk'
+  | 'w3s'
 
 export type AvailableProviders = IPFSProviders[]
 
@@ -38,7 +39,8 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   kodadot: 'https://image.w.kodadot.xyz',
   kodadot_beta: 'https://image-beta.w.kodadot.xyz',
   nftstorage: 'https://nftstorage.link',
-  rmrk: 'https://ipfs2.rmrk.link'
+  rmrk: 'https://ipfs2.rmrk.link',
+  w3s: 'https://w3s.link'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
