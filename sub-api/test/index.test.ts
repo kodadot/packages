@@ -7,5 +7,6 @@ describe('SUB API', () => {
     const api = await useApi(url)
     const ss58 = api.consts.system.ss58Prefix.toString()
     expect(ss58).eq('1285')
+    api.disconnect()
   })
 })

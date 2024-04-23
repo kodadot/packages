@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/sub-api",
-  "version": "0.3.0-rc.0",
+  "version": "0.3.1-rc.0",
   "description": "Smart wrapper for Substrate API",
   "repository": {
     "type": "git",
@@ -31,9 +31,9 @@
     "test": "pnpm lint && vitest run"
   },
   "dependencies": {
-    "@kodadot1/static": "^0.0.4",
-    "@polkadot/api": "^10.11.2",
-    "@polkadot/types-codec": "^10.11.2"
+    "@kodadot1/static": "^0.0.5",
+    "@polkadot/api": "^10.13.1",
+    "@polkadot/types-codec": "^10.13.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
@@ -41,7 +41,7 @@
     "c8": "latest",
     "changelogen": "^0.5.5",
     "eslint": "latest",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
