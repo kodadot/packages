@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@kodadot1/static": "^0.0.5",
-    "@polkadot/api": "^10.12.6",
-    "@polkadot/types-codec": "^10.12.6"
+    "@polkadot/api": "^10.13.1",
+    "@polkadot/types-codec": "^10.13.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
