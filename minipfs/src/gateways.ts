@@ -6,7 +6,7 @@ export type IPFSProviders =
   | 'apillon'
   | 'aragon'
   | 'astyanax'
-  | 'cf'
+  | 'storry'
   | 'cloudflare'
   | 'dweb'
   | 'filebase_kodadot'
@@ -19,6 +19,8 @@ export type IPFSProviders =
   | 'kodadot_beta'
   | 'nftstorage'
   | 'rmrk'
+  | 'nectarnode'
+  | 'w3s'
 
 export type AvailableProviders = IPFSProviders[]
 
@@ -26,7 +28,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   apillon: 'https://ipfs.apillon.io',
   aragon: 'https://ipfs.eth.aragon.network',
   astyanax: 'https://ipfs.astyanax.io',
-  cf: 'https://cf-ipfs.com',
+  storry: 'https://ipfs.storry.tv',
   cloudflare: 'https://cloudflare-ipfs.com',
   dweb: 'https://dweb.link',
   filebase_kodadot: 'https://kodadot-ultra.myfilebase.com',
@@ -38,7 +40,9 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   kodadot: 'https://image.w.kodadot.xyz',
   kodadot_beta: 'https://image-beta.w.kodadot.xyz',
   nftstorage: 'https://nftstorage.link',
-  rmrk: 'https://ipfs2.rmrk.link'
+  rmrk: 'https://ipfs2.rmrk.link',
+  nectarnode: 'https://ipfs.nectarnode.io',
+  w3s: 'https://ipfs.w3s.link'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
