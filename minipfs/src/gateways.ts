@@ -68,7 +68,6 @@ export const getProperURI = (
 }
 
 export const getGatewayURI =
-  (uri: IPFS_PATH | IPNS_PATH) =>
-    (provider: IPFSProviders): HTTPS_URI => {
-      return `${ipfsProviders[provider]}${uri}`
-    }
+  (uri: IPFS_PATH | IPNS_PATH) => (provider: IPFSProviders): HTTPS_URI => {
+    return `${ipfsProviders[provider]}${uri}`
+  }
