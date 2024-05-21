@@ -1,4 +1,4 @@
-import { AvailableProviders, IPFSProviders, getProperURI } from './gateways'
+import { AvailableProviders, getProperURI, IPFSProviders } from './gateways'
 import { obtain, obtainFast } from './obtain'
 import { competition } from './race'
 import { sanitize } from './sanitize'

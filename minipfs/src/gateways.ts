@@ -3,13 +3,12 @@ export const PINATA_GATEWAY: HTTPS_URI = 'https://gateway.pinata.cloud'
 
 // LIST: https://ipfs.github.io/public-gateway-checker/
 export type IPFSProviders =
-  | 'apillon'
   | 'aragon'
   | 'astyanax'
-  | 'cf'
   | 'cloudflare'
   | 'dweb'
   | 'filebase_kodadot'
+  | 'fission'
   | 'fleek'
   | 'gateway'
   | 'infura'
@@ -17,19 +16,21 @@ export type IPFSProviders =
   | 'ipfs'
   | 'kodadot'
   | 'kodadot_beta'
+  | 'nectarnode'
   | 'nftstorage'
   | 'rmrk'
+  | 'storry'
+  | 'w3s'
 
 export type AvailableProviders = IPFSProviders[]
 
 export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
-  apillon: 'https://ipfs.apillon.io',
   aragon: 'https://ipfs.eth.aragon.network',
   astyanax: 'https://ipfs.astyanax.io',
-  cf: 'https://cf-ipfs.com',
   cloudflare: 'https://cloudflare-ipfs.com',
   dweb: 'https://dweb.link',
   filebase_kodadot: 'https://kodadot-ultra.myfilebase.com',
+  fission: 'https://ipfs.runfission.com',
   fleek: 'https://ipfs.fleek.co',
   gateway: 'https://gateway.ipfs.io',
   infura: 'https://infura-ipfs.io',
@@ -37,8 +38,11 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   ipfs: 'https://ipfs.io',
   kodadot: 'https://image.w.kodadot.xyz',
   kodadot_beta: 'https://image-beta.w.kodadot.xyz',
+  nectarnode: 'https://ipfs.nectarnode.io',
   nftstorage: 'https://nftstorage.link',
-  rmrk: 'https://ipfs2.rmrk.link'
+  rmrk: 'https://ipfs2.rmrk.link',
+  storry: 'https://ipfs.storry.tv',
+  w3s: 'https://ipfs.w3s.link'
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
@@ -64,7 +68,6 @@ export const getProperURI = (
 }
 
 export const getGatewayURI =
-  (uri: IPFS_PATH | IPNS_PATH) =>
-    (provider: IPFSProviders): HTTPS_URI => {
-      return `${ipfsProviders[provider]}${uri}`
-    }
+  (uri: IPFS_PATH | IPNS_PATH) => (provider: IPFSProviders): HTTPS_URI => {
+    return `${ipfsProviders[provider]}${uri}`
+  }
