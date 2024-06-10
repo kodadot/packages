@@ -1,6 +1,6 @@
 import { expect, it, describe } from 'vitest'
 
-import { toSerialNumber, findUniqueSymbol } from '../../src/rmrk/shared/identification'
+import { toSerialNumber, findUniqueSymbol, makeSymbol } from '../../src/rmrk/shared/identification'
 
 describe('RMRK/identification ', () => {
   describe('toSerialNumber', () => {
@@ -24,6 +24,17 @@ describe('RMRK/identification ', () => {
 
     it('should return new symbol if was already used', () => {
       expect(findUniqueSymbol('VIKI', ['VIK', 'VIKI'])).not.toBe('VIKI')
+    })
+  })
+
+  describe('makeSymbol', () => {
+    it('should return random symbol when not defined', () => {
+      const symbol = makeSymbol()
+      expect(symbol.length).toBe(13)
+    })
+
+    it('should return new symbol if was already used', () => {
+      expect(makeSymbol('viki ')).toBe('VIKI')
     })
   })
 })
