@@ -26,7 +26,7 @@
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "vitest run"
+    "test": "vitest"
   },
   "devDependencies": {
     "@kodadot1/minipfs": "0.4.1-rc.0",
