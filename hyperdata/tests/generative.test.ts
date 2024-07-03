@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { FXHashMetadata, GenArt, generativeFrom } from '../src'
 import fxhash from './examples/fxhash.json'
-import koda from './examples/koda-art-generative.json'
+import koda from './examples/koda-generative-collection.json'
 
 describe('generativeFrom', () => {
   it(`should parse FXhash metadata to Content correctly`, () => {

@@ -80,7 +80,7 @@ export function generativeFrom(meta: any): GenArt | undefined {
   const hash = meta.previewHash || meta.iterationHash
   const previewParam =
     meta.previewParam ||
-    (meta.external_url?.includes('koda') && 'koda') ||
+    (meta.external_url?.includes('koda') && 'hash') ||
     'fxhash'
   const capture = meta.capture
   const settings = meta.settings
