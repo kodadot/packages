@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { FXHashMetadata, GenArt, generativeFrom } from '../src'
 import fxhash from './examples/fxhash.json'
+import koda from './examples/koda-generative-collection.json'
 
 describe('generativeFrom', () => {
   it(`should parse FXhash metadata to Content correctly`, () => {
@@ -14,5 +15,17 @@ describe('generativeFrom', () => {
     }
 
     expect(generativeFrom(metadata)).toStrictEqual(res)
+  })
+
+  it('should parse koda.art generative metadata correctly', () => {
+    const metadata = koda
+
+    expect(generativeFrom(metadata)).toStrictEqual({
+      uri: metadata.generative_uri,
+      previewParam: 'koda',
+      capture: undefined,
+      hash: undefined,
+      settings: undefined,
+    })
   })
 })

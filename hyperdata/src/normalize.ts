@@ -71,14 +71,17 @@ export function contentFrom(meta: any, eager?: boolean): Content {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generativeFrom(meta: any): GenArt | undefined {
-  const uri = meta.generativeUri || meta.generatorUri
+  const uri = meta.generativeUri || meta.generatorUri || meta.generative_uri
 
   if (!uri) {
     return undefined
   }
 
   const hash = meta.previewHash || meta.iterationHash
-  const previewParam = meta.previewParam || 'fxhash'
+  const previewParam =
+    meta.previewParam ||
+    (meta.external_url?.includes('koda') && 'hash') ||
+    'fxhash'
   const capture = meta.capture
   const settings = meta.settings
 
