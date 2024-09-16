@@ -140,12 +140,14 @@ export type Content = {
   description: string
   // id: string
   image: string
+  kind?: string
   name: string
   type?: string
   tags?: Tags
   externalUrl?: string
   thumbnail?: string
   generative?: GenArt
+  generativeUri?: string
   _raw?: PossibleMetadata
 }
 

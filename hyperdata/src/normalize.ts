@@ -47,6 +47,8 @@ export function contentFrom(meta: any, eager?: boolean): Content {
   const banner = meta.banner || meta.cover
   const externalUrl = meta.external_url || meta.youtube_url || meta.externalUri
   const tags = Array.isArray(meta.tags) ? meta.tags : []
+  const generativeUri = meta.generativeUri || meta.generatorUri || meta.generative_uri
+  const kind = meta.kind //|| meta.kindOf
   let generative: GenArt | undefined
 
   if (eager) {
@@ -63,8 +65,10 @@ export function contentFrom(meta: any, eager?: boolean): Content {
     type: MIME_TYPE.test(type) ? type : '',
     externalUrl,
     tags,
+    kind,
     thumbnail,
     generative,
+    generativeUri,
     _raw: eager ? meta : undefined,
   }
 }

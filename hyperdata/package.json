@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/hyperdata",
-  "version": "0.0.1-rc.4",
+  "version": "0.0.1-rc.5",
   "description": "Get unified NFT content",
   "repository": "kodadot/nft-gallery",
   "license": "MIT",
@@ -29,14 +29,14 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@kodadot1/minipfs": "0.4.1-rc.0",
-    "@vitest/coverage-v8": "^0.34.6",
+    "@kodadot1/minipfs": "0.4.3-rc.2",
+    "@vitest/coverage-v8": "^2.1.1",
     "changelogen": "^0.5.5",
-    "eslint": "^8.50.0",
-    "eslint-config-unjs": "^0.2.1",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2",
+    "eslint": "^9.10.0",
+    "eslint-config-unjs": "^0.3.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
-    "vitest": "^0.34.6"
+    "vitest": "^2.1.1"
   }
 }
