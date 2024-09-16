@@ -22,7 +22,7 @@ describe('generativeFrom', () => {
 
     expect(generativeFrom(metadata)).toStrictEqual({
       uri: metadata.generative_uri,
-      previewParam: 'koda',
+      previewParam: 'hash',
       capture: undefined,
       hash: undefined,
       settings: undefined,
