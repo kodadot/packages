@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { OpenSeaMetadata, TezosMetadata, contentFrom, attributeFrom } from '../src'
+import { OpenSeaMetadata, TezosMetadata, contentFrom, attributeFrom, FXHashMetadata } from '../src'
 import fxhash from './examples/fxhash.json'
 import koda from './examples/koda.json'
 import poc from './examples/proof-of-chaos.json'
 
 describe('contentFrom', () => {
   it(`should parse FXhash metadata to Content correctly`, () => {
-    const metadata = fxhash as TezosMetadata
+    const metadata = fxhash as FXHashMetadata
     expect(contentFrom(metadata)).toStrictEqual({
       _raw: undefined,
       name: metadata.name,
@@ -17,6 +17,8 @@ describe('contentFrom', () => {
       banner: undefined,
       externalUrl: metadata.externalUri,
       generative: undefined,
+      generativeUri: metadata.generativeUri,
+      kind: undefined,
       tags: [],
       thumbnail: metadata.thumbnailUri,
       type: '',
@@ -51,6 +53,8 @@ describe('contentFrom', () => {
       banner: undefined,
       externalUrl: metadata.external_url,
       generative: undefined,
+      generativeUri: undefined,
+      kind: undefined,
       tags: [],
       thumbnail: undefined,
       type: '',
@@ -69,6 +73,8 @@ describe('contentFrom', () => {
       banner: undefined,
       externalUrl: metadata.external_url,
       generative: undefined,
+      generativeUri: undefined,
+      kind: undefined,
       tags: [],
       thumbnail: undefined,
       type: 'video/mp4',
