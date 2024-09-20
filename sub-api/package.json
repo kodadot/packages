@@ -1,6 +1,6 @@
 {
   "name": "@kodadot1/sub-api",
-  "version": "0.4.0-rc.1",
+  "version": "0.4.0-rc.2",
   "description": "Smart wrapper for Substrate API",
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "main": "./dist/index.cjs",
