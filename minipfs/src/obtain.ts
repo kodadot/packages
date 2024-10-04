@@ -8,7 +8,7 @@ export function obtain<T>(
 ): Promise<T> {
   return $fetch<T>(uri, {
     retry: 3,
-    mode: 'no-cors',
+    // mode: 'no-cors',
     redirect: 'follow',
     ...options,
     onRequestError({ error, request }) {
