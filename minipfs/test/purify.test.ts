@@ -1,7 +1,7 @@
 import { expect, it, describe } from 'vitest'
 import { $purify } from '../src'
 
-describe.only('Sanitize', () => {
+describe('Purify', () => {
   const tests = [
     {
       input: 'bafkreiazeqysfmeuzqcnjp6rijxfu5h7sj3t4h2rxehi7rlyegzfy7lxeq',
