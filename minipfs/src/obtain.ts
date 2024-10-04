@@ -33,7 +33,7 @@ export async function obtainSafe<T>(uri: URI): Promise<T> {
 }
 
 export function obtainFast<T>(uri: URI): Promise<T> {
-  return obtain<T>(uri, { signal: AbortSignal.timeout(8000) })
+  return obtain<T>(uri, { signal: AbortSignal.timeout(8000), retry: 2 })
 }
 
 export function obtainMedia(uri: URI): Promise<Blob> {
