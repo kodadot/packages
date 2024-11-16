@@ -16,6 +16,10 @@ export type TokenMetadata = {
   thumbnailUri?: string
 }
 
+export type CollectionMetadata = TokenMetadata & {
+  banner?: string
+}
+
 export type BaseMetadata = {
   name: string
   description: string
