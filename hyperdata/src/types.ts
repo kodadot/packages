@@ -42,6 +42,7 @@ export type OpenSeaMetadata = BaseMetadata &
 
 export type KodaMetadata = OpenSeaMetadata & {
   banner?: string
+  type?: string
 }
 
 export type TezosAttribute = {
