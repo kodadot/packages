@@ -32,24 +32,24 @@
     "test": "pnpm lint && vitest run"
   },
   "dependencies": {
-    "@kodadot1/static": "^0.0.6"
+    "@kodadot1/static": "^0.0.7"
   },
   "peerDependencies": {
-    "@polkadot/api": ">= 11.2",
-    "@polkadot/types-codec": ">= 11.2"
+    "@polkadot/api": "^15.x",
+    "@polkadot/types-codec": "^15.x"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@polkadot/api": "^13.1.1",
-    "@polkadot/types-codec": "^13.1.1",
-    "@types/express": "^4.17.21",
+    "@polkadot/api": "^15.6.1",
+    "@polkadot/types-codec": "^15.6.1",
+    "@types/express": "^5.0.0",
     "c8": "latest",
     "changelogen": "^0.5.7",
     "eslint": "latest",
-    "express": "^4.21.0",
+    "express": "^4.21.2",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
   },
-  "packageManager": "pnpm@9.11.0"
+  "packageManager": "pnpm@9.15.6"
 }
