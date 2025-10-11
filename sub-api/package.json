@@ -40,16 +40,16 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@polkadot/api": "^15.6.1",
-    "@polkadot/types-codec": "^15.6.1",
+    "@polkadot/api": "^16.4.1",
+    "@polkadot/types-codec": "^16.4.1",
     "@types/express": "^5.0.0",
     "c8": "latest",
-    "changelogen": "^0.5.7",
+    "changelogen": "^0.6.0",
     "eslint": "latest",
     "express": "^4.21.2",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
   },
-  "packageManager": "pnpm@9.15.6"
+  "packageManager": "pnpm@10.5.1"
 }
