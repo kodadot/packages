@@ -1,4 +1,5 @@
 // import { path, url } from '@vikiival/is-ipfs'
+import { withProtocol, withoutLeadingSlash, isEmptyURL, hasProtocol } from 'ufo'
 import {
   HTTP_REGEX,
   IPFS_FS_PREFIX,
@@ -72,4 +73,20 @@ export const extractIPFS = (uri: string): IPFS_HASH | IPFS_PATH | IPNS_PATH => {
   }
 
   return uri.replace(IPFS_PREFIX, '') as IPFS_HASH
+}
+
+export const withIPFSProtocol = (uri: string): string => {
+  return withProtocol(withoutLeadingSlash(uri), IPFS_PREFIX)
+}
+
+export const protocolize = (uri: string): string => {
+  if (isEmptyURL(uri)) {
+    return ''
+  }
+
+  if (hasProtocol(uri) && isHTTP(uri)) {
+    return uri
+  }
+
+  return withIPFSProtocol(uri)
 }
