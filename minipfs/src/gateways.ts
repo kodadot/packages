@@ -12,7 +12,7 @@ export type IPFSProviders =
   | 'fleek'
   | 'gateway'
   | 'infura'
-  | 'infura_kodadot1'
+  | 'chaotic'
   | 'ipfs'
   | 'kodadot'
   | 'kodadot_beta'
@@ -34,7 +34,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   fleek: 'https://ipfs.fleek.co',
   gateway: 'https://gateway.ipfs.io',
   infura: 'https://infura-ipfs.io',
-  infura_kodadot1: 'https://kodadot1.infura-ipfs.io',
+  chaotic: 'https://bucket.chaotic.art',
   ipfs: 'https://ipfs.io',
   kodadot: 'https://image.w.kodadot.xyz',
   kodadot_beta: 'https://image-beta.w.kodadot.xyz',
@@ -42,7 +42,7 @@ export const ipfsProviders: Record<IPFSProviders, HTTPS_URI> = {
   nftstorage: 'https://nftstorage.link',
   rmrk: 'https://ipfs2.rmrk.link',
   storry: 'https://ipfs.storry.tv',
-  w3s: 'https://ipfs.w3s.link'
+  w3s: 'https://ipfs.w3s.link',  
 }
 
 const DEFAULT_PROVIDER_LIST: AvailableProviders = [
