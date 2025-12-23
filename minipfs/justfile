@@ -5,7 +5,7 @@ test:
   pnpm test
 
 publish:
-  pnpm publish --access public
+  pnpm publish --access public --tag latest
 
 c VERSION:
   git commit -am ":bookmark: minipfs@{{VERSION}}"
